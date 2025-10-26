@@ -10,7 +10,12 @@ export default function CTAContact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-3xl overflow-hidden shadow-2xl">
           
           {/* Left side - Main CTA */}
-          <div className="relative bg-gradient-to-br from-primary via-primary to-primary-light p-8 md:p-12 lg:p-16 flex flex-col justify-center overflow-hidden">
+          <div 
+            className="relative p-8 md:p-12 lg:p-16 flex flex-col justify-center overflow-hidden"
+            style={{ 
+              background: 'linear-gradient(to bottom right, #0a0a0a, #262626, #404040)'
+            }}
+          >
             {/* Animated background pattern */}
             <div className="absolute inset-0 opacity-10">
               <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl animate-pulse-subtle" />
@@ -41,8 +46,9 @@ export default function CTAContact() {
                     size="lg" 
                     className="w-full sm:w-auto min-w-[200px] hover:bg-white/90"
                     style={{ backgroundColor: '#ffffff', color: '#1a1a1a', border: '2px solid #ffffff' }}
+                    icon={<Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />}
+                    iconPosition="left"
                   >
-                    <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />
                     ANGEBOT ANFORDERN
                   </Button>
                 </Link>
@@ -56,8 +62,9 @@ export default function CTAContact() {
                     size="lg"
                     className="w-full sm:w-auto min-w-[200px] hover:bg-white/90"
                     style={{ backgroundColor: 'rgba(255, 255, 255, 0.2)', color: '#ffffff', border: '2px solid rgba(255, 255, 255, 0.5)' }}
+                    icon={<Phone className="w-5 h-5" />}
+                    iconPosition="left"
                   >
-                    <Phone className="w-5 h-5" />
                     030 123 456
                   </Button>
                 </a>
@@ -99,9 +106,10 @@ export default function CTAContact() {
                   variant="ghost"
                   size="lg"
                   className="hover:bg-white/90 min-w-[240px]"
-                  style={{ backgroundColor: '#ffffff', color: '#25D366', border: '2px solid #ffffff' }}
+                  style={{ backgroundColor: '#ffffff', color: '#1a1a1a', border: '2px solid #ffffff' }}
+                  icon={<MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />}
+                  iconPosition="left"
                 >
-                  <MessageCircle className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   CHAT STARTEN
                 </Button>
               </a>

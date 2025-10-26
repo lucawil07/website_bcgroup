@@ -147,7 +147,7 @@ export default function CompanyIntro() {
             {/* Content */}
             <div className="space-y-5">
               <p className="text-xl md:text-2xl text-primary font-semibold leading-snug">
-                Seit über 10 Jahren ist die BC Group Ihr verlässlicher Partner für 
+                Seit mehreren Jahren ist die BC Group Ihr verlässlicher Partner für 
                 professionelle Dienstleistungen in Berlin.
               </p>
               

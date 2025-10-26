@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, Button, Card, CardContent, StructuredData, createServiceSchema, createBreadcrumbSchema } from '@/components/ui'
+import { FunnelCTAButton, FunnelCTASecondary } from '@/components/forms/FunnelCTA'
 import { 
   CheckCircle2, 
   Phone, 
@@ -401,17 +402,7 @@ export default function EntruempelungPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
-                <Link href="#contact-form">
-                  <Button 
-                    variant="primary" 
-                    size="lg"
-                    className="group text-lg px-8 py-6 shadow-2xl hover:shadow-accent/50"
-                  >
-                    <Phone className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />
-                    Kostenloses Angebot
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <FunnelCTAButton />
                 <a
                   href="https://wa.me/49301234567?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Entrümpelung"
                   target="_blank"
@@ -978,17 +969,13 @@ export default function EntruempelungPage() {
               Unser Team berät Sie gerne persönlich und beantwortet alle Ihre Fragen.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <FunnelCTAButton />
               <a href="tel:+49301234567">
-                <Button variant="primary" size="lg">
+                <Button variant="secondary" size="lg">
                   <Phone className="w-5 h-5 mr-2" />
                   Jetzt anrufen
                 </Button>
               </a>
-              <Link href="/kontakt">
-                <Button variant="secondary" size="lg">
-                  Kontaktformular
-                </Button>
-              </Link>
             </div>
           </div>
         </Container>
@@ -1039,17 +1026,7 @@ export default function EntruempelungPage() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-4">
-                <Link href="/kontakt?service=entruempelung">
-                  <Button 
-                    variant="ghost" 
-                    size="lg"
-                    className="group bg-white text-secondary hover:bg-white/90 text-lg px-8 py-6 shadow-2xl"
-                  >
-                    <Phone className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform" />
-                    Kostenlos anfragen
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
+                <FunnelCTAButton />
                 <a
                   href="https://wa.me/49301234567?text=Hallo,%20ich%20interessiere%20mich%20für%20eine%20Entrümpelung%20in%20Berlin"
                   target="_blank"

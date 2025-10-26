@@ -138,7 +138,7 @@ function HeroSection() {
               <div className="glass-strong px-6 py-3 rounded-full border border-white/20 backdrop-blur-xl">
                 <div className="flex items-center gap-2 text-white/90 text-sm font-semibold">
                   <Sparkles className="w-4 h-4" />
-                  <span className="uppercase tracking-wider">Seit 2014 in Berlin</span>
+                  <span className="uppercase tracking-wider">Seit mehreren Jahren in Berlin</span>
                 </div>
               </div>
             </div>
