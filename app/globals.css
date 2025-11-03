@@ -438,6 +438,35 @@ a:focus-visible {
   -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
 
+/* High-fidelity dropdown glass (deep blur + subtle noise) */
+.glass-dropdown {
+  background: linear-gradient(145deg, rgba(20,20,20,0.65) 0%, rgba(40,40,40,0.55) 40%, rgba(25,25,25,0.6) 100%);
+  backdrop-filter: blur(28px) saturate(170%) contrast(110%);
+  -webkit-backdrop-filter: blur(28px) saturate(170%) contrast(110%);
+  border: 1px solid rgba(255,255,255,0.28);
+  box-shadow: 0 12px 40px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05) inset;
+  position: relative;
+}
+.glass-dropdown::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0 2px, transparent 2px 4px),
+              radial-gradient(circle at top left, rgba(255,255,255,0.12), transparent 60%),
+              radial-gradient(circle at bottom right, rgba(255,255,255,0.06), transparent 70%);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.glass-dropdown::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(160deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 35%, rgba(255,255,255,0) 60%);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
 /* ======================================
    MODERN CARD SYSTEM
    ====================================== */

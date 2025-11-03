@@ -64,7 +64,7 @@ export default function Footer() {
             <div className="lg:col-span-7 grid grid-cols-2 md:grid-cols-3 gap-8">
               {/* Services */}
               <div>
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-secondary">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-white">
                   Services
                 </h3>
                 <ul className="space-y-3">
@@ -90,7 +90,7 @@ export default function Footer() {
 
               {/* Company */}
               <div>
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-secondary">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-white">
                   Company
                 </h3>
                 <ul className="space-y-3">
@@ -114,10 +114,10 @@ export default function Footer() {
 
               {/* Öffnungszeiten & Zertifikate */}
               <div className="col-span-2 md:col-span-1">
-                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-secondary">
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-white">
                   Öffnungszeiten
                 </h3>
-                <div className="space-y-3 text-sm text-white/90 mb-8 font-medium">
+                <div className="space-y-3 text-sm text-white/90 font-medium">
                   <div className="flex justify-between gap-4">
                     <span>Mo - Fr:</span>
                     <span className="font-bold text-white">07:00 - 18:00</span>
@@ -131,18 +131,6 @@ export default function Footer() {
                     <span className="font-bold text-white">Geschlossen</span>
                   </div>
                 </div>
-
-                {/* Trust Badges */}
-                <div className="flex flex-wrap gap-2">
-                  {['ISO 9001', 'DEKRA', 'TÜV', 'IHK'].map((badge) => (
-                    <div
-                      key={badge}
-                      className="px-3 py-1.5 bg-white/10 backdrop-blur-sm rounded-lg text-xs font-bold border border-white/20"
-                    >
-                      {badge}
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -154,7 +142,7 @@ export default function Footer() {
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               
               {/* Copyright */}
-              <div className="text-white/80 text-sm font-medium">
+              <div className="text-white text-sm font-medium">
                 <p>&copy; {currentYear} BC Group Berlin. Alle Rechte vorbehalten.</p>
               </div>
 

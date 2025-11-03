@@ -1,155 +1,288 @@
 import type { Metadata } from 'next'
 import { Section, Container } from '@/components/ui'
 import ContactForm from '@/components/forms/ContactForm'
-import { Phone, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
+import { Phone, Mail, MapPin, Clock, MessageCircle, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Kontakt | BC Group Berlin',
-  description: 'Kontaktieren Sie die BC Group für alle Ihre Serviceanfragen in Berlin. Telefon, E-Mail, WhatsApp oder Kontaktformular.',
-  keywords: 'Kontakt BC Group, Anfrage Berlin, Service anfragen',
+  title: 'Kontakt | BC Group Berlin - Ihre Serviceexperten',
+  description:
+    'Kontaktieren Sie BC Group Berlin für professionelle Services. Persönliche Beratung, schnelle Angebote, 24/7 WhatsApp Support.',
+  keywords:
+    'Kontakt BC Group, Anfrage Berlin, Service anfragen, Beratung, Angebot',
 }
 
 export default function ContactPage() {
   return (
     <>
-      {/* Hero */}
-      <Section background="dark" padding="medium" className="pt-32">
-        <Container className="text-center">
-          <h1 className="text-5xl md:text-6xl font-black text-white uppercase mb-4">
-            KONTAKT
-          </h1>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
-            Wir sind für Sie da – persönlich, telefonisch oder per E-Mail
-          </p>
+      {/* Hero Section */}
+      <Section background="white" padding="large" className="relative pb-0">
+        <Container>
+          <div className="max-w-3xl">
+            <div className="mb-3">
+              <span className="inline-block text-accent font-bold text-xs uppercase tracking-[0.3em]">
+                Kontakt & Beratung
+              </span>
+            </div>
+
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-900 mb-3 leading-tight">
+              <span className="text-accent">Kontakt</span>
+              <br />
+              aufnehmen
+            </h1>
+
+            <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
+              Füllen Sie das Formular aus oder kontaktieren Sie uns direkt. Unser Team antwortet 
+              innerhalb von 2 Stunden – oder sofort per WhatsApp.
+            </p>
+          </div>
         </Container>
       </Section>
 
-      {/* Contact Info & Form */}
-      <Section background="white" padding="large">
+      {/* Main Contact Section */}
+      <Section background="white" padding="large" className="relative">
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Contact Information */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+            {/* Left Sidebar - Contact Info & Quick Links */}
             <div className="lg:col-span-1 space-y-8">
-              <div>
-                <h2 className="text-2xl font-bold mb-6">Kontaktinformationen</h2>
-                <div className="space-y-6">
-                  <div className="flex items-start gap-4">
-                    <Phone className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Telefon</h3>
-                      <a
-                        href="tel:+49301234567"
-                        className="text-neutral-600 hover:text-secondary transition-colors"
-                      >
-                        +49 30 123 456 7
-                      </a>
-                    </div>
-                  </div>
+              {/* Quick Contact Methods */}
+              <div className="space-y-4">
+                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600 mb-6">
+                  Schneller Kontakt
+                </h3>
 
-                  <div className="flex items-start gap-4">
-                    <Mail className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">E-Mail</h3>
-                      <a
-                        href="mailto:info@bcgroup-berlin.de"
-                        className="text-neutral-600 hover:text-secondary transition-colors"
-                      >
-                        info@bcgroup-berlin.de
-                      </a>
-                    </div>
+                {/* Phone */}
+                <a
+                  href="tel:+49301234567"
+                  className="group flex items-start gap-4 p-5 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-secondary/20"
+                >
+                  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center group-hover:bg-secondary/20 transition-colors flex-shrink-0">
+                    <Phone className="w-6 h-6 text-secondary" />
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <MessageCircle className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">WhatsApp</h3>
-                      <a
-                        href="https://wa.me/49301234567"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-neutral-600 hover:text-secondary transition-colors"
-                      >
-                        +49 30 123 456 7
-                      </a>
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">
+                      Telefon
                     </div>
+                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
+                      +49 30 123 456 7
+                    </div>
+                    <div className="text-sm text-neutral-500 mt-1">Mo-Fr 7:00-18:00 Uhr</div>
                   </div>
+                </a>
 
-                  <div className="flex items-start gap-4">
-                    <MapPin className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Adresse</h3>
-                      <address className="text-neutral-600 not-italic">
-                        Musterstraße 123
-                        <br />
-                        10115 Berlin
-                        <br />
-                        Deutschland
-                      </address>
-                    </div>
+                {/* Email */}
+                <a
+                  href="mailto:info@bcgroup-berlin.de"
+                  className="group flex items-start gap-4 p-5 rounded-xl hover:bg-blue-50 transition-all duration-300 border border-transparent hover:border-secondary/20"
+                >
+                  <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center group-hover:bg-secondary/20 transition-colors flex-shrink-0">
+                    <Mail className="w-6 h-6 text-secondary" />
                   </div>
-
-                  <div className="flex items-start gap-4">
-                    <Clock className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-bold mb-1">Öffnungszeiten</h3>
-                      <div className="text-neutral-600 space-y-1">
-                        <p>Mo - Fr: 07:00 - 18:00 Uhr</p>
-                        <p>Sa: 08:00 - 14:00 Uhr</p>
-                        <p>So: Geschlossen</p>
-                        <p className="text-sm mt-2">Notdienst nach Vereinbarung</p>
-                      </div>
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">
+                      E-Mail
                     </div>
+                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
+                      info@bcgroup-berlin.de
+                    </div>
+                    <div className="text-sm text-neutral-500 mt-1">Antwort in 24 Stunden</div>
+                  </div>
+                </a>
+
+                {/* WhatsApp - Highlighted */}
+                <a
+                  href="https://wa.me/49301234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-4 p-5 rounded-xl bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 transition-all duration-300 border border-green-200 hover:border-green-300 shadow-sm hover:shadow-md"
+                >
+                  <div className="w-12 h-12 bg-green-500/20 rounded-lg flex items-center justify-center group-hover:bg-green-500/30 transition-colors flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-green-700">
+                      WhatsApp Chat
+                    </div>
+                    <div className="text-lg font-bold text-green-900">Sofort starten</div>
+                    <div className="text-sm text-green-700 mt-1">Durchschnitt: 2 Minuten</div>
+                  </div>
+                </a>
+              </div>
+
+              {/* Office Info */}
+              <div className="space-y-4 pt-8 border-t border-neutral-200">
+                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600">
+                  Bürostandort
+                </h3>
+
+                <div className="flex items-start gap-4">
+                  <MapPin className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
+                  <div>
+                    <address className="text-neutral-700 not-italic leading-relaxed">
+                      Musterstraße 123
+                      <br />
+                      10115 Berlin
+                      <br />
+                      Deutschland
+                    </address>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Clock className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
+                  <div className="text-sm text-neutral-700 space-y-1">
+                    <p className="font-bold">Öffnungszeiten</p>
+                    <p>Mo - Fr: 7:00 - 18:00 Uhr</p>
+                    <p>Sa: 8:00 - 14:00 Uhr</p>
+                    <p className="text-neutral-500">Notdienst nach Vereinbarung</p>
                   </div>
                 </div>
               </div>
 
-              {/* WhatsApp CTA */}
-              <div className="bg-[#25D366] text-white rounded-sm p-6">
-                <MessageCircle className="w-10 h-10 mb-3" />
-                <h3 className="text-xl font-bold mb-2">Schnelle Antwort per WhatsApp</h3>
-                <p className="text-sm mb-4 opacity-90">
-                  Chatten Sie direkt mit uns und erhalten Sie schnelle Antworten auf Ihre Fragen.
-                </p>
-                <a
-                  href="https://wa.me/49301234567?text=Hallo,%20ich%20habe%20eine%20Frage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-white text-[#25D366] font-bold px-6 py-3 rounded-sm hover:bg-neutral-100 transition-colors"
-                >
-                  Chat starten
-                </a>
+              {/* Why Choose Us */}
+              <div className="space-y-4 pt-8 border-t border-neutral-200">
+                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600">
+                  Warum uns wählen?
+                </h3>
+
+                <div className="space-y-3">
+                {[
+                    'Kostenlose Beratung',
+                    'Unverbindliche Angebote',
+                    'Zertifizierte Profis',
+                    '24/7 Erreichbarkeit',
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <CheckCircle className="w-5 h-5 text-green-600 flex-shrink-0" />
+                      <span className="text-sm font-medium text-neutral-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* Contact Form */}
+            {/* Right Content - Form */}
             <div className="lg:col-span-2">
-              <div className="bg-neutral-50 rounded-sm p-8 md:p-12">
-                <h2 className="text-3xl font-bold mb-2">Schreiben Sie uns</h2>
-                <p className="text-neutral-600 mb-8">
-                  Füllen Sie das Formular aus und wir melden uns innerhalb von 24 Stunden bei Ihnen.
-                </p>
-                <ContactForm />
+              {/* Card Container */}
+              <div className="bg-white border border-neutral-200 rounded-2xl shadow-lg p-8 md:p-12">
+                <div className="mb-10">
+                  <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-3">
+                    Kontaktformular
+                  </h2>
+                  <p className="text-neutral-600 text-lg">
+                    Füllen Sie das Formular aus und erhalten Sie innerhalb von 24 Stunden ein
+                    personalisiertes Angebot.
+                  </p>
+                </div>
+
+                <ContactForm showPropertyType={true} showBudget={true} />
+              </div>
+
+              {/* Additional Info */}
+              <div className="mt-8 grid grid-cols-2 gap-4 md:gap-6">
+                <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-100 rounded-xl p-6 text-center">
+                  <div className="text-3xl font-black text-secondary mb-2">100%</div>
+                  <p className="text-sm font-medium text-neutral-700">
+                    Kostenlose Erstberatung
+                  </p>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-100 rounded-xl p-6 text-center">
+                  <div className="text-3xl font-black text-green-600 mb-2">~2h</div>
+                  <p className="text-sm font-medium text-neutral-700">
+                    Durchschnittliche Antwortzeit
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Map Section */}
+      {/* Services Overview Section */}
       <Section background="light" padding="large">
-        <Container size="wide">
-          <h2 className="text-3xl font-bold text-center mb-8">So finden Sie uns</h2>
-          <div className="aspect-video bg-neutral-300 rounded-sm overflow-hidden">
-            {/* Placeholder for map - in production, use Google Maps or similar */}
-            <div className="w-full h-full flex items-center justify-center text-neutral-600">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 mx-auto mb-4" />
-                <p className="text-lg font-medium">Musterstraße 123, 10115 Berlin</p>
-                <p className="text-sm mt-2">
-                  Google Maps Integration wird hier angezeigt
-                </p>
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-neutral-900 mb-4">
+              Alle unsere Services
+            </h2>
+            <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
+              Wählen Sie aus unserem breiten Leistungsangebot – oder kombinieren Sie mehrere
+              Services.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: 'Entrümpelung',
+                description: 'Professionelle Entrümpelung von Wohnungen und Gewerberäumen',
+              },
+              {
+                title: 'Abriss',
+                description: 'Sichere und fachgerechte Abrissarbeiten mit entsorgung',
+              },
+              {
+                title: 'Reinigung',
+                description: 'Gründliche Reinigung von Objekten aller Art',
+              },
+              {
+                title: 'Hausmeisterservice',
+                description: 'Zuverlässige Hausmeistertätigkeit und Instandhaltung',
+              },
+              {
+                title: 'Umzug & Transport',
+                description: 'Professioneller Umzugsservice mit erfahrenem Team',
+              },
+              {
+                title: 'Kurierdienst',
+                description: 'Schnelle und sichere Zustellung in Berlin',
+              },
+            ].map((service, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-xl p-8 border border-neutral-200 hover:border-secondary hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-12 h-12 bg-secondary/10 rounded-lg mb-4 flex items-center justify-center">
+                  <div className="text-xl font-bold text-secondary">{idx + 1}</div>
+                </div>
+                <h3 className="text-xl font-bold text-neutral-900 mb-2">{service.title}</h3>
+                <p className="text-neutral-600 text-sm leading-relaxed">{service.description}</p>
               </div>
-            </div>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* CTA Section */}
+      <Section background="dark" padding="large" className="relative overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+        </div>
+
+        <Container className="relative z-10 text-center">
+          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+            Noch Fragen? <span className="text-secondary">Wir helfen gerne!</span>
+          </h2>
+          <p className="text-xl text-white/80 max-w-2xl mx-auto mb-10">
+            Nehmen Sie Kontakt mit uns auf und erhalten Sie eine kostenlose Erstberatung.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contact-form"
+              className="inline-flex items-center justify-center px-8 py-4 bg-secondary hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-secondary/50 uppercase tracking-[0.1em]"
+            >
+              Kontaktformular ausfüllen
+            </a>
+            <a
+              href="https://wa.me/49301234567"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 uppercase tracking-[0.1em]"
+            >
+              <MessageCircle className="w-5 h-5 mr-2" />
+              WhatsApp Chat
+            </a>
           </div>
         </Container>
       </Section>

@@ -352,84 +352,33 @@ export default function HeroCarousel() {
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, y: -30, transition: { duration: 0.4 } }}
-              className="text-center space-y-4"
+              className="text-center space-y-6"
             >
-              {/* Ultra-modern title with smooth reveal */}
+              {/* Clean title design */}
               <motion.div
                 variants={titleVariants}
                 className="perspective-1000"
               >
                 <motion.h1 
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white uppercase tracking-tight leading-[0.9] will-change-transform"
+                  className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tight leading-none will-change-transform"
                   style={{ 
-                    textShadow: '0 4px 40px rgba(0, 0, 0, 0.7), 0 2px 20px rgba(0, 102, 204, 0.5), 0 0 80px rgba(0, 102, 204, 0.3)',
+                    textShadow: '0 2px 30px rgba(0, 0, 0, 0.8)',
                   }}
-                  whileHover={!shouldReduceMotion ? {
-                    scale: 1.02,
-                    transition: { 
-                      type: "spring", 
-                      stiffness: 300, 
-                      damping: 20 
-                    }
-                  } : undefined}
                 >
                   {currentSlide.title}
                 </motion.h1>
               </motion.div>
               
-              {/* Elevated subtitle with premium glass morphism */}
+              {/* Clean subtitle with subtle background */}
               <motion.div
                 variants={itemVariants}
                 className="flex justify-center will-change-transform"
               >
-                <motion.div
-                  className="relative group"
-                  whileHover={!shouldReduceMotion ? {
-                    scale: 1.05,
-                    transition: { 
-                      type: "spring", 
-                      stiffness: 400, 
-                      damping: 25 
-                    }
-                  } : undefined}
-                  whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
-                >
-                  {/* Glass morphism container */}
-                  <div className="relative px-4 sm:px-6 py-2 sm:py-3 rounded-full overflow-hidden">
-                    {/* Backdrop blur layer */}
-                    <div className="absolute inset-0 bg-black/40 backdrop-blur-xl" />
-                    
-                    {/* Animated border gradient */}
-                    <div className="absolute inset-0 rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 via-white/30 to-white/20 blur-sm" />
-                    </div>
-                    
-                    {/* Border */}
-                    <div className="absolute inset-0 rounded-full border border-white/20 group-hover:border-white/40 transition-colors duration-300" />
-                    
-                    {/* Shimmer effect */}
-                    <motion.div 
-                      className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{
-                        background: 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent)',
-                        backgroundSize: '200% 100%',
-                      }}
-                      animate={{
-                        backgroundPosition: ['200% 0', '-200% 0']
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: 'linear'
-                      }}
-                    />
-                    
-                    {/* Text content */}
-                    <p className="relative z-10 text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white uppercase tracking-[0.2em] drop-shadow-2xl">
-                      {currentSlide.subtitle}
-                    </p>
-                  </div>
-                </motion.div>
+                <div className="relative px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-black/50 backdrop-blur-sm">
+                  <p className="relative z-10 text-sm sm:text-base md:text-lg font-bold text-white uppercase tracking-[0.15em]">
+                    {currentSlide.subtitle}
+                  </p>
+                </div>
               </motion.div>
               
               {/* Refined description */}
@@ -520,20 +469,17 @@ export default function HeroCarousel() {
         </div>
       </motion.div>
 
-      {/* Service Navigation Bar */}
+      {/* Service Navigation Bar - Clean Design */}
       <motion.div
         className="absolute bottom-0 left-0 right-0 z-20"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8, duration: 0.8 }}
       >
-        <div className="relative overflow-hidden">
-          {/* Background with glass morphism */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/40 to-transparent backdrop-blur-md" />
-          
+        <div className="relative overflow-hidden bg-black/70 backdrop-blur-xl border-t border-white/10">
           {/* Service Items Container */}
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center justify-center gap-0 divide-x divide-white/10">
+            <div className="flex items-stretch justify-between divide-x divide-white/10">
               {[
                 { name: 'ENTRÜMPELUNG', href: '/services/entruempelung' },
                 { name: 'ABRISS', href: '/services/abriss' },
@@ -545,7 +491,7 @@ export default function HeroCarousel() {
                 <motion.a
                   key={service.name}
                   href={service.href}
-                  className="group relative flex-1 py-6 sm:py-8 px-4 sm:px-6 text-center transition-all duration-300 hover:bg-white/5"
+                  className="group relative flex-1 py-6 sm:py-8 px-3 sm:px-4 lg:px-6 text-center transition-all duration-300 hover:bg-white/5"
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ 
@@ -554,41 +500,23 @@ export default function HeroCarousel() {
                     ease: [0.215, 0.61, 0.355, 1]
                   }}
                   whileHover={!shouldReduceMotion ? { 
-                    y: -8,
-                    transition: { duration: 0.3 }
+                    backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                    transition: { duration: 0.2 }
                   } : undefined}
                 >
-                  {/* Hover glow effect */}
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 bg-gradient-to-t from-secondary/20 to-transparent" />
-                  </div>
-                  
-                  {/* Active indicator line */}
+                  {/* Top accent line on hover */}
                   <motion.div 
-                    className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    layoutId="activeService"
+                    className="absolute top-0 left-0 right-0 h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   />
                   
                   {/* Service name */}
-                  <span className="relative z-10 block text-sm sm:text-base lg:text-lg font-bold text-white/80 group-hover:text-white uppercase tracking-wider transition-all duration-300 group-hover:tracking-widest">
+                  <span className="relative z-10 block text-xs sm:text-sm lg:text-base xl:text-lg font-black text-white uppercase tracking-[0.15em] transition-all duration-300 group-hover:tracking-[0.2em] drop-shadow-lg">
                     {service.name}
                   </span>
-                  
-                  {/* Subtle arrow on hover */}
-                  <motion.div
-                    className="relative z-10 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                    initial={{ y: -10 }}
-                    whileHover={{ y: 0 }}
-                  >
-                    <ArrowRight className="w-4 h-4 mx-auto text-white/60" />
-                  </motion.div>
                 </motion.a>
               ))}
             </div>
           </div>
-          
-          {/* Bottom gradient fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-white/10 to-transparent" />
         </div>
       </motion.div>
 

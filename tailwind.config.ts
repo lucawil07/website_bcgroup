@@ -71,6 +71,43 @@ const config: Config = {
           subtle: 'rgba(255, 255, 255, 0.03)',
           dark: 'rgba(0, 0, 0, 0.4)',
         },
+        // Service-specific color schemes
+        'service-entruempelung': {
+          primary: '#1a472a',
+          accent: '#10b981',
+          light: '#d1fae5',
+          gradient: 'linear-gradient(135deg, #1a472a 0%, #065f46 50%, #10b981 100%)',
+        },
+        'service-abriss': {
+          primary: '#3c2c1f',
+          accent: '#d97706',
+          light: '#fef3c7',
+          gradient: 'linear-gradient(135deg, #3c2c1f 0%, #92400e 50%, #d97706 100%)',
+        },
+        'service-reinigung': {
+          primary: '#0f2f51',
+          accent: '#06b6d4',
+          light: '#cffafe',
+          gradient: 'linear-gradient(135deg, #0f2f51 0%, #164e63 50%, #06b6d4 100%)',
+        },
+        'service-hausmeister': {
+          primary: '#1e1b4b',
+          accent: '#8b5cf6',
+          light: '#f3e8ff',
+          gradient: 'linear-gradient(135deg, #1e1b4b 0%, #3730a3 50%, #8b5cf6 100%)',
+        },
+        'service-umzug': {
+          primary: '#451a03',
+          accent: '#f97316',
+          light: '#fed7aa',
+          gradient: 'linear-gradient(135deg, #451a03 0%, #7c2d12 50%, #f97316 100%)',
+        },
+        'service-kurier': {
+          primary: '#1a1f3a',
+          accent: '#ec4899',
+          light: '#fce7f3',
+          gradient: 'linear-gradient(135deg, #1a1f3a 0%, #4f46e5 50%, #ec4899 100%)',
+        },
       },
       fontFamily: {
         sans: [

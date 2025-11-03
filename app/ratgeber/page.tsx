@@ -170,7 +170,17 @@ export default function RatgeberPage() {
       <StructuredData data={breadcrumbSchema} />
 
       {/* Hero Section */}
-      <Section background="dark" padding="large" className="pt-32 md:pt-40">
+      <Section background="dark" padding="large" className="pt-32 md:pt-40 relative overflow-hidden">
+        <div className="absolute inset-0 -z-10">
+          <Image
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
+            alt="Knowledge and Expertise Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/60" />
+        </div>
         <Container size="wide">
           <ScrollReveal direction="up" className="text-center mb-12 md:mb-16">
             <div className="inline-block mb-6">
@@ -284,18 +294,18 @@ export default function RatgeberPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section background="light" padding="large">
+      <Section background="white" padding="large" className="bg-gradient-to-b from-white to-neutral-800">
         <Container size="default">
           <ScrollReveal direction="up" className="text-center">
-            <div className="card-modern p-8 md:p-12 bg-gradient-to-br from-primary to-primary/90">
-              <h2 className="text-2xl md:text-4xl font-black text-white mb-4 md:mb-6 uppercase">
+            <div className="card-modern p-8 md:p-12 bg-white">
+              <h2 className="text-2xl md:text-4xl font-black text-primary mb-4 md:mb-6 uppercase">
                 Haben Sie Fragen?
               </h2>
-              <p className="text-base md:text-lg text-white/90 mb-6 md:mb-8 max-w-2xl mx-auto">
+              <p className="text-base md:text-lg text-neutral-600 mb-6 md:mb-8 max-w-2xl mx-auto">
                 Unser Team steht Ihnen jederzeit für eine persönliche Beratung zur Verfügung.
               </p>
               <Link href="/kontakt">
-                <Button variant="secondary" size="lg" className="shadow-xl">
+                <Button variant="primary" size="lg" className="shadow-xl">
                   Jetzt kontaktieren
                 </Button>
               </Link>

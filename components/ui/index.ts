@@ -22,6 +22,8 @@ export type { SectionProps } from './Section'
 
 export { default as Textarea } from './Textarea'
 
+export { default as Logo } from './Logo'
+
 export { 
   Layout,
   LoadingSpinner,

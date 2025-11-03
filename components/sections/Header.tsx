@@ -1,11 +1,23 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, ChevronDown, Phone, Mail } from 'lucide-react'
+import { Menu, X, ChevronDown, Phone } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { MagneticElement } from '@/components/ui'
+import { MagneticElement, Logo } from '@/components/ui'
+import { getServiceFromRoute } from '@/lib/service-colors'
+import {
+  getNavTextClass,
+  getDescriptionClass,
+  getIconClass,
+  navItemClasses,
+  isDarkBackgroundPage,
+  isLightBackgroundPage,
+  shouldUseDarkText,
+} from '@/lib/nav-styles'
+import { useMobileMenu } from '@/contexts/MobileMenuContext'
 
 interface NavItem {
   label: string
@@ -19,7 +31,7 @@ const navigation: NavItem[] = [
     items: [
       { label: 'Über uns', href: '/ueber-uns', description: 'Erfahren Sie mehr über unser Unternehmen' },
       { label: 'Team', href: '/team', description: 'Lernen Sie unser erfahrenes Team kennen' },
-      { label: 'Karriere', href: '/karriere', description: 'Werden Sie Teil unseres Teams' },
+      { label: 'Karriere', href: '/karriere', description: 'Offene Stellen und werden Sie Teil unseres Teams' },
     ],
   },
   {
@@ -35,115 +47,112 @@ const navigation: NavItem[] = [
   },
   { label: 'News', href: '/ratgeber' },
   { label: 'Locations', href: '/service-gebiete' },
-  {
-    label: 'Karriere',
-    items: [
-      { label: 'Jobs', href: '/karriere/jobs', description: 'Offene Stellenanzeigen' },
-      { label: 'Bewerbung', href: '/karriere/bewerbung', description: 'Jetzt bewerben' },
-      { label: 'Vorteile', href: '/karriere/vorteile', description: 'Ihre Vorteile bei uns' },
-    ],
-  },
   { label: 'Kontakt', href: '/kontakt' },
 ]
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  
+  const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu()
+  const pathname = usePathname()
+  const currentService = getServiceFromRoute(pathname)
+  const lastScrollYRef = useRef(0) // Use ref instead of state to avoid re-renders
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      
-      setIsScrolled(currentScrollY > 20)
-      
-      // Determine scroll direction
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setScrollDirection('down')
-      } else {
-        setScrollDirection('up')
-      }
-      
-      setLastScrollY(currentScrollY)
+  /**
+   * Memoized check for dark background pages
+   * Only recalculates when pathname changes
+   */
+  const hasDarkBackground = useMemo(() => {
+    return isDarkBackgroundPage(pathname)
+  }, [pathname])
+
+  /**
+   * Memoized check for light background pages
+   * Only recalculates when pathname changes
+   */
+  const hasLightBackground = useMemo(() => {
+    return isLightBackgroundPage(pathname)
+  }, [pathname])
+
+  /**
+   * Memoized dark text flag
+   * Only recalculates when dependencies change
+   */
+  const useDarkText = useMemo(() => {
+    return shouldUseDarkText(isScrolled, hasDarkBackground, hasLightBackground)
+  }, [isScrolled, hasDarkBackground, hasLightBackground])
+
+  /**
+   * Optimized scroll handler using useCallback
+   * Prevents memory leaks and excessive re-renders
+   * Uses ref for lastScrollY to avoid triggering effect cleanup
+   */
+  const handleScroll = useCallback(() => {
+    const currentScrollY = window.scrollY
+
+    // Only update state if threshold crossed (reduces re-renders)
+    setIsScrolled(currentScrollY > 20)
+
+    // Update scroll direction only on significant changes
+    if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
+      setScrollDirection('down')
+    } else if (currentScrollY < lastScrollYRef.current) {
+      setScrollDirection('up')
     }
 
+    lastScrollYRef.current = currentScrollY
+  }, [])
+
+  /**
+   * Single scroll event listener with proper cleanup
+   * useCallback ensures handler reference stays the same
+   */
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [lastScrollY])
 
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
     }
-  }, [isMobileMenuOpen])
+  }, [handleScroll])
 
-  const toggleDropdown = (label: string) => {
-    setOpenDropdown(openDropdown === label ? null : label)
-  }
+  /**
+   * Close mobile menu when route changes
+   */
+  useEffect(() => {
+    setIsMobileMenuOpen(false)
+  }, [pathname, setIsMobileMenuOpen])
+
+  const toggleDropdown = useCallback((label: string) => {
+    setOpenDropdown((current) => (current === label ? null : label))
+  }, [])
 
   return (
     <motion.header
       initial={{ y: -100 }}
-      animate={{ 
+      animate={{
         y: scrollDirection === 'down' && isScrolled ? -100 : 0,
-        opacity: scrollDirection === 'down' && isScrolled ? 0 : 1
+        opacity: scrollDirection === 'down' && isScrolled ? 0 : 1,
       }}
       transition={{ duration: 0.3, ease: [0.77, 0, 0.175, 1] }}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
         isScrolled
-          ? 'glass-strong shadow-2xl backdrop-blur-3xl border-b border-white/10'
+          ? useDarkText
+            ? 'bg-white/95 shadow-2xl backdrop-blur-xl border-b border-neutral-200'
+            : 'glass-strong shadow-2xl backdrop-blur-3xl border-b border-white/10'
           : 'bg-transparent'
       )}
+      style={{
+        willChange: 'transform, opacity',
+        transform: 'translate3d(0, 0, 0)', // Enable GPU acceleration
+      }}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
-          <Link href="/" className="relative group">
-            <MagneticElement>
-              <div className="flex items-center gap-3">
-                <motion.div 
-                  className={cn(
-                    "w-12 h-12 rounded-2xl flex items-center justify-center font-black text-lg transition-all duration-500 group-hover:scale-110",
-                    isScrolled 
-                      ? "bg-primary text-white shadow-xl" 
-                      : "bg-glass-strong backdrop-blur-md text-white border border-white/30 shadow-glass"
-                  )}
-                  style={isScrolled ? { backgroundColor: '#1a1a1a', color: '#ffffff' } : undefined}
-                  whileHover={{ 
-                    boxShadow: isScrolled ? "0 0 30px rgba(0, 102, 204, 0.5)" : "0 0 30px rgba(255, 255, 255, 0.3)",
-                    rotate: [0, -5, 5, 0]
-                  }}
-                  transition={{ duration: 0.3 }}
-                >
-                  BC
-                </motion.div>
-                <motion.div
-                  className="flex flex-col"
-                  whileHover={{ x: 5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <span className={cn(
-                    'text-xl font-black tracking-tight transition-colors duration-300',
-                    isScrolled ? 'text-primary' : 'text-white'
-                  )}
-                  style={isScrolled ? { color: '#1a1a1a' } : { color: '#ffffff' }}>
-                    BC GROUP
-                  </span>
-                  <span className={cn(
-                    'text-xs font-medium uppercase tracking-wider opacity-70',
-                    isScrolled ? 'text-secondary' : 'text-white/70'
-                  )}>
-                    Service Partner
-                  </span>
-                </motion.div>
-              </div>
-            </MagneticElement>
-          </Link>
+          <Logo isScrolled={isScrolled} service={currentService} useDarkText={useDarkText} />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
@@ -157,12 +166,8 @@ export default function Header() {
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className={cn(
-                      'px-4 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 hover:bg-white/10 relative overflow-hidden group',
-                      isScrolled 
-                        ? 'text-primary-950 hover:text-secondary' 
-                        : 'text-white hover:text-white'
-                    )}
+                    prefetch={true}
+                    className={cn(navItemClasses.link, getNavTextClass(isScrolled, useDarkText))}
                   >
                     <span className="relative z-10">{item.label}</span>
                     <motion.div
@@ -173,12 +178,9 @@ export default function Header() {
                   </Link>
                 ) : (
                   <button
-                    className={cn(
-                      'flex items-center gap-2 px-4 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 hover:bg-white/10 relative overflow-hidden group',
-                      isScrolled 
-                        ? 'text-primary-950 hover:text-secondary' 
-                        : 'text-white hover:text-white'
-                    )}
+                    className={cn(navItemClasses.toggle, getNavTextClass(isScrolled, useDarkText))}
+                    aria-expanded={openDropdown === item.label}
+                    aria-label={`${item.label} menu`}
                   >
                     <span className="relative z-10">{item.label}</span>
                     <motion.div
@@ -190,7 +192,7 @@ export default function Header() {
                   </button>
                 )}
 
-                {/* Enhanced Dropdown Menu */}
+                {/* Dropdown Menu */}
                 {item.items && (
                   <AnimatePresence>
                     {openDropdown === item.label && (
@@ -198,8 +200,8 @@ export default function Header() {
                         initial={{ opacity: 0, y: 10, scale: 0.95 }}
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2, ease: [0.77, 0, 0.175, 1] }}
-                        className="absolute top-full left-0 mt-2 w-80 glass-strong shadow-2xl rounded-3xl overflow-hidden border border-white/20 backdrop-blur-2xl z-50"
+                        transition={{ duration: 0.25, ease: [0.77, 0, 0.175, 1] }}
+                        className="absolute top-full left-0 mt-2 w-80 glass-dropdown rounded-3xl overflow-hidden z-50"
                       >
                         <div className="p-3">
                           {item.items.map((subItem, index) => (
@@ -211,21 +213,17 @@ export default function Header() {
                             >
                               <Link
                                 href={subItem.href}
+                                prefetch={true}
                                 className={cn(
-                                  "block p-4 rounded-2xl transition-all duration-200 group hover:bg-white/10 border border-transparent hover:border-white/20",
-                                  isScrolled
-                                    ? "text-primary-950 hover:text-secondary"
-                                    : "text-white hover:text-white"
+                                  navItemClasses.dropdownItem,
+                                  getNavTextClass(isScrolled, useDarkText)
                                 )}
                               >
                                 <div className="font-semibold text-base mb-1 group-hover:translate-x-1 transition-transform">
                                   {subItem.label}
                                 </div>
                                 {subItem.description && (
-                                  <div className={cn(
-                                    "text-sm opacity-70",
-                                    isScrolled ? "text-neutral-600" : "text-white/70"
-                                  )}>
+                                  <div className={cn('text-sm opacity-70', getDescriptionClass(isScrolled, useDarkText))}>
                                     {subItem.description}
                                   </div>
                                 )}
@@ -240,15 +238,13 @@ export default function Header() {
               </div>
             ))}
 
-            {/* Enhanced Contact Info */}
+            {/* Contact Info */}
             <div className="flex items-center gap-4 ml-6 pl-6 border-l border-white/20">
               <MagneticElement>
                 <a
                   href="tel:+49301234567"
-                  className={cn(
-                    "flex items-center gap-2 px-3 py-2 rounded-xl transition-all duration-300 hover:bg-white/10",
-                    isScrolled ? "text-primary-950 hover:text-secondary" : "text-white hover:text-white"
-                  )}
+                  className={cn(navItemClasses.contactLink, getIconClass(isScrolled, useDarkText))}
+                  aria-label="Anrufen"
                 >
                   <Phone className="w-4 h-4" />
                   <span className="text-sm font-semibold">Anrufen</span>
@@ -256,45 +252,61 @@ export default function Header() {
               </MagneticElement>
             </div>
 
-            {/* Enhanced CTA Button */}
-            <Link href="/kontakt" className="ml-4">
+            {/* CTA Button */}
+            <Link href="/kontakt" className="ml-4" prefetch={true}>
               <MagneticElement>
                 <motion.div
-                  className="relative group overflow-hidden rounded-2xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                  className={navItemClasses.ctaButton}
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.92 }}
                 >
-                  <div className="relative z-10 bg-gradient-accent text-white font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-glow-accent">
+                  <div className="relative z-10 bg-gradient-accent text-white font-black uppercase tracking-widest text-sm px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 border border-white/20">
                     <span className="flex items-center gap-2">
                       Angebot
                       <motion.div
-                        animate={{ x: [0, 5, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity }}
+                        animate={{ x: [0, 6, 0] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                        style={{ willChange: 'transform' }}
                       >
                         →
                       </motion.div>
                     </span>
                   </div>
+                  {/* Enhanced glow effect */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-400/40 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg"
+                    transition={{ duration: 0.3 }}
+                    style={{ pointerEvents: 'none' }}
+                  />
                   {/* Shine effect */}
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full rounded-2xl"
-                    transition={{ duration: 0.6 }}
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full rounded-2xl"
+                    transition={{ duration: 0.8 }}
+                    style={{ pointerEvents: 'none' }}
+                  />
+                  {/* Pulse border effect */}
+                  <motion.div
+                    className="absolute inset-0 rounded-2xl border-2 border-blue-400"
+                    animate={{ opacity: [0.3, 0.8, 0.3] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    style={{ pointerEvents: 'none' }}
                   />
                 </motion.div>
               </MagneticElement>
             </Link>
           </nav>
 
-          {/* Enhanced Mobile Menu Button */}
+          {/* Mobile Menu Button */}
           <MagneticElement>
             <motion.button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={cn(
-                "lg:hidden p-4 rounded-2xl transition-all duration-300 relative overflow-hidden",
-                isScrolled ? "hover:bg-neutral-100" : "hover:bg-white/10"
+                'lg:hidden p-4 rounded-2xl transition-all duration-300 relative overflow-hidden',
+                isScrolled || useDarkText ? 'hover:bg-neutral-100' : 'hover:bg-white/10'
               )}
               whileTap={{ scale: 0.9 }}
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isMobileMenuOpen}
             >
               <AnimatePresence mode="wait">
                 <motion.div
@@ -305,9 +317,9 @@ export default function Header() {
                   transition={{ duration: 0.2 }}
                 >
                   {isMobileMenuOpen ? (
-                    <X className={cn('w-6 h-6', isScrolled ? 'text-primary-950' : 'text-white')} />
+                    <X className={cn('w-6 h-6', getIconClass(isScrolled, useDarkText))} />
                   ) : (
-                    <Menu className={cn('w-6 h-6', isScrolled ? 'text-primary-950' : 'text-white')} />
+                    <Menu className={cn('w-6 h-6', getIconClass(isScrolled, useDarkText))} />
                   )}
                 </motion.div>
               </AnimatePresence>
@@ -316,7 +328,7 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Enhanced Mobile Menu */}
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -330,7 +342,12 @@ export default function Header() {
               initial={{ y: -20 }}
               animate={{ y: 0 }}
               exit={{ y: -20 }}
-              className="glass-strong backdrop-blur-3xl border-t border-white/10"
+              className={cn(
+                'backdrop-blur-3xl border-t transition-colors duration-300',
+                useDarkText
+                  ? 'bg-white/95 border-neutral-200'
+                  : 'glass-strong border-white/10'
+              )}
             >
               <nav className="px-6 py-8 space-y-2">
                 {navigation.map((item, index) => (
@@ -343,8 +360,11 @@ export default function Header() {
                     {item.href ? (
                       <Link
                         href={item.href}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block px-6 py-4 text-xl font-black text-primary-950 hover:text-secondary transition-colors rounded-2xl hover:bg-white/5"
+                        prefetch={true}
+                        className={cn(
+                          navItemClasses.mobileItem,
+                          useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                        )}
                       >
                         {item.label}
                       </Link>
@@ -352,7 +372,11 @@ export default function Header() {
                       <div>
                         <button
                           onClick={() => toggleDropdown(item.label)}
-                          className="flex items-center justify-between w-full px-6 py-4 text-xl font-black text-primary-950 hover:text-secondary transition-colors rounded-2xl hover:bg-white/5"
+                          className={cn(
+                            navItemClasses.mobileToggle,
+                            useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                          )}
+                          aria-expanded={openDropdown === item.label}
                         >
                           {item.label}
                           <motion.div
@@ -381,8 +405,11 @@ export default function Header() {
                                   >
                                     <Link
                                       href={subItem.href}
-                                      onClick={() => setIsMobileMenuOpen(false)}
-                                      className="block px-6 py-3 text-base font-semibold text-neutral-600 hover:text-secondary transition-colors rounded-xl hover:bg-white/5"
+                                      prefetch={true}
+                                      className={cn(
+                                        navItemClasses.mobileSubItem,
+                                        useDarkText ? 'text-neutral-600 hover:text-secondary' : 'text-white/70 hover:text-white'
+                                      )}
                                     >
                                       {subItem.label}
                                     </Link>
@@ -404,11 +431,7 @@ export default function Header() {
                   transition={{ delay: 0.6 }}
                   className="pt-6"
                 >
-                  <Link
-                    href="/kontakt"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block"
-                  >
+                  <Link href="/kontakt" prefetch={true} className="block">
                     <motion.div
                       className="bg-gradient-accent text-white text-center font-black uppercase tracking-wider text-base px-8 py-5 rounded-2xl shadow-2xl"
                       whileTap={{ scale: 0.95 }}

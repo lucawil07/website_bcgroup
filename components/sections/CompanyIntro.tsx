@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button, Section, Container } from '@/components/ui'
-import { CheckCircle2, Award, Clock, Users } from 'lucide-react'
+import { Zap, Shield, Headphones, TrendingUp } from 'lucide-react'
 
 export default function CompanyIntro() {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,10 +16,10 @@ export default function CompanyIntro() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true)
-          setTimeout(() => setStatsInView(true), 400)
+          setTimeout(() => setStatsInView(true), 300)
         }
       },
-      { threshold: 0.15, rootMargin: '0px' }
+      { threshold: 0.1, rootMargin: '0px' }
     )
 
     if (sectionRef.current) {
@@ -29,17 +29,17 @@ export default function CompanyIntro() {
     return () => observer.disconnect()
   }, [])
 
-  const features = [
-    { icon: Award, text: 'Zertifiziert & Versichert', delay: 0 },
-    { icon: CheckCircle2, text: 'Faire Preise', delay: 100 },
-    { icon: Clock, text: 'Schnelle Reaktion', delay: 200 },
-    { icon: Users, text: 'Kundenorientiert', delay: 300 }
+  const highlights = [
+    { icon: Zap, text: 'Versichert & Zuverlässig', description: 'Vollständig versichert' },
+    { icon: Shield, text: 'Geprüfte Qualität', description: 'Höchste Standards' },
+    { icon: Headphones, text: 'Proaktiver Support', description: '24/7 Erreichbar' },
+    { icon: TrendingUp, text: 'Transparente Preise', description: 'Ohne versteckte Kosten' }
   ]
 
   const stats = [
-    { value: '10+', label: 'Jahre Erfahrung', suffix: '' },
-    { value: '6', label: 'Services', suffix: '' },
-    { value: '100', label: 'Zuverlässig', suffix: '%' }
+    { value: '15', label: 'Jahre Exzellenz', suffix: '+' },
+    { value: '8', label: 'Spezialisierte Services', suffix: '' },
+    { value: '4', label: 'von 5 Sternen', suffix: '✓' }
   ]
 
   return (
@@ -47,50 +47,65 @@ export default function CompanyIntro() {
       <Container size="wide">
         <div 
           ref={sectionRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
         >
-          {/* Image Column */}
+          {/* Left: Image with Advanced Visual Effects */}
           <div 
-            className={`order-2 lg:order-1 transition-all duration-700 ease-out ${
+            className={`order-2 lg:order-1 transition-all duration-1000 ease-out ${
               isVisible 
                 ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 -translate-x-8'
+                : 'opacity-0 -translate-x-12'
             }`}
           >
             <div className="relative">
-              {/* Main Image Container */}
-              <div className="relative h-[450px] md:h-[550px] rounded-3xl overflow-hidden shadow-2xl group">
-                <Image
-                  src="https://images.unsplash.com/photo-1556911220-bff31c812dba?q=80&w=1200&auto=format&fit=crop"
-                  alt="BC Group professional team providing services in Berlin"
-                  fill
-                  loading="lazy"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                />
+              {/* Floating Accent Element */}
+              <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full blur-2xl opacity-0 animate-pulse" />
+              <div className="absolute -bottom-12 -right-8 w-32 h-32 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl opacity-0 animate-pulse" 
+                style={{ animationDelay: '0.5s' }} />
+              
+              {/* Premium Image Container */}
+              <div className="relative h-[480px] md:h-[600px] group">
+                {/* Background Gradient Card */}
+                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-accent/10 rounded-2xl" />
                 
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-black/60 via-black/20 to-transparent" />
+                {/* Main Image */}
+                <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src="/images/image_bcgroup.png"
+                    alt="BC Group professional team - multi-service holding company in Berlin"
+                    fill
+                    loading="lazy"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  />
+                  
+                  {/* Sophisticated Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                  
+                  {/* Corner Accent Line */}
+                  <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-secondary/60 rounded-tl-2xl" />
+                  <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 border-accent/60 rounded-br-2xl" />
+                </div>
                 
-                {/* Stats Badge */}
-                <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8 md:right-8">
+                {/* Premium Stats Badge - Positioned Absolutely */}
+                <div className="absolute -bottom-8 left-0 right-0 flex justify-center px-4">
                   <div 
-                    className={`glass-dark rounded-2xl p-5 md:p-6 backdrop-blur-xl border border-white/20 transition-all duration-700 ${
+                    className={`glass-dark rounded-2xl p-6 md:p-8 backdrop-blur-2xl border border-white/30 shadow-2xl transition-all duration-700 max-w-[90%] ${
                       statsInView 
                         ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 translate-y-6'
+                        : 'opacity-0 translate-y-8'
                     }`}
                   >
-                    <div className="flex items-center justify-between gap-6">
+                    <div className="grid grid-cols-3 gap-6">
                       {stats.map((stat, index) => (
-                        <div key={index} className="text-center flex-1">
+                        <div key={index} className="text-center">
                           <div 
-                            className={`text-3xl md:text-4xl font-black text-white mb-1 transition-all duration-500 ${
+                            className={`text-2xl md:text-3xl font-black text-white mb-1 transition-all duration-700 ${
                               statsInView 
                                 ? 'opacity-100 scale-100' 
-                                : 'opacity-0 scale-90'
+                                : 'opacity-0 scale-75'
                             }`}
-                            style={{ transitionDelay: `${index * 100}ms` }}
+                            style={{ transitionDelay: `${index * 150}ms` }}
                           >
                             <CountUpNumber 
                               end={parseInt(stat.value)} 
@@ -99,12 +114,12 @@ export default function CompanyIntro() {
                             />
                           </div>
                           <div 
-                            className={`text-[10px] md:text-xs text-white/90 uppercase tracking-wider font-semibold transition-all duration-500 ${
+                            className={`text-[11px] md:text-xs text-white/85 uppercase tracking-widest font-semibold transition-all duration-700 ${
                               statsInView 
                                 ? 'opacity-100 translate-y-0' 
-                                : 'opacity-0 translate-y-2'
+                                : 'opacity-0 translate-y-3'
                             }`}
-                            style={{ transitionDelay: `${index * 100 + 150}ms` }}
+                            style={{ transitionDelay: `${index * 150 + 100}ms` }}
                           >
                             {stat.label}
                           </div>
@@ -114,84 +129,103 @@ export default function CompanyIntro() {
                   </div>
                 </div>
               </div>
-
-              {/* Decorative Blur Element */}
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-secondary/30 to-accent/30 rounded-3xl blur-3xl opacity-50 pointer-events-none" />
             </div>
           </div>
 
-          {/* Content Column */}
+          {/* Right: Premium Content */}
           <div 
-            className={`order-1 lg:order-2 space-y-6 transition-all duration-700 delay-150 ease-out ${
+            className={`order-1 lg:order-2 space-y-8 transition-all duration-1000 delay-200 ease-out ${
               isVisible 
                 ? 'opacity-100 translate-x-0' 
-                : 'opacity-0 translate-x-8'
+                : 'opacity-0 translate-x-12'
             }`}
           >
-            {/* Section Label */}
-            <div className="inline-block">
-              <span className="text-secondary font-bold text-sm uppercase tracking-[0.2em] bg-secondary/10 px-6 py-2.5 rounded-full inline-block">
-                Über uns
+            {/* Refined Eyebrow */}
+            <div className="flex items-center gap-3">
+              <div className="w-1.5 h-8 bg-gradient-to-b from-secondary to-accent rounded-full" />
+              <span className="text-secondary font-bold text-xs uppercase tracking-widest">
+                Partnerschaft seit mehr als 15 Jahren
               </span>
             </div>
 
-            {/* Heading */}
-            <div className="space-y-3">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.1] tracking-tight uppercase">
-                <span className="block text-primary">DIE</span>
-                <span className="block text-secondary">BC GROUP</span>
+            {/* Premium Heading */}
+            <div className="space-y-4">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
+                <span className="block text-primary">Die Zukunft</span>
+                <span className="block gradient-text">
+                  professioneller Services
+                </span>
               </h2>
-              <div className="h-1.5 w-20 rounded-full bg-gradient-to-r from-secondary to-accent" />
+              
+              {/* Refined Separator */}
+              <div className="flex items-center gap-2 pt-2">
+                <div className="h-0.5 w-8 bg-secondary rounded-full" />
+                <div className="h-0.5 w-6 bg-accent rounded-full" />
+              </div>
             </div>
             
-            {/* Content */}
-            <div className="space-y-5">
-              <p className="text-xl md:text-2xl text-primary font-semibold leading-snug">
-                Seit mehreren Jahren ist die BC Group Ihr verlässlicher Partner für 
-                professionelle Dienstleistungen in Berlin.
+            {/* Sophisticated Content */}
+            <div className="space-y-6 pt-4">
+              <p className="text-lg md:text-xl text-primary font-semibold leading-relaxed">
+                BC Group steht für Innovation und Zuverlässigkeit in Berlin.
               </p>
               
-              <p className="text-neutral-600 text-base md:text-lg leading-relaxed">
-                Mit unserem engagierten Team und modernster Ausstattung bieten wir 
-                Ihnen Lösungen, die genau auf Ihre Bedürfnisse zugeschnitten sind.
+              <p className="text-base md:text-lg text-neutral-600 leading-relaxed font-light">
+                Unser Versprechen: Ihre Herausforderungen werden von Experten gelöst, 
+                die jedes Detail verstehen und meistern. Mit modernster Ausstattung 
+                und Leidenschaft für Exzellenz.
               </p>
-              
-              <p className="text-neutral-600 text-base md:text-lg leading-relaxed">
-                Von der Entrümpelung über Gebäudereinigung bis hin zum Umzugsservice – 
-                wir decken ein breites Spektrum ab. Unser Anspruch: höchste Qualität, 
-                absolute Zuverlässigkeit und faire Preise.
-              </p>
-            
+            </div>
+
+            {/* Elegant Highlights Grid */}
+            <div className="grid grid-cols-2 gap-4 py-2">
+              {highlights.map((item, index) => {
+                const Icon = item.icon
+                return (
+                  <div
+                    key={index}
+                    className={`group rounded-lg border border-neutral-100 p-4 transition-all duration-700 hover:border-secondary/30 hover:bg-secondary/5 ${
+                      isVisible 
+                        ? 'opacity-100 translate-y-0' 
+                        : 'opacity-0 translate-y-6'
+                    }`}
+                    style={{ transitionDelay: `${400 + index * 100}ms` }}
+                  >
+                    <div className="flex items-start gap-3">
+                      <Icon className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110" />
+                      <div>
+                        <h3 className="text-sm font-semibold text-primary mb-0.5 group-hover:text-secondary transition-colors">
+                          {item.text}
+                        </h3>
+                        <p className="text-xs text-neutral-500">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
             
-            {/* CTA Buttons */}
+            {/* Premium CTA Buttons */}
             <div 
-              className={`flex flex-col sm:flex-row gap-4 pt-4 transition-all duration-700 ${
+              className={`flex flex-col sm:flex-row gap-4 pt-6 transition-all duration-700 ${
                 isVisible 
                   ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-4'
+                  : 'opacity-0 translate-y-6'
               }`}
-              style={{ transitionDelay: '700ms' }}
+              style={{ transitionDelay: '900ms' }}
             >
-              <Link href="/ueber-uns" className="w-full sm:w-auto">
+              <Link href="/ueber-uns" className="flex-1 sm:flex-none">
                 <Button 
                   variant="primary" 
                   size="lg" 
-                  className="w-full sm:w-auto hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5"
+                  className="w-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 font-semibold"
                 >
                   Mehr über uns
                 </Button>
               </Link>
               
-              <Link href="/kontakt" className="w-full sm:w-auto">
-                <Button 
-                  variant="secondary" 
-                  size="lg" 
-                  className="w-full sm:w-auto hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
-                >
-                  Kontakt aufnehmen
-                </Button>
-              </Link>
             </div>
           </div>
         </div>
@@ -215,8 +249,8 @@ function CountUpNumber({
   useEffect(() => {
     if (!isVisible) return
 
-    const duration = 2000
-    const steps = 60
+    const duration = 2500
+    const steps = 80
     const increment = end / steps
     let current = 0
 

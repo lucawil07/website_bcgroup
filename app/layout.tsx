@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header, Footer } from '@/components/sections'
-import { Layout, PageTransition } from '@/components/ui'
+import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -69,15 +69,15 @@ export default function RootLayout({
           Zum Hauptinhalt springen
         </a>
         
-        <Layout>
-          <Header />
-          <PageTransition>
+        <MobileMenuProvider>
+          <div className="min-h-screen">
+            <Header />
             <main id="main-content" className="relative">
               {children}
             </main>
-          </PageTransition>
-          <Footer />
-        </Layout>
+            <Footer />
+          </div>
+        </MobileMenuProvider>
 
         {/* Smooth scrolling script */}
         <script
