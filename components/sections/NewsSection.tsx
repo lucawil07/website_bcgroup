@@ -10,6 +10,7 @@ interface BlogPost {
   date: string
   readTime: string
   slug: string
+  category: string
 }
 
 const featuredPosts: BlogPost[] = [
@@ -20,6 +21,7 @@ const featuredPosts: BlogPost[] = [
     date: '23. März 2025',
     readTime: '5 Min.',
     slug: 'entruempelung-richtig-planen',
+    category: 'Entrümpelung',
   },
   {
     title: 'Büroreinigung: Darauf sollten Sie achten',
@@ -28,6 +30,7 @@ const featuredPosts: BlogPost[] = [
     date: '17. Juli 2025',
     readTime: '4 Min.',
     slug: 'bueroreinigung-tipps',
+    category: 'Reinigung',
   },
   {
     title: 'Umzug planen: Checkliste für einen stressfreien Umzug',
@@ -36,24 +39,37 @@ const featuredPosts: BlogPost[] = [
     date: '12. Oktober 2025',
     readTime: '6 Min.',
     slug: 'umzug-checkliste',
+    category: 'Umzug',
   },
 ]
 
 export default function NewsSection() {
   return (
-    <Section background="light" padding="large">
+    <Section background="light" padding="medium" className="relative overflow-hidden">
+      {/* Full Background Image */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1200&auto=format&fit=crop"
+          alt="Knowledge and Expertise Background"
+          fill
+          className="object-cover"
+          priority={false}
+        />
+        <div className="absolute inset-0 bg-black/70" />
+      </div>
+
       <Container size="wide">
         <ScrollReveal direction="up" className="text-center mb-16 md:mb-20">
           <div className="inline-block mb-6">
-            <span className="text-secondary font-bold text-sm uppercase tracking-[0.3em] bg-secondary/10 px-6 py-2 rounded-full">
+            <span className="text-secondary font-bold text-sm uppercase tracking-[0.3em] bg-secondary/20 px-6 py-2 rounded-full text-white">
               News & Ratgeber
             </span>
           </div>
-          <h2 className="text-section uppercase font-black mb-6 leading-tight">
+          <h2 className="text-section uppercase font-black mb-6 leading-tight text-white">
             WISSEN &<br />
             <span className="gradient-text">EXPERTISE</span>
           </h2>
-          <p className="text-base md:text-lg text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg text-white/80 max-w-3xl mx-auto leading-relaxed">
             Neuigkeiten, Tipps und Wissenswertes rund um unsere Dienstleistungen
           </p>
         </ScrollReveal>

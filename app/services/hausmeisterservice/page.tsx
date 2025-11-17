@@ -1,12 +1,13 @@
 import { Metadata } from 'next'
 import { StructuredData } from '@/components/ui'
-import { CTAContact } from '@/components/sections'
+
 import HausmeisterPremiumHero from '@/components/sections/hausmeisterservice/HausmeisterPremiumHero'
 import HausmeisterServiceGrid from '@/components/sections/hausmeisterservice/HausmeisterServiceGrid'
 import HausmeisterContinuousSupport from '@/components/sections/hausmeisterservice/HausmeisterContinuousSupport'
 import HausmeisterServiceAreas from '@/components/sections/hausmeisterservice/HausmeisterServiceAreas'
 import HausmeisterTeamShowcase from '@/components/sections/hausmeisterservice/HausmeisterTeamShowcase'
 import HausmeisterStatistics from '@/components/sections/hausmeisterservice/HausmeisterStatistics'
+import HausmeisterCTA from '@/components/sections/hausmeisterservice/HausmeisterCTA'
 
 const SERVICE_NAME = 'hausmeisterservice'
 const SERVICE_GERMAN = 'Hausmeisterservice'
@@ -30,8 +31,8 @@ const keywords = [
 ]
 
 const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Professionelle Gebäudeasverwaltung & Wartung | BC Group`,
-  description: 'Zuverlässige Hausmeisterdienste in Berlin: Gebäudewartung, Facility Management und Instandhaltung rund um die Uhr.',
+  title: `Hausmeisterservice Berlin | BC Hausmeisterservice – Reinigung, Pflege & Objektbetreuung`,
+  description: 'Professioneller Hausmeisterservice Berlin – BC Hausmeisterservice bietet Gebäudepflege, Reinigung, Gartenpflege, Winterdienst & Objektmanagement. Jetzt kostenlos beraten lassen!',
   keywords: keywords.join(', '),
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -79,8 +80,8 @@ export default function HausmeisterservicePage() {
       {/* Statistics & Trust Indicators */}
       <HausmeisterStatistics />
 
-      {/* CTA */}
-      <CTAContact />
+      {/* Custom CTA for Hausmeisterservice */}
+      <HausmeisterCTA />
     </>
   )
 }

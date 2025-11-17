@@ -3,6 +3,9 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header, Footer } from '@/components/sections'
 import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
+import { CookieConsentProvider } from '@/contexts/CookieConsentContext'
+import { CookieConsentBanner } from '@/components/ui/CookieConsentBanner'
+import { CookieSettings } from '@/components/ui/CookieSettings'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -69,15 +72,21 @@ export default function RootLayout({
           Zum Hauptinhalt springen
         </a>
         
-        <MobileMenuProvider>
-          <div className="min-h-screen">
-            <Header />
-            <main id="main-content" className="relative">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </MobileMenuProvider>
+        <CookieConsentProvider>
+          <MobileMenuProvider>
+            <div className="min-h-screen">
+              <Header />
+              <main id="main-content" className="relative">
+                {children}
+              </main>
+              <Footer />
+            </div>
+          </MobileMenuProvider>
+
+          {/* Cookie Consent Components */}
+          <CookieConsentBanner />
+          <CookieSettings />
+        </CookieConsentProvider>
 
         {/* Smooth scrolling script */}
         <script

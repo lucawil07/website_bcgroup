@@ -1215,6 +1215,16 @@ a:focus-visible {
   top: 6px;
 }
 
+/* Hide scrollbar for horizontal scroll on mobile */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari, Opera */
+}
+
 /* ======================================
    PRINT STYLES
    ====================================== */

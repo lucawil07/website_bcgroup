@@ -24,12 +24,12 @@ export default function KurierdienslServiceAreas() {
 
   const stats = [
     { number: '12', label: 'Bezirke in Berlin', icon: MapPin },
-    { number: '30+', label: 'km Lieferradius', icon: TrendingUp },
-    { number: '100%', label: 'Flächendeckung', icon: Zap },
+    { number: 'Bezirks', label: 'abdeckung', icon: Zap },
+    { number: '100%', label: 'Flächendeckung', icon: TrendingUp },
   ]
 
   return (
-    <Section padding="large" className="relative bg-gradient-to-b from-slate-50 via-white to-white overflow-hidden">
+    <Section padding="large" className="relative bg-white overflow-hidden">
       {/* Background animation */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div

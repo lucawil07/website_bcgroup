@@ -136,15 +136,18 @@ export function isLightBackgroundPage(pathname: string): boolean {
 /**
  * Determine if dark text should be used
  * Returns true when:
- * 1. Page is scrolled (header shows glassmorphic background)
- * 2. Page is a light background page (requires dark text for contrast)
+ * 1. Page is a light background page (requires dark text for contrast)
+ * 2. Page is scrolled and not on a dark background page
  */
 export function shouldUseDarkText(isScrolled: boolean, hasDarkBackground: boolean, isLightBackground?: boolean): boolean {
-  // If scrolled, always use dark text on the glass background
-  if (isScrolled) return true
-  
-  // If on a light background page, use dark text for readability
+  // If on a light background page, always use dark text for readability
   if (isLightBackground) return true
+  
+  // If scrolled on a dark background page, keep white text on dark header
+  if (isScrolled && hasDarkBackground) return false
+  
+  // If scrolled on other pages, use dark text
+  if (isScrolled) return true
   
   // On dark pages without scroll, use white text
   return false

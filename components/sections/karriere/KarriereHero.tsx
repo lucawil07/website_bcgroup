@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { Section, Container } from '@/components/ui'
-import { ArrowRight, Briefcase, Users, TrendingUp } from 'lucide-react'
+import { ArrowRight, Users, TrendingUp } from 'lucide-react'
 
 export default function KarriereHero() {
   const [isVisible, setIsVisible] = useState(false)
@@ -28,7 +28,6 @@ export default function KarriereHero() {
 
   const stats = [
     { icon: Users, label: 'Team Members', value: '120+' },
-    { icon: Briefcase, label: 'Open Roles', value: '8+' },
     { icon: TrendingUp, label: 'Growth Rate', value: '45%' },
   ]
 

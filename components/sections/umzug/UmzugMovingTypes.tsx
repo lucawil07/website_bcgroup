@@ -16,6 +16,7 @@ export default function UmzugMovingTypes() {
       features: ['Möbeltransport', 'Ein- & Auspackservice', 'Eventueller Möbelaufbau'],
       color: 'from-orange-500 to-orange-400',
       delay: 0,
+      link: '/services/umzug/privatumzug'
     },
     {
       icon: Briefcase,
@@ -24,6 +25,7 @@ export default function UmzugMovingTypes() {
       features: ['Zeitoptimiert', 'IT-Equipment sicher', 'Dokumententransport versichert'],
       color: 'from-amber-500 to-orange-400',
       delay: 0.1,
+      link: '/services/umzug/firmenumzug'
     },
     {
       icon: Users,
@@ -32,6 +34,7 @@ export default function UmzugMovingTypes() {
       features: ['Extra Zeit', 'Rücksichtsvolle Abläufe', 'Beratung & Unterstützung'],
       color: 'from-orange-400 to-yellow-400',
       delay: 0.2,
+      link: '/services/umzug/seniorenumzug'
     },
     {
       icon: Truck,
@@ -40,6 +43,7 @@ export default function UmzugMovingTypes() {
       features: ['Deutschlandweit', 'GPS-Tracking', 'Versicherungsschutz'],
       color: 'from-red-500 to-orange-500',
       delay: 0.3,
+      link: '/services/umzug/langstreckenumzug'
     },
     {
       icon: LockKeyhole,
@@ -48,14 +52,16 @@ export default function UmzugMovingTypes() {
       features: ['Versichert', 'Flexible Dauer', 'Trocken & klimatisiert'],
       color: 'from-orange-600 to-amber-600',
       delay: 0.4,
+      link: '/services/umzug/lagerloesung'
     },
     {
       icon: Package,
       title: 'Spezialitems',
       description: 'Transport von Kunstgegenständen, Antiquitäten und wertvollen Objekten mit spezialisierten Fachleuten.',
-      features: ['Kunsttransport', 'Piano-Transport', 'Versicherter Transport'],
+      features: ['Klaviertransport', 'Kunsttransport', 'Versicherter Transport'],
       color: 'from-yellow-500 to-orange-400',
       delay: 0.5,
+      link: '/services/umzug/spezialitems'
     },
   ]
 
@@ -64,8 +70,8 @@ export default function UmzugMovingTypes() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0,
       },
     },
   }
@@ -80,7 +86,7 @@ export default function UmzugMovingTypes() {
   }
 
   return (
-    <Section padding="none" background="dark" className="relative overflow-hidden py-20 md:py-32 lg:py-40">
+    <Section padding="none" background="dark" className="relative overflow-hidden py-16 md:py-20 lg:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-950 via-neutral-900 to-neutral-950" />
       <div
         className="absolute inset-0 -z-10 opacity-5"
@@ -175,7 +181,7 @@ export default function UmzugMovingTypes() {
 
               {/* CTA Link */}
               <motion.a
-                href="/kontakt"
+                href={type.link}
                 className="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-wider group/link"
                 whileHover={{ x: 5 }}
               >
@@ -193,7 +199,7 @@ export default function UmzugMovingTypes() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0, duration: 0.6 }}
           viewport={{ once: true }}
           className="mt-20 p-10 rounded-2xl border border-white/10 bg-gradient-to-r from-white/5 to-white/5 backdrop-blur-xl text-center"
         >

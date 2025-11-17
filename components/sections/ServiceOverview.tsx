@@ -73,7 +73,7 @@ export default function ServiceOverview() {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null)
 
   return (
-    <Section id="content-start" background="light" padding="large" className="relative overflow-hidden">
+    <Section id="content-start" background="light" padding="medium" className="relative overflow-hidden">
       {/* Ambient Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 right-10 w-72 h-72 bg-secondary/8 rounded-full blur-3xl opacity-50" />

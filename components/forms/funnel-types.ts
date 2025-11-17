@@ -17,6 +17,8 @@ export interface EntruempelungFormData {
   // Step 4
   specialItems?: string[]
   specialItemsOther?: string
+  hasSondermuell?: boolean
+  sondermuellTypes?: string[]
   
   // Step 5
   needsDismantling: boolean

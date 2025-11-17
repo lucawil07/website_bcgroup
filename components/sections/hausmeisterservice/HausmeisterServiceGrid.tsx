@@ -10,52 +10,46 @@ export default function HausmeisterServiceGrid() {
   const services = [
     {
       icon: Wrench,
-      title: 'Routinewartung',
-      description: 'Regelmäßige Inspektion und Wartung aller Gebäudesysteme',
-      features: ['Monatliche Checks', 'Verschleißteile austausch', 'Dokumentation'],
-      gradient: 'from-purple-600 to-purple-400'
-    },
-    {
-      icon: Zap,
-      title: 'Elektrotechnik',
-      description: 'Wartung und Reparatur der Elektroanlage',
-      features: ['Sicherheitschecks', 'Notfallservice', 'Zertifiziert']
+      title: 'Allgemeine Hausmeistertätigkeiten',
+      description: 'Unsere Hausmeister übernehmen die tägliche Betreuung Ihrer Immobilie – technisch versiert, aufmerksam und zuverlässig.',
+      features: ['Regelmäßige Objektkontrollen innen und außen', 'Kleinreparaturen an Türen, Fenstern, Beleuchtung', 'Wartung technischer Anlagen', 'Schließdienste & Kontrollgänge', 'Ansprechpartner für Mieter und Eigentümer', 'Koordination von Handwerkern'],
+      gradient: 'from-purple-600 to-purple-400',
+      link: '/services/hausmeisterservice/allgemeine-taetigkeiten'
     },
     {
       icon: Droplet,
-      title: 'Sanitär & Heizung',
-      description: 'Wasser- und Heizungssysteme im optimalen Zustand',
-      features: ['Wartung & Reparatur', 'Heiztechnik', 'Rohrreinigung']
-    },
-    {
-      icon: Lightbulb,
-      title: 'Beleuchtung',
-      description: 'Wartung und Optimierung der Beleuchtungssysteme',
-      features: ['LED-Umstellung', 'Notbeleuchtung', 'Energieeffizienz']
+      title: 'Reinigung & Pflege',
+      description: 'Ein sauberes Objekt ist die Basis für zufriedene Bewohner und Kunden. Unser Reinigungsservice sorgt für dauerhaft gepflegte Bereiche.',
+      features: ['Treppenhausreinigung inkl. Beleuchtungskontrolle', 'Keller- und Flurreinigung', 'Fenster- und Glasreinigung', 'Tiefgaragenreinigung', 'Mülltonnenservice – Bereitstellen, Reinigen', 'Fassaden- und Außenreinigung'],
+      link: '/services/hausmeisterservice/reinigung-pflege'
     },
     {
       icon: Leaf,
-      title: 'Reinigung & Grünflächen',
-      description: 'Professionelle Gebäudereinigung und Grünanlagenpflege',
-      features: ['Tägliche Reinigung', 'Garten & Grünflächen', 'Fassaden']
-    },
-    {
-      icon: Hammer,
-      title: 'Reparaturen & Instandhaltung',
-      description: 'Schnelle und zuverlässige Notfallreparaturen',
-      features: ['24/7 Notfall', 'Schnelle Response', 'Garantie']
-    },
-    {
-      icon: AlertCircle,
-      title: 'Sicherheit & Überwachung',
-      description: 'Sicherheitssysteme und Überwachungstechnik',
-      features: ['Kameras', 'Alarmsysteme', 'Zutrittsschutz']
+      title: 'Außen- & Gartenpflege',
+      description: 'Ein gepflegter Außenbereich ist die Visitenkarte jeder Immobilie. Wir kümmern uns professionell um Grünflächen und Außenanlagen.',
+      features: ['Rasen mähen, Hecken schneiden, Unkraut entfernen', 'Bepflanzung, Bewässerung, Laubbeseitigung', 'Pflege von Grünflächen und Spielplätzen', 'Reinigung von Wegen, Terrassen, Parkflächen', 'Beachtung aller Naturschutzbestimmungen', 'Schnittzeiten nach § 39 BNatSchG'],
+      link: '/services/hausmeisterservice/gartenpflege'
     },
     {
       icon: ThermometerSun,
-      title: 'Klimatechnik',
-      description: 'Verwaltung von Lüftungs- und Klimaanlagen',
-      features: ['Wartung & Reinigung', 'Optimierte Raumklimate', 'Energiesparen']
+      title: 'Winterdienst',
+      description: 'BC Hausmeisterservice übernimmt Ihren kompletten Winterdienst in Berlin – pünktlich, gründlich und rechtssicher.',
+      features: ['Schneeräumung und Streudienst', 'Kontrollfahrten bei Schneefall oder Frost', '24/7 Rufbereitschaft in der Wintersaison', 'Dokumentation aller Einsätze', 'Erfüllung der Verkehrssicherungspflicht'],
+      link: '/services/hausmeisterservice/winterdienst'
+    },
+    {
+      icon: Lightbulb,
+      title: 'Objektmanagement & Betreuung',
+      description: 'Wir übernehmen nicht nur die Pflege, sondern auch die Verwaltung und technische Betreuung Ihrer Immobilie.',
+      features: ['Übergabe und Abnahme von Wohnungen', 'Protokollierung und Meldung von Mängeln', 'Postannahme und Schlüsselausgabe', 'Ansprechpartner für Hausverwaltungen', '24/7 Notdienst und Rufbereitschaft'],
+      link: '/services/hausmeisterservice/objektmanagement'
+    },
+    {
+      icon: Hammer,
+      title: 'Sonstige Zusatzleistungen',
+      description: 'Flexible Zusatzservices – individuell auf Ihre Anforderungen abgestimmt und fachgerecht umgesetzt.',
+      features: ['Entrümpelungen & Sperrmüllservice', 'Kleintransporte innerhalb des Objekts', 'Montagearbeiten (Schilder, Möbel, Ausstattung)'],
+      link: '/services/hausmeisterservice/zusatzleistungen'
     }
   ]
 
@@ -64,8 +58,8 @@ export default function HausmeisterServiceGrid() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
+        staggerChildren: 0.06,
+        delayChildren: 0,
       },
     },
   }
@@ -79,7 +73,7 @@ export default function HausmeisterServiceGrid() {
   }
 
   return (
-    <Section padding="large" className="relative bg-gradient-to-b from-white via-slate-50 to-white">
+    <Section id="hausmeisterservice-leistungen" padding="large" className="relative bg-gradient-to-b from-white via-slate-50 to-white">
       <Container size="wide">
         {/* Header */}
         <motion.div
@@ -96,15 +90,15 @@ export default function HausmeisterServiceGrid() {
             className="inline-block text-sm font-bold uppercase tracking-widest mb-4"
             style={{ color: hausmeisterAccent }}
           >
-            Unsere Leistungen
+            Unsere Leistungen im Überblick
           </motion.span>
           <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-            Umfassender Service
+            Komplette Hausmeisterdienste
             <br />
-            <span style={{ color: hausmeisterAccent }}>für jede Situation</span>
+            <span style={{ color: hausmeisterAccent }}>individuell kombinierbar</span>
           </h2>
           <p className="text-lg text-neutral-600 max-w-3xl mx-auto">
-            Von täglicher Instandhaltung bis zu Notfallreparaturen – wir bieten ein vollständiges Spektrum von Hausmeisterdiensten für Ihre Liegenschaft
+            Wir bieten komplette Hausmeisterdienste in Berlin – individuell kombinierbar, effizient und rechtssicher ausgeführt
           </p>
         </motion.div>
 
@@ -182,15 +176,16 @@ export default function HausmeisterServiceGrid() {
                   </div>
 
                   {/* Animated Arrow */}
-                  <motion.div
+                  <motion.a
+                    href={service.link}
                     className="mt-6 flex items-center gap-2 font-semibold transition-all group-hover:translate-x-2"
                     style={{ color: hausmeisterAccent }}
                   >
-                    <span className="text-sm">Details</span>
+                    <span className="text-sm">Details ansehen</span>
                     <motion.span animate={{ x: [0, 4, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                       →
                     </motion.span>
-                  </motion.div>
+                  </motion.a>
                 </div>
 
                 {/* Glow effect on hover */}
@@ -217,7 +212,7 @@ export default function HausmeisterServiceGrid() {
           </p>
           <a href="/kontakt" className="inline-block">
             <button
-              className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white transition-all duration-300"
+              className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-105"
               style={{ background: hausmeisterAccent }}
             >
               Beratung vereinbaren

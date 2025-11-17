@@ -150,7 +150,7 @@ export default function DankePage() {
               </h2>
               <p className="text-lg text-white/90 mb-8 leading-relaxed">
                 Sie möchten noch schneller eine Antwort? Schreiben Sie uns direkt per WhatsApp – 
-                wir antworten in der Regel innerhalb weniger Minuten!
+                wir antworten in der Regel innerhalb von 10 Minuten!
               </p>
 
               <a

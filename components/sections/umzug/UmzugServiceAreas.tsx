@@ -52,8 +52,8 @@ export default function UmzugServiceAreas() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.05,
-        delayChildren: 0.1,
+        staggerChildren: 0.04,
+        delayChildren: 0,
       },
     },
   }
@@ -68,7 +68,7 @@ export default function UmzugServiceAreas() {
   }
 
   return (
-    <Section padding="none" background="light" className="bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden py-20 md:py-32 lg:py-40">
+    <Section padding="none" background="light" className="bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden py-16 md:py-20 lg:py-24">
       {/* Background accent */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -147,7 +147,7 @@ export default function UmzugServiceAreas() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="mb-12"
         >
@@ -195,7 +195,7 @@ export default function UmzugServiceAreas() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="relative rounded-2xl overflow-hidden"
           style={{ background: `linear-gradient(135deg, ${umzugAccent}15, ${umzugAccent}5)` }}
@@ -224,31 +224,6 @@ export default function UmzugServiceAreas() {
           </div>
         </motion.div>
 
-        {/* Map Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-16 rounded-2xl overflow-hidden border border-neutral-200 bg-neutral-100 h-96"
-        >
-          <div className="w-full h-full flex items-center justify-center">
-            <div className="text-center space-y-4">
-              <motion.div
-                className="inline-flex p-6 rounded-full"
-                style={{ background: `${umzugAccent}20` }}
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 3, repeat: Infinity }}
-              >
-                <MapPin className="w-12 h-12" style={{ color: umzugAccent }} />
-              </motion.div>
-              <div>
-                <p className="text-neutral-600 font-semibold">Servicegebiet auf Google Maps</p>
-                <p className="text-neutral-500 text-sm">Klicken Sie hier um unser Servicegebiet zu erkunden</p>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </Container>
     </Section>
   )

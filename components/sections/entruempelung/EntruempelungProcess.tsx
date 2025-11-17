@@ -11,17 +11,17 @@ export default function EntruempelungProcess() {
     {
       number: '01',
       title: 'Kontakt & Beratung',
-      description: 'Einfacher Anruf oder Online-Formular. Wir beschreiben kurz was entrümpelt werden muss.',
+      description: 'Einfacher Anruf oder Online-Formular. Sie beschreiben kurz was entrümpelt werden muss.',
       icon: Phone,
-      details: ['Kostenlose Beratung', 'Unverbindlich', 'Sofortiges Angebot'],
+      details: ['Kostenlose Beratung', 'Unverbindlich'],
       color: '#065f46'
     },
     {
       number: '02',
-      title: 'Besichtigung',
+      title: 'Kostenloses Vor-Ort-Angebot',
       description: 'Wir schauen uns vor Ort an, was entrümpelt werden soll und erstellen ein konkretes Angebot.',
       icon: SearchCheck,
-      details: ['Vor-Ort-Besichtigung', 'Exakte Kalkulation', 'Sichere Angebote'],
+      details: ['Vor-Ort-Besichtigung', 'Exakte Kalkulation', 'Festes Angebot'],
       color: '#047857'
     },
     {
@@ -34,8 +34,8 @@ export default function EntruempelungProcess() {
     },
     {
       number: '04',
-      title: 'Entsorgung vor Ort',
-      description: 'Unser Team entrümpelt professionell und diskret. Alle Materialien werden sortiert.',
+      title: 'Entrümpelung vor Ort',
+      description: 'Unser Team entrümpelt professionell und diskret.',
       icon: Truck,
       details: ['Schnelle Durchführung', 'Professionelle Teams', 'Diskrete Abwicklung'],
       color: '#10b981'

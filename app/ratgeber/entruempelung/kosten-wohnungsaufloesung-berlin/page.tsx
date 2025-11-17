@@ -1,0 +1,37 @@
+import { Metadata } from 'next'
+import Link from 'next/link'
+import { Container, Section } from '@/components/ui'
+import { ArrowLeft } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'Kosten Wohnungsauflösung Berlin - Preise & Faktoren | BC Group',
+  description: 'Was kostet eine Wohnungsauflösung in Berlin? Alle Kostenfaktoren, Preisbeispiele und Spartipps im Überblick. ✓ Transparente Preise',
+  keywords: 'kosten wohnungsauflösung berlin, wohnungsauflösung preis berlin, entrümpelung kosten',
+}
+
+export default function KostenWohnungsaufloesungBerlinPage() {
+  return (
+    <Section background="white" padding="large">
+      <Container size="default">
+        <div className="max-w-4xl mx-auto">
+          <Link href="/ratgeber/entruempelung/wohnungsaufloesung-berlin" className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 mb-8">
+            <ArrowLeft className="w-4 h-4" />
+            Zurück zu Wohnungsauflösung Berlin
+          </Link>
+          
+          <h1 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
+            Kosten Wohnungsauflösung Berlin
+          </h1>
+          
+          <p className="text-xl text-neutral-600 mb-8">
+            Transparente Preisübersicht für Wohnungsauflösungen in Berlin.
+          </p>
+          
+          <div className="prose prose-lg max-w-none">
+            <p>Inhalte folgen in Kürze...</p>
+          </div>
+        </div>
+      </Container>
+    </Section>
+  )
+}

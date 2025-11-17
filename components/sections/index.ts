@@ -9,6 +9,8 @@ export { default as CTAContact } from './CTAContact'
 export { default as ServiceHero } from './ServiceHero'
 export { default as ServiceBenefits } from './ServiceBenefits'
 export { default as KeywordsShowcase } from './KeywordsShowcase'
+export { default as ReferenceLogos } from './ReferenceLogos'
+export { default as PartnerSection } from './PartnerSection'
 
 // Career sections
 export {

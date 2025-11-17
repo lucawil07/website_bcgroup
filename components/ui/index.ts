@@ -24,6 +24,8 @@ export { default as Textarea } from './Textarea'
 
 export { default as Logo } from './Logo'
 
+export { default as Breadcrumb } from './Breadcrumb'
+
 export { 
   Layout,
   LoadingSpinner,

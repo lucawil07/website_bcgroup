@@ -9,12 +9,9 @@ export default function ReinigungModernHero() {
   const reinigungPrimary = '#0f2f51'
 
   return (
-    <Section padding="none" className="relative overflow-hidden pt-32 md:pt-40 lg:pt-48 pb-20 md:pb-32 lg:pb-40">
-      {/* Advanced Gradient Background - Full coverage */}
-      <div className="fixed inset-0 -z-20 h-screen w-full">
-        {/* Base gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-cyan-950 to-neutral-900" />
-        
+    <Section padding="none" className="relative overflow-hidden py-32 md:py-40 lg:py-48 bg-gradient-to-br from-slate-950 via-cyan-950 to-neutral-900">
+      {/* Advanced Background with Motion Elements */}
+      <div className="absolute inset-0 -z-10">
         {/* Animated cyan orbs - reduced movement */}
         <motion.div
           className="absolute top-10 left-10 w-72 h-72 rounded-full opacity-20"
@@ -42,8 +39,6 @@ export default function ReinigungModernHero() {
             backgroundSize: '60px 60px'
           }}
         />
-
-        {/* Floating particles - removed */}
       </div>
 
       <Container size="wide">
@@ -63,7 +58,7 @@ export default function ReinigungModernHero() {
             >
               <Zap className="w-4 h-4" style={{ color: reinigungAccent }} />
               <span className="text-xs md:text-sm font-bold uppercase tracking-widest" style={{ color: reinigungAccent }}>
-                Premium Gebäudereinigung seit 20+ Jahren
+                Professionelle Teams – saubere Ergebnisse
               </span>
             </motion.div>
 
@@ -132,9 +127,14 @@ export default function ReinigungModernHero() {
               transition={{ delay: 0.6, duration: 0.8 }}
               className="flex flex-col sm:flex-row gap-4 pt-4"
             >
-              <a href="/kontakt" className="group">
+              <motion.a 
+                href="/kontakt" 
+                className="group"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
                 <button
-                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white transition-all duration-300 relative overflow-hidden"
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold uppercase tracking-wider text-white transition-all duration-300 relative overflow-hidden shadow-lg hover:shadow-xl"
                   style={{ background: `linear-gradient(135deg, ${reinigungAccent}, ${reinigungPrimary})` }}
                 >
                   <span className="relative z-10 flex items-center justify-center gap-2">
@@ -151,13 +151,19 @@ export default function ReinigungModernHero() {
                     transition={{ duration: 0.6 }}
                   />
                 </button>
-              </a>
-              <button
-                className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 text-white"
-                style={{ borderColor: reinigungAccent, color: reinigungAccent }}
+              </motion.a>
+              <motion.a
+                href="/ratgeber/reinigung-berlin"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Leistungen erkunden
-              </button>
+                <button
+                  className="w-full sm:w-auto px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 shadow-lg hover:shadow-xl hover:bg-cyan-500/10"
+                  style={{ borderColor: reinigungAccent, color: reinigungAccent }}
+                >
+                  Weitere Infos
+                </button>
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -227,10 +233,10 @@ export default function ReinigungModernHero() {
             >
               <div className="space-y-4 h-full flex flex-col justify-between">
                 <div>
-                  <p className="text-4xl font-black" style={{ color: reinigungAccent }}>98%</p>
+                  <p className="text-4xl font-black" style={{ color: reinigungAccent }}>100%</p>
                   <p className="text-base font-bold mt-2 text-white">Kunden<br />zufriedenheit</p>
                 </div>
-                <p className="text-xs font-semibold text-white/70 uppercase tracking-wider">Bewertung: 4.9★</p>
+                <p className="text-xs font-semibold text-white/70 uppercase tracking-wider">Bewertung: 5.0★</p>
               </div>
             </motion.div>
           </motion.div>

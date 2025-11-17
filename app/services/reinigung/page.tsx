@@ -69,9 +69,6 @@ export default function ReinigungPage() {
       {/* Process Timeline */}
       <ReinigungProcess />
 
-      {/* Area Coverage & Statistics */}
-      <ReinigungAreaShowcase />
-
       {/* CTA */}
       <CTAContact />
     </>

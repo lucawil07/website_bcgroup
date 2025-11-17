@@ -17,26 +17,8 @@ export default function AbrissExpertise() {
     {
       icon: Users,
       title: 'Erfahrenes Team',
-      description: '50+ spezialisierte Fachkräfte mit durchschnittlich 15 Jahren Erfahrung',
-      details: ['Abrissmeister', 'Schadstoff-Experten', 'Projektmanager']
-    },
-    {
-      icon: Award,
-      title: 'Auszeichnungen',
-      description: 'Mehrfach ausgezeichnet für Qualität und Nachhaltigkeit',
-      details: ['Green Building Award 2023', 'Kundenservice Excellence', 'Innovationspreis']
-    },
-    {
-      icon: Zap,
-      title: 'Modernste Technik',
-      description: 'Investition in innovative Abrisstechnologien für optimale Ergebnisse',
-      details: ['Laser-Schneidetechnik', 'Robotik-Demontage', 'Vibrationsüberwachung']
-    },
-    {
-      icon: BookOpen,
-      title: 'Kontinuierliche Schulung',
-      description: 'Regelmäßige Fortbildungen für unser gesamtes Team',
-      details: ['Jährliche Trainings', 'Neue Technologien', 'Sicherheitsupdates']
+      description: 'Erfahrene Profis aus allen Bereichen des Rückbaus arbeiten Hand in Hand',
+      details: ['Fachgerechte Ausführung aller Arbeiten', 'Sorgsamer Umgang mit Materialien und Umwelt', 'Zuverlässige Koordination und Projektbetreuung']
     },
     {
       icon: Target,
@@ -173,7 +155,7 @@ export default function AbrissExpertise() {
               Vertrauen Sie auf bewährte Expertise
             </h3>
             <p className="text-white/95 text-lg leading-relaxed mb-8">
-              Mit über 500 erfolgreich durchgeführten Projekten und einer 100%-igen Kundenzufriedenheitsrate ist BC Group Ihr verlässlicher Partner für sichere und professionelle Abrissarbeiten in Berlin.
+              Mit über 90 erfolgreich durchgeführten Projekten und einer 100%-igen Kundenzufriedenheitsrate ist BC Group Ihr verlässlicher Partner für sichere und professionelle Abrissarbeiten in Berlin.
             </p>
             <a href="/kontakt" className="inline-block">
               <button className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider bg-white text-amber-900 hover:bg-neutral-100 transition-all duration-300">

@@ -1,22 +1,25 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Container, Section } from '@/components/ui'
 import { useFunnelModal } from './EntruempelungFunnelWrapper'
 import { Home, Warehouse, Building2, Leaf, Users, Clock } from 'lucide-react'
 
 export default function EntruempelungServiceShowcase() {
   const accent = '#10b981'
+  const router = useRouter()
   const { openFunnel } = useFunnelModal()
   
   const services = [
     {
       icon: Home,
-      title: 'Wohnungsentrümpelung',
-      description: 'Von der Single-Wohnung bis zum Palazzo - wir räumen professionell leer',
+      title: 'Wohnungsauflösung',
+      description: 'Von der Single-Wohnung bis zum Palazzo – von geringem Füllstand zu Extremfällen – wir räumen professionell leer',
       features: ['Schnelle Räumung', 'Schonung der Wände', 'Vollständige Entsorgung'],
       size: 'large',
-      color: '#065f46'
+      color: '#065f46',
+      link: '/services/entruempelung/wohnungsaufloesung'
     },
     {
       icon: Warehouse,
@@ -24,31 +27,35 @@ export default function EntruempelungServiceShowcase() {
       description: 'Überfüllte Keller komplett geleert und gesäubert',
       features: ['Tiefgaragen', 'Lagerkeller', 'Überbau-Kammern'],
       size: 'small',
-      color: '#047857'
+      color: '#047857',
+      link: '/services/entruempelung/kellerbereiche'
     },
     {
       icon: Building2,
-      title: 'Speicher & Dachböden',
-      description: 'Sichere Leerung auch unter schwierigen Bedingungen',
-      features: ['Sichere Arbeitsweise', 'Enge Räume', 'Höhenzulagen'],
+      title: 'Baustellen',
+      description: 'Professionelle Baustellenräumung und Schuttentsorgung',
+      features: ['Sichere Arbeitsweise', 'Fachgerechte Entsorgung', 'Schnelle Abwicklung'],
       size: 'small',
-      color: '#059669'
+      color: '#059669',
+      link: '/services/entruempelung/baustellen'
     },
     {
       icon: Leaf,
-      title: 'Nachlass-Verwaltung',
+      title: 'Nachlassverwaltung',
       description: 'Sensible Hausräumung mit taktvollem Umgang',
       features: ['Wertschätzender Service', 'Schnelle Abwicklung', 'Entlastung für Familien'],
       size: 'large',
-      color: '#10b981'
+      color: '#10b981',
+      link: '/services/entruempelung/nachlassverwaltung'
     },
     {
       icon: Users,
       title: 'Gewerbliche Räumung',
-      description: 'Komplette Leerung von Büros, Läden und Werkstätten',
+      description: 'Komplette Leerung von Büros, Läden und Lagerhallen',
       features: ['Flexible Zeitfenster', 'Diskrete Abwicklung', 'Große Mengen'],
       size: 'small',
-      color: '#34d399'
+      color: '#34d399',
+      link: '/services/entruempelung/gewerbliche-raeumung'
     },
     {
       icon: Clock,
@@ -56,7 +63,8 @@ export default function EntruempelungServiceShowcase() {
       description: 'Notfall-Entrümpelung innerhalb von 48 Stunden',
       features: ['Sofort verfügbar', 'Kurze Termine', 'Flexible Planung'],
       size: 'small',
-      color: '#6ee7b7'
+      color: '#6ee7b7',
+      link: '/services/entruempelung/express-service'
     }
   ]
 
@@ -181,7 +189,8 @@ export default function EntruempelungServiceShowcase() {
 
                   {/* Arrow CTA */}
                   <motion.div
-                    className="mt-6 flex items-center gap-2 font-semibold transition-all group-hover:translate-x-2"
+                    onClick={() => router.push(service.link)}
+                    className="mt-6 flex items-center gap-2 font-semibold transition-all group-hover:translate-x-2 cursor-pointer"
                     style={{ color: accent }}
                   >
                     <span className="text-sm">Erfahren Sie mehr</span>

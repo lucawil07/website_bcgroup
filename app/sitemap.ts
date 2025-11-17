@@ -43,6 +43,38 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }))
 
+  // Abriss sub-service pages
+  const abrissSubServices = [
+    'gebaeudeabriss',
+    'selektive-demontage',
+    'recycling-entsorgung',
+    'genehmigungen',
+  ]
+
+  const abrissSubServiceRoutes = abrissSubServices.map((subService) => ({
+    url: `${baseUrl}/services/abriss/${subService}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
+  // Entrümpelung sub-service pages
+  const entruempelungSubServices = [
+    'wohnungsaufloesung',
+    'kellerbereiche',
+    'baustellen',
+    'nachlassverwaltung',
+    'gewerbliche-raeumung',
+    'express-service',
+  ]
+
+  const entruempelungSubServiceRoutes = entruempelungSubServices.map((subService) => ({
+    url: `${baseUrl}/services/entruempelung/${subService}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }))
+
   // Blog pages
   const blogRoutes = [
     {
@@ -71,5 +103,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ]
 
-  return [...routes, ...serviceRoutes, ...blogRoutes]
+  return [...routes, ...serviceRoutes, ...abrissSubServiceRoutes, ...entruempelungSubServiceRoutes, ...blogRoutes]
 }

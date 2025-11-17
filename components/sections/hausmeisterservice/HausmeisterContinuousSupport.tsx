@@ -15,28 +15,28 @@ export default function HausmeisterContinuousSupport() {
 
   const supportFeatures = [
     {
-      title: 'Schnelle Reaktion',
-      description: 'Notfallreparaturen innerhalb von 1 Stunde verfügbar',
-      Icon: Zap,
-      stat: '60 Min'
-    },
-    {
-      title: 'Proaktive Wartung',
-      description: 'Regelmäßige Inspektionen zur Vermeidung von Problemen',
+      title: 'Dauerhaft gepflegte Gebäude',
+      description: 'Gebäude und Außenanlagen in bestem Zustand',
       Icon: Shield,
-      stat: 'Monatlich'
+      stat: 'Täglich'
     },
     {
-      title: 'Digitale Verwaltung',
-      description: 'Online-Portal zur Anforderung und Verfolgung von Services',
-      Icon: Smartphone,
-      stat: 'Echtzeit'
+      title: 'Weniger Verwaltungsaufwand',
+      description: 'Wir kümmern uns um alle organisatorischen Aufgaben',
+      Icon: CheckCircle2,
+      stat: 'Entlastet'
     },
     {
-      title: 'Notfallannahme',
-      description: 'Telefonische und digitale Erreichbarkeit rund um die Uhr',
+      title: 'Schnelle Reaktionszeit',
+      description: 'Bei Problemen sind wir innerhalb kürzester Zeit vor Ort',
+      Icon: Zap,
+      stat: '< 1 Std'
+    },
+    {
+      title: 'Klare Kostenstruktur',
+      description: 'Transparente Dokumentation aller Leistungen',
       Icon: Phone,
-      stat: '24/7'
+      stat: 'Transparent'
     }
   ]
 
@@ -62,12 +62,12 @@ export default function HausmeisterContinuousSupport() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-black text-neutral-900 mb-6">
-            Rund um die Uhr
+            Warum ein Hausmeisterservice
             <br />
-            <span style={{ color: hausmeisterAccent }}>für Sie verfügbar</span>
+            <span style={{ color: hausmeisterAccent }}>in Berlin unverzichtbar ist</span>
           </h2>
           <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
-            Egal wann ein Problem auftritt – unsere Teams sind bereit, schnell zu handeln
+            Ein qualifizierter Hausmeister sorgt für Ordnung, Sicherheit und Funktionalität – ob Mietshaus, Büro oder Gewerbeimmobilie
           </p>
         </motion.div>
 
@@ -137,7 +137,7 @@ export default function HausmeisterContinuousSupport() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
@@ -146,7 +146,7 @@ export default function HausmeisterContinuousSupport() {
               key={index}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.4 }}
+              transition={{ delay: index * 0.05, duration: 0.4 }}
               viewport={{ once: true }}
               className="relative group"
             >
@@ -190,7 +190,7 @@ export default function HausmeisterContinuousSupport() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="relative rounded-3xl overflow-hidden p-12 lg:p-16 border-2"
           style={{ borderColor: hausmeisterAccent, background: `${hausmeisterAccent}08` }}

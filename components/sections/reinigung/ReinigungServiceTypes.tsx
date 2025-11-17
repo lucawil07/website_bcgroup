@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Container, Section } from '@/components/ui'
-import { Briefcase, Building2, Home, Stethoscope, ArrowUpRight, Wrench } from 'lucide-react'
+import { Briefcase, Building2, Home, Stethoscope, ArrowUpRight, Wrench, Clock, Hotel, Film, HardHat, HomeIcon, Trash2, CalendarCheck } from 'lucide-react'
 
 export default function ReinigungServiceTypes() {
   const reinigungAccent = '#06b6d4'
@@ -13,42 +13,96 @@ export default function ReinigungServiceTypes() {
       title: 'Büroreinigung',
       description: 'Tägliche und wöchentliche Reinigung von Büroflächen für optimale Hygiene und Produktivität',
       features: ['Tägliche Wartung', 'Ergonomische Arbeitsweise', 'Diskrete Durchführung'],
-      color: 'from-blue-500 to-cyan-500'
+      color: 'from-blue-500 to-cyan-500',
+      link: '/services/reinigung/bueroreinigung'
     },
     {
       icon: Building2,
       title: 'Gebäudereinigung',
-      description: 'Professionelle Außen- und Innenfassadenreinigung sowie Fensterreinigung in Höhen',
-      features: ['Höhenarbeit zertifiziert', 'Moderne Technologie', '100% sicher'],
-      color: 'from-cyan-500 to-teal-500'
+      description: 'Professionelle Außen- und Innenfassadenreinigung sowie Fensterreinigung',
+      features: ['Zuverlässig & termintreu', 'Moderne Technologie', '100 % sicher'],
+      color: 'from-cyan-500 to-teal-500',
+      link: '/services/reinigung/gebaeudereinigung'
     },
     {
       icon: Home,
       title: 'Grundreinigung',
       description: 'Intensive Tiefenreinigung für Wohnungen, Häuser und Gewerberäume',
       features: ['Gründliche Reinigung', 'Alle Oberflächen', 'ECO-Produkte'],
-      color: 'from-teal-500 to-emerald-500'
+      color: 'from-teal-500 to-emerald-500',
+      link: '/services/reinigung/grundreinigung'
     },
     {
       icon: Stethoscope,
       title: 'Praxisreinigung',
       description: 'Spezielle Hygieneanforderungen für medizinische und zahnmedizinische Praxen',
-      features: ['Hygienestandards', 'Zertifizierte Verfahren', 'Regelmäßig'],
-      color: 'from-emerald-500 to-cyan-500'
+      features: ['Zuverlässigkeit – 365 Tage im Jahr', 'Fachgerechte Verfahren', 'Hygienestandards'],
+      color: 'from-emerald-500 to-cyan-500',
+      link: '/services/reinigung/praxisreinigung'
     },
     {
       icon: ArrowUpRight,
       title: 'Treppenhausreinigung',
       description: 'Regelmäßige und gründliche Reinigung von Treppenhäusern und Gemeinschaftsbereichen',
       features: ['Wöchentlich buchbar', 'Diskret & effizient', 'Zuverlässig'],
-      color: 'from-cyan-500 to-blue-500'
+      color: 'from-cyan-500 to-blue-500',
+      link: '/services/reinigung/treppenhausreinigung'
+    },
+    {
+      icon: Clock,
+      title: 'Unterhaltsreinigung',
+      description: 'Regelmäßige professionelle Reinigung für langfristig gepflegte Räumlichkeiten',
+      features: ['Flexibel planbar', 'Kontinuierliche Qualität', 'Kosteneffizient'],
+      color: 'from-blue-500 to-indigo-500',
+      link: '/services/reinigung/unterhaltsreinigung'
+    },
+    {
+      icon: Hotel,
+      title: 'Hotelreinigung',
+      description: 'Spezialisierte Reinigung für Hotels mit höchsten Hygiene- und Servicestandards',
+      features: ['24/7 Service', 'Gastorientiert', 'Diskret & schnell'],
+      color: 'from-indigo-500 to-purple-500',
+      link: '/services/reinigung/hotelreinigung'
+    },
+    {
+      icon: Film,
+      title: 'Kinoreinigung',
+      description: 'Professionelle Kinosaalreinigung zwischen Vorstellungen und Tiefenreinigung',
+      features: ['Zeiteffizient', 'Gründliche Säuberung', 'Erfahrenes Team'],
+      color: 'from-purple-500 to-pink-500',
+      link: '/services/reinigung/kinoreinigung'
+    },
+    {
+      icon: HardHat,
+      title: 'Baureinigung',
+      description: 'Gründliche Endreinigung nach Bau- und Renovierungsarbeiten',
+      features: ['Baustaubenfernung', 'Feinreinigung', 'Abnahmebereit'],
+      color: 'from-orange-500 to-red-500',
+      link: '/services/reinigung/baureinigung'
+    },
+    {
+      icon: HomeIcon,
+      title: 'Wohnungsreinigung',
+      description: 'Professionelle Reinigung von Wohnungen und Apartments nach Ihren Wünschen',
+      features: ['Individuell anpassbar', 'Zuverlässig', 'Vertrauensvoll'],
+      color: 'from-green-500 to-teal-500',
+      link: '/services/reinigung/wohnungsreinigung'
+    },
+    {
+      icon: Trash2,
+      title: 'Mülltonnenreinigung',
+      description: 'Hygienische Reinigung und Desinfektion von Mülltonnen und Abfallbehältern',
+      features: ['Geruchsneutral', 'Desinfiziert', 'Umweltfreundlich'],
+      color: 'from-lime-500 to-green-500',
+      link: '/services/reinigung/muelltonnenreinigung'
     },
     {
       icon: Wrench,
       title: 'Spezialreinigung',
       description: 'Maßgeschneiderte Reinigungslösungen für individuelle Anforderungen',
       features: ['Flexibel einsetzbar', 'Anfrage-basiert', 'Professionell'],
-      color: 'from-blue-500 to-purple-500'
+      color: 'from-slate-500 to-gray-500',
+      link: '/services/reinigung/spezialreinigung'
     }
   ]
 
@@ -155,9 +209,10 @@ export default function ReinigungServiceTypes() {
 
                   {/* CTA Link */}
                   <motion.a
-                    href="/kontakt"
-                    className="mt-6 inline-flex items-center gap-2 font-semibold transition-all group/link"
+                    href={service.link}
+                    className="mt-6 inline-flex items-center gap-2 font-semibold transition-all group/link hover:gap-3"
                     style={{ color: reinigungAccent }}
+                    whileHover={{ x: 5 }}
                   >
                     <span className="text-sm">Details anschauen</span>
                     <span>→</span>

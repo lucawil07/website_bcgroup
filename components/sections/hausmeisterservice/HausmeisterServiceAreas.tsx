@@ -14,7 +14,7 @@ export default function HausmeisterServiceAreas() {
       icon: Home,
       coverage: ['Treppenhaus-Reinigung', 'Hof & Grünanlagen', 'Beleuchtung'],
       color: 'from-blue-500 to-cyan-400',
-      stat: '450+ Gebäude'
+      stat: '70+ Gebäude'
     },
     {
       category: 'Bürogebäude',
@@ -22,7 +22,7 @@ export default function HausmeisterServiceAreas() {
       icon: Building2,
       coverage: ['Facility Management', 'Energieoptimierung', 'Sicherheit'],
       color: 'from-purple-500 to-pink-400',
-      stat: '280+ Objekte'
+      stat: '25+ Objekte'
     },
     {
       category: 'Gewerbe & Industrie',
@@ -30,7 +30,7 @@ export default function HausmeisterServiceAreas() {
       icon: Factory,
       coverage: ['Technische Systeme', 'Wartung & Service', 'Sicherheit'],
       color: 'from-orange-500 to-red-400',
-      stat: '85+ Anlagen'
+      stat: '15+ Anlagen'
     },
     {
       category: 'Einzelhandel',
@@ -38,7 +38,7 @@ export default function HausmeisterServiceAreas() {
       icon: Store,
       coverage: ['Ladenbau-Maß', 'Einkaufszentren-Service', 'Kundenzone'],
       color: 'from-green-500 to-emerald-400',
-      stat: '180+ Standorte'
+      stat: '20+ Standorte'
     }
   ]
 
@@ -56,8 +56,8 @@ export default function HausmeisterServiceAreas() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1,
+        staggerChildren: 0.08,
+        delayChildren: 0,
       },
     },
   }
@@ -180,11 +180,11 @@ export default function HausmeisterServiceAreas() {
           })}
         </motion.div>
 
-        {/* Regional Coverage */}
+        {/* Bottom CTA - removed regional coverage and map */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="relative rounded-3xl overflow-hidden p-12 lg:p-16 border-2"
           style={{ borderColor: hausmeisterAccent, background: `linear-gradient(135deg, ${hausmeisterAccent}08, transparent)` }}
@@ -201,57 +201,21 @@ export default function HausmeisterServiceAreas() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl font-black text-neutral-900 mb-12 flex items-center gap-3"
+              className="text-2xl md:text-3xl font-black text-neutral-900 mb-6 flex items-center gap-3 justify-center"
             >
               <MapPin className="w-8 h-8" style={{ color: hausmeisterAccent }} />
-              Berliner Bezirke - Abdeckung
+              Überall in Berlin für Sie da
             </motion.h3>
 
-            {/* Regional Bars */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {regions.map((region, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1, duration: 0.5 }}
-                  viewport={{ once: true }}
-                  className="space-y-2"
-                >
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold text-neutral-900">{region.name}</p>
-                    <p className="text-sm font-bold" style={{ color: hausmeisterAccent }}>
-                      {region.percentage}%
-                    </p>
-                  </div>
-
-                  {/* Progress bar */}
-                  <motion.div
-                    className="h-3 rounded-full overflow-hidden bg-neutral-200"
-                  >
-                    <motion.div
-                      className="h-full rounded-full"
-                      style={{ background: hausmeisterAccent }}
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${region.percentage}%` }}
-                      transition={{ duration: 0.8, delay: index * 0.1 }}
-                      viewport={{ once: true }}
-                    />
-                  </motion.div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Bottom Info */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.5 }}
               viewport={{ once: true }}
-              className="mt-12 pt-8 border-t border-neutral-200"
+              className="text-center"
             >
-              <p className="text-neutral-700">
-                Mit <span className="font-bold">12 dezentralen Servicecentern</span> sind wir strategisch über ganz Berlin verteilt. Das ermöglicht schnelle Reaktionszeiten und persönliche Betreuung in jedem Bezirk.
+              <p className="text-neutral-700 text-lg max-w-3xl mx-auto">
+                Mit strategisch verteilten Servicecentern sind wir schnell vor Ort. Das ermöglicht schnelle Reaktionszeiten und persönliche Betreuung in jedem Bezirk.
               </p>
             </motion.div>
           </div>

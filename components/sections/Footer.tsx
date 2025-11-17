@@ -1,8 +1,12 @@
+'use client';
+
 import Link from 'next/link'
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react'
+import { useCookieConsent } from '@/contexts/CookieConsentContext'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+  const { openSettings } = useCookieConsent()
 
   return (
     <footer className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white overflow-hidden">
@@ -115,20 +119,12 @@ export default function Footer() {
               {/* Öffnungszeiten & Zertifikate */}
               <div className="col-span-2 md:col-span-1">
                 <h3 className="text-sm font-black uppercase tracking-[0.2em] mb-6 text-white">
-                  Öffnungszeiten
+                  Erreichbarkeit
                 </h3>
                 <div className="space-y-3 text-sm text-white/90 font-medium">
-                  <div className="flex justify-between gap-4">
-                    <span>Mo - Fr:</span>
-                    <span className="font-bold text-white">07:00 - 18:00</span>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <span>Samstag:</span>
-                    <span className="font-bold text-white">08:00 - 14:00</span>
-                  </div>
-                  <div className="flex justify-between gap-4">
-                    <span>Sonntag:</span>
-                    <span className="font-bold text-white">Geschlossen</span>
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span className="text-accent font-bold text-lg">24/7 Online</span>
                   </div>
                 </div>
               </div>
@@ -161,6 +157,12 @@ export default function Footer() {
                     {link.label}
                   </Link>
                 ))}
+                <button
+                  onClick={openSettings}
+                  className="text-white/80 hover:text-white font-medium transition-colors"
+                >
+                  Cookie-Einstellungen
+                </button>
               </div>
 
               {/* Social Media */}

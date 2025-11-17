@@ -111,9 +111,9 @@ export default function EntruempelungPremiumHero() {
               className="grid grid-cols-3 gap-4 py-6 border-y border-emerald-400/20"
             >
               {[
-                { value: '10K+', label: 'Räume geleert' },
+                { value: '2K+', label: 'Räume geleert' },
                 { value: '48h', label: 'Durchschnittliche Bearbeitung' },
-                { value: '500T', label: 'Material recycelt' }
+                { value: '800T', label: 'Material recycelt' }
               ].map((metric, idx) => (
                 <div key={idx} className="text-center group cursor-default">
                   <motion.div
@@ -178,7 +178,10 @@ export default function EntruempelungPremiumHero() {
                 </motion.span>
               </motion.button>
               <motion.button
-                onClick={() => router.push('/services/entruempelung/anfrage')}
+                onClick={() => {
+                  router.push('/ratgeber/entruempelung')
+                  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 100)
+                }}
                 className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2"
                 style={{ borderColor: accent, color: accent }}
                 whileHover={{ backgroundColor: `${accent}15` }}

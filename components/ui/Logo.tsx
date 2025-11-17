@@ -20,7 +20,9 @@ export default function Logo({ isScrolled = false, service = null, useDarkText =
   
   const badgeStyle = service
     ? { backgroundColor: colors.primary, color: colors.accent }
-    : { backgroundColor: 'transparent', color: '#ffffff' }
+    : useDarkText
+      ? { backgroundColor: '#0066CC', color: '#ffffff' }
+      : { backgroundColor: 'transparent', color: '#ffffff' }
 
   const textColor = isScrolled || useDarkText
     ? (service ? colors.primary : '#1a1a1a')
@@ -64,35 +66,35 @@ export default function Logo({ isScrolled = false, service = null, useDarkText =
             </motion.span>
           </motion.div>
           <motion.div
-            className="flex flex-col overflow-hidden"
+            className="flex flex-col overflow-hidden md:flex"
             animate={{
-              opacity: isScrolled ? 0.9 : 1,
-              maxWidth: isScrolled ? '0px' : '200px',
+              opacity: 1,
+              maxWidth: isScrolled ? '60px' : '200px',
             }}
             transition={{ duration: 0.3 }}
           >
             <motion.span 
-              className="font-black tracking-tight transition-colors duration-300 whitespace-nowrap"
+              className="font-bold md:font-black tracking-tight transition-colors duration-300 whitespace-nowrap"
               animate={{
-                fontSize: isScrolled ? '14px' : '20px',
+                fontSize: isScrolled ? '12px' : '16px',
                 lineHeight: '1.2',
               }}
               style={{ color: textColor }}
               transition={{ duration: 0.3 }}
             >
-              {brandName}
+              {isScrolled ? 'BC' : brandName}
             </motion.span>
-            {!service && (
+            {!service && !isScrolled && (
               <motion.span 
                 className={cn(
                   'font-medium uppercase tracking-wider whitespace-nowrap',
                   isScrolled || useDarkText ? 'text-secondary' : 'text-white/70'
                 )}
                 animate={{
-                  fontSize: isScrolled ? '9px' : '11px',
-                  opacity: isScrolled ? 0 : 0.7,
-                  height: isScrolled ? '0px' : '16px',
-                  marginTop: isScrolled ? '0px' : '4px',
+                  fontSize: '11px',
+                  opacity: 0.7,
+                  height: '16px',
+                  marginTop: '4px',
                 }}
                 transition={{ duration: 0.3 }}
               >

@@ -10,24 +10,24 @@ export default function UmzugStatsGuarantee() {
   const stats = [
     {
       icon: TrendingUp,
-      number: '2500+',
+      number: '300+',
       label: 'Erfolgreiche Umzüge',
       description: 'seit Unternehmensgründung',
     },
     {
       icon: Users,
-      number: '98%',
+      number: '100%',
       label: 'Kundenzufriedenheit',
       description: 'basierend auf Kundenbefragungen',
     },
     {
-      icon: Award,
-      number: '15+',
-      label: 'Jahre Erfahrung',
-      description: 'in professioneller Umzugslogistik',
+      icon: Clock,
+      number: '24/7',
+      label: 'Erreichbarkeit',
+      description: 'für Planung & Support',
     },
     {
-      icon: Clock,
+      icon: Award,
       number: '100%',
       label: 'Termingenauigkeit',
       description: 'garantierte pünktliche Durchführung',
@@ -62,8 +62,8 @@ export default function UmzugStatsGuarantee() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0,
       },
     },
   }
@@ -78,7 +78,7 @@ export default function UmzugStatsGuarantee() {
   }
 
   return (
-    <Section padding="none" background="dark" className="relative overflow-hidden py-20 md:py-32 lg:py-40">
+    <Section padding="none" background="dark" className="relative overflow-hidden py-16 md:py-20 lg:py-24">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-950 via-neutral-900 to-black" />
       <div
         className="absolute inset-0 -z-10 opacity-5"
@@ -217,7 +217,7 @@ export default function UmzugStatsGuarantee() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0, duration: 0.6 }}
           viewport={{ once: true }}
           className="mt-20 text-center max-w-3xl mx-auto p-12 rounded-2xl border border-white/10 bg-gradient-to-br from-white/5 to-white/5 backdrop-blur-xl"
         >

@@ -1,41 +1,42 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { useRouter } from 'next/navigation'
 import { Container, Section } from '@/components/ui'
 import { Building2, Wrench, Recycle, AlertCircle, MapPin } from 'lucide-react'
 
 export default function AbrissServiceShowcase() {
   const abrissaccent = '#d97706'
+  const router = useRouter()
+  
   const services = [
     {
       icon: Building2,
       title: 'Gebäudeabriss',
       description: 'Kompletter Abriss von Wohnhäusern, Mehrfamilienhäusern und Bürogebäuden',
-      features: ['Alle Gebäudetypen', 'Sichere Durchführung', 'Umweltgerecht']
+      features: ['Alle Gebäudetypen', 'Sichere Durchführung', 'Umweltgerecht'],
+      link: '/services/abriss/gebaeudeabriss'
     },
     {
       icon: Wrench,
       title: 'Selektive Demontage',
       description: 'Fachgerechte Demontage mit Rückgewinnung wertvollen Materials',
-      features: ['Material-Recycling', 'Ressourcenschonung', 'Optimale Verwertung']
-    },
-    {
-      icon: AlertCircle,
-      title: 'Schadstoff-Management',
-      description: 'Professionelle Asbestsanierung und Schadstoffentsorgung',
-      features: ['Zertifizierte Fachkräfte', 'Komplette Sicherheit', 'Fachgerecht']
+      features: ['Material-Recycling', 'Ressourcenschonung', 'Optimale Verwertung'],
+      link: '/services/abriss/selektive-demontage'
     },
     {
       icon: Recycle,
       title: 'Recycling & Entsorgung',
       description: 'Nachhaltige Verwertung von Bauschutt und Materialien',
-      features: ['100% nachhaltig', 'Optimale Wiederverwertung', 'Fachgerecht']
+      features: ['100% nachhaltig', 'Optimale Wiederverwertung', 'Fachgerecht'],
+      link: '/services/abriss/recycling-entsorgung'
     },
     {
       icon: MapPin,
       title: 'Genehmigungen',
       description: 'Komplette Abwicklung aller erforderlichen Behördengenehmigungen',
-      features: ['Alle Dokumente', 'Unbürokratisch', 'Komplett betreut']
+      features: ['Alle Dokumente', 'Unbürokratisch', 'Komplett betreut'],
+      link: '/services/abriss/genehmigungen'
     }
   ]
 
@@ -59,10 +60,10 @@ export default function AbrissServiceShowcase() {
         </motion.div>
 
         {/* Masonry Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-max">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-max">
           {services.map((service, index) => {
-            // Vary heights for masonry effect
-            const heights = ['auto', 'auto', 'auto', 'auto', 'auto', 'auto']
+            const Icon = service.icon
+            
             return (
               <motion.div
                 key={index}
@@ -70,14 +71,14 @@ export default function AbrissServiceShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 viewport={{ once: true }}
-                className="group relative rounded-2xl overflow-hidden border border-neutral-200 hover:border-amber-300 transition-all duration-300 h-full"
+                className="group relative rounded-2xl overflow-hidden border border-neutral-200 hover:border-amber-300 transition-all duration-300 h-full cursor-default"
               >
                 {/* Gradient background on hover */}
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 
                 {/* Accent line */}
                 <div
-                  className="absolute top-0 left-0 right-0 h-1 transform origin-left group-hover:scale-x-100 transition-transform duration-500"
+                  className="absolute top-0 left-0 right-0 h-1 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500"
                   style={{ background: abrissaccent }}
                 />
 
@@ -90,7 +91,7 @@ export default function AbrissServiceShowcase() {
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                   >
-                    <service.icon className="w-7 h-7" style={{ color: abrissaccent }} />
+                    <Icon className="w-7 h-7" style={{ color: abrissaccent }} />
                   </motion.div>
 
                   {/* Title */}
@@ -120,17 +121,26 @@ export default function AbrissServiceShowcase() {
                     ))}
                   </div>
 
-                  {/* Arrow */}
+                  {/* Arrow CTA */}
                   <motion.div
-                    className="mt-6 flex items-center gap-2 font-semibold transition-all group-hover:translate-x-2"
+                    onClick={() => router.push(service.link)}
+                    className="mt-4 flex items-center gap-2 font-semibold transition-all group-hover:translate-x-2 cursor-pointer"
                     style={{ color: abrissaccent }}
                   >
-                    <span className="text-sm">Mehr erfahren</span>
+                    <span className="text-sm">Erfahren Sie mehr</span>
                     <motion.span animate={{ x: [0, 5, 0] }} transition={{ duration: 2, repeat: Infinity }}>
                       →
                     </motion.span>
                   </motion.div>
                 </div>
+
+                {/* Corner accent */}
+                <motion.div
+                  className="absolute bottom-0 right-0 w-32 h-32 rounded-tl-3xl opacity-0 group-hover:opacity-10 transition-opacity"
+                  style={{ background: abrissaccent }}
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                />
               </motion.div>
             )
           })}

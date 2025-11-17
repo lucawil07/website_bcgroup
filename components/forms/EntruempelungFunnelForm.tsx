@@ -33,6 +33,8 @@ const formSchema = z.object({
   // Step 4
   specialItems: z.array(z.string()).optional(),
   specialItemsOther: z.string().optional(),
+  hasSondermuell: z.boolean().optional(),
+  sondermuellTypes: z.array(z.string()).optional(),
   
   // Step 5
   needsDismantling: z.boolean(),
@@ -85,6 +87,8 @@ export default function EntruempelungFunnelForm({ onClose }: FunnelFormProps) {
       area: 0,
       fullness: '',
       specialItems: [],
+      hasSondermuell: undefined,
+      sondermuellTypes: [],
       needsDismantling: false,
       timing: '',
       photos: [],

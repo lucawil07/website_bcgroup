@@ -14,7 +14,7 @@ export default function UmzugProcessTimeline() {
       icon: Phone,
       title: 'Kostenfreies Beratungsgespräch',
       description: 'Wir analysieren Ihre Anforderungen und erstellen ein maßgeschneidertes Angebot ohne versteckte Kosten.',
-      details: ['15-30 Min. Beratung', 'Transparente Preisberechnung', 'Termin nach Ihrem Wunsch'],
+      details: ['5-30 Min. Beratung', 'Transparente Preisberechnung', 'Termin nach Ihrem Wunsch'],
     },
     {
       number: 2,
@@ -44,8 +44,8 @@ export default function UmzugProcessTimeline() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.12,
+        delayChildren: 0,
       },
     },
   }
@@ -60,7 +60,7 @@ export default function UmzugProcessTimeline() {
   }
 
   return (
-    <Section padding="none" background="light" className="bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden py-20 md:py-32 lg:py-40">
+    <Section padding="none" background="light" className="bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden py-16 md:py-20 lg:py-24">
       {/* Background accent */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -240,7 +240,7 @@ export default function UmzugProcessTimeline() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 0.6 }}
+          transition={{ delay: 0, duration: 0.6 }}
           viewport={{ once: true }}
           className="mt-20 text-center max-w-2xl mx-auto p-8 rounded-2xl"
           style={{ background: `${umzugAccent}10`, border: `2px solid ${umzugAccent}30` }}

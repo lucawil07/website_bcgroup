@@ -18,7 +18,7 @@ export default function AbrissProcessTimeline() {
     {
       number: '02',
       title: 'Genehmigungen',
-      description: 'Einreichung aller erforderlichen Unterlagen bei den Behörden',
+      description: 'Falls erforderlich: Einreichung aller erforderlichen Unterlagen bei den Behörden',
       icon: CheckCircle2,
       details: ['Alle Dokumentation', 'Behördenkoordination', 'Genehmigte Durchführung']
     },
@@ -68,7 +68,7 @@ export default function AbrissProcessTimeline() {
           <div className="hidden lg:block absolute top-0 left-1/2 transform -translate-x-1/2 w-1 h-full" style={{ background: `${abrissaccent}20` }} />
 
           {/* Steps */}
-          <div className="space-y-12 lg:space-y-0">
+          <div className="space-y-12">
             {steps.map((step, index) => {
               const Icon = step.icon
               const isEven = index % 2 === 0
@@ -80,14 +80,12 @@ export default function AbrissProcessTimeline() {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
-                  className="relative"
+                  className="relative mb-12"
                 >
-                  <div className={`lg:grid lg:grid-cols-2 lg:gap-8 items-center ${isEven ? '' : 'lg:text-right'}`}>
+                  <div className="lg:grid lg:grid-cols-2 lg:gap-8 items-center">
                     {/* Content Box */}
                     <motion.div
-                      className={`p-8 rounded-2xl border-2 border-neutral-200 hover:border-amber-300 transition-all duration-300 relative z-10 ${
-                        isEven ? 'lg:col-start-1' : 'lg:col-start-2'
-                      }`}
+                      className="p-8 rounded-2xl border-2 border-neutral-200 hover:border-amber-300 transition-all duration-300 relative z-10 lg:col-start-1"
                       whileHover={{ scale: 1.02, boxShadow: `0 0 30px ${abrissaccent}20` }}
                     >
                       {/* Accent bar */}

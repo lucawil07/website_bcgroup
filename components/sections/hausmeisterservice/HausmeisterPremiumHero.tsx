@@ -9,9 +9,9 @@ export default function HausmeisterPremiumHero() {
   const hausmeisterAccent = '#8b5cf6'
 
   const serviceHighlights = [
-    { label: '24/7 Verfügbar', value: 'Rund um die Uhr' },
-    { label: 'Schnelle Response', value: 'Innerhalb 1 Stunde' },
-    { label: 'Erfahrenes Team', value: '15+ Jahre Expertise' },
+    { label: 'DAUERHAFT GEPFLEGT', value: 'Gebäude und Außenanlagen' },
+    { label: 'WENIGER AUFWAND', value: 'Für Verwaltung' },
+    { label: 'SCHNELLE REAKTION', value: 'Bei Problemen' },
   ]
 
   return (
@@ -55,9 +55,9 @@ export default function HausmeisterPremiumHero() {
               transition={{ delay: 0.2, duration: 0.5 }}
             >
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-md border border-white/20 bg-white/5">
-                <Clock className="w-5 h-5" style={{ color: hausmeisterAccent }} />
+                <CheckCircle2 className="w-5 h-5" style={{ color: hausmeisterAccent }} />
                 <span className="text-sm font-bold uppercase tracking-widest" style={{ color: hausmeisterAccent }}>
-                  Zuverlässigkeit seit 2010
+                  ZUVERLÄSSIG & FLEXIBEL
                 </span>
               </div>
             </motion.div>
@@ -69,9 +69,9 @@ export default function HausmeisterPremiumHero() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight"
             >
-              Ihr Gebäude,
+              Hausmeisterservice Berlin
               <br />
-              <span style={{ color: hausmeisterAccent }} className="inline-block">unser ständiger Dienst</span>
+              <span style={{ color: hausmeisterAccent }} className="inline-block">Ihr zuverlässiger Partner</span>
             </motion.h1>
 
             {/* Description */}
@@ -81,7 +81,7 @@ export default function HausmeisterPremiumHero() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl"
             >
-              Professionelle Hausmeisterdienste mit 24/7 Verfügbarkeit. Von Wartung bis Notfallservice – wir kümmern uns um Ihr Gebäude wie um unseres.
+              BC Hausmeisterservice bietet umfassenden Full-Service rund um Haus, Gebäude und Außenanlagen – von Reinigung über Gartenpflege bis hin zu technischen Kontrollen und Objektmanagement.
             </motion.p>
 
             {/* Key Benefits - Animated List */}
@@ -128,12 +128,14 @@ export default function HausmeisterPremiumHero() {
                   </motion.span>
                 </button>
               </a>
-              <button
-                className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white"
-                style={{ borderColor: hausmeisterAccent, color: hausmeisterAccent }}
-              >
-                Verfügbarkeit
-              </button>
+              <a href="/ratgeber/hausmeisterservice-berlin">
+                <button
+                  className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:scale-105"
+                  style={{ borderColor: hausmeisterAccent, color: hausmeisterAccent }}
+                >
+                  Mehr Infos
+                </button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -189,14 +191,14 @@ export default function HausmeisterPremiumHero() {
                     <p className="text-sm uppercase font-bold" style={{ color: hausmeisterAccent }}>
                       Gebäude verwaltet
                     </p>
-                    <p className="text-4xl font-black text-white mt-2">850+</p>
+                    <p className="text-4xl font-black text-white mt-2">130+</p>
                   </div>
                   <div className="h-px" style={{ background: `${hausmeisterAccent}30` }} />
                   <div>
                     <p className="text-sm uppercase font-bold" style={{ color: hausmeisterAccent }}>
                       Kundenzufriedenheit
                     </p>
-                    <p className="text-4xl font-black text-white mt-2">98%</p>
+                    <p className="text-4xl font-black text-white mt-2">100%</p>
                   </div>
                 </div>
               </div>

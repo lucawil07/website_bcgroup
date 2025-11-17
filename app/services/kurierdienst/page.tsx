@@ -5,7 +5,6 @@ import KurierdienslHero from '@/components/sections/kurierdienst/KurierdienslHer
 import KurierdienslServices from '@/components/sections/kurierdienst/KurierdienslServices'
 import KurierdienslBenefits from '@/components/sections/kurierdienst/KurierdienslBenefits'
 import KurierdienslServiceAreas from '@/components/sections/kurierdienst/KurierdienslServiceAreas'
-import KurierdienslPricing from '@/components/sections/kurierdienst/KurierdienslPricing'
 
 const SERVICE_NAME = 'kurierdienst'
 const SERVICE_GERMAN = 'Kurierdienst'
@@ -70,9 +69,6 @@ export default function KurierdienslPage() {
 
       {/* Service Areas & Districts - Interactive visualization */}
       <KurierdienslServiceAreas />
-
-      {/* Pricing Table - Clear & transparent */}
-      <KurierdienslPricing />
 
       {/* CTA */}
       <CTAContact />

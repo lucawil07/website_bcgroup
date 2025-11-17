@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button, Section, Container } from '@/components/ui'
-import { Zap, Shield, Headphones, TrendingUp } from 'lucide-react'
 
 export default function CompanyIntro() {
   const [isVisible, setIsVisible] = useState(false)
@@ -29,13 +28,6 @@ export default function CompanyIntro() {
     return () => observer.disconnect()
   }, [])
 
-  const highlights = [
-    { icon: Zap, text: 'Versichert & Zuverlässig', description: 'Vollständig versichert' },
-    { icon: Shield, text: 'Geprüfte Qualität', description: 'Höchste Standards' },
-    { icon: Headphones, text: 'Proaktiver Support', description: '24/7 Erreichbar' },
-    { icon: TrendingUp, text: 'Transparente Preise', description: 'Ohne versteckte Kosten' }
-  ]
-
   const stats = [
     { value: '15', label: 'Jahre Exzellenz', suffix: '+' },
     { value: '8', label: 'Spezialisierte Services', suffix: '' },
@@ -43,7 +35,7 @@ export default function CompanyIntro() {
   ]
 
   return (
-    <Section background="white" padding="large">
+    <Section background="white" padding="medium">
       <Container size="wide">
         <div 
           ref={sectionRef}
@@ -167,44 +159,13 @@ export default function CompanyIntro() {
             {/* Sophisticated Content */}
             <div className="space-y-6 pt-4">
               <p className="text-lg md:text-xl text-primary font-semibold leading-relaxed">
-                BC Group steht für Innovation und Zuverlässigkeit in Berlin.
+                Dein direkter Ansprechpartner für digitale Komplettlösungen.
               </p>
               
               <p className="text-base md:text-lg text-neutral-600 leading-relaxed font-light">
-                Unser Versprechen: Ihre Herausforderungen werden von Experten gelöst, 
-                die jedes Detail verstehen und meistern. Mit modernster Ausstattung 
-                und Leidenschaft für Exzellenz.
+                BC Group steht für Innovation und Zuverlässigkeit in Berlin. Regional mit Verantwortung, 
+                schnelle Lieferung und persönlicher Service – das sind nicht nur Worte, sondern unsere tägliche Praxis.
               </p>
-            </div>
-
-            {/* Elegant Highlights Grid */}
-            <div className="grid grid-cols-2 gap-4 py-2">
-              {highlights.map((item, index) => {
-                const Icon = item.icon
-                return (
-                  <div
-                    key={index}
-                    className={`group rounded-lg border border-neutral-100 p-4 transition-all duration-700 hover:border-secondary/30 hover:bg-secondary/5 ${
-                      isVisible 
-                        ? 'opacity-100 translate-y-0' 
-                        : 'opacity-0 translate-y-6'
-                    }`}
-                    style={{ transitionDelay: `${400 + index * 100}ms` }}
-                  >
-                    <div className="flex items-start gap-3">
-                      <Icon className="w-5 h-5 text-secondary flex-shrink-0 mt-0.5 transition-transform duration-300 group-hover:scale-110" />
-                      <div>
-                        <h3 className="text-sm font-semibold text-primary mb-0.5 group-hover:text-secondary transition-colors">
-                          {item.text}
-                        </h3>
-                        <p className="text-xs text-neutral-500">
-                          {item.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                )
-              })}
             </div>
             
             {/* Premium CTA Buttons */}
@@ -222,10 +183,18 @@ export default function CompanyIntro() {
                   size="lg" 
                   className="w-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 font-semibold"
                 >
-                  Mehr über uns
+                  Über BC Group Berlin
                 </Button>
               </Link>
-              
+              <Link href="/kontakt" className="flex-1 sm:flex-none">
+                <Button 
+                  variant="secondary" 
+                  size="lg" 
+                  className="w-full hover:shadow-xl transition-all duration-300 hover:-translate-y-1 font-semibold"
+                >
+                  Jetzt Beratung buchen
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

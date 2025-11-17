@@ -46,27 +46,15 @@ const navigation: NavItem[] = [
     ],
   },
   { label: 'News', href: '/ratgeber' },
-  { label: 'Locations', href: '/service-gebiete' },
   { label: 'Kontakt', href: '/kontakt' },
 ]
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('up')
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
   
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useMobileMenu()
   const pathname = usePathname()
   const currentService = getServiceFromRoute(pathname)
-  const lastScrollYRef = useRef(0) // Use ref instead of state to avoid re-renders
-
-  /**
-   * Memoized check for dark background pages
-   * Only recalculates when pathname changes
-   */
-  const hasDarkBackground = useMemo(() => {
-    return isDarkBackgroundPage(pathname)
-  }, [pathname])
 
   /**
    * Memoized check for light background pages
@@ -77,45 +65,11 @@ export default function Header() {
   }, [pathname])
 
   /**
-   * Memoized dark text flag
-   * Only recalculates when dependencies change
+   * Memoized dark text flag based on page background
    */
   const useDarkText = useMemo(() => {
-    return shouldUseDarkText(isScrolled, hasDarkBackground, hasLightBackground)
-  }, [isScrolled, hasDarkBackground, hasLightBackground])
-
-  /**
-   * Optimized scroll handler using useCallback
-   * Prevents memory leaks and excessive re-renders
-   * Uses ref for lastScrollY to avoid triggering effect cleanup
-   */
-  const handleScroll = useCallback(() => {
-    const currentScrollY = window.scrollY
-
-    // Only update state if threshold crossed (reduces re-renders)
-    setIsScrolled(currentScrollY > 20)
-
-    // Update scroll direction only on significant changes
-    if (currentScrollY > lastScrollYRef.current && currentScrollY > 100) {
-      setScrollDirection('down')
-    } else if (currentScrollY < lastScrollYRef.current) {
-      setScrollDirection('up')
-    }
-
-    lastScrollYRef.current = currentScrollY
-  }, [])
-
-  /**
-   * Single scroll event listener with proper cleanup
-   * useCallback ensures handler reference stays the same
-   */
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true })
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-    }
-  }, [handleScroll])
+    return hasLightBackground
+  }, [hasLightBackground])
 
   /**
    * Close mobile menu when route changes
@@ -129,30 +83,18 @@ export default function Header() {
   }, [])
 
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{
-        y: scrollDirection === 'down' && isScrolled ? -100 : 0,
-        opacity: scrollDirection === 'down' && isScrolled ? 0 : 1,
-      }}
-      transition={{ duration: 0.3, ease: [0.77, 0, 0.175, 1] }}
+    <header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
-        isScrolled
-          ? useDarkText
-            ? 'bg-white/95 shadow-2xl backdrop-blur-xl border-b border-neutral-200'
-            : 'glass-strong shadow-2xl backdrop-blur-3xl border-b border-white/10'
-          : 'bg-transparent'
+        'sticky top-0 w-full z-50 transition-all duration-300',
+        useDarkText
+          ? 'bg-white/95 shadow-md backdrop-blur-md border-b border-neutral-200/50'
+          : 'bg-neutral-900/92 backdrop-blur-md border-b border-white/5 shadow-lg'
       )}
-      style={{
-        willChange: 'transform, opacity',
-        transform: 'translate3d(0, 0, 0)', // Enable GPU acceleration
-      }}
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
-          <Logo isScrolled={isScrolled} service={currentService} useDarkText={useDarkText} />
+          <Logo isScrolled={false} service={currentService} useDarkText={useDarkText} />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
@@ -167,7 +109,7 @@ export default function Header() {
                   <Link
                     href={item.href}
                     prefetch={true}
-                    className={cn(navItemClasses.link, getNavTextClass(isScrolled, useDarkText))}
+                    className={cn(navItemClasses.link, getNavTextClass(false, useDarkText))}
                   >
                     <span className="relative z-10">{item.label}</span>
                     <motion.div
@@ -178,7 +120,7 @@ export default function Header() {
                   </Link>
                 ) : (
                   <button
-                    className={cn(navItemClasses.toggle, getNavTextClass(isScrolled, useDarkText))}
+                    className={cn(navItemClasses.toggle, getNavTextClass(false, useDarkText))}
                     aria-expanded={openDropdown === item.label}
                     aria-label={`${item.label} menu`}
                   >
@@ -201,7 +143,12 @@ export default function Header() {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: 10, scale: 0.95 }}
                         transition={{ duration: 0.25, ease: [0.77, 0, 0.175, 1] }}
-                        className="absolute top-full left-0 mt-2 w-80 glass-dropdown rounded-3xl overflow-hidden z-50"
+                        className={cn(
+                          'absolute top-full left-0 mt-2 w-80 rounded-3xl overflow-hidden z-50',
+                          useDarkText
+                            ? 'bg-white/98 backdrop-blur-xl border border-neutral-200 shadow-2xl'
+                            : 'bg-neutral-900/95 backdrop-blur-xl border border-white/20 shadow-2xl'
+                        )}
                       >
                         <div className="p-3">
                           {item.items.map((subItem, index) => (
@@ -216,14 +163,19 @@ export default function Header() {
                                 prefetch={true}
                                 className={cn(
                                   navItemClasses.dropdownItem,
-                                  getNavTextClass(isScrolled, useDarkText)
+                                  useDarkText 
+                                    ? 'text-neutral-900 hover:text-secondary hover:bg-secondary/5'
+                                    : 'text-white hover:text-secondary hover:bg-white/5'
                                 )}
                               >
                                 <div className="font-semibold text-base mb-1 group-hover:translate-x-1 transition-transform">
                                   {subItem.label}
                                 </div>
                                 {subItem.description && (
-                                  <div className={cn('text-sm opacity-70', getDescriptionClass(isScrolled, useDarkText))}>
+                                  <div className={cn(
+                                    'text-sm',
+                                    useDarkText ? 'text-neutral-600' : 'text-white/80'
+                                  )}>
                                     {subItem.description}
                                   </div>
                                 )}
@@ -243,7 +195,7 @@ export default function Header() {
               <MagneticElement>
                 <a
                   href="tel:+49301234567"
-                  className={cn(navItemClasses.contactLink, getIconClass(isScrolled, useDarkText))}
+                  className={cn(navItemClasses.contactLink, getIconClass(false, useDarkText))}
                   aria-label="Anrufen"
                 >
                   <Phone className="w-4 h-4" />
@@ -255,76 +207,63 @@ export default function Header() {
             {/* CTA Button */}
             <Link href="/kontakt" className="ml-4" prefetch={true}>
               <MagneticElement>
-                <motion.div
-                  className={navItemClasses.ctaButton}
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.92 }}
+                <motion.button
+                  className="px-6 py-3 text-sm font-bold uppercase tracking-wider rounded-xl transition-all duration-300 border-2 bg-secondary text-white border-secondary hover:bg-secondary/90 hover:shadow-lg"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  <div className="relative z-10 bg-gradient-accent text-white font-black uppercase tracking-widest text-sm px-8 py-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-blue-500/50 border border-white/20">
-                    <span className="flex items-center gap-2">
-                      Angebot
-                      <motion.div
-                        animate={{ x: [0, 6, 0] }}
-                        transition={{ duration: 1.2, repeat: Infinity }}
-                        style={{ willChange: 'transform' }}
-                      >
-                        →
-                      </motion.div>
-                    </span>
-                  </div>
-                  {/* Enhanced glow effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-blue-500/0 via-blue-400/40 to-blue-500/0 rounded-2xl opacity-0 group-hover:opacity-100 blur-lg"
-                    transition={{ duration: 0.3 }}
-                    style={{ pointerEvents: 'none' }}
-                  />
-                  {/* Shine effect */}
-                  <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full rounded-2xl"
-                    transition={{ duration: 0.8 }}
-                    style={{ pointerEvents: 'none' }}
-                  />
-                  {/* Pulse border effect */}
-                  <motion.div
-                    className="absolute inset-0 rounded-2xl border-2 border-blue-400"
-                    animate={{ opacity: [0.3, 0.8, 0.3] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                    style={{ pointerEvents: 'none' }}
-                  />
-                </motion.div>
+                  Angebot
+                </motion.button>
               </MagneticElement>
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
-          <MagneticElement>
-            <motion.button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={cn(
-                'lg:hidden p-4 rounded-2xl transition-all duration-300 relative overflow-hidden',
-                isScrolled || useDarkText ? 'hover:bg-neutral-100' : 'hover:bg-white/10'
-              )}
-              whileTap={{ scale: 0.9 }}
-              aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={isMobileMenuOpen}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={isMobileMenuOpen ? 'close' : 'open'}
-                  initial={{ rotate: -90, opacity: 0 }}
-                  animate={{ rotate: 0, opacity: 1 }}
-                  exit={{ rotate: 90, opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {isMobileMenuOpen ? (
-                    <X className={cn('w-6 h-6', getIconClass(isScrolled, useDarkText))} />
-                  ) : (
-                    <Menu className={cn('w-6 h-6', getIconClass(isScrolled, useDarkText))} />
-                  )}
-                </motion.div>
-              </AnimatePresence>
-            </motion.button>
-          </MagneticElement>
+          <div className="flex items-center gap-3 lg:hidden">
+            {/* Mobile CTA Icon - Phone */}
+            <MagneticElement>
+              <motion.a
+                href="tel:+49301234567"
+                className={cn(
+                  'p-2 transition-all duration-300',
+                  useDarkText ? 'text-secondary' : 'text-white'
+                )}
+                whileTap={{ scale: 0.9 }}
+                aria-label="Anrufen"
+              >
+                <Phone className="w-6 h-6" />
+              </motion.a>
+            </MagneticElement>
+
+            <MagneticElement>
+              <motion.button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className={cn(
+                  'p-4 rounded-2xl transition-all duration-300 relative overflow-hidden',
+                  useDarkText ? 'hover:bg-neutral-100' : 'hover:bg-white/10'
+                )}
+                whileTap={{ scale: 0.9 }}
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={isMobileMenuOpen ? 'close' : 'open'}
+                    initial={{ rotate: -90, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 90, opacity: 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {isMobileMenuOpen ? (
+                      <X className={cn('w-6 h-6', getIconClass(false, useDarkText))} />
+                    ) : (
+                      <Menu className={cn('w-6 h-6', getIconClass(false, useDarkText))} />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
+            </MagneticElement>
+          </div>
         </div>
       </div>
 
@@ -349,7 +288,7 @@ export default function Header() {
                   : 'glass-strong border-white/10'
               )}
             >
-              <nav className="px-6 py-8 space-y-2">
+              <nav className="px-6 py-8 space-y-3">
                 {navigation.map((item, index) => (
                   <motion.div
                     key={item.label}
@@ -362,8 +301,10 @@ export default function Header() {
                         href={item.href}
                         prefetch={true}
                         className={cn(
-                          navItemClasses.mobileItem,
-                          useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                          'block px-6 py-4 text-lg font-black rounded-2xl transition-all duration-200',
+                          useDarkText 
+                            ? 'text-primary-950 bg-secondary/10 hover:bg-secondary/20 hover:text-secondary border border-secondary/20 hover:border-secondary/40' 
+                            : 'text-white bg-white/5 hover:bg-secondary/30 hover:text-white border border-white/10 hover:border-secondary/40'
                         )}
                       >
                         {item.label}
@@ -373,8 +314,10 @@ export default function Header() {
                         <button
                           onClick={() => toggleDropdown(item.label)}
                           className={cn(
-                            navItemClasses.mobileToggle,
-                            useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                            'flex items-center justify-between w-full px-6 py-4 text-lg font-black rounded-2xl transition-all duration-200',
+                            useDarkText 
+                              ? 'text-primary-950 bg-secondary/10 hover:bg-secondary/20 hover:text-secondary border border-secondary/20 hover:border-secondary/40' 
+                              : 'text-white bg-white/5 hover:bg-secondary/30 hover:text-white border border-white/10 hover:border-secondary/40'
                           )}
                           aria-expanded={openDropdown === item.label}
                         >
@@ -393,9 +336,14 @@ export default function Header() {
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
                               exit={{ opacity: 0, height: 0 }}
-                              className="overflow-hidden"
+                              className="overflow-hidden mt-2"
                             >
-                              <div className="mt-2 ml-6 space-y-1">
+                              <div className={cn(
+                                'ml-4 space-y-2 p-3 rounded-2xl',
+                                useDarkText
+                                  ? 'bg-neutral-50 border border-neutral-200'
+                                  : 'bg-white/[0.03] border border-white/10'
+                              )}>
                                 {item.items.map((subItem, subIndex) => (
                                   <motion.div
                                     key={subItem.href}
@@ -407,8 +355,10 @@ export default function Header() {
                                       href={subItem.href}
                                       prefetch={true}
                                       className={cn(
-                                        navItemClasses.mobileSubItem,
-                                        useDarkText ? 'text-neutral-600 hover:text-secondary' : 'text-white/70 hover:text-white'
+                                        'block px-4 py-3 text-base font-semibold rounded-xl transition-all duration-200',
+                                        useDarkText 
+                                          ? 'text-neutral-700 hover:text-secondary hover:bg-secondary/10' 
+                                          : 'text-white/80 hover:text-white hover:bg-secondary/20'
                                       )}
                                     >
                                       {subItem.label}
@@ -429,14 +379,22 @@ export default function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="pt-6"
+                  className="pt-4"
                 >
                   <Link href="/kontakt" prefetch={true} className="block">
                     <motion.div
-                      className="bg-gradient-accent text-white text-center font-black uppercase tracking-wider text-base px-8 py-5 rounded-2xl shadow-2xl"
+                      className="bg-secondary text-white text-center font-black uppercase tracking-wider text-base px-8 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300"
                       whileTap={{ scale: 0.95 }}
                     >
-                      Angebot anfordern
+                      <span className="flex items-center justify-center gap-2">
+                        Angebot anfordern
+                        <motion.div
+                          animate={{ x: [0, 4, 0] }}
+                          transition={{ duration: 1.2, repeat: Infinity }}
+                        >
+                          →
+                        </motion.div>
+                      </span>
                     </motion.div>
                   </Link>
                 </motion.div>
@@ -445,6 +403,6 @@ export default function Header() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

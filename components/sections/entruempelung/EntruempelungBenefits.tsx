@@ -13,8 +13,8 @@ export default function EntruempelungBenefits() {
     {
       icon: Zap,
       title: 'Blitzschnell',
-      description: 'Entrümpelung innerhalb von 48 Stunden möglich. Keine langen Wartezeiten.',
-      metrics: '48h'
+      description: 'Entrümpelung innerhalb von 24 Stunden möglich. Keine langen Wartezeiten.',
+      metrics: '24h'
     },
     {
       icon: TrendingUp,
@@ -36,8 +36,8 @@ export default function EntruempelungBenefits() {
     },
     {
       icon: Award,
-      title: 'Zertifiziert',
-      description: 'Alle Fachkräfte zertifiziert. Höchste Standards in Sicherheit & Umwelt.',
+      title: 'Fachgerecht & Diskret',
+      description: 'Vertraulichkeit und Sauberkeit stehen bei uns an erster Stelle.',
       metrics: '✓ Alle'
     },
     {
@@ -212,8 +212,8 @@ export default function EntruempelungBenefits() {
               Ihre Zufriedenheit ist unsere Priorität
             </h3>
             
-            <p className="text-white/95 text-lg leading-relaxed mb-8">
-              Mit über 10.000 erfolgreich durchgeführten Entrümpelung und einer durchschnittlichen Kundenzufriedenheit von 4,9/5 Sternen sind wir Ihr zuverlässiger Partner in Berlin. Jede Entrümpelung wird von uns mit vollständiger Sorgfalt und professioneller Sorgfalt durchgeführt.
+            <p className="text-lg text-white/95 leading-relaxed mb-8">
+              Mit über 400 erfolgreich durchgeführten Entrümpelungen und einer durchschnittlichen Kundenzufriedenheit von 5/5 Sternen sind wir Ihr zuverlässiger Partner in Berlin. Jede Entrümpelung wird von uns mit vollständiger Sorgfalt und professioneller Sorgfalt durchgeführt.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">

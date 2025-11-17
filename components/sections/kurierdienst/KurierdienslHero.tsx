@@ -67,7 +67,7 @@ export default function KurierdienslHero() {
                   <Zap className="w-5 h-5" style={{ color: accent }} />
                 </motion.div>
                 <span className="text-sm font-bold uppercase tracking-widest" style={{ color: accent }}>
-                  Express-Lieferungen
+                  Planbare & zuverlässige Zustellung
                 </span>
               </div>
             </motion.div>
@@ -79,10 +79,10 @@ export default function KurierdienslHero() {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-5xl md:text-6xl lg:text-7xl font-black text-white leading-tight"
             >
-              Schnelle
+              Vertragliche
               <br />
               <span style={{ color: accent }} className="inline-block">
-                Zustellung
+                Kurierdienste
               </span>
               {' '}in Berlin
             </motion.h1>
@@ -94,8 +94,7 @@ export default function KurierdienslHero() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl"
             >
-              Zuverlässiger Kurierdienst mit Same-Day-Delivery, Express-Optionen und Sperrguttransport. 
-              Schnell, professionell und überall in Berlin und Umland.
+              Fester Kurierpartner für Unternehmen mit regelmäßigen Transportanforderungen. Wir bieten vertraglich geregelte Kurierfahrten, feste Routen und planbare Abläufe – zuverlässig, termintreu und professionell im gesamten Berliner Raum.
             </motion.p>
 
             {/* Feature Pills */}
@@ -106,9 +105,9 @@ export default function KurierdienslHero() {
               className="flex flex-wrap gap-4 pt-4"
             >
               {[
-                { icon: Clock, text: 'Schnellste Lieferung' },
-                { icon: Route, text: 'Ganz Berlin & Umland' },
-                { icon: Truck, text: 'Alle Größen' }
+                { icon: Route, text: 'Ganz Berlin' },
+                { icon: Clock, text: 'Regelmäßige Lieferungen' },
+                { icon: Truck, text: 'Für Geschäftskunden' }
               ].map((item, idx) => (
                 <motion.div 
                   key={idx}
@@ -146,12 +145,14 @@ export default function KurierdienslHero() {
                   </motion.span>
                 </button>
               </a>
-              <button
-                className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:bg-white/5"
-                style={{ borderColor: accent, color: accent }}
-              >
-                Preise anzeigen
-              </button>
+              <a href="/ratgeber/kurierdienst-berlin" className="group">
+                <button
+                  className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:bg-white/5"
+                  style={{ borderColor: accent, color: accent }}
+                >
+                  Mehr erfahren
+                </button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -236,11 +237,11 @@ export default function KurierdienslHero() {
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
-                    <Clock className="w-6 h-6" style={{ color: accent }} />
+                    <Route className="w-6 h-6" style={{ color: accent }} />
                   </motion.div>
                   <div>
-                    <p className="text-xs font-bold uppercase opacity-70">Schnellste Zeit</p>
-                    <p className="text-lg font-black">30 Min</p>
+                    <p className="text-xs font-bold uppercase opacity-70">Feste Touren</p>
+                    <p className="text-lg font-black">Planbare Kurierfahrten</p>
                   </div>
                 </div>
                 <div className="h-px bg-white/10" />
@@ -251,7 +252,7 @@ export default function KurierdienslHero() {
                     animate={{ scale: [1, 1.1, 1] }}
                     transition={{ duration: 2.5, repeat: Infinity, delay: 0.3 }}
                   >
-                    <Route className="w-6 h-6" style={{ color: accent }} />
+                    <Clock className="w-6 h-6" style={{ color: accent }} />
                   </motion.div>
                   <div>
                     <p className="text-xs font-bold uppercase opacity-70">Einsatzgebiet</p>

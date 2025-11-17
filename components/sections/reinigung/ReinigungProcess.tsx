@@ -219,7 +219,7 @@ export default function ReinigungProcess() {
           className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {[
-            { label: 'ISO-Zertifiziert', value: 'DIN EN ISO' },
+            { label: 'Expertise', value: '20+ Jahre Erfahrung' },
             { label: 'Kundengarantie', value: '100% Zufriedenheit' },
             { label: 'Verfügbarkeit', value: '24/7 Support' }
           ].map((item, idx) => (

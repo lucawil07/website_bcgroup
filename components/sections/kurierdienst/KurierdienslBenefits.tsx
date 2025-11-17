@@ -12,26 +12,26 @@ export default function KurierdienslBenefits() {
     {
       icon: Zap,
       number: '01',
-      title: 'Express-Lieferungen',
-      description: 'Schnellste Delivery-Zeiten in Berlin – auch Same-Day möglich.',
-      stats: '30 Min',
-      highlight: 'durchschnittliche Zeit'
+      title: 'Vertragliche Planung',
+      description: 'Feste Touren und planbare Abläufe – ideal für Unternehmen mit regelmäßigem Lieferbedarf.',
+      stats: '100%',
+      highlight: 'Planungssicherheit'
+    },
+    {
+      icon: Users,
+      number: '03',
+      title: 'Persönlicher Ansprechpartner',
+      description: 'Direkter Kontakt und feste Ansprechpartner für jeden Vertragspartner.',
+      stats: 'Individuelle',
+      highlight: 'Betreuung'
     },
     {
       icon: TrendingUp,
       number: '02',
       title: 'Zuverlässig & Pünktlich',
-      description: 'Garantierte Lieferzeiten und Live-Tracking für alle Sendungen.',
-      stats: '99%',
-      highlight: 'Liefertreue'
-    },
-    {
-      icon: Shield,
-      number: '03',
-      title: 'Versichert & Sicher',
-      description: 'Alle Sendungen sind vollumfänglich versichert und geschützt.',
+      description: 'Garantierte Lieferzeiten für alle Sendungen.',
       stats: '100%',
-      highlight: 'Versicherungsschutz'
+      highlight: 'Liefertreue'
     },
     {
       icon: Globe,
@@ -44,15 +44,15 @@ export default function KurierdienslBenefits() {
     {
       icon: Award,
       number: '05',
-      title: 'Professionelles Team',
-      description: 'Erfahrene Fahrer und Logistiker mit großer Ortskenntnis.',
-      stats: '10+',
-      highlight: 'Jahre Erfahrung'
+      title: 'Geschultes Fachpersonal',
+      description: 'Erfahrene Fahrer mit Ortskenntnis und professionellem Auftreten.',
+      stats: 'Qualifiziertes',
+      highlight: 'Fahrpersonal'
     },
     {
-      icon: Users,
+      icon: Shield,
       number: '06',
-      title: 'Persönlicher Service',
+      title: 'Hohe Erreichbarkeit',
       description: 'Direkter Kontakt zum Team und flexible Lösungen für Ihre Bedürfnisse.',
       stats: '24/7',
       highlight: 'Erreichbarkeit'
@@ -60,7 +60,7 @@ export default function KurierdienslBenefits() {
   ]
 
   return (
-    <Section padding="large" className="relative bg-gradient-to-b from-blue-50 via-white to-white overflow-hidden">
+    <Section padding="large" className="relative bg-white overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div

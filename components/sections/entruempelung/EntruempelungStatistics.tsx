@@ -8,22 +8,22 @@ export default function EntruempelungStatistics() {
 
   const stats = [
     {
-      number: '10K+',
+      number: '400+',
       label: 'Zufriedene Kunden',
       icon: '👥'
     },
     {
-      number: '500T',
+      number: '800T',
       label: 'Tonnen Material recycelt',
       icon: '♻️'
     },
     {
-      number: '48h',
+      number: '24h',
       label: 'Durchschn. Bearbeitungszeit',
       icon: '⚡'
     },
     {
-      number: '100%',
+      number: '5/5 ⭐',
       label: 'Kundenzufriedenheit',
       icon: '⭐'
     }

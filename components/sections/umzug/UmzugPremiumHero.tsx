@@ -213,15 +213,15 @@ export default function UmzugPremiumHero() {
 
             {/* Floating Info Cards */}
             <motion.div
-              className="absolute -right-16 top-12 w-72 rounded-2xl p-6 text-white backdrop-blur-lg border border-white/10"
-              style={{ background: `${umzugAccent}20` }}
+              className="absolute -right-16 top-12 w-72 rounded-2xl p-6 backdrop-blur-lg border border-white/20"
+              style={{ background: 'rgba(0, 0, 0, 0.6)' }}
               variants={floatVariants}
               animate="float"
             >
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-3 h-3 rounded-full" style={{ background: umzugAccent }} />
-                  <p className="text-sm font-bold uppercase">Zeitpunkt</p>
+                  <p className="text-sm font-bold uppercase text-white">Zeitpunkt</p>
                 </div>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2">
@@ -242,21 +242,21 @@ export default function UmzugPremiumHero() {
 
             {/* Floating Stats Card */}
             <motion.div
-              className="absolute -left-12 -bottom-12 w-64 h-48 rounded-2xl p-6 text-white"
+              className="absolute -left-12 -bottom-12 w-64 rounded-2xl p-6 text-white"
               style={{ background: umzugAccent }}
               animate={{ y: [20, -20, 20] }}
               transition={{ duration: 7, repeat: Infinity, delay: 1 }}
             >
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <p className="text-sm font-bold uppercase tracking-wide">Warum BC Umzug?</p>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-3">
                     <span className="text-xl font-black">✓</span>
-                    <span>10+ Jahre Erfahrung</span>
+                    <span>Persönlicher Ansprechpartner</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-xl font-black">✓</span>
-                    <span>50+ erfolgreiche Umzüge monatlich</span>
+                    <span>Transparent & fair kalkuliert</span>
                   </div>
                   <div className="flex items-start gap-3">
                     <span className="text-xl font-black">✓</span>

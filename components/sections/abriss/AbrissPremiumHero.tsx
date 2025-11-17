@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Container, Section } from '@/components/ui'
-import { ArrowRight, Building2, Zap, Shield } from 'lucide-react'
+import { ArrowRight, Building2, Zap, Shield, Wrench } from 'lucide-react'
 
 export default function AbrissPremiumHero() {
   const abrissprimary = '#3c2c1f'
@@ -51,7 +51,7 @@ export default function AbrissPremiumHero() {
               <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full backdrop-blur-md border border-white/20 bg-white/5">
                 <Zap className="w-5 h-5" style={{ color: abrissaccent }} />
                 <span className="text-sm font-bold uppercase tracking-widest" style={{ color: abrissaccent }}>
-                  Expertise seit 15+ Jahren
+                  Aus der Region – für die Region
                 </span>
               </div>
             </motion.div>
@@ -76,7 +76,7 @@ export default function AbrissPremiumHero() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl"
             >
-              Professioneller Gebäudeabriss mit modernster Technologie, vollständiger Entsorgung und allen erforderlichen Genehmigungen. Vertrauen Sie auf unsere zertifizierten Experten für sichere und nachhaltige Lösungen.
+              Professioneller Gebäudeabriss mit modernster Technologie, vollständiger Entsorgung und allen erforderlichen Genehmigungen. Vertrauen Sie auf unsere Experten für sichere und nachhaltige Lösungen.
             </motion.p>
 
             {/* Feature Dots */}
@@ -114,12 +114,14 @@ export default function AbrissPremiumHero() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </a>
-              <button
-                className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white"
-                style={{ borderColor: abrissaccent, color: abrissaccent }}
-              >
-                Mehr Info
-              </button>
+              <a href="/ratgeber/abriss-berlin" className="inline-block">
+                <button
+                  className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:bg-amber-900/20"
+                  style={{ borderColor: abrissaccent, color: abrissaccent }}
+                >
+                  Mehr Info
+                </button>
+              </a>
             </motion.div>
           </motion.div>
 
@@ -130,30 +132,38 @@ export default function AbrissPremiumHero() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="relative h-96 lg:h-[500px] hidden lg:block"
           >
-            {/* Card 1 - Main */}
-            <motion.div
-              className="absolute inset-0 rounded-2xl overflow-hidden"
-              style={{ background: `linear-gradient(135deg, ${abrissaccent}20, transparent)` }}
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 6, repeat: Infinity }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center">
+            {/* Animated Icons Grid */}
+            <div className="absolute inset-0 grid grid-cols-2 gap-6 p-8">
+              {[
+                { Icon: Building2, delay: 0 },
+                { Icon: Wrench, delay: 0.2 },
+                { Icon: Shield, delay: 0.4 },
+                { Icon: Zap, delay: 0.6 }
+              ].map((item, idx) => {
+                const IconComponent = item.Icon
+                return (
                   <motion.div
-                    className="w-24 h-24 rounded-3xl mx-auto mb-6 flex items-center justify-center"
-                    style={{ background: `${abrissaccent}30` }}
-                    animate={{ scale: [1, 1.1, 1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
+                    key={idx}
+                    className="rounded-2xl flex items-center justify-center backdrop-blur-sm"
+                    style={{ background: `${abrissaccent}20` }}
+                    animate={{ 
+                      y: [0, -15, 0],
+                      scale: [1, 1.05, 1],
+                      rotate: [0, 5, 0]
+                    }}
+                    transition={{ 
+                      duration: 4 + idx, 
+                      repeat: Infinity,
+                      delay: item.delay
+                    }}
                   >
-                    <Building2 className="w-12 h-12" style={{ color: abrissaccent }} />
+                    <IconComponent className="w-16 h-16" style={{ color: abrissaccent }} />
                   </motion.div>
-                  <p className="text-white font-bold text-xl">Sichere Demontage</p>
-                </div>
-              </div>
-            </motion.div>
+                )
+              })}
+            </div>
 
-            {/* Card 2 - Float */}
+            {/* Floating Info Card */}
             <motion.div
               className="absolute -right-12 -bottom-12 w-64 h-64 rounded-2xl p-6 text-white"
               style={{ background: abrissaccent }}

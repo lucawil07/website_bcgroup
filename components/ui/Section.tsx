@@ -25,9 +25,9 @@ export default function Section({
 
   const paddings = {
     none: '',
-    small: 'py-12 md:py-16',
-    medium: 'py-16 md:py-24',
-    large: 'py-20 md:py-32 lg:py-40',
+    small: 'py-6 md:py-8',
+    medium: 'py-8 md:py-12',
+    large: 'py-12 md:py-16 lg:py-20',
   }
 
   return (

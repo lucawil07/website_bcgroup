@@ -160,8 +160,8 @@ export default function Header() {
     >
       <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Logo isScrolled={isScrolled} service={currentService} useDarkText={useDarkText} />
+          {/* Logo - Always visible */}
+          <Logo isScrolled={true} service={currentService} useDarkText={true} />
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-2">
@@ -353,9 +353,7 @@ export default function Header() {
               exit={{ y: -20 }}
               className={cn(
                 'backdrop-blur-3xl border-t transition-colors duration-300',
-                useDarkText
-                  ? 'bg-white/95 border-neutral-200'
-                  : 'glass-strong border-white/10'
+                'bg-gradient-to-b from-neutral-950 to-neutral-900 border-secondary/40'
               )}
             >
               <nav className="px-6 py-8 space-y-2">
@@ -372,7 +370,7 @@ export default function Header() {
                         prefetch={true}
                         className={cn(
                           navItemClasses.mobileItem,
-                          useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                          'text-white hover:text-secondary font-bold border-l-4 border-transparent hover:border-secondary hover:bg-secondary/20 px-4 py-3 rounded transition-all'
                         )}
                       >
                         {item.label}
@@ -383,7 +381,7 @@ export default function Header() {
                           onClick={() => toggleDropdown(item.label)}
                           className={cn(
                             navItemClasses.mobileToggle,
-                            useDarkText ? 'text-primary-950 hover:text-secondary' : 'text-white hover:text-white/80'
+                            'text-white hover:text-secondary font-bold border-l-4 border-transparent hover:border-secondary hover:bg-secondary/20 px-4 py-3 rounded transition-all'
                           )}
                           aria-expanded={openDropdown === item.label}
                         >
@@ -404,7 +402,7 @@ export default function Header() {
                               exit={{ opacity: 0, height: 0 }}
                               className="overflow-hidden"
                             >
-                              <div className="mt-2 ml-6 space-y-1">
+                              <div className="mt-2 ml-6 space-y-1 border-l-2 border-secondary/40">
                                 {item.items.map((subItem, subIndex) => (
                                   <motion.div
                                     key={subItem.href}
@@ -417,7 +415,7 @@ export default function Header() {
                                       prefetch={true}
                                       className={cn(
                                         navItemClasses.mobileSubItem,
-                                        useDarkText ? 'text-neutral-600 hover:text-secondary' : 'text-white/70 hover:text-white'
+                                        'text-white/90 hover:text-secondary font-semibold hover:bg-secondary/20 px-4 py-2 rounded transition-all'
                                       )}
                                     >
                                       {subItem.label}
@@ -438,11 +436,11 @@ export default function Header() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.6 }}
-                  className="pt-6"
+                  className="pt-6 border-t border-secondary/40"
                 >
                   <Link href="/kontakt" prefetch={true} className="block">
                     <motion.div
-                      className="bg-gradient-accent text-white text-center font-black uppercase tracking-wider text-base px-8 py-5 rounded-2xl shadow-2xl"
+                      className="bg-gradient-to-r from-secondary to-blue-600 text-white text-center font-black uppercase tracking-wider text-base px-8 py-5 rounded-2xl shadow-2xl hover:shadow-secondary/50 border-2 border-secondary/40"
                       whileTap={{ scale: 0.95 }}
                     >
                       Angebot anfordern

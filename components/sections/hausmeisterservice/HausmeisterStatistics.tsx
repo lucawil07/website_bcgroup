@@ -10,23 +10,23 @@ export default function HausmeisterStatistics() {
   const achievements = [
     {
       icon: Building2,
-      number: '850+',
+      number: '130+',
       label: 'Gebäude verwaltet',
       description: 'Von Einzelgebäuden bis zu Liegenschaftsportfolios',
       color: 'from-blue-500 to-cyan-400'
     },
     {
       icon: Heart,
-      number: '98%',
+      number: '100%',
       label: 'Kundenzufriedenheit',
       description: 'Durch kontinuierliche Qualität und Zuverlässigkeit',
       color: 'from-red-500 to-pink-400'
     },
     {
       icon: TrendingUp,
-      number: '15+',
-      label: 'Jahre Erfahrung',
-      description: 'Durchschnittliche Erfahrung unserer Techniker',
+      number: '5+',
+      label: 'Fachbereiche',
+      description: 'Vielseitige Expertise für alle Anforderungen',
       color: 'from-green-500 to-emerald-400'
     },
     {
@@ -40,72 +40,45 @@ export default function HausmeisterStatistics() {
 
   const trustIndicators = [
     {
-      title: 'Zertifiziert & Versichert',
+      title: 'Für Eigentümer & Verwalter',
       items: [
-        'Handwerkskammer-Einträge',
-        'Haftpflichtversicherung',
-        'Betriebsversicherung',
-        'ISO 9001 zertifiziert'
+        'Werterhalt der Immobilie',
+        'Kosteneinsparung durch Prävention',
+        'Entlastung bei Organisation',
+        'Transparente Dokumentation'
       ]
     },
     {
-      title: 'Digitale Verwaltung',
+      title: 'Für Mieter & Bewohner',
       items: [
-        'Online-Serviceportal',
-        'Mobile Ticketing-App',
-        'GPS-Live-Tracking',
-        'Automatische Reportings'
+        'Gepflegte Wohnumgebung',
+        'Schnelle Hilfe bei Problemen',
+        'Höhere Wohn- und Aufenthaltsqualität',
+        'Fester Ansprechpartner vor Ort'
       ]
     },
     {
-      title: 'Verfügbarkeit',
+      title: 'Zuverlässige Betreuung',
       items: [
-        '24/7 Notfallannahme',
-        'Wochenend-Service',
-        'Feiertags-Service',
-        'Regelmäßige Updates'
+        'Geschultes Personal',
+        'Moderne Ausrüstung',
+        'Strukturierte Arbeitsweise',
+        'Dokumentation aller Einsätze'
       ]
     },
     {
-      title: 'Qualitätsgarantie',
+      title: 'Maßgeschneidert',
       items: [
-        'Inspektionsprotokolle',
-        'Dokumentation',
-        'Regelmäßige Audits',
-        'Kundenreviews'
+        'Individuelle Betreuungskonzepte',
+        'Perfekt auf Ihre Immobilie abgestimmt',
+        'Wohnanlage, Büro oder Gewerbe',
+        'Flexibel anpassbar'
       ]
-    }
-  ]
-
-  const successStories = [
-    {
-      building: 'Wohnkomplex Charlottenburg',
-      units: '240 Wohnungen',
-      result: '40% Energieeinsparung',
-      time: 'Seit 2018'
-    },
-    {
-      building: 'Business Center Mitte',
-      units: '8 Stockwerke',
-      result: 'Zero-Downtime Service',
-      time: 'Seit 2015'
-    },
-    {
-      building: 'Shopping Center Tempelhof',
-      units: '15.000m² Fläche',
-      result: '99.8% Verfügbarkeit',
-      time: 'Seit 2019'
-    },
-    {
-      building: 'Industriepark Lichtenberg',
-      units: '50 Gebäude',
-      result: '24h Wartungsgarantie',
-      time: 'Seit 2010'
     }
   ]
 
   return (
-    <Section padding="large" className="relative bg-gradient-to-br from-neutral-900 to-black overflow-hidden">
+    <Section padding="none" className="relative bg-gradient-to-br from-neutral-900 to-black overflow-hidden py-16 md:py-20 lg:py-24">
       {/* Background animation */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -132,34 +105,31 @@ export default function HausmeisterStatistics() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Zahlen, die
+            Ihre Vorteile mit
             <br />
-            <span style={{ color: hausmeisterAccent }}>für sich sprechen</span>
+            <span style={{ color: hausmeisterAccent }}>BC Hausmeisterservice</span>
           </h2>
           <p className="text-lg text-white/70 max-w-2xl mx-auto">
-            Unsere Erfolgsgeschichte basiert auf Jahre von Zuverlässigkeit, Qualität und Kundentreue
+            Unser Versprechen: Ein sauberes, sicheres und gepflegtes Gebäude – dauerhaft, effizient und stressfrei für Sie
           </p>
         </motion.div>
 
         {/* Main Statistics Grid */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          variants={{
-            visible: { transition: { staggerChildren: 0.1 } },
-            hidden: { opacity: 0 }
-          }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
         >
           {achievements.map((item, index) => {
             const Icon = item.icon
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`group relative rounded-2xl overflow-hidden p-8 border-2 border-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-md bg-white/5 hover:bg-white/10 h-full`}
               >
@@ -216,7 +186,7 @@ export default function HausmeisterStatistics() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16"
         >
@@ -225,7 +195,7 @@ export default function HausmeisterStatistics() {
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.08, duration: 0.5 }}
+              transition={{ delay: index * 0.04, duration: 0.5 }}
               viewport={{ once: true }}
               className="relative group"
             >
@@ -265,75 +235,11 @@ export default function HausmeisterStatistics() {
           ))}
         </motion.div>
 
-        {/* Success Stories */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h3 className="text-2xl md:text-3xl font-black text-white mb-8">
-            <span style={{ color: hausmeisterAccent }}>Erfolgs</span>geschichten
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {successStories.map((story, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                viewport={{ once: true }}
-                className="relative group"
-              >
-                <div className="relative rounded-2xl overflow-hidden p-6 border-2 border-white/10 hover:border-white/30 transition-all duration-300 backdrop-blur-md bg-white/5 hover:bg-white/10 h-full">
-                  {/* Accent line */}
-                  <motion.div
-                    className="absolute top-0 left-0 right-0 h-1 origin-left"
-                    style={{ background: hausmeisterAccent }}
-                    initial={{ scaleX: 0 }}
-                    whileHover={{ scaleX: 1 }}
-                    transition={{ duration: 0.4 }}
-                  />
-
-                  <div className="relative z-10">
-                    {/* Building name */}
-                    <h4 className="text-lg font-bold text-white mb-3">
-                      {story.building}
-                    </h4>
-
-                    {/* Details */}
-                    <div className="space-y-3 pb-4 border-b border-white/10">
-                      <div>
-                        <p className="text-xs uppercase font-bold" style={{ color: hausmeisterAccent }}>
-                          Größe
-                        </p>
-                        <p className="text-sm text-white/80 font-semibold">{story.units}</p>
-                      </div>
-
-                      <div>
-                        <p className="text-xs uppercase font-bold" style={{ color: hausmeisterAccent }}>
-                          Ergebnis
-                        </p>
-                        <p className="text-sm text-white/80 font-semibold">{story.result}</p>
-                      </div>
-                    </div>
-
-                    {/* Since */}
-                    <p className="text-xs font-bold text-white/60 mt-4">{story.time}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
         {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0 }}
           viewport={{ once: true }}
           className="relative rounded-3xl overflow-hidden p-12 lg:p-16 text-center"
           style={{ background: `linear-gradient(135deg, ${hausmeisterAccent}, ${hausmeisterAccent}80)` }}
@@ -346,14 +252,14 @@ export default function HausmeisterStatistics() {
 
           <div className="relative z-10 max-w-2xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-black text-white mb-4">
-              Bereit für zuverlässigen Service?
+              Mit BC Hausmeisterservice haben Sie einen Partner,
             </h3>
             <p className="text-white/95 text-lg leading-relaxed mb-8">
-              Entdecken Sie, wie BC Group Ihr Gebäude mit professionellem Hausmeisterservice optimieren kann.
+              der zuverlässig für Ihre Immobilie da ist – dauerhaft gepflegte Gebäude, sichere Außenanlagen und transparente Kommunikation.
             </p>
             <a href="/kontakt" className="inline-block">
               <button className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider bg-white text-purple-900 hover:bg-neutral-100 transition-all duration-300 shadow-xl hover:shadow-2xl">
-                Unverbindliche Beratung
+                Jetzt Service anfragen
               </button>
             </a>
           </div>
