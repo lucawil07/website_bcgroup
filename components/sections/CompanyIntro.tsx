@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Button, Section, Container } from '@/components/ui'
 import { Highlighter } from '@/components/ui/highlighter'
+import { LogoCloud } from '@/components/ui/logo-cloud'
 
 export default function CompanyIntro() {
   const [isVisible, setIsVisible] = useState(false)
@@ -35,6 +36,58 @@ export default function CompanyIntro() {
     { value: '4', label: 'von 5 Sternen', suffix: '✓' }
   ]
 
+  // Partner and technology logos
+  const partnerLogos = [
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/8/87/Mercedes-Benz_logo.svg',
+      alt: 'Mercedes-Benz Partner',
+      width: 50,
+      height: 50,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/4/44/BMW.svg',
+      alt: 'BMW Service Partner',
+      width: 50,
+      height: 50,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg',
+      alt: 'Microsoft Corporate Services',
+      width: 110,
+      height: 40,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/de/d/dd/Siemens_AG_logo.svg',
+      alt: 'Siemens Facility Services',
+      width: 100,
+      height: 40,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/5/52/Bosch-logo.svg',
+      alt: 'Bosch Partner',
+      width: 80,
+      height: 40,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Adidas_logo.svg',
+      alt: 'Adidas Facility Management',
+      width: 60,
+      height: 40,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/9/9d/Zalando_logo.svg',
+      alt: 'Zalando Logistics Partner',
+      width: 90,
+      height: 40,
+    },
+    {
+      src: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
+      alt: 'Amazon Logistics Services',
+      width: 80,
+      height: 40,
+    },
+  ]
+
   return (
     <Section background="white" padding="medium">
       <Container size="wide">
@@ -52,14 +105,14 @@ export default function CompanyIntro() {
           >
             <div className="relative">
               {/* Floating Accent Element */}
-              <div className="absolute -top-8 -left-8 w-24 h-24 bg-gradient-to-br from-secondary/20 to-accent/20 rounded-full blur-2xl opacity-0 animate-pulse" />
-              <div className="absolute -bottom-12 -right-8 w-32 h-32 bg-gradient-to-tl from-secondary/15 to-transparent rounded-full blur-3xl opacity-0 animate-pulse" 
+              <div className="absolute -top-8 -left-8 w-24 h-24 bg-linear-to-br from-secondary/20 to-accent/20 rounded-full blur-2xl opacity-0 animate-pulse" />
+              <div className="absolute -bottom-12 -right-8 w-32 h-32 bg-linear-to-tl from-secondary/15 to-transparent rounded-full blur-3xl opacity-0 animate-pulse" 
                 style={{ animationDelay: '0.5s' }} />
               
               {/* Premium Image Container */}
               <div className="relative h-[480px] md:h-[600px] group">
                 {/* Background Gradient Card */}
-                <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-accent/10 rounded-2xl" />
+                <div className="absolute inset-0 bg-linear-to-br from-secondary/10 via-transparent to-accent/10 rounded-2xl" />
                 
                 {/* Main Image */}
                 <div className="relative h-full rounded-2xl overflow-hidden shadow-2xl">
@@ -73,7 +126,7 @@ export default function CompanyIntro() {
                   />
                   
                   {/* Sophisticated Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/40 via-black/10 to-transparent" />
                   
                   {/* Corner Accent Line */}
                   <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 border-secondary/60 rounded-tl-2xl" />
@@ -135,7 +188,7 @@ export default function CompanyIntro() {
           >
             {/* Refined Eyebrow */}
             <div className="flex items-center gap-3">
-              <div className="w-1.5 h-8 bg-gradient-to-b from-secondary to-accent rounded-full" />
+              <div className="w-1.5 h-8 bg-linear-to-b from-secondary to-accent rounded-full" />
               <span className="text-secondary font-bold text-xs uppercase tracking-widest">
                 Partnerschaft seit mehr als 15 Jahren
               </span>
@@ -217,6 +270,42 @@ export default function CompanyIntro() {
               </Link>
             </div>
           </div>
+        </div>
+
+        {/* Trusted Partners & Technologies Section */}
+        <div 
+          className={`mt-20 lg:mt-28 transition-all duration-1000 ease-out ${
+            isVisible 
+              ? 'opacity-100 translate-y-0' 
+              : 'opacity-0 translate-y-12'
+          }`}
+          style={{ transitionDelay: '1000ms' }}
+        >
+          {/* Section Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-2 mb-4">
+              <div className="h-px w-8 bg-linear-to-r from-transparent via-secondary/60 to-transparent rounded-full" />
+              <span className="text-xs md:text-sm font-semibold text-neutral-600 uppercase tracking-wider">
+                Vertrauen durch Qualität & Zuverlässigkeit
+              </span>
+              <div className="h-px w-8 bg-linear-to-r from-transparent via-secondary/60 to-transparent rounded-full" />
+            </div>
+            <p className="text-base md:text-lg text-neutral-600 max-w-2xl mx-auto leading-relaxed">
+              Professionelle Dienstleistungen für Berlin – Von Privatpersonen bis Großunternehmen
+            </p>
+          </div>
+
+          {/* Logo Cloud */}
+          <LogoCloud 
+            logos={partnerLogos} 
+            speed={60}
+            speedOnHover={20}
+            gap={48}
+            className="py-6"
+          />
+          
+          {/* Subtle bottom divider */}
+          <div className="mt-8 h-px bg-linear-to-r from-transparent via-neutral-200 to-transparent" />
         </div>
       </Container>
     </Section>

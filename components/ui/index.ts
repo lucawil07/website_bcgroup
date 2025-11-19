@@ -26,6 +26,10 @@ export { default as Logo } from './Logo'
 
 export { default as Breadcrumb } from './Breadcrumb'
 
+export { InfiniteSlider } from './infinite-slider'
+
+export { LogoCloud } from './logo-cloud'
+
 export { 
   Layout,
   LoadingSpinner,
