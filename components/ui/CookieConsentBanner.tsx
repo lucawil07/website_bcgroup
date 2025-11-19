@@ -5,10 +5,16 @@ import { useCookieConsent } from '@/contexts/CookieConsentContext';
 import Button from './Button';
 import Link from 'next/link';
 import { Cookie, Settings } from 'lucide-react';
+import { createPortal } from 'react-dom';
 
 export function CookieConsentBanner() {
   const { showBanner, acceptAll, rejectAll, openSettings } = useCookieConsent();
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (showBanner) {
@@ -20,75 +26,80 @@ export function CookieConsentBanner() {
     }
   }, [showBanner]);
 
-  if (!showBanner) return null;
+  if (!showBanner || !mounted) return null;
 
-  return (
+  const banner = (
     <>
       {/* Backdrop */}
       <div
-        className={`fixed inset-0 bg-neutral-900/25 backdrop-blur-md z-50 transition-opacity duration-500 ${
-          isVisible ? 'opacity-100' : 'opacity-0'
+        className={`fixed inset-0 bg-neutral-900/40 backdrop-blur-sm z-[100] transition-opacity duration-500 ${
+          isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         aria-hidden="true"
       />
 
-      {/* Banner */}
+      {/* Banner - Center of Viewport */}
       <div
-        className={`fixed left-4 right-4 sm:left-6 sm:right-6 z-50 transition-all duration-700 ease-out-quart ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
+        className={`fixed inset-0 z-[101] flex items-center justify-center p-4 sm:p-6 ${
+          isVisible ? '' : 'pointer-events-none'
         }`}
-        style={{ 
-          bottom: 'max(1.5rem, env(safe-area-inset-bottom, 1.5rem))',
-          paddingBottom: 'env(safe-area-inset-bottom, 0px)'
-        }}
         role="dialog"
         aria-labelledby="cookie-banner-title"
         aria-describedby="cookie-banner-description"
       >
-        <div className="mx-auto max-w-6xl">
-          <div className="bg-white rounded-3xl shadow-2xl border border-neutral-200/80 overflow-hidden max-h-[85vh] overflow-y-auto">
-            <div className="p-6 sm:p-8">
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                {/* Content */}
-                <div className="flex-1">
-                  <div className="mb-4">
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="shrink-0 w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-secondary-700 flex items-center justify-center shadow-lg">
-                        <Cookie className="w-5 h-5 text-white" />
-                      </div>
-                      <h2
-                        id="cookie-banner-title"
-                        className="text-xl sm:text-2xl font-black text-neutral-900 tracking-tight"
+        <div 
+          className={`w-full max-w-4xl transition-all duration-700 ease-out-quart ${
+            isVisible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
+          }`}
+        >
+          <div className="bg-white rounded-3xl shadow-2xl border border-neutral-200/80 overflow-hidden max-h-[90vh] overflow-y-auto">
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex flex-col gap-6">
+                {/* Header with Icon and Title */}
+                <div className="flex items-start gap-4">
+                  <div className="shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-secondary to-secondary-700 flex items-center justify-center shadow-lg">
+                    <Cookie className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h2
+                      id="cookie-banner-title"
+                      className="text-2xl sm:text-3xl font-black text-neutral-900 tracking-tight mb-2"
+                    >
+                      Wir respektieren Ihre Privatsphäre
+                    </h2>
+                    <p
+                      id="cookie-banner-description"
+                      className="text-base sm:text-lg text-neutral-700 leading-relaxed"
+                    >
+                      Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. 
+                      Einige Cookies sind für den Betrieb der Website notwendig, während andere uns helfen, 
+                      die Website und Ihre Erfahrung zu verbessern.{' '}
+                      <Link
+                        href="/datenschutz"
+                        className="text-secondary hover:text-secondary-700 underline underline-offset-2 font-bold transition-colors"
                       >
-                        Wir respektieren Ihre Privatsphäre
-                      </h2>
-                    </div>
-                    <div>
-                      <p
-                        id="cookie-banner-description"
-                        className="text-sm sm:text-base text-neutral-700 leading-relaxed"
-                      >
-                        Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. 
-                        Einige Cookies sind für den Betrieb der Website notwendig, während andere uns helfen, 
-                        die Website und Ihre Erfahrung zu verbessern.{' '}
-                        <Link
-                          href="/datenschutz"
-                          className="text-secondary hover:text-secondary-700 underline underline-offset-2 font-bold transition-colors"
-                        >
-                          Mehr erfahren
-                        </Link>
-                      </p>
-                    </div>
+                        Mehr erfahren
+                      </Link>
+                    </p>
                   </div>
                 </div>
 
                 {/* Actions */}
-                <div className="flex flex-col sm:flex-row gap-3 lg:shrink-0 lg:min-w-fit">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    variant="primary"
+                    size="lg"
+                    onClick={acceptAll}
+                    className="flex-1 bg-gradient-to-br from-secondary via-secondary-600 to-secondary-700 hover:from-secondary-600 hover:via-secondary-700 hover:to-secondary-800 text-white font-bold shadow-lg hover:shadow-2xl hover:shadow-secondary/30 transition-all"
+                  >
+                    Alle akzeptieren
+                  </Button>
+                  
                   <Button
                     variant="outline"
                     size="lg"
                     onClick={openSettings}
-                    className="order-2 sm:order-1 group border-2 border-neutral-300 hover:border-secondary hover:text-secondary bg-white text-neutral-800 font-semibold"
+                    className="flex-1 sm:flex-none group border-2 border-neutral-300 hover:border-secondary hover:text-secondary bg-white text-neutral-800 font-semibold"
                   >
                     <Settings className="w-4 h-4 transition-transform group-hover:rotate-90" />
                     Einstellungen
@@ -98,18 +109,9 @@ export function CookieConsentBanner() {
                     variant="ghost"
                     size="lg"
                     onClick={rejectAll}
-                    className="order-3 sm:order-2 text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 font-semibold bg-transparent border-0"
+                    className="text-neutral-700 hover:text-neutral-900 hover:bg-neutral-100 font-semibold bg-transparent border-0"
                   >
                     Ablehnen
-                  </Button>
-
-                  <Button
-                    variant="primary"
-                    size="lg"
-                    onClick={acceptAll}
-                    className="order-1 sm:order-3 bg-gradient-to-br from-secondary via-secondary-600 to-secondary-700 hover:from-secondary-600 hover:via-secondary-700 hover:to-secondary-800 text-white font-bold shadow-lg hover:shadow-2xl hover:shadow-secondary/30 transition-all"
-                  >
-                    Alle akzeptieren
                   </Button>
                 </div>
               </div>
@@ -119,4 +121,6 @@ export function CookieConsentBanner() {
       </div>
     </>
   );
+
+  return createPortal(banner, document.body);
 }

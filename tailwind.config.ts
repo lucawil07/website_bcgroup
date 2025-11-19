@@ -130,27 +130,27 @@ const config: Config = {
         ],
       },
       fontSize: {
-        'hero': ['clamp(2.5rem, 5vw + 1rem, 4.5rem)', { 
+        'hero': ['clamp(2rem, 4vw + 0.75rem, 3.5rem)', { 
           lineHeight: '1.1', 
           fontWeight: '900', 
           letterSpacing: '-0.03em' 
         }],
-        'display': ['clamp(2rem, 4vw + 0.5rem, 3.5rem)', { 
+        'display': ['clamp(1.75rem, 3.5vw + 0.5rem, 3rem)', { 
           lineHeight: '1.15', 
           fontWeight: '800',
           letterSpacing: '-0.025em'
         }],
-        'section': ['clamp(1.5rem, 3vw + 0.25rem, 2.625rem)', { 
+        'section': ['clamp(1.25rem, 2.5vw + 0.25rem, 2.25rem)', { 
           lineHeight: '1.25', 
           fontWeight: '700', 
           letterSpacing: '-0.02em' 
         }],
-        'subtitle': ['clamp(1.25rem, 2.5vw + 0.125rem, 1.875rem)', {
+        'subtitle': ['clamp(1.125rem, 2vw + 0.125rem, 1.625rem)', {
           lineHeight: '1.3',
           fontWeight: '600',
           letterSpacing: '-0.015em'
         }],
-        'body-lg': ['clamp(1rem, 0.5vw + 0.875rem, 1.125rem)', {
+        'body-lg': ['clamp(0.9375rem, 0.5vw + 0.875rem, 1.0625rem)', {
           lineHeight: '1.7'
         }],
       },

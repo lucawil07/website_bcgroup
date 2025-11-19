@@ -95,7 +95,7 @@ export default function ServiceOverview() {
           </div>
 
           {/* Main Heading */}
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.08] tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.08] tracking-tight">
             <span className="block text-primary mb-2">Sechs Services.</span>
             <span className="block gradient-text">Ein zuverlässiger Partner.</span>
           </h2>

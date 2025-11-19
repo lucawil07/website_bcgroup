@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Button, Section, Container } from '@/components/ui'
+import { Highlighter } from '@/components/ui/highlighter'
 
 export default function CompanyIntro() {
   const [isVisible, setIsVisible] = useState(false)
@@ -142,7 +143,7 @@ export default function CompanyIntro() {
 
             {/* Premium Heading */}
             <div className="space-y-4">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] tracking-tight">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black leading-[1.05] tracking-tight">
                 <span className="block text-primary">Die Zukunft</span>
                 <span className="block gradient-text">
                   professioneller Services
@@ -159,11 +160,30 @@ export default function CompanyIntro() {
             {/* Sophisticated Content */}
             <div className="space-y-6 pt-4">
               <p className="text-lg md:text-xl text-primary font-semibold leading-relaxed">
-                Dein direkter Ansprechpartner für digitale Komplettlösungen.
+                Dein direkter Ansprechpartner für{' '}
+                <Highlighter 
+                  action="box" 
+                  color="#FF6B00" 
+                  strokeWidth={2}
+                  animationDuration={700}
+                  isView={true}
+                >
+                  digitale Komplettlösungen
+                </Highlighter>.
               </p>
               
               <p className="text-base md:text-lg text-neutral-600 leading-relaxed font-light">
-                BC Group steht für Innovation und Zuverlässigkeit in Berlin. Regional mit Verantwortung, 
+                BC Group steht für{' '}
+                <Highlighter 
+                  action="highlight" 
+                  color="#4C9F38" 
+                  strokeWidth={2}
+                  animationDuration={800}
+                  isView={true}
+                >
+                  Innovation und Zuverlässigkeit
+                </Highlighter>
+                {' '}in Berlin. Regional mit Verantwortung, 
                 schnelle Lieferung und persönlicher Service – das sind nicht nur Worte, sondern unsere tägliche Praxis.
               </p>
             </div>

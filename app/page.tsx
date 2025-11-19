@@ -6,6 +6,7 @@ import {
   NewsSection,
   CTAContact,
 } from '@/components/sections'
+import { ReviewMarquee } from '@/components/sections/ReviewMarquee'
 import { 
   StructuredData, 
   organizationSchema, 
@@ -28,8 +29,8 @@ export default function Home() {
       
       <CompanyIntro />
       <ServiceOverview />
+      <ReviewMarquee />
       <NewsSection />
-      <CTAContact />
     </>
   )
 }
