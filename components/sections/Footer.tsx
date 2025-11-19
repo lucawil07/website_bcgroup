@@ -2,11 +2,9 @@
 
 import Link from 'next/link'
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react'
-import { useCookieConsent } from '@/contexts/CookieConsentContext'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
-  const { openSettings } = useCookieConsent()
 
   return (
     <footer className="relative bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white overflow-hidden">
@@ -157,12 +155,6 @@ export default function Footer() {
                     {link.label}
                   </Link>
                 ))}
-                <button
-                  onClick={openSettings}
-                  className="text-white/80 hover:text-white font-medium transition-colors"
-                >
-                  Cookie-Einstellungen
-                </button>
               </div>
 
               {/* Social Media */}
