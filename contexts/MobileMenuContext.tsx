@@ -23,19 +23,25 @@ export function MobileMenuProvider({ children }: { children: React.ReactNode }) 
 
   useEffect(() => {
     const htmlElement = document.documentElement
+    const bodyElement = document.body
     
     if (isMobileMenuOpen) {
-      // Store previous overflow value for restoration
-      const previousOverflow = htmlElement.style.overflow
+      // Lock scroll when menu is open
       htmlElement.style.overflow = 'hidden'
-      
-      // Add class for additional styling if needed
+      bodyElement.style.overflow = 'hidden'
       htmlElement.classList.add('mobile-menu-open')
-      
-      return () => {
-        htmlElement.style.overflow = previousOverflow || 'auto'
-        htmlElement.classList.remove('mobile-menu-open')
-      }
+    } else {
+      // Restore scroll when menu is closed
+      htmlElement.style.overflow = ''
+      bodyElement.style.overflow = ''
+      htmlElement.classList.remove('mobile-menu-open')
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      htmlElement.style.overflow = ''
+      bodyElement.style.overflow = ''
+      htmlElement.classList.remove('mobile-menu-open')
     }
   }, [isMobileMenuOpen])
 
