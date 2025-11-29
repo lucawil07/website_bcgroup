@@ -16,22 +16,23 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BC Group Berlin',
-  alternateName: 'BC Group',
+  alternateName: ['BC Group', 'Berlin ClearOut'],
   url: 'https://bcgroup.de',
   logo: 'https://bcgroup.de/images/logo.png',
   description: 'Professionelle Dienstleistungen in Berlin: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst.',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Musterstraße 123',
+    streetAddress: 'Willmanndamm 7',
     addressLocality: 'Berlin',
-    postalCode: '10115',
+    postalCode: '10827',
     addressCountry: 'DE',
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+49-30-123456',
+    telephone: '+49-176-63213253',
+    email: 'info@bcgroup.berlin',
     contactType: 'customer service',
-    areaServed: 'DE',
+    areaServed: 'Berlin',
     availableLanguage: ['de', 'en'],
   },
   sameAs: [
@@ -51,22 +52,27 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'BC Group Berlin',
-  image: 'https://bcgroup.de/images/og-image.jpg',
+  image: 'https://bcgroup.de/images/image_bcgroup.png',
   '@id': 'https://bcgroup.de',
   url: 'https://bcgroup.de',
-  telephone: '+49-30-123456',
+  telephone: '+49-176-63213253',
+  email: 'info@bcgroup.berlin',
   priceRange: '€€',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: 'Musterstraße 123',
+    streetAddress: 'Willmanndamm 7',
     addressLocality: 'Berlin',
-    postalCode: '10115',
+    postalCode: '10827',
     addressCountry: 'DE',
   },
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 52.520008,
-    longitude: 13.404954,
+    latitude: 52.4861, // Approximate for Willmanndamm 7
+    longitude: 13.3573,
+  },
+  areaServed: {
+    '@type': 'City',
+    name: 'Berlin',
   },
   openingHoursSpecification: [
     {
@@ -153,6 +159,22 @@ export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
       position: index + 1,
       name: item.name,
       item: `https://bcgroup.de${item.url}`,
+    })),
+  }
+}
+
+// FAQ Schema Generator
+export function createFAQSchema(faqs: { question: string; answer: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
     })),
   }
 }

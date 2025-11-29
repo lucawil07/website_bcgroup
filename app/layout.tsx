@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import { Header, Footer } from '@/components/sections'
+import { CookieConsent, StructuredData, localBusinessSchema } from '@/components/ui'
 import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
 
 const inter = Inter({ 
@@ -18,11 +19,42 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://bcgroup.de'),
-  title: 'BC Group - Ihr Servicepartner in Berlin',
+  title: {
+    default: 'BC Group - Ihr Servicepartner in Berlin',
+    template: '%s | BC Group Berlin',
+  },
   description: 'Professionelle Dienstleistungen in Berlin: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst. Maßgeschneiderte Lösungen für Privat und Gewerbe.',
-  keywords: 'Entrümpelung Berlin, Abriss Berlin, Gebäudereinigung, Hausmeisterservice, Umzug Berlin, Kurierdienst',
+  keywords: [
+    'Entrümpelung Berlin',
+    'Abriss Berlin',
+    'Gebäudereinigung Berlin',
+    'Hausmeisterservice Berlin',
+    'Umzug Berlin',
+    'Kurierdienst Berlin',
+    'Wohnungsauflösung',
+    'Büroreinigung',
+    'Winterdienst',
+    'Firmenumzug',
+  ],
   authors: [{ name: 'BC Group' }],
-  robots: 'index, follow',
+  creator: 'BC Group',
+  publisher: 'BC Group',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   manifest: '/manifest.json',
   icons: {
     icon: '/favicon.ico',
@@ -37,7 +69,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/og-image.jpg',
+        url: '/images/image_bcgroup.png',
         width: 1200,
         height: 630,
         alt: 'BC Group - Professionelle Dienstleistungen in Berlin',
@@ -48,8 +80,12 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'BC Group - Ihr Servicepartner in Berlin',
     description: 'Professionelle Dienstleistungen in Berlin',
-    images: ['/images/og-image.jpg'],
+    images: ['/images/image_bcgroup.png'],
   },
+  verification: {
+    google: 'google-site-verification-code', // Placeholder
+  },
+  category: 'business',
 }
 
 export default function RootLayout({
@@ -70,12 +106,14 @@ export default function RootLayout({
         </a>
         
         <MobileMenuProvider>
+          <StructuredData data={localBusinessSchema} />
           <div className="min-h-screen">
             <Header />
             <main id="main-content" className="relative">
               {children}
             </main>
             <Footer />
+            <CookieConsent />
           </div>
         </MobileMenuProvider>
 

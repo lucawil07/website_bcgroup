@@ -7,7 +7,7 @@ export interface EntruempelungFormData {
   
   // Step 2
   floor: string
-  hasElevator: boolean
+  hasElevator: boolean | null
   parkingDistance: string
   
   // Step 3
@@ -17,11 +17,11 @@ export interface EntruempelungFormData {
   // Step 4
   specialItems?: string[]
   specialItemsOther?: string
-  hasSondermuell?: boolean
+  hasSondermuell?: boolean | null
   sondermuellTypes?: string[]
   
   // Step 5
-  needsDismantling: boolean
+  needsDismantling: boolean | null
   dismantlingDetails?: string
   
   // Step 6

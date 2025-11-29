@@ -78,7 +78,7 @@ export default function UmzugStatsGuarantee() {
   }
 
   return (
-    <Section padding="none" background="dark" className="relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <Section padding="none" background="white" className="relative overflow-hidden text-white">
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-orange-950 via-neutral-900 to-black" />
       <div
         className="absolute inset-0 -z-10 opacity-5"
@@ -88,7 +88,7 @@ export default function UmzugStatsGuarantee() {
         }}
       />
 
-      <Container size="wide">
+      <Container size="wide" className="py-16 md:py-20 lg:py-24">
         {/* Stats Section */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

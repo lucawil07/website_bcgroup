@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Container, Section } from '@/components/ui'
+import { Container, Section, StructuredData, createServiceSchema } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Home, CheckCircle, Clock, Shield, Truck } from 'lucide-react'
@@ -41,8 +41,17 @@ export default function WohnungsaufloesungPage() {
     'Seniorenwohnungen und Pflegeheime',
   ]
 
+  const serviceSchema = createServiceSchema({
+    name: 'Wohnungsauflösung Berlin',
+    description: 'Professionelle Wohnungsauflösung in Berlin. Von Single-Wohnung bis Palazzo - wir räumen fachgerecht und vollständig.',
+    url: 'https://bcgroup.de/services/entruempelung/wohnungsaufloesung',
+    image: 'https://bcgroup.de/images/services/image_cleanout.png',
+    areaServed: 'Berlin'
+  })
+
   return (
     <>
+      <StructuredData data={serviceSchema} />
       {/* Hero Section */}
       <Section padding="large" className="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-emerald-50 via-white to-emerald-50">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-900/5 via-transparent to-emerald-600/5" />

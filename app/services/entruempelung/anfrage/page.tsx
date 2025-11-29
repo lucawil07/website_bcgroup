@@ -10,7 +10,7 @@ export default function EntruempelungAnfragePage() {
   const router = useRouter()
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-neutral-50 to-neutral-100">
+    <div className="min-h-screen bg-linear-to-br from-neutral-50 to-neutral-100">
       {/* Header */}
       <div className="bg-white border-b border-neutral-200 sticky top-0 z-10 shadow-sm">
         <Container size="wide">
@@ -38,9 +38,9 @@ export default function EntruempelungAnfragePage() {
         <Container size="wide">
           <div className="max-w-5xl mx-auto">
             {/* Info Banner */}
-            <div className="mb-8 bg-gradient-to-r from-secondary to-accent text-white rounded-2xl p-6 md:p-8 shadow-xl">
+            <div className="mb-8 bg-linear-to-r from-secondary to-accent text-white rounded-2xl p-6 md:p-8 shadow-xl">
               <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center">
                     <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
@@ -54,7 +54,7 @@ export default function EntruempelungAnfragePage() {
                     Keine versteckten Kosten, keine Verpflichtungen.
                   </p>
                 </div>
-                <div className="flex-shrink-0 flex gap-4 text-center">
+                <div className="shrink-0 flex gap-4 text-center">
                   <div>
                     <div className="text-3xl font-black">2h</div>
                     <div className="text-xs text-white/80">Antwortzeit</div>

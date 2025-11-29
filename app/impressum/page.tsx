@@ -51,9 +51,9 @@ export default function ImpressumPage() {
               <h2 className="text-3xl font-bold mb-4">Kontaktdaten</h2>
               <div className="text-neutral-700 space-y-2">
                 <p>
-                  <strong>Telefon:</strong> <a href="tel:+4917679567083" className="text-secondary hover:underline">+49 176 79567083</a><br />
-                  <strong>E-Mail:</strong> <a href="mailto:info@bc-entruempelung.com" className="text-secondary hover:underline">info@bc-entruempelung.com</a><br />
-                  <strong>Web:</strong> <a href="https://www.bc-entruempelung.com" className="text-secondary hover:underline">www.bc-entruempelung.com</a>
+                  <strong>Telefon:</strong> <a href="tel:+4917663213253" className="text-secondary hover:underline">+49 176 63213253</a><br />
+                  <strong>E-Mail:</strong> <a href="mailto:info@bcgroup.berlin" className="text-secondary hover:underline">info@bcgroup.berlin</a><br />
+                  <strong>Web:</strong> <a href="https://www.bcgroup.berlin" className="text-secondary hover:underline">www.bcgroup.berlin</a>
                 </p>
               </div>
             </div>

@@ -10,5 +10,6 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: 'https://bcgroup.de/sitemap.xml',
+    host: 'https://bcgroup.de',
   }
 }

@@ -51,7 +51,7 @@ export default function DataProtectionPage() {
 
               <h4 className="text-xl font-bold mt-4 mb-2">Wofür nutzen wir Ihre Daten?</h4>
               <p className="text-neutral-700">
-                Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden.
+                Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten können zur Analyse Ihres Nutzerverhaltens verwendet werden. Zudem nutzen wir Ihre Daten zur Bearbeitung Ihrer Anfragen (Kontaktformular, Entrümpelungs-Anfrage) und zur Erstellung von Angeboten.
               </p>
 
               <h4 className="text-xl font-bold mt-4 mb-2">Welche Rechte haben Sie bezüglich Ihrer Daten?</h4>
@@ -78,6 +78,25 @@ export default function DataProtectionPage() {
                 </p>
               </div>
 
+              <h3 className="text-2xl font-bold mt-6 mb-3">Vercel Blob (Speicher für Uploads)</h3>
+              <p className="text-neutral-700">
+                Wenn Sie im Rahmen Ihrer Anfrage Fotos hochladen, werden diese über den Dienst "Vercel Blob" gespeichert.
+                <br />
+                <strong>Anbieter:</strong> Vercel Inc., San Francisco<br />
+                Die Speicherung erfolgt zur Bereitstellung der Fotos für die Angebotserstellung. Die Daten werden gelöscht, sobald sie für den Zweck nicht mehr erforderlich sind.
+              </p>
+
+              <h3 className="text-2xl font-bold mt-6 mb-3">Resend (E-Mail-Versand)</h3>
+              <div className="text-neutral-700 space-y-2 mt-3">
+                <p>
+                  Der Versand von Transaktions-E-Mails (z. B. Bestätigung Ihrer Anfrage) erfolgt über den Dienstleister Resend.
+                  <br />
+                  <strong>Anbieter:</strong> Resend, Inc.<br />
+                  <strong>Adresse:</strong> 2261 Market Street #4817, San Francisco, CA 94114, USA<br />
+                  <strong>Datenschutzerklärung:</strong> <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">https://resend.com/legal/privacy-policy</a>
+                </p>
+              </div>
+
               <p className="text-neutral-700 mt-4">
                 Der Hoster unserer Website erhebt in sog. Logfiles folgende Daten, die Ihr Browser übermittelt:
               </p>
@@ -98,35 +117,74 @@ export default function DataProtectionPage() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold mb-4">3. Kontaktformular</h2>
-              <p className="text-neutral-700">
-                Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und falls Sie Fragen haben sollten, zur Kontaktaufnahme bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
-              </p>
-              <p className="text-neutral-700 mt-3">
-                Die Verarbeitung der in das Kontaktformular eingegebenen Daten erfolgt somit ausschließlich auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 S. 1 a) DSGVO). Ein Widerruf dieser Einwilligung ist jederzeit möglich. Die bereits erfolgte Datenverarbeitung bis zum Widerruf bleibt davon unberührt.
-              </p>
-              <p className="text-neutral-700 mt-3">
-                Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Unberührt bleiben zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen.
-              </p>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-4">4. Analyse-Tools und Tracking</h2>
+              <h2 className="text-3xl font-bold mb-4">3. Datenerfassung auf unserer Website</h2>
               
-              <h3 className="text-2xl font-bold mt-6 mb-3">Cookies</h3>
+              <h3 className="text-2xl font-bold mt-6 mb-3">Kontaktformular</h3>
               <p className="text-neutral-700">
-                Unsere Internetseiten verwenden an mehreren Stellen sogenannte Cookies. Diese ermöglichen es uns, die Website nutzerfreundlicher, effektiver und sicherer zu machen. Cookies sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.
+                Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten (Name, E-Mail, Telefonnummer, Service-Art, Objekttyp, Budget, Nachricht) zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
               </p>
               <p className="text-neutral-700 mt-3">
-                Die meisten der von uns verwendeten Cookies sind sogenannte „Session-Cookies". Diese werden nach Ende Ihres Besuchs automatisch gelöscht. Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen. Diese Cookies ermöglichen es uns, Ihren Browser beim nächsten Besuch wiederzuerkennen.
+                Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO) oder auf Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), sofern diese abgefragt wurde.
               </p>
               <p className="text-neutral-700 mt-3">
-                Sie können Ihren Browser so einstellen, dass Sie über das Setzen von Cookies informiert werden und einzeln über deren Annahme entscheiden oder die Annahme von Cookies für bestimmte Fälle oder generell ausschließen können. Bei der Nichtakzeptanz von Cookies kann die Funktionalität unserer Website eingeschränkt sein.
+                Die von Ihnen im Kontaktformular eingegebenen Daten verbleiben bei uns, bis Sie uns zur Löschung auffordern, Ihre Einwilligung zur Speicherung widerrufen oder der Zweck für die Datenspeicherung entfällt (z. B. nach abgeschlossener Bearbeitung Ihrer Anfrage). Zwingende gesetzliche Bestimmungen – insbesondere Aufbewahrungsfristen – bleiben unberührt.
+              </p>
+
+              <h3 className="text-2xl font-bold mt-6 mb-3">Anfrage-Funnel (Entrümpelung & Services)</h3>
+              <p className="text-neutral-700">
+                Für detaillierte Service-Anfragen nutzen wir einen mehrstufigen Anfrage-Prozess ("Funnel"). Hierbei werden neben Ihren Kontaktdaten auch spezifische Projektdetails abgefragt, darunter:
+              </p>
+              <ul className="text-neutral-700 list-disc list-inside mt-2 mb-3">
+                <li>Art der Dienstleistung und Objekt-Details (Etage, Aufzug, Fläche)</li>
+                <li>Fotos des Objekts (optional)</li>
+                <li>Adressdaten des Objekts</li>
+                <li>Zeitpräferenzen</li>
+              </ul>
+              <p className="text-neutral-700">
+                <strong>Zwischenspeicherung im Browser (Local Storage):</strong><br />
+                Um Ihnen die Nutzung des Formulars zu erleichtern und Datenverlust bei Unterbrechungen zu vermeiden, werden Ihre Eingaben temporär im "Local Storage" Ihres Browsers gespeichert (Schlüssel: <code>entruempelung_funnel_draft</code>). Diese Daten verbleiben lokal auf Ihrem Endgerät und werden erst an uns übermittelt, wenn Sie das Formular final absenden. Sie können diese Daten jederzeit durch Löschen Ihres Browser-Caches entfernen. Nach erfolgreicher Übermittlung wird der lokale Speicher automatisch bereinigt.
               </p>
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold mb-4">5. Ihre Rechte</h2>
+              <h2 className="text-3xl font-bold mb-4">4. Analyse-Tools und Werbung</h2>
+              
+              <h3 className="text-2xl font-bold mt-6 mb-3">Cookie-Einwilligung (Cookie Consent)</h3>
+              <p className="text-neutral-700">
+                Unsere Website nutzt eine Consent-Management-Technologie, um Ihre Einwilligung zur Speicherung bestimmter Cookies auf Ihrem Endgerät oder zum Einsatz bestimmter Technologien einzuholen und diese datenschutzkonform zu dokumentieren.
+              </p>
+              <p className="text-neutral-700 mt-3">
+                Wir unterscheiden folgende Kategorien:
+              </p>
+              <ul className="text-neutral-700 list-disc list-inside mt-2">
+                <li><strong>Essenziell:</strong> Technisch notwendige Cookies, die für die Grundfunktionen der Website erforderlich sind (z. B. Speicherung Ihrer Cookie-Einstellungen).</li>
+                <li><strong>Analyse:</strong> Cookies zur statistischen Auswertung der Websitenutzung, um unser Angebot zu verbessern.</li>
+                <li><strong>Marketing:</strong> Cookies, um Ihnen relevante Inhalte und Werbung anzuzeigen.</li>
+              </ul>
+              <p className="text-neutral-700 mt-3">
+                Ihre Auswahl wird in einem Cookie (<code>cookie-consent</code>) bzw. im Local Storage gespeichert, damit Sie nicht bei jedem Seitenbesuch erneut gefragt werden. Sie können Ihre Einstellungen jederzeit über den "Cookie-Einstellungen"-Button im Footer oder durch Löschen der Browserdaten ändern.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-4">5. Plugins und Tools</h2>
+
+              <h3 className="text-2xl font-bold mt-6 mb-3">WhatsApp</h3>
+              <p className="text-neutral-700">
+                Wenn Sie uns per WhatsApp kontaktieren, übermitteln Sie uns automatisch Ihre Telefonnummer. Wir nutzen diese nur zur Kommunikation mit Ihnen. Bitte beachten Sie, dass WhatsApp (Meta Platforms Ireland Ltd.) eigene Datenschutzbestimmungen hat und Daten (z. B. Metadaten der Kommunikation) auch in die USA übertragen werden können. Wir empfehlen, keine sensiblen personenbezogenen Daten über WhatsApp zu versenden.
+              </p>
+
+              <h3 className="text-2xl font-bold mt-6 mb-3">Google Fonts (lokales Hosting)</h3>
+              <p className="text-neutral-700">
+                Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten so genannte Google Fonts, die von Google bereitgestellt werden. Die Google Fonts sind lokal installiert. Eine Verbindung zu Servern von Google findet dabei nicht statt.
+              </p>
+              <p className="text-neutral-700 mt-2">
+                Weitere Informationen zu Google Fonts finden Sie unter <a href="https://developers.google.com/fonts/faq" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">https://developers.google.com/fonts/faq</a> und in der Datenschutzerklärung von Google: <a href="https://policies.google.com/privacy?hl=de" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline">https://policies.google.com/privacy?hl=de</a>.
+              </p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold mb-4">6. Ihre Rechte</h2>
               
               <p className="text-neutral-700">
                 Sie haben das Recht:
@@ -148,7 +206,7 @@ export default function DataProtectionPage() {
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold mb-4">6. Beschwerdeverfahren</h2>
+              <h2 className="text-3xl font-bold mb-4">7. Beschwerdeverfahren</h2>
               
               <p className="text-neutral-700">
                 Falls Sie der Meinung sind, dass wir gegen datenschutzrechtliche Bestimmungen verstoßen, haben Sie das Recht, sich bei der zuständigen Datenschutzbehörde zu beschweren.

@@ -1,166 +1,147 @@
-# BC Group Service Image Prompts
+# Service Image Prompts for BC Group
 
-Professional image prompts designed for each service. These are optimized for consistent, high-quality visual generation matching BC Group's premium brand aesthetic.
+This document contains AI image generation prompts for all services offered by BC Group. These prompts are designed to create a consistent, professional visual identity across the website.
 
----
-
-## 1. ENTRÜMPELUNG (Junk Removal)
-
-### Prompt for AI Image Generation:
-
-```
-Professional junk removal scene in modern Berlin apartment, morning natural light streaming through large windows. A diverse team of 2-3 workers in branded blue/orange uniforms efficiently organizing and boxing household items and furniture debris. Clean, organized staging showing sorting system with labeled boxes for recycling, donation, and disposal. Modern minimalist background with exposed brick or white walls. Warm professional lighting, depth of field, shot from mid-level angle showing action and organization. High contrast colors, sharp details, professional photography style, 4K quality. Cinematic lighting that emphasizes professionalism and reliability.
-```
-
-**Key Elements:**
-- Organized, professional workforce
-- Modern Berlin setting
-- Clear sorting/organization system
-- Branded uniforms (blue/orange)
-- Natural, warm lighting
-- Action-oriented composition
+## Global Style Guidelines
+**Style:** Photorealistic, High Resolution (8k), Professional Corporate Photography.
+**Lighting:** Bright, natural, clean, inviting.
+**Color Palette:** Dominant whites and greys with **Blue (#0066CC)** accents (uniforms, vehicles, branding elements).
+**Setting:** Modern Berlin environments (urban, residential, office).
+**Branding:** Workers should be wearing professional uniforms (Blue/White) featuring the **"BC Group"** logo. Vehicles should be white with blue "BC Group" branding.
+**Mood:** Trustworthy, Efficient, Friendly, Professional.
 
 ---
 
-## 2. ABRISS (Demolition)
+## 1. Abriss (Demolition)
 
-### Prompt for AI Image Generation:
+### Main Service Image
+**Prompt:**
+> Professional photography of a controlled building demolition site in Berlin, modern yellow excavator with blue BC Group branding carefully tearing down a brick wall, blue sky, safety fences, construction workers in high-visibility blue and orange vests and hard hats supervising, dust control water spray, high resolution, photorealistic, 8k, --ar 16:9
 
-```
-Professional industrial demolition site in Berlin, controlled deconstruction of building. Heavy equipment (excavator, hydraulic breaker) operated by trained professionals in safety gear (helmets, high-visibility vests). Structured demolition showing precision and safety protocols. Clear dust management and material separation areas. Urban Berlin background, professional site management visible. Golden hour or dramatic side lighting emphasizing scale and precision. Construction site photography aesthetic, cinematic depth, 4K resolution. Emphasize controlled professionalism over chaos.
-```
+### Gebäudeabriss
+**Prompt:**
+> Heavy demolition machinery in action, excavator arm breaking concrete, construction site in an urban Berlin setting, safety focus, professional operators in BC Group branded gear, dynamic angle, sharp focus, daylight, 8k, --ar 16:9
 
-**Key Elements:**
-- Safety-focused imagery
-- Precision and control
-- Modern heavy equipment
-- Professional team in safety gear
-- Organized site management
-- Industrial but professional aesthetic
+### Selektive Demontage
+**Prompt:**
+> Interior construction site, workers in blue BC Group uniforms carefully dismantling interior fixtures and non-load-bearing walls, selective demolition, clean workspace, safety equipment, professional tools, bright lighting, 8k, --ar 16:9
 
----
-
-## 3. REINIGUNG (Cleaning)
-
-### Prompt for AI Image Generation:
-
-```
-High-end professional commercial office cleaning scene in modern Berlin business building. Team of uniformed cleaners (blue/orange branded uniforms) using professional equipment (eco-friendly cleaning supplies, modern machinery, polishing equipment). Gleaming floors reflecting light, pristine windows showing city skyline, bright modern office environment. Clear before-and-after visual contrast with one side showing shine/cleanliness. Natural daylight and professional lighting highlighting sparkle and cleanliness. Minimalist, modern aesthetic, premium photography style, 4K resolution. Emphasize quality, professionalism, and attention to detail.
-```
-
-**Key Elements:**
-- Sparkling, clean surfaces
-- Professional team in uniform
-- Modern office environment
-- Eco-friendly equipment visible
-- High contrast showing cleanliness
-- Bright, clean lighting
-- Premium aesthetic
+### Recycling & Entsorgung
+**Prompt:**
+> Construction waste sorting facility, organized piles of wood, metal, and concrete, workers in BC Group vests sorting materials for recycling, sustainability focus, green and blue tones, bright sunny day, eco-friendly demolition, 8k, --ar 16:9
 
 ---
 
-## 4. HAUSMEISTER (Facility Management)
+## 2. Entrümpelung (Clearing & Junk Removal)
 
-### Prompt for AI Image Generation:
+### Main Service Image
+**Prompt:**
+> Wide shot of a perfectly cleared and broom-clean living room in a Berlin apartment, sunlight streaming through windows, empty space, sense of relief and cleanliness, a BC Group team member in blue uniform standing by the door holding a clipboard, professional service, 8k, --ar 16:9
 
-```
-Professional facility manager in branded uniform (blue/orange) conducting maintenance inspection in modern Berlin building. Scene showing diverse maintenance tasks: HVAC system check, electrical panel inspection, plumbing work, green plant maintenance visible in background. Modern building systems and infrastructure. Mix of indoor (mechanical room, hallways) showing comprehensive property management. Natural and professional artificial lighting. Emphasize competence, reliability, and broad expertise. Cinematic photography, warm professional color grading, 4K resolution. Time-lapse or multi-task composition showing 24/7 readiness.
-```
+### Wohnungsauflösung
+**Prompt:**
+> Professional movers in blue BC Group shirts carrying furniture and boxes out of a residential apartment, respectful and efficient, hallway setting, organized process, bright lighting, photorealistic, 8k, --ar 16:9
 
-**Key Elements:**
-- Diverse maintenance tasks
-- Professional expertise visible
-- Modern building systems
-- Branded uniform
-- Reliability and competence
-- Comprehensive property management
-- 24/7 availability suggestion
+### Gewerbliche Räumung
+**Prompt:**
+> Open plan office space being cleared out, workers in BC Group uniforms removing office chairs and desks, organized chaos, professional commercial clearing service, modern office background, daylight, 8k, --ar 16:9
 
----
+### Kellerbereiche
+**Prompt:**
+> Before and after concept (or just the clean result) of a basement room, organized shelves, clean floor, bright artificial lighting, a BC Group worker sweeping the floor, reclaiming space, 8k, --ar 16:9
 
-## 5. UMZUG & TRANSPORT (Moving & Transport)
-
-### Prompt for AI Image Generation:
-
-```
-Professional moving day scene in Berlin, modern moving truck (branded blue/orange) with professional team efficiently loading furniture and boxes with organized precision. Apartment move in progress showing padding-wrapped furniture, labeled boxes in systematic arrangement. Team working cohesively showing safe lifting technique and professional care. Urban Berlin residential building in background. Warm golden hour lighting, dynamic action composition showing movement and coordination. Professional photography style emphasizing smooth operation and care for belongings. 4K cinematography with depth of field highlighting the organized process.
-```
-
-**Key Elements:**
-- Organized, efficient team
-- Professional moving truck
-- Careful furniture handling
-- Labeled, systematic packing
-- Safe working practices
-- Urban Berlin setting
-- Dynamic, action-oriented
-- Care and attention visible
+### Nachlassverwaltung
+**Prompt:**
+> Respectful handling of personal items, close up of hands in gloves carefully packing items into boxes, soft lighting, dignified atmosphere, BC Group branding on the box, professional and empathetic service, 8k, --ar 16:9
 
 ---
 
-## 6. KURIER (Courier Service)
+## 3. Hausmeisterservice (Caretaker Service)
 
-### Prompt for AI Image Generation:
+### Main Service Image
+**Prompt:**
+> Friendly facility manager in a blue BC Group jacket standing in front of a modern residential complex in Berlin, holding a tablet, smiling, well-maintained property background, green lawn, blue sky, trustworthiness, 8k, --ar 16:9
 
-```
-Fast-paced professional courier delivery scene in modern Berlin. Courier in branded uniform (blue/orange) with modern delivery vehicle (cargo bike or delivery van with GPS/tracking visible). Dynamic shot showing package handling - receiving, scanning, organizing packages with modern tracking system visible on tablet/mobile device. Urban Berlin streets, motion and efficiency emphasized. Professional, modern aesthetic with technology integration clear. Bright daylight, high-energy composition suggesting speed and reliability. 4K photography style with cinematic color grading. Emphasize modern logistics, tracking capability, and professional service.
-```
+### Objektmanagement
+**Prompt:**
+> Facility manager inspecting building systems, checking a heating system or electrical panel in a clean utility room, professional demeanor, BC Group uniform, clipboard or tablet in hand, technical expertise, 8k, --ar 16:9
 
-**Key Elements:**
-- Modern delivery vehicle
-- Professional team
-- Package handling precision
-- Technology/tracking visible
-- Urban Berlin streets
-- Speed and efficiency
-- Professional, modern aesthetic
-- Dynamic, energetic composition
+### Gartenpflege
+**Prompt:**
+> Landscaper in BC Group workwear mowing a green lawn in a residential courtyard, trimming hedges, sunny summer day, vibrant green colors, well-maintained garden, professional gardening tools, 8k, --ar 16:9
 
----
+### Winterdienst
+**Prompt:**
+> Winter scene in Berlin, snow on the ground, a worker in warm blue BC Group winter gear shoveling snow from a sidewalk, salting the path, early morning light, safety and reliability, 8k, --ar 16:9
 
-## General Guidelines for All Images:
-
-### Brand Colors to Incorporate:
-- **Primary Blue:** #0066CC (secondary branding)
-- **Accent Orange:** #FF6B35 (accent elements)
-- **Dark Gray/Black:** #1a1a1a (uniforms, professional look)
-
-### Photography Style Specifications:
-- **Resolution:** 4K (3840x2160) minimum
-- **Aspect Ratio:** 16:9 or 3:2 for flexibility
-- **Lighting:** Natural light preferred, golden hour optimal
-- **Color Grading:** Warm, professional, high contrast
-- **Composition:** Rule of thirds, depth of field emphasis
-- **Subject:** Clear focus on professionalism, teamwork, organization
-
-### Atmosphere:
-- Modern, professional, premium
-- Trustworthy and reliable
-- Organized and systematic
-- Berlin-based (urban setting)
-- Diversity in team representation
-- Clean, bright environments
-- Action-oriented but controlled
+### Reinigung & Pflege (Outdoor)
+**Prompt:**
+> Caretaker sweeping leaves from a paved pathway, maintaining cleanliness of the property exterior, autumn setting, BC Group uniform, clean and orderly environment, high quality photography, 8k, --ar 16:9
 
 ---
 
-## Image Usage Recommendations:
+## 4. Kurierdienst (Courier Service)
 
-1. **CompanyIntro Section:** Use a composite or hero shot of multiple services
-2. **ServiceOverview Cards:** Use individual service-specific images (3840x2160 → crop to 1200x800 for web)
-3. **Service Detail Pages:** Use 2-3 images per service showing different aspects
-4. **Mobile Optimization:** Ensure 16:9 aspect ratio for responsive design
+### Main Service Image
+**Prompt:**
+> Modern white delivery van with blue "BC Group" logo driving on a Berlin street, motion blur on background, focus on the vehicle, sunny day, urban logistics, professional courier service, 8k, --ar 16:9
+
+### Dokumenten & Aktenservice
+**Prompt:**
+> Professional courier in BC Group uniform handing over a sealed document envelope to a business person in a suit, office lobby background, focus on the handshake and the document, security and reliability, 8k, --ar 16:9
+
+### Geschäftskunden Logistik
+**Prompt:**
+> Loading dock of a warehouse, BC Group courier loading packages into a van, organized logistics, barcode scanner, modern distribution center, efficiency, business to business service, 8k, --ar 16:9
+
+### Regelmäßige Lieferungen
+**Prompt:**
+> Courier delivering a package to a front desk reception, friendly interaction, smiling receptionist, BC Group branded shirt, daily delivery run, bright office environment, 8k, --ar 16:9
 
 ---
 
-## Photography Brief for Professional Photographer:
+## 5. Reinigung (Cleaning)
 
-If hiring a photographer instead of AI generation:
-- 1-2 day shoot in Berlin
-- 6 service scenarios (10-15 images each minimum)
-- Professional team/employee cooperation
-- Modern equipment visible where relevant
-- Branded uniform presentation
-- Variety of angles and compositions
-- Professional color grading post-production
-- Emphasis on cleanliness, organization, safety, and professionalism
+### Main Service Image
+**Prompt:**
+> Sparkling clean modern office corridor, reflection on the floor, bright and airy, a cleaner in blue BC Group tunic pushing a professional cleaning trolley in the distance, hygiene and purity, 8k, --ar 16:9
+
+### Büroreinigung
+**Prompt:**
+> Close up of a cleaner wiping a desk surface with a microfiber cloth, blurred office background, computer monitors, BC Group uniform, attention to detail, sanitizing, professional cleaning equipment, 8k, --ar 16:9
+
+### Treppenhausreinigung
+**Prompt:**
+> Cleaner mopping the stairs of a residential building, wet floor sign, clean marble or stone steps, bright natural light from window, BC Group workwear, maintaining property value, 8k, --ar 16:9
+
+### Glas- & Fensterreinigung
+**Prompt:**
+> Window cleaner squeegeeing a large glass window, blue sky reflection, crystal clear glass, professional tool, BC Group uniform, bright and uplifting image, 8k, --ar 16:9
+
+### Praxisreinigung
+**Prompt:**
+> Cleaning a medical practice or waiting room, high hygiene standards, sterile environment, cleaner disinfecting surfaces, white and blue color scheme, BC Group branding, trust and health, 8k, --ar 16:9
+
+---
+
+## 6. Umzug (Moving)
+
+### Main Service Image
+**Prompt:**
+> Large white moving truck with "BC Group" logo parked on a Berlin street, back ramp open, movers loading furniture wrapped in protective blankets, blue sky, dynamic angle, professional moving company, 8k, --ar 16:9
+
+### Privatumzug
+**Prompt:**
+> Happy couple standing in an empty apartment with moving boxes, a BC Group mover carrying a box in the background, new beginning, bright room, sunlight, moving boxes with BC Group logo, 8k, --ar 16:9
+
+### Firmenumzug
+**Prompt:**
+> Office relocation, movers dismantling office desks and packing computers, professional team in BC Group uniforms, organized moving process, corporate environment, efficiency, 8k, --ar 16:9
+
+### Seniorenumzug
+**Prompt:**
+> Gentle and respectful moving service, a BC Group mover helping an elderly person with a small box or item, warm atmosphere, patience and care, comfortable living room setting, 8k, --ar 16:9
+
+### Lagerlösung
+**Prompt:**
+> Inside a modern storage facility, clean and secure storage units, a BC Group worker organizing boxes on a shelf, climate controlled, security cameras, safe storage, 8k, --ar 16:9

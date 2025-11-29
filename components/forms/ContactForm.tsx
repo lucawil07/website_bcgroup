@@ -137,7 +137,7 @@ export default function ContactForm({
             type="tel"
             {...register('phone')}
             error={errors.phone?.message}
-            placeholder="+49 30 123 456 7"
+            placeholder="+49 176 63213253"
           />
         </div>
       </div>

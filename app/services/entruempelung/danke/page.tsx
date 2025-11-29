@@ -154,7 +154,7 @@ export default function DankePage() {
               </p>
 
               <a
-                href="https://wa.me/49301234567?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20für%20eine%20Entrümpelung%20gesendet"
+                href="https://wa.me/4917663213253?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20für%20eine%20Entrümpelung%20gesendet"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -193,33 +193,33 @@ export default function DankePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Phone */}
               <a
-                href="tel:+49301234567"
+                href="tel:+4917663213253"
                 className="group p-8 bg-gradient-to-br from-white to-neutral-50 rounded-2xl border-2 border-neutral-200 hover:border-secondary hover:shadow-xl transition-all text-center"
               >
                 <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-8 h-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2">Telefon</h3>
-                <p className="text-secondary font-bold text-lg">+49 30 123 456</p>
+                <p className="text-secondary font-bold text-lg">+49 176 63213253</p>
                 <p className="text-sm text-neutral-600 mt-2">Mo–Fr: 8–18 Uhr<br />Sa: 9–14 Uhr</p>
               </a>
 
               {/* Email */}
               <a
-                href="mailto:info@bcgroup-berlin.de"
+                href="mailto:info@bcgroup.berlin"
                 className="group p-8 bg-gradient-to-br from-white to-neutral-50 rounded-2xl border-2 border-neutral-200 hover:border-accent hover:shadow-xl transition-all text-center"
               >
                 <div className="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Mail className="w-8 h-8 text-accent" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2">E-Mail</h3>
-                <p className="text-accent font-bold text-lg break-all">info@bcgroup-berlin.de</p>
+                <p className="text-accent font-bold text-lg break-all">info@bcgroup.berlin</p>
                 <p className="text-sm text-neutral-600 mt-2">Antwort innerhalb<br />von 2 Stunden</p>
               </a>
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/49301234567"
+                href="https://wa.me/4917663213253"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-8 bg-gradient-to-br from-white to-neutral-50 rounded-2xl border-2 border-neutral-200 hover:border-[#25D366] hover:shadow-xl transition-all text-center"
@@ -228,7 +228,7 @@ export default function DankePage() {
                   <MessageCircle className="w-8 h-8 text-[#25D366]" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2">WhatsApp</h3>
-                <p className="text-[#25D366] font-bold text-lg">+49 30 123 456</p>
+                <p className="text-[#25D366] font-bold text-lg">+49 176 63213253</p>
                 <p className="text-sm text-neutral-600 mt-2">Schnellste<br />Antwortzeit</p>
               </a>
             </div>

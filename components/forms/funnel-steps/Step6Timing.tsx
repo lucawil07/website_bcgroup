@@ -1,8 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { UseFormReturn } from 'react-hook-form'
-import { Calendar, Upload, X, Image as ImageIcon } from 'lucide-react'
+import { Calendar, Upload, X, Image as ImageIcon, Loader2 } from 'lucide-react'
 import type { EntruempelungFormData } from '../funnel-types'
 
 interface Step6Props {
@@ -10,7 +10,7 @@ interface Step6Props {
 }
 
 const timingOptions = [
-  { value: 'asap', label: 'Heute oder morgen', description: 'Express-Service' },
+  { value: 'asap', label: 'Heute oder morgen', description: 'Express-Service', urgent: true },
   { value: '1-2weeks', label: 'In den nächsten 1–2 Wochen', description: 'Kurzfristig' },
   { value: '1-2months', label: 'In den nächsten 1–2 Monaten', description: 'Mittelfristig' },
   { value: 'flexible', label: 'Flexibel / nach Absprache', description: 'Kein Zeitdruck' },
@@ -19,14 +19,24 @@ const timingOptions = [
 export default function Step6Timing({ form }: Step6Props) {
   const { watch, setValue } = form
   const selectedTiming = watch('timing')
+  const savedPhotos = watch('photos') || []
   const [uploadedPhotos, setUploadedPhotos] = useState<string[]>([])
   const [isUploading, setIsUploading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
+
+  // Load photos from form state on mount
+  useEffect(() => {
+    if (savedPhotos.length > 0 && uploadedPhotos.length === 0) {
+      setUploadedPhotos(savedPhotos)
+    }
+  }, [savedPhotos])
 
   const handlePhotoUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files
     if (!files || files.length === 0) return
 
     setIsUploading(true)
+    setUploadError(null)
 
     try {
       const formData = new FormData()
@@ -44,12 +54,21 @@ export default function Step6Timing({ form }: Step6Props) {
         const newPhotos = [...uploadedPhotos, ...urls]
         setUploadedPhotos(newPhotos)
         setValue('photos', newPhotos)
+      } else {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || 'Upload fehlgeschlagen')
       }
     } catch (error) {
       console.error('Upload error:', error)
-      alert('Fehler beim Hochladen. Bitte versuchen Sie es erneut.')
+      setUploadError(
+        error instanceof Error 
+          ? error.message 
+          : 'Fehler beim Hochladen. Bitte versuchen Sie es erneut.'
+      )
     } finally {
       setIsUploading(false)
+      // Reset input to allow re-uploading the same file
+      e.target.value = ''
     }
   }
 
@@ -60,44 +79,49 @@ export default function Step6Timing({ form }: Step6Props) {
   }
 
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-4">
-        <div className="inline-block text-secondary font-bold text-xs uppercase tracking-widest bg-secondary/10 px-4 py-2 rounded-full">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="text-center space-y-3 sm:space-y-4">
+        <div className="inline-block text-emerald-600 font-bold text-xs uppercase tracking-widest bg-emerald-100 px-4 py-2 rounded-full">
           Schritt 6 von 8
         </div>
-        <h2 className="text-3xl md:text-4xl font-black text-primary">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-neutral-800">
           👉 Wann soll es losgehen?
         </h2>
-        <p className="text-neutral-600">Wählen Sie Ihren Wunschzeitraum</p>
+        <p className="text-neutral-600 text-sm sm:text-base">Wählen Sie Ihren Wunschzeitraum</p>
       </div>
 
       {/* Timing Selection */}
       <div className="space-y-4">
         <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center">
-            <Calendar className="w-5 h-5 text-secondary" />
+          <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center">
+            <Calendar className="w-5 h-5 text-emerald-600" />
           </div>
-          <label className="text-lg font-bold text-primary">
+          <label className="text-base sm:text-lg font-bold text-neutral-800">
             Wann soll die Entrümpelung stattfinden?
           </label>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
           {timingOptions.map((option) => (
             <button
               key={option.value}
               type="button"
               onClick={() => setValue('timing', option.value)}
-              className={`p-6 rounded-2xl border-2 text-left transition-all ${
+              className={`p-4 sm:p-6 rounded-2xl border-2 text-left transition-all relative ${
                 selectedTiming === option.value
-                  ? 'border-secondary bg-secondary/5 shadow-lg scale-105'
-                  : 'border-neutral-200 hover:border-secondary/50'
+                  ? 'border-emerald-500 bg-emerald-50 shadow-lg shadow-emerald-500/20 scale-[1.02]'
+                  : 'border-neutral-200 hover:border-emerald-300 bg-white'
               }`}
             >
-              <h3 className={`text-xl font-bold mb-1 ${selectedTiming === option.value ? 'text-secondary' : 'text-primary'}`}>
+              {option.urgent && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
+                  ⚡ Express
+                </span>
+              )}
+              <h3 className={`text-lg sm:text-xl font-bold mb-1 ${selectedTiming === option.value ? 'text-emerald-700' : 'text-neutral-800'}`}>
                 {option.label}
               </h3>
-              <p className="text-sm text-neutral-600">{option.description}</p>
+              <p className="text-xs sm:text-sm text-neutral-600">{option.description}</p>
             </button>
           ))}
         </div>
@@ -131,18 +155,31 @@ export default function Step6Timing({ form }: Step6Props) {
                 className="hidden"
                 disabled={isUploading}
               />
-              <div className={`px-6 py-3 rounded-xl font-semibold transition-all ${
+              <div className={`px-6 py-3 rounded-xl font-semibold transition-all inline-flex items-center gap-2 ${
                 isUploading
                   ? 'bg-neutral-300 text-neutral-500 cursor-not-allowed'
                   : 'bg-accent text-white hover:bg-accent-600'
               }`}>
-                {isUploading ? 'Wird hochgeladen...' : '📷 Fotos auswählen'}
+                {isUploading ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin" />
+                    Wird hochgeladen...
+                  </>
+                ) : (
+                  '📷 Fotos auswählen'
+                )}
               </div>
             </label>
 
             <p className="text-xs text-neutral-500">
               Max. 10MB pro Foto • JPG, PNG, WebP
             </p>
+            
+            {uploadError && (
+              <p className="text-sm text-red-600 bg-red-50 px-4 py-2 rounded-lg">
+                {uploadError}
+              </p>
+            )}
           </div>
         </div>
 

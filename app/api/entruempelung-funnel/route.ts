@@ -26,14 +26,14 @@ export async function POST(request: NextRequest) {
     // Send both emails
     const [customerEmail, internalEmail] = await Promise.all([
       resend.emails.send({
-        from: 'BC Group Berlin <noreply@bcgroup-berlin.de>',
+        from: 'BC Group Berlin <noreply@bcgroup.berlin>',
         to: data.email,
         subject: '✓ Ihre Anfrage wurde empfangen – BC Group Berlin',
         html: customerEmailHtml,
       }),
       resend.emails.send({
-        from: 'Website Anfrage <anfragen@bcgroup-berlin.de>',
-        to: 'info@bcgroup-berlin.de',
+        from: 'Website Anfrage <anfragen@bcgroup.berlin>',
+        to: 'info@bcgroup.berlin',
         subject: `🔔 Neue Entrümpelung Anfrage – ${data.name}`,
         html: internalEmailHtml,
       }),
@@ -173,7 +173,7 @@ function generateCustomerEmail(data: any): string {
               <p style="margin: 0 0 20px 0; color: #6b7280; font-size: 16px;">
                 <strong>Noch schneller per WhatsApp:</strong>
               </p>
-              <a href="https://wa.me/49301234567?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20gesendet" style="display: inline-block; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">
+              <a href="https://wa.me/4917663213253?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20gesendet" style="display: inline-block; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">
                 💬 WhatsApp Direktkontakt
               </a>
             </td>
@@ -205,9 +205,9 @@ function generateCustomerEmail(data: any): string {
           <tr>
             <td style="background-color: #f9fafb; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p style="margin: 0 0 15px 0; color: #1f2937; font-weight: bold; font-size: 16px;">BC Group Berlin</p>
-              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">📞 +49 30 123 456</p>
-              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">✉️ info@bcgroup-berlin.de</p>
-              <p style="margin: 0; color: #6b7280; font-size: 14px;">🌐 www.bcgroup-berlin.de</p>
+              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">📞 +49 176 63213253</p>
+              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">✉️ info@bcgroup.berlin</p>
+              <p style="margin: 0; color: #6b7280; font-size: 14px;">🌐 www.bcgroup.berlin</p>
               <p style="margin: 20px 0 0 0; color: #9ca3af; font-size: 12px;">
                 Ihr zuverlässiger Partner für Entrümpelung, Reinigung, Umzug und mehr in Berlin
               </p>
@@ -400,7 +400,7 @@ function generateInternalEmail(data: any): string {
           <tr>
             <td style="background-color: #f9fafb; padding: 20px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p style="margin: 0; color: #6b7280; font-size: 12px;">
-                Diese Anfrage wurde über das Entrümperungs-Funnel auf bcgroup-berlin.de generiert
+                Diese Anfrage wurde über das Entrümperungs-Funnel auf bcgroup.berlin generiert
               </p>
             </td>
           </tr>

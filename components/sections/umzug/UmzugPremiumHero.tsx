@@ -213,8 +213,8 @@ export default function UmzugPremiumHero() {
 
             {/* Floating Info Cards */}
             <motion.div
-              className="absolute -right-16 top-12 w-72 rounded-2xl p-6 backdrop-blur-lg border border-white/20"
-              style={{ background: 'rgba(0, 0, 0, 0.6)' }}
+              className="absolute -right-16 top-12 w-72 rounded-2xl p-6 backdrop-blur-lg border border-white/20 text-white"
+              style={{ background: 'rgba(0, 0, 0, 0.8)' }}
               variants={floatVariants}
               animate="float"
             >
@@ -223,7 +223,7 @@ export default function UmzugPremiumHero() {
                   <div className="w-3 h-3 rounded-full" style={{ background: umzugAccent }} />
                   <p className="text-sm font-bold uppercase text-white">Zeitpunkt</p>
                 </div>
-                <ul className="space-y-2 text-sm">
+                <ul className="space-y-2 text-sm font-medium">
                   <li className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-white" />
                     Flexible Termine

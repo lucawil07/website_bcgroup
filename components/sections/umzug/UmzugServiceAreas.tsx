@@ -68,7 +68,7 @@ export default function UmzugServiceAreas() {
   }
 
   return (
-    <Section padding="none" background="light" className="bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <Section padding="none" background="white" className="relative overflow-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 -z-10">
         <div
@@ -77,7 +77,7 @@ export default function UmzugServiceAreas() {
         />
       </div>
 
-      <Container size="wide">
+      <Container size="wide" className="py-16 md:py-20 lg:py-24">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}

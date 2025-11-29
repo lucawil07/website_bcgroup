@@ -27,8 +27,8 @@ export default function KarriereHero() {
   }, [])
 
   const stats = [
-    { icon: Users, label: 'Team Members', value: '120+' },
-    { icon: TrendingUp, label: 'Growth Rate', value: '45%' },
+    { icon: Users, label: 'Team Members', value: '20+' },
+    { icon: TrendingUp, label: 'Growth Rate', value: '65%' },
   ]
 
   return (

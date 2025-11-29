@@ -47,18 +47,18 @@ export default function Step4SpecialItems({ form }: Step4Props) {
   }
 
   return (
-    <div className="space-y-8">
-      <div className="text-center space-y-4">
-        <div className="inline-block text-secondary font-bold text-xs uppercase tracking-widest bg-secondary/10 px-4 py-2 rounded-full">
+    <div className="space-y-6 sm:space-y-8">
+      <div className="text-center space-y-3 sm:space-y-4">
+        <div className="inline-block text-emerald-600 font-bold text-xs uppercase tracking-widest bg-emerald-100 px-4 py-2 rounded-full">
           Schritt 4 von 8
         </div>
-        <h2 className="text-3xl md:text-4xl font-black text-primary">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-neutral-800">
           👉 Besondere Inhalte?
         </h2>
-        <p className="text-neutral-600">Mehrfachauswahl möglich – wählen Sie alles Zutreffende</p>
+        <p className="text-neutral-600 text-sm sm:text-base">Mehrfachauswahl möglich – wählen Sie alles Zutreffende</p>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         {specialItems.map((item) => {
           const Icon = item.icon
           const isSelected = selectedItems.includes(item.value)
@@ -68,27 +68,27 @@ export default function Step4SpecialItems({ form }: Step4Props) {
               key={item.value}
               type="button"
               onClick={() => toggleItem(item.value)}
-              className={`w-full p-6 rounded-2xl border-2 transition-all text-left flex items-center gap-4 ${
+              className={`w-full p-4 sm:p-6 rounded-2xl border-2 transition-all text-left flex items-center gap-3 sm:gap-4 ${
                 isSelected
-                  ? 'border-secondary bg-secondary/5 shadow-md'
-                  : 'border-neutral-200 hover:border-secondary/50'
+                  ? 'border-emerald-500 bg-emerald-50 shadow-md shadow-emerald-500/20'
+                  : 'border-neutral-200 hover:border-emerald-300 bg-white'
               }`}
             >
-              <div className={`w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                isSelected ? 'bg-secondary' : 'bg-neutral-100'
+              <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center shrink-0 ${
+                isSelected ? 'bg-emerald-500' : 'bg-neutral-100'
               }`}>
-                <Icon className={`w-7 h-7 ${isSelected ? 'text-white' : 'text-neutral-600'}`} strokeWidth={2} />
+                <Icon className={`w-6 h-6 sm:w-7 sm:h-7 ${isSelected ? 'text-white' : 'text-neutral-600'}`} strokeWidth={2} />
               </div>
               
               <div className="flex-1">
-                <h3 className={`text-lg font-bold ${isSelected ? 'text-secondary' : 'text-primary'}`}>
+                <h3 className={`text-base sm:text-lg font-bold ${isSelected ? 'text-emerald-700' : 'text-neutral-800'}`}>
                   {item.label}
                 </h3>
               </div>
 
-              <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+              <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full border-2 flex items-center justify-center shrink-0 ${
                 isSelected
-                  ? 'border-secondary bg-secondary'
+                  ? 'border-emerald-500 bg-emerald-500'
                   : 'border-neutral-300'
               }`}>
                 {isSelected && (
@@ -105,10 +105,10 @@ export default function Step4SpecialItems({ form }: Step4Props) {
       {/* Sondermüll Question */}
       <div className="space-y-4 pt-4 border-t-2 border-neutral-200">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center">
-            <AlertTriangle className="w-5 h-5 text-red-500" />
+          <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center">
+            <AlertTriangle className="w-5 h-5 text-amber-600" />
           </div>
-          <label className="text-lg font-bold text-primary">
+          <label className="text-base sm:text-lg font-bold text-neutral-800">
             Ist Sondermüll enthalten?
           </label>
         </div>
@@ -118,10 +118,10 @@ export default function Step4SpecialItems({ form }: Step4Props) {
             onClick={() => {
               setValue('hasSondermuell', true)
             }}
-            className={`px-6 py-4 rounded-xl border-2 font-semibold transition-all ${
+            className={`px-4 sm:px-6 py-4 rounded-xl border-2 font-semibold transition-all ${
               hasSondermuell === true
-                ? 'border-red-500 bg-red-500 text-white'
-                : 'border-neutral-200 text-neutral-700 hover:border-red-500/50'
+                ? 'border-amber-500 bg-amber-500 text-white shadow-md shadow-amber-500/30'
+                : 'border-neutral-200 text-neutral-700 hover:border-amber-300 bg-white'
             }`}
           >
             ✓ Ja
@@ -132,10 +132,10 @@ export default function Step4SpecialItems({ form }: Step4Props) {
               setValue('hasSondermuell', false)
               setValue('sondermuellTypes', [])
             }}
-            className={`px-6 py-4 rounded-xl border-2 font-semibold transition-all ${
+            className={`px-4 sm:px-6 py-4 rounded-xl border-2 font-semibold transition-all ${
               hasSondermuell === false
-                ? 'border-secondary bg-secondary text-white'
-                : 'border-neutral-200 text-neutral-700 hover:border-secondary/50'
+                ? 'border-emerald-500 bg-emerald-500 text-white shadow-md shadow-emerald-500/30'
+                : 'border-neutral-200 text-neutral-700 hover:border-emerald-300 bg-white'
             }`}
           >
             ✗ Nein
@@ -165,7 +165,7 @@ export default function Step4SpecialItems({ form }: Step4Props) {
                       : 'border-neutral-200 hover:border-red-500/50'
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center shrink-0 ${
                     isSelected ? 'bg-red-500' : 'bg-neutral-100'
                   }`}>
                     <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-neutral-600'}`} strokeWidth={2} />
@@ -177,7 +177,7 @@ export default function Step4SpecialItems({ form }: Step4Props) {
                     </h3>
                   </div>
 
-                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
+                  <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 ${
                     isSelected
                       ? 'border-red-500 bg-red-500'
                       : 'border-neutral-300'

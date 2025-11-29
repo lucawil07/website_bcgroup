@@ -42,4 +42,6 @@ export {
   FloatingElement
 } from './Layout'
 
+export { default as CookieConsent } from './CookieConsent'
+
 export * from './StructuredData'

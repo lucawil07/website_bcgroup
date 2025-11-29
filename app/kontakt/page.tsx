@@ -52,7 +52,7 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <a
-                  href="tel:+49301234567"
+                  href="tel:+4917663213253"
                   className="group flex items-start gap-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 border-2 border-secondary/30 hover:border-secondary/80 hover:shadow-lg"
                 >
                   <div className="w-14 h-14 bg-secondary/15 rounded-xl flex items-center justify-center group-hover:bg-secondary/25 transition-colors flex-shrink-0">
@@ -63,7 +63,7 @@ export default function ContactPage() {
                       Telefon
                     </div>
                     <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
-                      +49 30 123 456 7
+                      +49 176 63213253
                     </div>
                     <div className="text-sm text-neutral-500 mt-1">Mo-Fr 7:00-18:00 Uhr</div>
                   </div>
@@ -71,7 +71,7 @@ export default function ContactPage() {
 
                 {/* Email */}
                 <a
-                  href="mailto:info@bcgroup-berlin.de"
+                  href="mailto:info@bcgroup.berlin"
                   className="group flex items-start gap-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 border-2 border-secondary/30 hover:border-secondary/80 hover:shadow-lg"
                 >
                   <div className="w-14 h-14 bg-secondary/15 rounded-xl flex items-center justify-center group-hover:bg-secondary/25 transition-colors flex-shrink-0">
@@ -82,7 +82,7 @@ export default function ContactPage() {
                       E-Mail
                     </div>
                     <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
-                      info@bcgroup-berlin.de
+                      info@bcgroup.berlin
                     </div>
                     <div className="text-sm text-neutral-500 mt-1">Antwort in 24 Stunden</div>
                   </div>

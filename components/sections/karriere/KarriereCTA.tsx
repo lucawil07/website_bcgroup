@@ -31,15 +31,15 @@ export default function KarriereCTA() {
     {
       icon: Mail,
       label: 'E-Mail',
-      value: 'karriere@bcgroup.de',
-      href: 'mailto:karriere@bcgroup.de',
+      value: 'info@bcgroup.berlin',
+      href: 'mailto:info@bcgroup.berlin',
       color: 'from-blue-500 to-blue-600',
     },
     {
       icon: Phone,
       label: 'Telefon',
-      value: '+49 (0) 30 / XXX-XXXXX',
-      href: 'tel:+49301234567890',
+      value: '+49 176 63213253',
+      href: 'tel:+4917663213253',
       color: 'from-green-500 to-green-600',
     },
     {

@@ -216,18 +216,18 @@ export default function NotFound() {
                     </h4>
                     <div className="space-y-3">
                       <a
-                        href="tel:+49301234567"
+                        href="tel:+4917663213253"
                         className="flex items-center gap-3 text-neutral-600 hover:text-secondary transition-colors group"
                       >
                         <Phone className="w-4 h-4 transition-transform group-hover:rotate-12" />
-                        <span className="text-sm font-medium">+49 30 123 456 7</span>
+                        <span className="text-sm font-medium">+49 176 63213253</span>
                       </a>
                       <a
-                        href="mailto:info@bcgroup.de"
+                        href="mailto:info@bcgroup.berlin"
                         className="flex items-center gap-3 text-neutral-600 hover:text-secondary transition-colors group"
                       >
                         <Mail className="w-4 h-4 transition-transform group-hover:scale-110" />
-                        <span className="text-sm font-medium">info@bcgroup.de</span>
+                        <span className="text-sm font-medium">info@bcgroup.berlin</span>
                       </a>
                     </div>
                   </div>

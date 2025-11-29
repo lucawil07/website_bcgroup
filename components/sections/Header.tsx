@@ -30,7 +30,6 @@ const navigation: NavItem[] = [
     label: 'Company',
     items: [
       { label: 'Über uns', href: '/ueber-uns', description: 'Erfahren Sie mehr über unser Unternehmen' },
-      { label: 'Team', href: '/team', description: 'Lernen Sie unser erfahrenes Team kennen' },
       { label: 'Karriere', href: '/karriere', description: 'Offene Stellen und werden Sie Teil unseres Teams' },
     ],
   },
@@ -193,14 +192,16 @@ export default function Header() {
             {/* Contact Info */}
             <div className="flex items-center gap-4 ml-6 pl-6 border-l border-white/20">
               <MagneticElement>
-                <a
-                  href="tel:+49301234567"
-                  className={cn(navItemClasses.contactLink, getIconClass(false, useDarkText))}
-                  aria-label="Anrufen"
+                <Link
+                  href="tel:+4917663213253"
+                  className={cn(
+                    "hidden lg:inline-flex items-center gap-2",
+                    useDarkText ? "text-neutral-800 hover:text-secondary" : "text-white hover:text-secondary"
+                  )}
                 >
                   <Phone className="w-4 h-4" />
                   <span className="text-sm font-semibold">Anrufen</span>
-                </a>
+                </Link>
               </MagneticElement>
             </div>
 
@@ -223,7 +224,7 @@ export default function Header() {
             {/* Mobile CTA Icon - Phone */}
             <MagneticElement>
               <motion.a
-                href="tel:+49301234567"
+                href="tel:+4917663213253"
                 className={cn(
                   'p-2 transition-all duration-300',
                   useDarkText ? 'text-secondary' : 'text-white'

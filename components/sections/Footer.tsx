@@ -43,12 +43,12 @@ export default function Footer() {
                   </div>
                   <div>
                     <div className="text-xs text-white/70 uppercase tracking-wider font-bold">Telefon</div>
-                    <div className="text-lg font-bold text-white">+49 30 123 456</div>
+                    <div className="text-lg font-bold text-white">+49 176 63213253</div>
                   </div>
                 </a>
                 
                 <a
-                  href="mailto:info@bcgroup-berlin.de"
+                  href="mailto:info@bcgroup.berlin"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-sm border border-white/[0.15] transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -56,7 +56,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <div className="text-xs text-white/70 uppercase tracking-wider font-bold">E-Mail</div>
-                    <div className="text-sm font-bold text-white">info@bcgroup-berlin.de</div>
+                    <div className="text-sm font-bold text-white">info@bcgroup.berlin</div>
                   </div>
                 </a>
               </div>
