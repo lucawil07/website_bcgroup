@@ -14,43 +14,93 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Hero Section */}
-      <Section background="white" padding="medium" className="relative pb-0">
+      {/* Hero Section - Compact on Mobile, Full on Desktop */}
+      <Section background="white" padding="small" className="relative pb-0 pt-4 md:pt-8 lg:pt-12">
         <Container>
           <div className="max-w-3xl">
-            <div className="mb-3">
+            <div className="mb-3 hidden md:block">
               <span className="inline-block text-accent font-bold text-xs uppercase tracking-[0.3em]">
                 Kontakt & Beratung
               </span>
             </div>
-
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-900 mb-3 leading-tight">
-              <span className="text-accent">Kontakt</span>
-              <br />
-              aufnehmen
+            <h1 className="text-2xl md:text-5xl lg:text-6xl font-black text-neutral-900 mb-2 md:mb-4 leading-tight">
+              <span className="text-accent">Kontakt</span> aufnehmen
             </h1>
-
-            <p className="text-base md:text-lg text-neutral-700 leading-relaxed max-w-2xl">
-              Füllen Sie das Formular aus oder kontaktieren Sie uns direkt. Unser Team antwortet 
-              innerhalb von 10 Minuten – oder sofort per WhatsApp.
+            <p className="text-sm md:text-lg text-neutral-600 leading-relaxed max-w-2xl">
+              <span className="md:hidden">Formular ausfüllen oder direkt anrufen.</span>
+              <span className="hidden md:inline">Füllen Sie das Formular aus oder kontaktieren Sie uns direkt. Unser Team antwortet innerhalb von 10 Minuten – oder sofort per WhatsApp.</span>
             </p>
+          </div>
+          
+          {/* Mobile Quick Contact - Compact Horizontal */}
+          <div className="flex gap-2 mt-4 lg:hidden">
+            <a
+              href="tel:+4917679567083"
+              className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-secondary/10 border border-secondary/30 text-secondary font-semibold text-sm"
+            >
+              <Phone className="w-4 h-4" />
+              Anrufen
+            </a>
+            <a
+              href="https://wa.me/4917679567083?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 p-3 rounded-xl bg-green-500 text-white font-semibold text-sm"
+            >
+              <MessageCircle className="w-4 h-4" />
+              WhatsApp
+            </a>
           </div>
         </Container>
       </Section>
 
       {/* Main Contact Section */}
-      <Section background="white" padding="medium" className="relative" id="contact-form">
+      <Section background="white" padding="small" className="relative pt-4 md:pt-8 lg:pt-12" id="contact-form">
         <Container size="wide">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            {/* Left Sidebar - Contact Info & Quick Links */}
-            <div className="lg:col-span-1 space-y-8">
-              {/* Quick Contact Methods */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-16">
+            {/* Form First on Mobile */}
+            <div className="lg:col-span-2 order-1 lg:order-2">
+              {/* Card Container */}
+              <div className="bg-white border-2 border-secondary/20 rounded-xl md:rounded-2xl shadow-lg p-4 md:p-8 lg:p-12 lg:sticky lg:top-28">
+                <div className="mb-4 md:mb-8 hidden md:block">
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-neutral-900 mb-2 md:mb-3">
+                    Kontaktformular
+                  </h2>
+                  <p className="text-neutral-600 text-sm md:text-lg">
+                    Füllen Sie das Formular aus und erhalten Sie innerhalb von 24 Stunden ein personalisiertes Angebot.
+                  </p>
+                </div>
+
+                {/* Mobile: simpler form, Desktop: full form */}
+                <div className="lg:hidden">
+                  <ContactForm showPropertyType={false} showBudget={false} />
+                </div>
+                <div className="hidden lg:block">
+                  <ContactForm showPropertyType={true} showBudget={true} />
+                </div>
+              </div>
+
+              {/* Stats */}
+              <div className="mt-6 hidden md:grid grid-cols-2 gap-4 lg:gap-6">
+                <div className="bg-gradient-to-br from-secondary/20 to-blue-100 border-2 border-secondary/30 rounded-xl p-4 lg:p-6 text-center hover:shadow-lg transition-shadow">
+                  <div className="text-2xl lg:text-3xl font-black text-secondary mb-1 lg:mb-2">100%</div>
+                  <p className="text-xs lg:text-sm font-bold text-neutral-700">Kostenlose Erstberatung</p>
+                </div>
+                <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-300 rounded-xl p-4 lg:p-6 text-center hover:shadow-lg transition-shadow">
+                  <div className="text-2xl lg:text-3xl font-black text-green-600 mb-1 lg:mb-2">~2h</div>
+                  <p className="text-xs lg:text-sm font-bold text-neutral-700">Durchschnittliche Antwortzeit</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Sidebar - Hidden on mobile, shown on desktop */}
+            <div className="lg:col-span-1 order-2 lg:order-1 hidden lg:block space-y-8">
+              {/* Quick Contact Methods - Desktop only */}
               <div className="space-y-4">
                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600 mb-6">
                   Schneller Kontakt
                 </h3>
 
-                {/* Phone */}
                 <a
                   href="tel:+4917679567083"
                   className="group flex items-start gap-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 border-2 border-secondary/30 hover:border-secondary/80 hover:shadow-lg"
@@ -59,17 +109,12 @@ export default function ContactPage() {
                     <Phone className="w-7 h-7 text-secondary" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">
-                      Telefon
-                    </div>
-                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
-                      +49 176 79567083
-                    </div>
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">Telefon</div>
+                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">+49 176 79567083</div>
                     <div className="text-sm text-neutral-500 mt-1">Mo-Fr 7:00-18:00 Uhr</div>
                   </div>
                 </a>
 
-                {/* Email */}
                 <a
                   href="mailto:info@bcgroup.berlin"
                   className="group flex items-start gap-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 border-2 border-secondary/30 hover:border-secondary/80 hover:shadow-lg"
@@ -78,17 +123,12 @@ export default function ContactPage() {
                     <Mail className="w-7 h-7 text-secondary" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">
-                      E-Mail
-                    </div>
-                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
-                      info@bcgroup.berlin
-                    </div>
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-neutral-600">E-Mail</div>
+                    <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">info@bcgroup.berlin</div>
                     <div className="text-sm text-neutral-500 mt-1">Antwort in 24 Stunden</div>
                   </div>
                 </a>
 
-                {/* WhatsApp - Highlighted */}
                 <a
                   href="https://wa.me/4917679567083?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
                   target="_blank"
@@ -99,24 +139,20 @@ export default function ContactPage() {
                     <MessageCircle className="w-7 h-7 text-green-600" />
                   </div>
                   <div className="flex-1">
-                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-green-700">
-                      WhatsApp Chat (24/7)
-                    </div>
+                    <div className="text-xs font-bold uppercase tracking-[0.1em] text-green-700">WhatsApp Chat (24/7)</div>
                     <div className="text-lg font-bold text-green-900">Sofort starten</div>
                     <div className="text-sm text-green-700 mt-1">⏱️ Durchschnitt: 10 Minuten</div>
                   </div>
                 </a>
               </div>
 
-
               {/* Why Choose Us */}
               <div className="space-y-4 pt-8 border-t border-neutral-200">
                 <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600">
                   Warum uns wählen?
                 </h3>
-
                 <div className="space-y-3">
-                {[
+                  {[
                     'Kostenlose Beratung',
                     'Unverbindliche Angebote',
                     'Zertifizierte Profis',
@@ -127,40 +163,6 @@ export default function ContactPage() {
                       <span className="text-sm font-medium text-neutral-700">{item}</span>
                     </div>
                   ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right Content - Form */}
-            <div className="lg:col-span-2">
-              {/* Card Container */}
-              <div className="bg-white border-2 border-secondary/20 rounded-2xl shadow-xl p-8 md:p-12 sticky top-28">
-                <div className="mb-10">
-                  <h2 className="text-3xl md:text-4xl font-black text-neutral-900 mb-3">
-                    Kontaktformular
-                  </h2>
-                  <p className="text-neutral-600 text-lg">
-                    Füllen Sie das Formular aus und erhalten Sie innerhalb von 24 Stunden ein
-                    personalisiertes Angebot.
-                  </p>
-                </div>
-
-                <ContactForm showPropertyType={true} showBudget={true} />
-              </div>
-
-              {/* Additional Info */}
-              <div className="mt-8 grid grid-cols-2 gap-4 md:gap-6">
-                <div className="bg-gradient-to-br from-secondary/20 to-blue-100 border-2 border-secondary/30 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="text-3xl font-black text-secondary mb-2">100%</div>
-                  <p className="text-sm font-bold text-neutral-700">
-                    Kostenlose Erstberatung
-                  </p>
-                </div>
-                <div className="bg-gradient-to-br from-green-50 to-emerald-100 border-2 border-green-300 rounded-xl p-6 text-center hover:shadow-lg transition-shadow">
-                  <div className="text-3xl font-black text-green-600 mb-2">~2h</div>
-                  <p className="text-sm font-bold text-neutral-700">
-                    Durchschnittliche Antwortzeit
-                  </p>
                 </div>
               </div>
             </div>

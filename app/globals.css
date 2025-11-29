@@ -175,6 +175,8 @@ body {
   position: relative;
   line-height: 1.6;
   letter-spacing: -0.01em;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* Optimize performance for animations */

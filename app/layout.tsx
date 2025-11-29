@@ -101,16 +101,11 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${inter.className} ${inter.variable} antialiased`}>
-        {/* Skip link for accessibility */}
-        <a href="#main-content" className="skip-link">
-          Zum Hauptinhalt springen
-        </a>
-        
         <MobileMenuProvider>
           <StructuredData data={localBusinessSchema} />
-          <div className="min-h-screen overflow-x-hidden">
+          <div className="min-h-screen flex flex-col overflow-x-hidden bg-neutral-900">
             <Header />
-            <main id="main-content" className="relative overflow-x-hidden">
+            <main id="main-content" className="relative overflow-x-hidden flex-1 bg-white">
               {children}
             </main>
             <Footer />
