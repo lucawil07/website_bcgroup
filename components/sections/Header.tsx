@@ -90,7 +90,7 @@ export default function Header() {
           : 'bg-neutral-900/92 backdrop-blur-md border-b border-white/5 shadow-lg'
       )}
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
+      <div className="relative z-50 max-w-[1400px] mx-auto px-6 md:px-8 lg:px-12">
         <div className="flex items-center justify-between h-20">
           {/* Enhanced Logo */}
           <Logo isScrolled={false} service={currentService} useDarkText={useDarkText} />
@@ -193,7 +193,7 @@ export default function Header() {
             <div className="flex items-center gap-4 ml-6 pl-6 border-l border-white/20">
               <MagneticElement>
                 <Link
-                  href="tel:+4917663213253"
+                  href="tel:+4917679567083"
                   className={cn(
                     "hidden lg:inline-flex items-center gap-2",
                     useDarkText ? "text-neutral-800 hover:text-secondary" : "text-white hover:text-secondary"
@@ -224,7 +224,7 @@ export default function Header() {
             {/* Mobile CTA Icon - Phone */}
             <MagneticElement>
               <motion.a
-                href="tel:+4917663213253"
+                href="tel:+4917679567083"
                 className={cn(
                   'p-2 transition-all duration-300',
                   useDarkText ? 'text-secondary' : 'text-white'
@@ -272,135 +272,139 @@ export default function Header() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.77, 0, 0.175, 1] }}
-            className="lg:hidden overflow-hidden"
+            className={cn(
+              'fixed inset-0 z-40 h-screen w-full pt-24 pb-10 overflow-y-auto transition-colors duration-300 lg:hidden',
+              useDarkText
+                ? 'bg-white border-neutral-200'
+                : 'bg-neutral-900 border-white/10'
+            )}
           >
-            <motion.div
-              initial={{ y: -20 }}
-              animate={{ y: 0 }}
-              exit={{ y: -20 }}
-              className={cn(
-                'backdrop-blur-3xl border-t transition-colors duration-300',
-                useDarkText
-                  ? 'bg-white/95 border-neutral-200'
-                  : 'glass-strong border-white/10'
-              )}
-            >
-              <nav className="px-6 py-8 space-y-3">
-                {navigation.map((item, index) => (
-                  <motion.div
-                    key={item.label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    {item.href ? (
-                      <Link
-                        href={item.href}
-                        prefetch={true}
+            <nav className="px-6 space-y-2">
+              {navigation.map((item, index) => (
+                <motion.div
+                  key={item.label}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.05 }}
+                >
+                  {item.href ? (
+                    <Link
+                      href={item.href}
+                      prefetch={true}
+                      className={cn(
+                        'block px-6 py-5 text-xl font-bold rounded-2xl transition-all duration-200',
+                        useDarkText 
+                          ? 'text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200' 
+                          : 'text-white hover:bg-white/10 active:bg-white/20'
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  ) : (
+                    <div className="rounded-2xl overflow-hidden">
+                      <button
+                        onClick={() => toggleDropdown(item.label)}
                         className={cn(
-                          'block px-6 py-4 text-lg font-black rounded-2xl transition-all duration-200',
+                          'flex items-center justify-between w-full px-6 py-5 text-xl font-bold transition-all duration-200',
                           useDarkText 
-                            ? 'text-primary-950 bg-secondary/10 hover:bg-secondary/20 hover:text-secondary border border-secondary/20 hover:border-secondary/40' 
-                            : 'text-white bg-white/5 hover:bg-secondary/30 hover:text-white border border-white/10 hover:border-secondary/40'
+                            ? 'text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200' 
+                            : 'text-white hover:bg-white/10 active:bg-white/20',
+                          openDropdown === item.label && (useDarkText ? 'bg-neutral-50' : 'bg-white/5')
                         )}
+                        aria-expanded={openDropdown === item.label}
                       >
                         {item.label}
-                      </Link>
-                    ) : (
-                      <div>
-                        <button
-                          onClick={() => toggleDropdown(item.label)}
-                          className={cn(
-                            'flex items-center justify-between w-full px-6 py-4 text-lg font-black rounded-2xl transition-all duration-200',
-                            useDarkText 
-                              ? 'text-primary-950 bg-secondary/10 hover:bg-secondary/20 hover:text-secondary border border-secondary/20 hover:border-secondary/40' 
-                              : 'text-white bg-white/5 hover:bg-secondary/30 hover:text-white border border-white/10 hover:border-secondary/40'
-                          )}
-                          aria-expanded={openDropdown === item.label}
-                        >
-                          {item.label}
-                          <motion.div
-                            animate={{ rotate: openDropdown === item.label ? 180 : 0 }}
-                            transition={{ duration: 0.3 }}
-                          >
-                            <ChevronDown className="w-6 h-6" />
-                          </motion.div>
-                        </button>
-
-                        <AnimatePresence>
-                          {item.items && openDropdown === item.label && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="overflow-hidden mt-2"
-                            >
-                              <div className={cn(
-                                'ml-4 space-y-2 p-3 rounded-2xl',
-                                useDarkText
-                                  ? 'bg-neutral-50 border border-neutral-200'
-                                  : 'bg-white/[0.03] border border-white/10'
-                              )}>
-                                {item.items.map((subItem, subIndex) => (
-                                  <motion.div
-                                    key={subItem.href}
-                                    initial={{ opacity: 0, x: -10 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: subIndex * 0.05 }}
-                                  >
-                                    <Link
-                                      href={subItem.href}
-                                      prefetch={true}
-                                      className={cn(
-                                        'block px-4 py-3 text-base font-semibold rounded-xl transition-all duration-200',
-                                        useDarkText 
-                                          ? 'text-neutral-700 hover:text-secondary hover:bg-secondary/10' 
-                                          : 'text-white/80 hover:text-white hover:bg-secondary/20'
-                                      )}
-                                    >
-                                      {subItem.label}
-                                    </Link>
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-
-                {/* Mobile CTA */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.6 }}
-                  className="pt-4"
-                >
-                  <Link href="/kontakt" prefetch={true} className="block">
-                    <motion.div
-                      className="bg-secondary text-white text-center font-black uppercase tracking-wider text-base px-8 py-6 rounded-2xl shadow-2xl hover:shadow-3xl transition-all duration-300"
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span className="flex items-center justify-center gap-2">
-                        Angebot anfordern
                         <motion.div
-                          animate={{ x: [0, 4, 0] }}
-                          transition={{ duration: 1.2, repeat: Infinity }}
+                          animate={{ rotate: openDropdown === item.label ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
                         >
-                          →
+                          <ChevronDown className="w-6 h-6" />
                         </motion.div>
-                      </span>
-                    </motion.div>
-                  </Link>
+                      </button>
+
+                      <AnimatePresence>
+                        {item.items && openDropdown === item.label && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className={cn(
+                              'overflow-hidden',
+                              useDarkText ? 'bg-neutral-50' : 'bg-white/5'
+                            )}
+                          >
+                            <div className="px-4 pb-4 pt-2 space-y-1">
+                              {item.items.map((subItem, subIndex) => (
+                                <motion.div
+                                  key={subItem.href}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: subIndex * 0.05 }}
+                                >
+                                  <Link
+                                    href={subItem.href}
+                                    prefetch={true}
+                                    className={cn(
+                                      'block px-4 py-4 text-base font-medium rounded-xl transition-all duration-200',
+                                      useDarkText 
+                                        ? 'text-neutral-600 hover:text-neutral-900 hover:bg-neutral-200/50' 
+                                        : 'text-white/70 hover:text-white hover:bg-white/10'
+                                    )}
+                                  >
+                                    {subItem.label}
+                                  </Link>
+                                </motion.div>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  )}
                 </motion.div>
-              </nav>
-            </motion.div>
+              ))}
+
+              {/* Mobile CTA */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="pt-8 px-2"
+              >
+                <Link href="/kontakt" prefetch={true} className="block">
+                  <motion.div
+                    className="bg-secondary text-white text-center font-bold uppercase tracking-wider text-lg px-8 py-5 rounded-2xl shadow-lg active:scale-95 transition-all duration-200"
+                  >
+                    <span className="flex items-center justify-center gap-3">
+                      Angebot anfordern
+                      <motion.div
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{ duration: 1.2, repeat: Infinity }}
+                      >
+                        →
+                      </motion.div>
+                    </span>
+                  </motion.div>
+                </Link>
+                
+                <div className="mt-6 flex justify-center">
+                   <a
+                    href="tel:+4917679567083"
+                    className={cn(
+                      "flex items-center gap-3 px-6 py-3 rounded-xl transition-colors",
+                      useDarkText ? "text-neutral-600 hover:bg-neutral-100" : "text-white/80 hover:bg-white/10"
+                    )}
+                   >
+                     <Phone className="w-5 h-5" />
+                     <span className="font-semibold">0176 7956 7083</span>
+                   </a>
+                </div>
+              </motion.div>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>

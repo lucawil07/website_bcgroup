@@ -21,7 +21,7 @@ export function ReviewCard({
   return (
     <div
       className={cn(
-        "relative flex h-full w-[350px] flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-6 shadow-md transition-all duration-300 hover:shadow-xl",
+        "relative flex h-full w-[280px] sm:w-[320px] md:w-[350px] flex-col gap-3 sm:gap-4 rounded-2xl border border-gray-200 bg-white p-4 sm:p-5 md:p-6 shadow-md transition-all duration-300 hover:shadow-xl",
         className
       )}
     >
@@ -44,7 +44,7 @@ export function ReviewCard({
           ))}
         </div>
       </div>
-      <p className="flex-1 text-sm leading-relaxed text-gray-700">{comment}</p>
+      <p className="flex-1 text-xs sm:text-sm leading-relaxed text-gray-700 line-clamp-4 sm:line-clamp-none">{comment}</p>
       <p className="text-xs text-gray-500">{date}</p>
     </div>
   );

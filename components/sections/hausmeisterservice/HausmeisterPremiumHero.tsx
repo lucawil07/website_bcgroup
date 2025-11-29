@@ -15,7 +15,7 @@ export default function HausmeisterPremiumHero() {
   ]
 
   return (
-    <Section padding="none" className="relative overflow-hidden py-32 md:py-40 lg:py-48 bg-gradient-to-br from-indigo-950 via-slate-900 to-black">
+    <Section padding="none" className="relative overflow-hidden pt-8 pb-16 md:py-40 lg:py-48 bg-gradient-to-br from-indigo-950 via-slate-900 to-black">
       {/* Premium Background with Animation */}
       <div className="absolute inset-0 -z-10">
         {/* Animated accent elements - Smooth wave patterns */}

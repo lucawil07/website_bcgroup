@@ -16,7 +16,7 @@ const contactSchema = z.object({
   budget: z.string().optional(),
   message: z.string().min(10, 'Nachricht muss mindestens 10 Zeichen lang sein'),
   privacyAccepted: z.boolean().refine((val) => val === true, {
-    message: 'Sie müssen der Datenschutzerklärung zustimmen',
+    message: 'Sie müssen der Datenschutzerklärung und den AGB zustimmen',
   }),
 })
 
@@ -137,7 +137,7 @@ export default function ContactForm({
             type="tel"
             {...register('phone')}
             error={errors.phone?.message}
-            placeholder="+49 176 63213253"
+            placeholder="+49 176 79567083"
           />
         </div>
       </div>
@@ -259,6 +259,13 @@ export default function ContactForm({
               className="text-secondary hover:underline font-semibold"
             >
               Datenschutzerklärung
+            </a>{' '}
+            und die{' '}
+            <a
+              href="/agb"
+              className="text-secondary hover:underline font-semibold"
+            >
+              AGB
             </a>{' '}
             gelesen und akzeptiere die Verarbeitung meiner persönlichen Daten. *
           </label>

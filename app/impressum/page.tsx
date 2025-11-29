@@ -11,7 +11,7 @@ export default function ImpressumPage() {
   return (
     <>
       {/* Hero */}
-      <Section background="dark" padding="medium" className="pt-32">
+      <Section background="gradient" padding="medium" className="pt-32">
         <Container className="text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white uppercase mb-4">
             IMPRESSUM
@@ -51,28 +51,11 @@ export default function ImpressumPage() {
               <h2 className="text-3xl font-bold mb-4">Kontaktdaten</h2>
               <div className="text-neutral-700 space-y-2">
                 <p>
-                  <strong>Telefon:</strong> <a href="tel:+4917663213253" className="text-secondary hover:underline">+49 176 63213253</a><br />
+                  <strong>Telefon:</strong> <a href="tel:+4917679567083" className="text-secondary hover:underline">+49 176 79567083</a><br />
                   <strong>E-Mail:</strong> <a href="mailto:info@bcgroup.berlin" className="text-secondary hover:underline">info@bcgroup.berlin</a><br />
                   <strong>Web:</strong> <a href="https://www.bcgroup.berlin" className="text-secondary hover:underline">www.bcgroup.berlin</a>
                 </p>
               </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Handelsregister</h2>
-              <div className="text-neutral-700 space-y-2">
-                <p>
-                  <strong>Registergericht:</strong> Amtsgericht Berlin-Charlottenburg<br />
-                  <strong>Handelsregisternummer:</strong> [HRB-Nummer]
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Umsatzsteuer-Identifikationsnummer</h2>
-              <p className="text-neutral-700">
-                <strong>USt-IdNr.:</strong> [USt-IdNr.]
-              </p>
             </div>
 
             <div>

@@ -21,7 +21,7 @@ export default function ServiceHero({
   const colors = serviceColors[service]
 
   return (
-    <Section padding="large" className="relative overflow-hidden pt-32">
+    <Section padding="large" className="relative overflow-hidden pt-8 md:pt-32">
       <div
         className="absolute inset-0 -z-10 opacity-30"
         style={{ background: colors.gradient }}

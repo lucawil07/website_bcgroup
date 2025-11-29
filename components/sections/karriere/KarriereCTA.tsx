@@ -38,8 +38,8 @@ export default function KarriereCTA() {
     {
       icon: Phone,
       label: 'Telefon',
-      value: '+49 176 63213253',
-      href: 'tel:+4917663213253',
+      value: '+49 176 79567083',
+      href: 'tel:+4917679567083',
       color: 'from-green-500 to-green-600',
     },
     {

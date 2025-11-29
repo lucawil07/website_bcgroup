@@ -13,7 +13,7 @@ export default function EntruempelungPremiumHero() {
   const { openFunnel } = useFunnelModal()
 
   return (
-    <Section padding="none" className="relative overflow-hidden py-32 md:py-40 lg:py-48 bg-gradient-to-b from-emerald-950 via-emerald-900 to-neutral-950">
+    <Section padding="none" className="relative overflow-hidden pt-8 pb-16 md:py-40 lg:py-48 bg-gradient-to-b from-emerald-950 via-emerald-900 to-neutral-950">
       {/* Advanced Background Design */}
       <div className="absolute inset-0 -z-10">
         {/* Flowing gradient orbs - Entrümpelung specific */}

@@ -11,7 +11,7 @@ export default function DataProtectionPage() {
   return (
     <>
       {/* Hero */}
-      <Section background="dark" padding="medium" className="pt-32">
+      <Section background="gradient" padding="medium" className="pt-32">
         <Container className="text-center">
           <h1 className="text-5xl md:text-6xl font-black text-white uppercase mb-4">
             DATENSCHUTZ

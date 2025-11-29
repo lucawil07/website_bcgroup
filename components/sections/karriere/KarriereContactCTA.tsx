@@ -52,8 +52,8 @@ export default function KarriereContactCTA() {
     {
       icon: Phone,
       title: 'Telefon',
-      value: '+49 176 63213253',
-      href: 'tel:+4917663213253',
+      value: '+49 176 79567083',
+      href: 'tel:+4917679567083',
       color: 'from-emerald-500 to-teal-500',
       bgColor: 'bg-emerald-50',
       borderColor: 'border-emerald-200',

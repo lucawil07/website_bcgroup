@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link'
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -35,7 +35,7 @@ export default function Footer() {
               {/* Contact Cards */}
               <div className="space-y-3 pt-4">
                 <a
-                  href="tel:+4930123456"
+                  href="tel:+4917679567083"
                   className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-sm border border-white/[0.15] transition-all group"
                 >
                   <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
@@ -43,7 +43,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <div className="text-xs text-white/70 uppercase tracking-wider font-bold">Telefon</div>
-                    <div className="text-lg font-bold text-white">+49 176 63213253</div>
+                    <div className="text-lg font-bold text-white">+49 176 79567083</div>
                   </div>
                 </a>
                 
@@ -154,26 +154,6 @@ export default function Footer() {
                   >
                     {link.label}
                   </Link>
-                ))}
-              </div>
-
-              {/* Social Media */}
-              <div className="flex items-center gap-3">
-                {[
-                  { icon: Facebook, href: 'https://facebook.com', label: 'Facebook' },
-                  { icon: Instagram, href: 'https://instagram.com', label: 'Instagram' },
-                  { icon: Youtube, href: 'https://youtube.com', label: 'YouTube' },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-11 h-11 rounded-xl bg-white/[0.08] hover:bg-secondary backdrop-blur-sm border border-white/[0.15] flex items-center justify-center transition-all hover:scale-110 group"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="w-5 h-5 text-white/80 group-hover:text-white transition-colors" />
-                  </a>
                 ))}
               </div>
             </div>

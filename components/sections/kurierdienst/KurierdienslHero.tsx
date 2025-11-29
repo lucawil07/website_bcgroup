@@ -48,7 +48,7 @@ export default function KurierdienslHero() {
       </div>
 
       <Container size="wide">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-32 md:py-40 lg:py-48">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center pt-8 pb-16 md:py-40 lg:py-48">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}

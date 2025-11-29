@@ -84,7 +84,7 @@ export default function Logo({ isScrolled = false, service = null, useDarkText =
             >
               {isScrolled ? 'BC' : brandName}
             </motion.span>
-            {!service && !isScrolled && (
+            {!isScrolled && (
               <motion.span 
                 className={cn(
                   'font-medium uppercase tracking-wider whitespace-nowrap',

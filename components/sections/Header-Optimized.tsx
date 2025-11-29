@@ -250,7 +250,7 @@ export default function Header() {
             <div className="flex items-center gap-4 ml-6 pl-6 border-l border-white/20">
               <MagneticElement>
                 <a
-                  href="tel:+4917663213253"
+                  href="tel:+4917679567083"
                   className={cn(navItemClasses.contactLink, getIconClass(isScrolled, useDarkText))}
                   aria-label="Anrufen"
                 >

@@ -33,7 +33,7 @@ export default function CompanyIntro() {
   const stats = [
     { value: '15', label: 'Jahre Exzellenz', suffix: '+' },
     { value: '8', label: 'Spezialisierte Services', suffix: '' },
-    { value: '4', label: 'von 5 Sternen', suffix: '✓' }
+    { value: '500', label: 'Zufriedene Kunden', suffix: '+' }
   ]
 
   // Partner and technology logos
@@ -146,19 +146,19 @@ export default function CompanyIntro() {
                 </div>
                 
                 {/* Premium Stats Badge - Positioned Absolutely */}
-                <div className="absolute -bottom-8 left-0 right-0 flex justify-center px-4">
+                <div className="absolute -bottom-8 left-0 right-0 flex justify-center px-2 sm:px-4">
                   <div 
-                    className={`glass-dark rounded-2xl p-6 md:p-8 backdrop-blur-2xl border border-white/30 shadow-2xl transition-all duration-700 max-w-[90%] ${
+                    className={`glass-dark rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 backdrop-blur-2xl border border-white/30 shadow-2xl transition-all duration-700 w-full max-w-[95%] sm:max-w-[90%] ${
                       statsInView 
                         ? 'opacity-100 translate-y-0' 
                         : 'opacity-0 translate-y-8'
                     }`}
                   >
-                    <div className="grid grid-cols-3 gap-6">
+                    <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-6">
                       {stats.map((stat, index) => (
                         <div key={index} className="text-center">
                           <div 
-                            className={`text-2xl md:text-3xl font-black text-white mb-1 transition-all duration-700 ${
+                            className={`text-lg sm:text-2xl md:text-3xl font-black text-white mb-0.5 sm:mb-1 transition-all duration-700 ${
                               statsInView 
                                 ? 'opacity-100 scale-100' 
                                 : 'opacity-0 scale-75'
@@ -172,7 +172,7 @@ export default function CompanyIntro() {
                             />
                           </div>
                           <div 
-                            className={`text-[11px] md:text-xs text-white/85 uppercase tracking-widest font-semibold transition-all duration-700 ${
+                            className={`text-[9px] sm:text-[11px] md:text-xs text-white/85 uppercase tracking-wide sm:tracking-widest font-semibold transition-all duration-700 leading-tight ${
                               statsInView 
                                 ? 'opacity-100 translate-y-0' 
                                 : 'opacity-0 translate-y-3'

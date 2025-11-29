@@ -33,7 +33,7 @@ export default function UmzugPremiumHero() {
   }
 
   return (
-    <Section padding="none" className="relative overflow-hidden py-32 md:py-40 lg:py-48 bg-gradient-to-br from-orange-950 via-neutral-900 to-black">
+    <Section padding="none" className="relative overflow-hidden pt-8 pb-16 md:py-40 lg:py-48 bg-gradient-to-br from-orange-950 via-neutral-900 to-black">
       {/* Premium Background with Motion Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Animated accent orbs - representing movement */}

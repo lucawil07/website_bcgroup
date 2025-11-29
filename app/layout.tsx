@@ -4,6 +4,7 @@ import './globals.css'
 import { Header, Footer } from '@/components/sections'
 import { CookieConsent, StructuredData, localBusinessSchema } from '@/components/ui'
 import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -115,6 +116,7 @@ export default function RootLayout({
             <Footer />
             <CookieConsent />
           </div>
+          <Analytics />
         </MobileMenuProvider>
 
         {/* Smooth scrolling script */}

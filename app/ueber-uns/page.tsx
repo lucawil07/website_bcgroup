@@ -179,7 +179,7 @@ function AboutHero() {
                   <ArrowRight className="w-4 h-4" />
                 </button>
               </Link>
-              <a href="tel:+4917663213253" className="w-full sm:w-auto">
+              <a href="tel:+4917679567083" className="w-full sm:w-auto">
                 <button
                   className="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold border border-white/30 text-white transition-all duration-200 flex items-center justify-center gap-2 hover:bg-white/10"
                 >
@@ -586,7 +586,7 @@ function FinalCTA() {
                 <ArrowRight className="w-4 h-4" />
               </button>
             </Link>
-            <a href="tel:+4917663213253">
+            <a href="tel:+4917679567083">
               <button 
                 className="w-full sm:w-auto px-6 py-3 rounded-lg font-semibold border border-white/30 text-white transition-all duration-200 flex items-center justify-center gap-2 hover:bg-white/10"
               >

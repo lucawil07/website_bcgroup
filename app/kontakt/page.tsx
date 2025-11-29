@@ -39,7 +39,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Main Contact Section */}
-      <Section background="white" padding="medium" className="relative">
+      <Section background="white" padding="medium" className="relative" id="contact-form">
         <Container size="wide">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
             {/* Left Sidebar - Contact Info & Quick Links */}
@@ -52,7 +52,7 @@ export default function ContactPage() {
 
                 {/* Phone */}
                 <a
-                  href="tel:+4917663213253"
+                  href="tel:+4917679567083"
                   className="group flex items-start gap-4 p-6 rounded-2xl hover:bg-blue-50 transition-all duration-300 border-2 border-secondary/30 hover:border-secondary/80 hover:shadow-lg"
                 >
                   <div className="w-14 h-14 bg-secondary/15 rounded-xl flex items-center justify-center group-hover:bg-secondary/25 transition-colors flex-shrink-0">
@@ -63,7 +63,7 @@ export default function ContactPage() {
                       Telefon
                     </div>
                     <div className="text-lg font-bold text-neutral-900 group-hover:text-secondary transition-colors">
-                      +49 176 63213253
+                      +49 176 79567083
                     </div>
                     <div className="text-sm text-neutral-500 mt-1">Mo-Fr 7:00-18:00 Uhr</div>
                   </div>
@@ -90,7 +90,7 @@ export default function ContactPage() {
 
                 {/* WhatsApp - Highlighted */}
                 <a
-                  href="https://wa.me/49301234567?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
+                  href="https://wa.me/4917679567083?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-start gap-4 p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 transition-all duration-300 border-2 border-green-400 hover:border-green-500 shadow-lg hover:shadow-xl"
@@ -108,35 +108,6 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Office Info */}
-              <div className="space-y-4 pt-8 border-t border-neutral-200">
-                <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-neutral-600">
-                  Bürostandort
-                </h3>
-
-                <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                  <div>
-                    <address className="text-neutral-700 not-italic leading-relaxed font-medium">
-                      Musterstraße 123
-                      <br />
-                      10115 Berlin
-                      <br />
-                      Deutschland
-                    </address>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 text-secondary flex-shrink-0 mt-1" />
-                  <div className="text-sm text-neutral-700 space-y-1">
-                    <p className="font-bold">Öffnungszeiten</p>
-                    <p>Mo - Fr: 7:00 - 18:00 Uhr</p>
-                    <p>Sa: 8:00 - 14:00 Uhr</p>
-                    <p className="text-green-600 font-bold">Sonntag & Notfall: 24/7</p>
-                  </div>
-                </div>
-              </div>
 
               {/* Why Choose Us */}
               <div className="space-y-4 pt-8 border-t border-neutral-200">
@@ -253,10 +224,9 @@ export default function ContactPage() {
       </Section>
 
       {/* CTA Section */}
-      <Section background="dark" padding="medium" className="relative overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+      <Section padding="medium" className="relative bg-neutral-900">
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary rounded-full blur-[120px]" />
         </div>
 
         <Container className="relative z-10 text-center">
@@ -275,7 +245,7 @@ export default function ContactPage() {
               Kontaktformular ausfüllen
             </a>
             <a
-              href="https://wa.me/49301234567"
+              href="https://wa.me/4917679567083"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-green-500/50 uppercase tracking-[0.1em]"

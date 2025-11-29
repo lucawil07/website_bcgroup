@@ -79,7 +79,7 @@ export default function SpezialitemsPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section padding="large" className="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-white">
+      <Section padding="none" className="relative overflow-hidden pt-6 pb-20 bg-gradient-to-br from-yellow-50 via-orange-50 to-white">
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-900/5 via-transparent to-orange-600/5" />
         
         <Container size="default" className="relative z-10">

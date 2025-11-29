@@ -173,7 +173,7 @@ function generateCustomerEmail(data: any): string {
               <p style="margin: 0 0 20px 0; color: #6b7280; font-size: 16px;">
                 <strong>Noch schneller per WhatsApp:</strong>
               </p>
-              <a href="https://wa.me/4917663213253?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20gesendet" style="display: inline-block; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">
+              <a href="https://wa.me/4917679567083?text=Hallo,%20ich%20habe%20gerade%20eine%20Anfrage%20gesendet" style="display: inline-block; background-color: #25D366; color: white; padding: 16px 32px; border-radius: 12px; text-decoration: none; font-weight: bold; font-size: 16px;">
                 💬 WhatsApp Direktkontakt
               </a>
             </td>
@@ -205,7 +205,7 @@ function generateCustomerEmail(data: any): string {
           <tr>
             <td style="background-color: #f9fafb; padding: 30px; text-align: center; border-top: 1px solid #e5e7eb;">
               <p style="margin: 0 0 15px 0; color: #1f2937; font-weight: bold; font-size: 16px;">BC Group Berlin</p>
-              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">📞 +49 176 63213253</p>
+              <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">📞 +49 176 79567083</p>
               <p style="margin: 0 0 8px 0; color: #6b7280; font-size: 14px;">✉️ info@bcgroup.berlin</p>
               <p style="margin: 0; color: #6b7280; font-size: 14px;">🌐 www.bcgroup.berlin</p>
               <p style="margin: 20px 0 0 0; color: #9ca3af; font-size: 12px;">

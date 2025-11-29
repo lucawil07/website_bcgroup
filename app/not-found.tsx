@@ -216,11 +216,11 @@ export default function NotFound() {
                     </h4>
                     <div className="space-y-3">
                       <a
-                        href="tel:+4917663213253"
+                        href="tel:+4917679567083"
                         className="flex items-center gap-3 text-neutral-600 hover:text-secondary transition-colors group"
                       >
                         <Phone className="w-4 h-4 transition-transform group-hover:rotate-12" />
-                        <span className="text-sm font-medium">+49 176 63213253</span>
+                        <span className="text-sm font-medium">+49 176 79567083</span>
                       </a>
                       <a
                         href="mailto:info@bcgroup.berlin"

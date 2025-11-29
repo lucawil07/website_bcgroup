@@ -9,7 +9,7 @@ export default function ReinigungModernHero() {
   const reinigungPrimary = '#0f2f51'
 
   return (
-    <Section padding="none" className="relative overflow-hidden py-32 md:py-40 lg:py-48 bg-gradient-to-br from-slate-950 via-cyan-950 to-neutral-900">
+    <Section padding="none" className="relative overflow-hidden pt-8 pb-16 md:py-40 lg:py-48 bg-gradient-to-br from-slate-950 via-cyan-950 to-neutral-900">
       {/* Advanced Background with Motion Elements */}
       <div className="absolute inset-0 -z-10">
         {/* Animated cyan orbs - reduced movement */}

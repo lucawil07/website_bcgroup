@@ -154,14 +154,14 @@ export default function DankePage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Phone */}
               <a
-                href="tel:+4917663213253"
+                href="tel:+4917679567083"
                 className="group p-8 bg-white rounded-2xl border-2 border-neutral-200 hover:border-secondary hover:shadow-xl transition-all text-center"
               >
                 <div className="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <Phone className="w-8 h-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2">Telefon</h3>
-                <p className="text-secondary font-bold text-lg">+49 176 63213253</p>
+                <p className="text-secondary font-bold text-lg">+49 176 79567083</p>
                 <p className="text-sm text-neutral-600 mt-2">Mo–Fr: 8–18 Uhr<br />Sa: 9–14 Uhr</p>
               </a>
 
@@ -180,7 +180,7 @@ export default function DankePage() {
 
               {/* WhatsApp */}
               <a
-                href="https://wa.me/4917663213253"
+                href="https://wa.me/4917679567083"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group p-8 bg-white rounded-2xl border-2 border-neutral-200 hover:border-[#25D366] hover:shadow-xl transition-all text-center"
@@ -189,7 +189,7 @@ export default function DankePage() {
                   <MessageCircle className="w-8 h-8 text-[#25D366]" />
                 </div>
                 <h3 className="text-xl font-bold text-primary mb-2">WhatsApp</h3>
-                <p className="text-[#25D366] font-bold text-lg">+49 176 63213253</p>
+                <p className="text-[#25D366] font-bold text-lg">+49 176 79567083</p>
                 <p className="text-sm text-neutral-600 mt-2">Schnelle<br />Antwortzeit</p>
               </a>
             </div>

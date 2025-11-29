@@ -29,7 +29,7 @@ export const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+49-176-63213253',
+    telephone: '+49-176-79567083',
     email: 'info@bcgroup.berlin',
     contactType: 'customer service',
     areaServed: 'Berlin',
@@ -55,7 +55,7 @@ export const localBusinessSchema = {
   image: 'https://bcgroup.de/images/image_bcgroup.png',
   '@id': 'https://bcgroup.de',
   url: 'https://bcgroup.de',
-  telephone: '+49-176-63213253',
+  telephone: '+49-176-79567083',
   email: 'info@bcgroup.berlin',
   priceRange: '€€',
   address: {

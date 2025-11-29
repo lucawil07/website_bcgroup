@@ -122,7 +122,7 @@ export default function CTAContact() {
 
               <div className="pt-3">
                 <a
-                  href="https://wa.me/4930123456?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
+                  href="https://wa.me/4917679567083?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20Ihre%20Dienstleistungen"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Start WhatsApp chat with BC Group (opens in new window)"

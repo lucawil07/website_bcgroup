@@ -44,7 +44,7 @@ export default function ExpressServicePage() {
   return (
     <>
       {/* Hero Section */}
-      <Section padding="large" className="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-emerald-100 via-teal-50 to-cyan-50">
+      <Section padding="none" className="relative overflow-hidden pt-6 pb-20 bg-gradient-to-br from-emerald-100 via-teal-50 to-cyan-50">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 via-transparent to-cyan-500/10" />
         
         <Container size="default" className="relative z-10">
@@ -84,7 +84,7 @@ export default function ExpressServicePage() {
                 Jetzt anrufen
               </Link>
               <a 
-                href="tel:+4917663213253"
+                href="tel:+4917679567083"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-emerald-900 bg-white border-2 border-emerald-300 hover:bg-emerald-50 transition-all duration-300"
               >
                 <Phone className="w-5 h-5" />

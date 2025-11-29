@@ -46,7 +46,7 @@ export default function GewerblicheRaeumungPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section padding="large" className="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-emerald-50 via-white to-green-50">
+      <Section padding="none" className="relative overflow-hidden pt-6 pb-20 bg-gradient-to-br from-emerald-50 via-white to-green-50">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-600/5 via-transparent to-green-500/5" />
         
         <Container size="default" className="relative z-10">

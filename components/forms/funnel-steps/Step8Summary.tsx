@@ -121,7 +121,7 @@ export default function Step8Summary({ form, onEditStep }: Step8Props) {
             <input
               type="tel"
               {...register('phone', { required: true })}
-              placeholder="+49 176 63213253"
+              placeholder="+49 176 79567083"
               className="w-full px-4 py-3 rounded-xl border-2 border-neutral-200 focus:border-emerald-500 focus:outline-none text-neutral-800"
             />
           </div>
@@ -175,7 +175,7 @@ export default function Step8Summary({ form, onEditStep }: Step8Props) {
             className="w-5 h-5 text-emerald-500 rounded focus:ring-emerald-500 mt-0.5 shrink-0 accent-emerald-500"
           />
           <span className="text-sm text-neutral-700">
-            Ich habe die <a href="/datenschutz" target="_blank" className="underline font-semibold text-emerald-600 hover:text-emerald-700">Datenschutzerklärung</a> zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zu. Ich kann meine Einwilligung jederzeit widerrufen. *
+            Ich habe die <a href="/datenschutz" target="_blank" className="underline font-semibold text-emerald-600 hover:text-emerald-700">Datenschutzerklärung</a> und die <a href="/agb" target="_blank" className="underline font-semibold text-emerald-600 hover:text-emerald-700">AGB</a> zur Kenntnis genommen und stimme der Verarbeitung meiner Daten zu. Ich kann meine Einwilligung jederzeit widerrufen. *
           </span>
         </label>
       </div>

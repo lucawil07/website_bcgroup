@@ -59,7 +59,7 @@ const formSchema = z.object({
   postalCode: z.string().min(4, 'Bitte geben Sie eine gültige PLZ ein'),
   city: z.string().min(2, 'Bitte geben Sie Ihren Ort ein'),
   privacyAccepted: z.boolean().refine(val => val === true, {
-    message: 'Sie müssen die Datenschutzerklärung akzeptieren',
+    message: 'Sie müssen der Datenschutzerklärung und den AGB zustimmen',
   }),
 })
 
@@ -390,8 +390,8 @@ export default function EntruempelungFunnelForm({ onClose }: FunnelFormProps) {
                 <p className="text-sm text-red-600">{submitError}</p>
                 <p className="text-sm text-red-600 mt-2">
                   Alternativ können Sie uns direkt kontaktieren: {' '}
-                  <a href="tel:+4917663213253" className="underline font-semibold">
-                    +49 176 63213253
+                  <a href="tel:+4917679567083" className="underline font-semibold">
+                    +49 176 79567083
                   </a>
                 </p>
               </div>

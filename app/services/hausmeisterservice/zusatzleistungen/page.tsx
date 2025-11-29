@@ -80,7 +80,7 @@ export default function ZusatzleistungenPage() {
   return (
     <>
       {/* Hero Section */}
-      <Section padding="large" className="relative overflow-hidden pt-32 pb-20 bg-gradient-to-br from-violet-50 via-white to-purple-50">
+      <Section padding="none" className="relative overflow-hidden pt-6 pb-20 bg-gradient-to-br from-violet-50 via-white to-purple-50">
         <div className="absolute inset-0 bg-gradient-to-br from-violet-800/5 via-transparent to-purple-600/5" />
         
         <Container size="default" className="relative z-10">
