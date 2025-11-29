@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bcgroup.de'
+  const baseUrl = 'https://bcgroup.berlin'
   const currentDate = new Date()
 
   // Static pages

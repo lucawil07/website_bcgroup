@@ -19,8 +19,8 @@ export default function Section({
   const backgrounds = {
     white: 'bg-white',
     light: 'bg-gradient-to-b from-neutral-50 to-white',
-    dark: 'bg-gradient-to-br from-primary via-primary-light to-neutral-800 text-white relative overflow-hidden',
-    gradient: 'bg-gradient-to-br from-primary via-primary-light to-secondary text-white relative overflow-hidden',
+    dark: 'bg-primary text-white relative overflow-hidden',
+    gradient: 'bg-gradient-to-br from-[#1a1a1a] via-[#404040] to-[#0066CC] text-white relative overflow-hidden',
   }
 
   const paddings = {
