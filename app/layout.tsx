@@ -108,9 +108,9 @@ export default function RootLayout({
         
         <MobileMenuProvider>
           <StructuredData data={localBusinessSchema} />
-          <div className="min-h-screen">
+          <div className="min-h-screen overflow-x-hidden">
             <Header />
-            <main id="main-content" className="relative">
+            <main id="main-content" className="relative overflow-x-hidden">
               {children}
             </main>
             <Footer />

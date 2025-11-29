@@ -221,7 +221,7 @@ export default function HeroCarousel() {
   return (
     <section 
       ref={containerRef}
-      className="relative h-screen w-screen overflow-hidden bg-black"
+      className="relative h-screen w-full overflow-hidden bg-black"
       role="region"
       aria-label="Hero carousel showcasing BC Group services"
       onMouseEnter={() => setIsHovering(true)}
