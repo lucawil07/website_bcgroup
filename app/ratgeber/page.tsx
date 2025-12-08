@@ -29,7 +29,17 @@ export const metadata: Metadata = {
   },
 }
 
-const blogPosts = [
+interface BlogPost {
+  title: string
+  slug: string
+  excerpt: string
+  image: string
+  date: string
+  category: string
+  author: string
+}
+
+const blogPosts: BlogPost[] = [
   // Temporarily disabled - Abriss article
   // {
   //   title: 'Abriss-Genehmigung in Berlin: Das müssen Sie wissen',
