@@ -31,8 +31,8 @@ export default function EntruempelungBenefits() {
     {
       icon: Star,
       title: 'Höchste Qualität',
-      description: 'Professionelle Teams mit durchschnittlich 12 Jahren Erfahrung.',
-      metrics: '12+J'
+      description: 'Professionelle Teams mit langjähriger Erfahrung.',
+      metrics: 'Top'
     },
     {
       icon: Award,

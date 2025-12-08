@@ -119,7 +119,7 @@ export default function HausmeisterCTA() {
                 </svg>
               </div>
               <h3 className="font-bold text-neutral-900">Professionell & Zuverlässig</h3>
-              <p className="text-sm text-neutral-600">Über 10 Jahre Erfahrung</p>
+              <p className="text-sm text-neutral-600">Langjährige Erfahrung</p>
             </div>
           </div>
         </div>

@@ -19,16 +19,17 @@ interface BlogPost {
 }
 
 const blogPosts: BlogPost[] = [
-  {
-    title: 'Abriss-Genehmigung in Berlin: Was Sie wissen müssen',
-    excerpt: 'Wann brauchen Sie eine Abrissgenehmigung in Berlin? Wie läuft das Verfahren ab, und welche Besonderheiten gelten bei Wohnraum, Milieuschutz und Denkmalschutz?',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
-    date: '6. November 2025',
-    readTime: '8 Min.',
-    slug: 'abriss-genehmigung',
-    category: 'Abriss',
-    author: 'BC Group Team',
-  },
+  // Temporarily disabled - Abriss article
+  // {
+  //   title: 'Abriss-Genehmigung in Berlin: Was Sie wissen müssen',
+  //   excerpt: 'Wann brauchen Sie eine Abrissgenehmigung in Berlin? Wie läuft das Verfahren ab, und welche Besonderheiten gelten bei Wohnraum, Milieuschutz und Denkmalschutz?',
+  //   image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
+  //   date: '6. November 2025',
+  //   readTime: '8 Min.',
+  //   slug: 'abriss-genehmigung',
+  //   category: 'Abriss',
+  //   author: 'BC Group Team',
+  // },
   {
     title: 'Hausmeisterservice: Diese Aufgaben übernimmt ein professioneller Hausmeister',
     excerpt: 'Von der Grünpflege bis zum Winterdienst – erfahren Sie, welche Aufgaben ein professioneller Hausmeisterservice übernimmt und wie Sie davon profitieren können.',

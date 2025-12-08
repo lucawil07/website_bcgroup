@@ -214,7 +214,7 @@ export default function DankePage() {
               </div>
               <div className="text-center p-6 bg-neutral-50 rounded-2xl">
                 <Clock className="w-12 h-12 text-accent mx-auto mb-4" />
-                <h3 className="font-bold text-primary mb-2">Über 10 Jahre Erfahrung</h3>
+                <h3 className="font-bold text-primary mb-2">Langjährige Erfahrung</h3>
                 <p className="text-sm text-neutral-600">Tausende zufriedene Kunden</p>
               </div>
             </div>

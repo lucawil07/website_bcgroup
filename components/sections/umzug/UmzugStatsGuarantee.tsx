@@ -43,7 +43,7 @@ export default function UmzugStatsGuarantee() {
     {
       icon: Users,
       title: 'Erfahrenes Team',
-      description: 'Geschulte Profis mit durchschnittlich 10+ Jahren Erfahrung im Umzugsservice.',
+      description: 'Geschulte Profis mit langjähriger Erfahrung im Umzugsservice.',
     },
     {
       icon: Zap,

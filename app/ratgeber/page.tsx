@@ -30,15 +30,16 @@ export const metadata: Metadata = {
 }
 
 const blogPosts = [
-  {
-    title: 'Abriss-Genehmigung in Berlin: Das müssen Sie wissen',
-    slug: 'abriss-genehmigung',
-    excerpt: 'Wann brauchen Sie eine Abrissgenehmigung? Wie läuft das Verfahren ab?',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
-    date: '12. Oktober 2024',
-    category: 'Abriss',
-    author: 'BC Group Team',
-  },
+  // Temporarily disabled - Abriss article
+  // {
+  //   title: 'Abriss-Genehmigung in Berlin: Das müssen Sie wissen',
+  //   slug: 'abriss-genehmigung',
+  //   excerpt: 'Wann brauchen Sie eine Abrissgenehmigung? Wie läuft das Verfahren ab?',
+  //   image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=800&auto=format&fit=crop',
+  //   date: '12. Oktober 2024',
+  //   category: 'Abriss',
+  //   author: 'BC Group Team',
+  // },
 ]
 
 export default function RatgeberPage() {

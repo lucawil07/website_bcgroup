@@ -31,7 +31,7 @@ export default function CompanyIntro() {
   }, [])
 
   const stats = [
-    { value: '15', label: 'Jahre Exzellenz', suffix: '+' },
+    { value: '100%', label: 'Erfahrung', suffix: '+' },
     { value: '8', label: 'Spezialisierte Services', suffix: '' },
     { value: '500', label: 'Zufriedene Kunden', suffix: '+' }
   ]
@@ -202,7 +202,7 @@ export default function CompanyIntro() {
             <div className="flex items-center gap-3">
               <div className="w-1.5 h-8 bg-linear-to-b from-secondary to-accent rounded-full" />
               <span className="text-secondary font-bold text-xs uppercase tracking-widest">
-                Partnerschaft seit mehr als 15 Jahren
+                Langjährige Partnerschaft
               </span>
             </div>
 

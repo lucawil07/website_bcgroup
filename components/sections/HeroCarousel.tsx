@@ -29,7 +29,7 @@ interface Slide {
 const slides: Slide[] = [
   {
     title: 'WIR MACHEN.',
-    subtitle: 'SEIT ÜBER 10 JAHREN',
+    subtitle: 'SEIT VIELEN JAHREN',
     description: 'Ihr zuverlässiger Servicepartner in Berlin für alle Dienstleistungen aus einer Hand',
     image: '/images/generated_image.png',
     theme: 'dark',

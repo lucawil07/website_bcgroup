@@ -29,7 +29,7 @@ export default function Footer() {
               </div>
               <p className="text-lg text-white/90 leading-relaxed max-w-md font-medium">
                 Ihr zuverlässiger Partner für professionelle Dienstleistungen in Berlin. 
-                Seit über 10 Jahren setzen wir auf Qualität, Transparenz und Zuverlässigkeit.
+                Seit vielen Jahren setzen wir auf Qualität, Transparenz und Zuverlässigkeit.
               </p>
               
               {/* Contact Cards */}

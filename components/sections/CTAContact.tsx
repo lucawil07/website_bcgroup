@@ -175,7 +175,7 @@ export default function CTAContact() {
                 Zertifiziert & Professionell
               </h4>
               <p className="text-neutral-600 text-sm">
-                Über 10 Jahre Erfahrung in Berlin
+                Langjährige Erfahrung in Berlin
               </p>
             </div>
 
