@@ -1,7 +1,0 @@
-export { default as KarriereHero } from './KarriereHero'
-export { default as WhyJoinBCGroup } from './WhyJoinBCGroup'
-export { default as OpenPositions } from './OpenPositions'
-export { default as ApplicationProcess } from './ApplicationProcess'
-export { default as CompanyCulture } from './CompanyCulture'
-export { default as KarriereCTA } from './KarriereCTA'
-export { default as KarriereContactCTA } from './KarriereContactCTA'
