@@ -1,0 +1,6 @@
+<svg width="210" height="60" viewBox="0 0 210 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="8" width="44" height="44" rx="12" fill="#1a472a" stroke="#10b981" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="30" y="35" text-anchor="middle" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900">BC</text>
+  <text x="64" y="28" text-anchor="start" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="800">BC ENTRÜMPELUNG</text>
+  <text x="64" y="44" text-anchor="start" fill="#10b981" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500" letter-spacing="1.5">SERVICE PARTNER</text>
+</svg>

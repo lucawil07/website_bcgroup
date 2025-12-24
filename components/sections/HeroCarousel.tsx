@@ -1,0 +1,733 @@
+'use client'
+
+import { useState, useEffect, useRef, useCallback } from 'react'
+import { motion, AnimatePresence, useScroll, useTransform, useReducedMotion, useSpring } from 'framer-motion'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
+import type { Swiper as SwiperType } from 'swiper'
+import { Play, Pause, ArrowRight } from 'lucide-react'
+import { Button } from '@/components/ui'
+
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/effect-fade'
+import 'swiper/css/pagination'
+
+interface Slide {
+  title: string
+  subtitle: string
+  description: string
+  image: string
+  video?: string
+  cta?: {
+    label: string
+    href: string
+  }
+  theme?: 'dark' | 'light'
+}
+
+const slides: Slide[] = [
+  {
+    title: 'WIR MACHEN.',
+    subtitle: 'SEIT VIELEN JAHREN',
+    description: 'Ihr zuverlässiger Servicepartner in Berlin für alle Dienstleistungen aus einer Hand',
+    image: '/images/hero/frontBChero.png',
+    theme: 'dark',
+  },
+  {
+    title: 'ENTRÜMPELUNG',
+    subtitle: 'PROFESSIONELL & ZUVERLÄSSIG',
+    description: 'Von der Wohnung bis zum Gewerbeobjekt – wir räumen auf und sorgen für Ordnung',
+    image: '/images/generated_image.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/hero/bcEntrümplungHero.png',
+    },
+    theme: 'dark',
+  },
+  {
+    title: 'ABRISS',
+    subtitle: 'PRÄZISE & PROFESSIONELL',
+    description: 'Fachgerechter Abbruch und Rückbau mit modernster Technik und erfahrenem Team',
+    image: '/images/abriss_berlin.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/services/abriss',
+    },
+    theme: 'dark',
+  },
+  {
+    title: 'REINIGUNG',
+    subtitle: 'SAUBER & GRÜNDLICH',
+    description: 'Professionelle Gebäudereinigung für höchste Ansprüche und nachhaltigen Glanz',
+    image: '/images/hero/bcReininugungHero.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/services/reinigung',
+    },
+    theme: 'dark',
+  },
+  {
+    title: 'HAUSMEISTERSERVICE',
+    subtitle: 'ZUVERLÄSSIG & KOMPETENT',
+    description: 'Ihr professioneller Hausmeisterservice für Gebäude und Anlagen in Berlin',
+    image: '/images/hero/bcHausmeisterHero.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/services/hausmeisterservice',
+    },
+    theme: 'dark',
+  },
+  {
+    title: 'UMZUG & TRANSPORT',
+    subtitle: 'STRESSFREI & SICHER',
+    description: 'Ihr Umzug in sicheren Händen – mit modernster Technik und erfahrenem Team',
+    image: '/images/hero/bcUmzugHerov2.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/services/umzug',
+    },
+    theme: 'dark',
+  },
+  {
+    title: 'KURIERDIENST',
+    subtitle: 'SCHNELL & ZUVERLÄSSIG',
+    description: 'Express-Kurierdienst in Berlin – Ihre Sendung pünktlich am Ziel',
+    image: '/images/kurier_berlinv1.png',
+    cta: {
+      label: 'MEHR INFOS',
+      href: '/services/kurierdienst',
+    },
+    theme: 'dark',
+  },
+]
+
+export default function HeroCarousel() {
+  const [swiper, setSwiper] = useState<SwiperType | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 })
+  const [isHovering, setIsHovering] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  
+  const shouldReduceMotion = useReducedMotion()
+  const { scrollY } = useScroll()
+  
+  // Smooth parallax with spring physics
+  const parallaxY = useSpring(
+    useTransform(scrollY, [0, 1000], [0, shouldReduceMotion ? 50 : 200]),
+    { stiffness: 100, damping: 30, restDelta: 0.001 }
+  )
+
+  // Optimized mouse tracking with throttle
+  const handleMouseMove = useCallback((e: MouseEvent) => {
+    if (!containerRef.current || shouldReduceMotion) return
+    
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = (e.clientX - rect.left) / rect.width
+    const y = (e.clientY - rect.top) / rect.height
+    
+    setMousePosition({ x, y })
+  }, [shouldReduceMotion])
+
+  useEffect(() => {
+    const container = containerRef.current
+    if (!container) return
+
+    container.addEventListener('mousemove', handleMouseMove, { passive: true })
+    return () => container.removeEventListener('mousemove', handleMouseMove)
+  }, [handleMouseMove])
+
+  const scrollToContent = useCallback(() => {
+    const content = document.getElementById('content-start')
+    content?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, [])
+
+  const toggleAutoplay = useCallback(() => {
+    if (!swiper) return
+    
+    if (isPlaying) {
+      swiper.autoplay.stop()
+    } else {
+      swiper.autoplay.start()
+    }
+    setIsPlaying(!isPlaying)
+  }, [swiper, isPlaying])
+
+  // Keyboard navigation with accessibility
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!swiper) return
+      
+      switch(e.key) {
+        case 'ArrowLeft':
+          swiper.slidePrev()
+          break
+        case 'ArrowRight':
+          swiper.slideNext()
+          break
+        case ' ':
+          e.preventDefault()
+          toggleAutoplay()
+          break
+      }
+    }
+    
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [swiper, toggleAutoplay])
+
+  const currentSlide = slides[activeIndex]
+
+  // Modern animation variants with proper typing
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { 
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
+        when: "beforeChildren" as const
+      }
+    }
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 60, scale: 0.95 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.8, 
+        ease: [0.215, 0.61, 0.355, 1] as [number, number, number, number]
+      }
+    }
+  }
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 100, rotateX: -30 },
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      rotateX: 0,
+      transition: { 
+        duration: 1, 
+        ease: [0.215, 0.61, 0.355, 1] as [number, number, number, number]
+      }
+    }
+  }
+
+  return (
+    <section 
+      ref={containerRef}
+      className="relative h-screen w-full overflow-hidden bg-black"
+      role="region"
+      aria-label="Hero carousel showcasing BC Group services"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {/* Enhanced background with optimized parallax */}
+      <motion.div 
+        className="absolute inset-0 z-0 overflow-hidden"
+        style={{ y: parallaxY }}
+      >
+        <Swiper
+          modules={[Autoplay, EffectFade, Pagination]}
+          effect="fade"
+          fadeEffect={{ crossFade: true }}
+          speed={1800}
+          autoplay={{
+            delay: 7000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          pagination={{
+            clickable: true,
+            bulletClass: 'hero-pagination-bullet',
+            bulletActiveClass: 'hero-pagination-bullet-active',
+          }}
+          loop={true}
+          onSwiper={setSwiper}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+          className="h-full w-full"
+        >
+          {slides.map((slide, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative h-full w-full overflow-hidden">
+                {/* Ultra-smooth Ken Burns effect with spring */}
+                <motion.div
+                  className="absolute inset-0 bg-cover bg-center will-change-transform"
+                  style={{ 
+                    backgroundImage: `url(${slide.image})`,
+                    width: '100%',
+                    height: '100%',
+                  }}
+                  initial={{ scale: 1.1 }}
+                  animate={{
+                    scale: shouldReduceMotion ? 1.1 : [1.1, 1.15, 1.1],
+                    x: shouldReduceMotion ? 0 : (mousePosition.x - 0.5) * 20,
+                    y: shouldReduceMotion ? 0 : (mousePosition.y - 0.5) * 20,
+                  }}
+                  transition={{
+                    scale: { 
+                      duration: 25, 
+                      repeat: Infinity, 
+                      ease: "easeInOut",
+                      repeatType: "reverse"
+                    },
+                    x: { type: "spring", stiffness: 50, damping: 30 },
+                    y: { type: "spring", stiffness: 50, damping: 30 },
+                  }}
+                >
+                  {/* Modern gradient overlays - Lightened for better visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/25 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                  <motion.div 
+                    className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-transparent to-accent/15"
+                    animate={{
+                      opacity: [0.2, 0.35, 0.2]
+                    }}
+                    transition={{
+                      duration: 8,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                  
+                  {/* Subtle noise texture for depth */}
+                  <div className="absolute inset-0 opacity-[0.02] mix-blend-overlay bg-noise" />
+                </motion.div>
+
+                {/* Optimized ambient particles (2 only) */}
+                {!shouldReduceMotion && (
+                  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                    {[...Array(2)].map((_, i) => (
+                      <motion.div
+                        key={i}
+                        className="absolute w-1 h-1 bg-white/10 rounded-full blur-sm"
+                        animate={{
+                          x: [0, 150, 0],
+                          y: [0, -150, 0],
+                          opacity: [0, 0.4, 0],
+                          scale: [0, 1.5, 0],
+                        }}
+                        transition={{
+                          duration: 15 + i * 3,
+                          repeat: Infinity,
+                          delay: i * 5,
+                          ease: "easeInOut"
+                        }}
+                        style={{
+                          left: `${25 + i * 40}%`,
+                          top: `${40 + i * 20}%`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </motion.div>
+
+      {/* Screen reader announcements */}
+      <div 
+        role="status" 
+        aria-live="polite" 
+        aria-atomic="true" 
+        className="sr-only"
+      >
+        Folie {activeIndex + 1} von {slides.length}: {currentSlide.title}. {currentSlide.description}
+      </div>
+
+      {/* Modern content with fluid animations - Mobile Optimized */}
+      <div className="relative z-10 h-full flex items-center justify-center px-4 sm:px-6 lg:px-8 pb-24 sm:pb-28 lg:pb-32">
+        <div className="max-w-7xl mx-auto w-full">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIndex}
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              exit={{ opacity: 0, y: -30, transition: { duration: 0.4 } }}
+              className="text-center space-y-4 sm:space-y-6"
+            >
+              {/* Clean title design - Mobile Optimized */}
+              <motion.div
+                variants={titleVariants}
+                className="perspective-1000"
+              >
+                <motion.h1 
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-white uppercase tracking-tight leading-[1.1] sm:leading-none will-change-transform px-2"
+                  style={{ 
+                    textShadow: '0 2px 30px rgba(0, 0, 0, 0.8)',
+                  }}
+                >
+                  {currentSlide.title}
+                </motion.h1>
+              </motion.div>
+              
+              {/* Clean subtitle with subtle background - Mobile Optimized */}
+              <motion.div
+                variants={itemVariants}
+                className="flex justify-center will-change-transform"
+              >
+                <div className="relative px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 rounded-full bg-black/60 backdrop-blur-md border border-white/10">
+                  <p className="relative z-10 text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white uppercase tracking-wider sm:tracking-[0.15em]">
+                    {currentSlide.subtitle}
+                  </p>
+                </div>
+              </motion.div>
+              
+              {/* Refined description - Mobile Optimized */}
+              <motion.p 
+                variants={itemVariants}
+                className="text-sm sm:text-base md:text-lg lg:text-xl text-white/95 max-w-2xl mx-auto font-light leading-relaxed px-4 sm:px-6"
+                style={{
+                  textShadow: '0 2px 20px rgba(0, 0, 0, 0.8)'
+                }}
+              >
+                {currentSlide.description}
+              </motion.p>
+              
+              {/* Enhanced CTA with magnetic hover - Mobile Optimized */}
+              {currentSlide.cta && (
+                <motion.div
+                  variants={itemVariants}
+                  className="pt-2 sm:pt-4"
+                >
+                  <motion.div
+                    whileHover={!shouldReduceMotion ? { scale: 1.05 } : undefined}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      variant="glass"
+                      size="lg"
+                      onClick={() => window.location.href = currentSlide.cta!.href}
+                      icon={<ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />}
+                      iconPosition="right"
+                      className="group relative overflow-hidden border-2 border-white/50 hover:border-white bg-white/15 hover:bg-white/25 active:bg-white/30 shadow-2xl hover:shadow-glow-white text-xs sm:text-sm md:text-base font-bold px-5 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 backdrop-blur-2xl transition-all duration-300"
+                    >
+                      <span className="relative z-10">{currentSlide.cta.label}</span>
+                      
+                      {/* Animated background on hover */}
+                      <motion.span
+                        className="absolute inset-0 bg-gradient-to-r from-secondary/20 via-accent/20 to-secondary/20 opacity-0 group-hover:opacity-100"
+                        animate={{
+                          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%']
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                        style={{ backgroundSize: '200% 100%' }}
+                      />
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      {/* Refined control elements - Mobile Optimized */}
+      <motion.div 
+        className="absolute bottom-20 sm:bottom-24 lg:bottom-8 left-4 sm:left-6 lg:left-8 z-20"
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1, duration: 0.6 }}
+      >
+        <motion.button
+          onClick={toggleAutoplay}
+          className="glass-dark text-white p-2.5 sm:p-3 lg:p-4 rounded-full border border-white/30 hover:border-white/50 active:border-white/60 hover:bg-white/20 active:bg-white/25 backdrop-blur-xl transition-all duration-300 shadow-lg"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          aria-label={isPlaying ? 'Pause carousel autoplay' : 'Start carousel autoplay'}
+          title={isPlaying ? 'Pause (Leertaste)' : 'Abspielen (Leertaste)'}
+        >
+          {isPlaying ? <Pause className="w-4 h-4 sm:w-5 sm:h-5" /> : <Play className="w-4 h-4 sm:w-5 sm:h-5" />}
+        </motion.button>
+      </motion.div>
+
+      {/* Modern slide counter - Mobile Optimized */}
+      <motion.div 
+        className="absolute top-4 sm:top-6 lg:top-8 right-4 sm:right-6 lg:right-8 z-20"
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 1.2, duration: 0.6 }}
+      >
+        <div 
+          className="glass-dark text-white px-3 sm:px-4 lg:px-5 py-1.5 sm:py-2 lg:py-2.5 rounded-full text-xs sm:text-sm lg:text-base font-mono font-bold border border-white/30 backdrop-blur-xl shadow-lg"
+          role="status"
+          aria-label={`Folie ${activeIndex + 1} von ${slides.length}`}
+        >
+          <span className="text-white/70">0</span>{activeIndex + 1} <span className="text-white/50 mx-0.5 sm:mx-1">/</span> <span className="text-white/70">0</span>{slides.length}
+        </div>
+      </motion.div>
+
+      {/* Service Navigation Bar - Mobile Optimized */}
+      <motion.div
+        className="absolute bottom-0 left-0 right-0 z-20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.8, duration: 0.8 }}
+      >
+        <div className="relative overflow-hidden bg-black/80 backdrop-blur-xl border-t border-white/20">
+          {/* Mobile: Horizontal Scroll Container with Auto-Scroll Animation */}
+          <div className="lg:hidden relative">
+            {/* Scroll hint indicators - fade in/out on edges */}
+            <motion.div
+              className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-black/60 to-transparent z-10 pointer-events-none"
+              animate={{ opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black/60 to-transparent z-10 pointer-events-none"
+              animate={{ opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+            />
+            
+            <motion.div
+              className="overflow-x-auto scrollbar-hide scroll-smooth"
+              ref={(el) => {
+                if (el && !el.dataset.autoScrollInitialized) {
+                  el.dataset.autoScrollInitialized = 'true'
+                  
+                  let scrollInterval: NodeJS.Timeout
+                  let userInteracting = false
+                  let direction = 1
+                  
+                  const startAutoScroll = () => {
+                    scrollInterval = setInterval(() => {
+                      if (!userInteracting && el) {
+                        const maxScroll = el.scrollWidth - el.clientWidth
+                        const currentScroll = el.scrollLeft
+                        
+                        // Smooth scroll with direction change
+                        if (currentScroll >= maxScroll - 10) {
+                          direction = -1
+                        } else if (currentScroll <= 10) {
+                          direction = 1
+                        }
+                        
+                        el.scrollBy({
+                          left: direction * 1,
+                          behavior: 'auto'
+                        })
+                      }
+                    }, 30)
+                  }
+                  
+                  // Pause on user interaction
+                  el.addEventListener('touchstart', () => {
+                    userInteracting = true
+                    clearInterval(scrollInterval)
+                  })
+                  
+                  el.addEventListener('touchend', () => {
+                    setTimeout(() => {
+                      userInteracting = false
+                      startAutoScroll()
+                    }, 3000) // Resume after 3 seconds
+                  })
+                  
+                  // Start auto-scroll after initial delay
+                  setTimeout(startAutoScroll, 3000)
+                }
+              }}
+            >
+              <div className="flex items-stretch min-w-max">
+                {[
+                  { name: 'ENTRÜMPELUNG', href: '/services/entruempelung' },
+                  { name: 'ABRISS', href: '/services/abriss' },
+                  { name: 'REINIGUNG', href: '/services/reinigung' },
+                  { name: 'HAUSMEISTER', href: '/services/hausmeisterservice' },
+                  { name: 'UMZUG', href: '/services/umzug' },
+                  { name: 'KURIER', href: '/services/kurierdienst' }
+                ].map((service, index) => (
+                  <motion.a
+                    key={service.name}
+                    href={service.href}
+                    className="group relative py-5 px-6 border-r border-white/10 last:border-r-0 transition-all duration-300 active:bg-white/10"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      delay: 1.9 + index * 0.08, 
+                      duration: 0.6,
+                      ease: [0.215, 0.61, 0.355, 1]
+                    }}
+                  >
+                    {/* Top accent line on tap/hover */}
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-accent to-secondary opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Service name - Mobile optimized */}
+                    <span className="relative z-10 block text-sm font-extrabold text-white uppercase tracking-wider whitespace-nowrap drop-shadow-lg">
+                      {service.name}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Desktop: Full Width Grid */}
+          <div className="hidden lg:block">
+            <div className="relative max-w-7xl mx-auto px-4">
+              <div className="flex items-stretch justify-between divide-x divide-white/10">
+                {[
+                  { name: 'ENTRÜMPELUNG', href: '/services/entruempelung' },
+                  { name: 'ABRISS', href: '/services/abriss' },
+                  { name: 'REINIGUNG', href: '/services/reinigung' },
+                  { name: 'HAUSMEISTER', href: '/services/hausmeisterservice' },
+                  { name: 'UMZUG', href: '/services/umzug' },
+                  { name: 'KURIER', href: '/services/kurierdienst' }
+                ].map((service, index) => (
+                  <motion.a
+                    key={service.name}
+                    href={service.href}
+                    className="group relative flex-1 py-8 px-4 text-center transition-all duration-300 hover:bg-white/5"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ 
+                      delay: 1.9 + index * 0.1, 
+                      duration: 0.6,
+                      ease: [0.215, 0.61, 0.355, 1]
+                    }}
+                    whileHover={!shouldReduceMotion ? { 
+                      backgroundColor: 'rgba(255, 255, 255, 0.08)',
+                      transition: { duration: 0.2 }
+                    } : undefined}
+                  >
+                    {/* Top accent line on hover */}
+                    <motion.div 
+                      className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-secondary via-accent to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                    
+                    {/* Service name */}
+                    <span className="relative z-10 block text-base xl:text-lg font-black text-white uppercase tracking-widest transition-all duration-300 group-hover:tracking-[0.2em] drop-shadow-lg">
+                      {service.name}
+                    </span>
+                  </motion.a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Ultra-modern pagination styling */}
+      <style jsx global>{`
+        /* Scrollbar hide utility for mobile */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Smooth scrolling behavior */
+        .scroll-smooth {
+          scroll-behavior: smooth;
+        }
+        
+        .hero-pagination-bullet {
+          width: 12px;
+          height: 12px;
+          background: transparent !important;
+          border: 2px solid rgba(255, 255, 255, 0.4);
+          border-radius: 50%;
+          transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+          cursor: pointer;
+          position: relative;
+          backdrop-filter: blur(8px);
+        }
+        
+        .hero-pagination-bullet::before {
+          content: '';
+          position: absolute;
+          inset: -4px;
+          border: 1px solid transparent;
+          border-radius: 50%;
+          transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .hero-pagination-bullet::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          background: white;
+          border-radius: 50%;
+          transform: scale(0);
+          transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+        }
+        
+        .hero-pagination-bullet-active {
+          border-color: white;
+          transform: scale(1.3);
+        }
+        
+        .hero-pagination-bullet-active::before {
+          border-color: rgba(255, 255, 255, 0.3);
+          inset: -6px;
+        }
+        
+        .hero-pagination-bullet-active::after {
+          transform: scale(1);
+        }
+        
+        .hero-pagination-bullet:hover:not(.hero-pagination-bullet-active) {
+          border-color: rgba(255, 255, 255, 0.7);
+          transform: scale(1.15);
+        }
+        
+        .swiper-pagination {
+          bottom: 10rem !important;
+          display: flex;
+          gap: 20px;
+          justify-content: center;
+          align-items: center;
+          z-index: 20;
+        }
+        
+        @media (max-width: 1024px) {
+          .swiper-pagination {
+            bottom: 7rem !important;
+            gap: 14px;
+          }
+          
+          .hero-pagination-bullet {
+            width: 10px;
+            height: 10px;
+          }
+        }
+        
+        @media (max-width: 640px) {
+          .swiper-pagination {
+            bottom: 6rem !important;
+            gap: 12px;
+          }
+          
+          .hero-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            border-width: 1.5px;
+          }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+          .hero-pagination-bullet,
+          .hero-pagination-bullet::before,
+          .hero-pagination-bullet::after {
+            transition-duration: 0.01ms !important;
+          }
+        }
+      `}</style>
+    </section>
+  )
+}

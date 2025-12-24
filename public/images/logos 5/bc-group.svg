@@ -1,0 +1,6 @@
+<svg width="190" height="60" viewBox="0 0 190 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="8" y="8" width="44" height="44" rx="12" fill="#1f1f1f" stroke="#ffffff" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="30" y="35" text-anchor="middle" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="900">BC</text>
+  <text x="64" y="28" text-anchor="start" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="800">BC GROUP</text>
+  <text x="64" y="44" text-anchor="start" fill="#888888" font-family="system-ui, -apple-system, sans-serif" font-size="8" font-weight="500" letter-spacing="1.5">SERVICE PARTNER</text>
+</svg>
