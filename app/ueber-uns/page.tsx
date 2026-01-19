@@ -259,7 +259,7 @@ function CompanyStory() {
                 Die BC Group wurde gegründet, um Komplexität durch Klarheit zu ersetzen. Mit einem innovativen, nachhaltigen Ansatz schaffen wir schnelle, präzise Ergebnisse – immer mit persönlicher Betreuung.
               </p>
               <p>
-                Seit 2014 vertrauen uns hunderte von Kunden in Berlin und Brandenburg. Regional verwurzelt, digital ausgestattet und immer persönlich erreichbar.
+                Hunderte von Kunden in Berlin und Brandenburg vertrauen uns. Regional verwurzelt, digital ausgestattet und immer persönlich erreichbar.
               </p>
             </div>
 
