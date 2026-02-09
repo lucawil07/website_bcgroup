@@ -79,6 +79,7 @@ export default function ContactForm({
     formState: { errors },
     reset,
     watch,
+    setValue,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
     defaultValues: {
@@ -251,9 +252,12 @@ export default function ContactForm({
           <label className="block text-sm font-semibold text-neutral-900 mb-2 md:mb-3">
             Welcher Service interessiert Sie? *
           </label>
+          {/* Hidden input for react-hook-form registration */}
+          <input type="hidden" {...register('service')} />
           {/* Mobile: Dropdown */}
           <select
-            {...register('service')}
+            value={selectedService}
+            onChange={(e) => setValue('service', e.target.value, { shouldValidate: true })}
             className="md:hidden w-full px-3 py-2.5 bg-white border border-neutral-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent text-sm"
           >
             <option value="">Service wählen...</option>
@@ -276,8 +280,10 @@ export default function ContactForm({
               >
                 <input
                   type="radio"
+                  name="service-radio"
                   value={svc.value}
-                  {...register('service')}
+                  checked={selectedService === svc.value}
+                  onChange={() => setValue('service', svc.value, { shouldValidate: true })}
                   className="w-5 h-5 accent-secondary"
                 />
                 <span className="text-sm font-medium text-neutral-700">{svc.label}</span>
