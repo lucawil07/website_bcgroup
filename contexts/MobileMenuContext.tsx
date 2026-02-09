@@ -22,26 +22,28 @@ export function MobileMenuProvider({ children }: { children: React.ReactNode }) 
   }, [])
 
   useEffect(() => {
-    const htmlElement = document.documentElement
     const bodyElement = document.body
     
     if (isMobileMenuOpen) {
-      // Lock scroll when menu is open
-      htmlElement.style.overflow = 'hidden'
+      // Lock scroll when menu is open — only touch body, never html
       bodyElement.style.overflow = 'hidden'
-      htmlElement.classList.add('mobile-menu-open')
+      bodyElement.style.position = 'fixed'
+      bodyElement.style.inset = '0'
+      bodyElement.style.width = '100%'
     } else {
       // Restore scroll when menu is closed
-      htmlElement.style.overflow = ''
       bodyElement.style.overflow = ''
-      htmlElement.classList.remove('mobile-menu-open')
+      bodyElement.style.position = ''
+      bodyElement.style.inset = ''
+      bodyElement.style.width = ''
     }
     
     // Cleanup on unmount
     return () => {
-      htmlElement.style.overflow = ''
       bodyElement.style.overflow = ''
-      htmlElement.classList.remove('mobile-menu-open')
+      bodyElement.style.position = ''
+      bodyElement.style.inset = ''
+      bodyElement.style.width = ''
     }
   }, [isMobileMenuOpen])
 

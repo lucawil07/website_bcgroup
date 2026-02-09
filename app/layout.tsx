@@ -101,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="de" className="scroll-smooth">
+    <html lang="de">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -109,9 +109,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${inter.variable} antialiased`}>
         <MobileMenuProvider>
           <StructuredData data={localBusinessSchema} />
-          <div className="min-h-screen flex flex-col overflow-x-hidden bg-neutral-900">
+          <div className="min-h-screen flex flex-col bg-neutral-900">
             <Header />
-            <main id="main-content" className="relative overflow-x-hidden flex-1 bg-white">
+            <main id="main-content" className="relative flex-1 bg-white">
               {children}
             </main>
             <Footer />
@@ -120,18 +120,17 @@ export default function RootLayout({
           <Analytics />
         </MobileMenuProvider>
 
-        {/* Smooth scrolling script */}
+        {/* Smooth scrolling script - disabled on mobile to prevent touch scroll issues */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Initialize Lenis smooth scrolling if available
-              if (typeof window !== 'undefined' && window.Lenis) {
+              // Initialize Lenis smooth scrolling only on desktop (no touch devices)
+              if (typeof window !== 'undefined' && window.Lenis && !('ontouchstart' in window) && !navigator.maxTouchPoints) {
                 const lenis = new Lenis({
                   duration: 1.2,
                   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
                   smoothWheel: true,
                   wheelMultiplier: 1,
-                  touchMultiplier: 2,
                 })
                 
                 function raf(time) {

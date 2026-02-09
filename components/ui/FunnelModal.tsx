@@ -13,12 +13,21 @@ export default function FunnelModal({ isOpen, onClose, children }: FunnelModalPr
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
+      document.body.style.position = 'fixed'
+      document.body.style.inset = '0'
+      document.body.style.width = '100%'
     } else {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.inset = ''
+      document.body.style.width = ''
     }
 
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
+      document.body.style.position = ''
+      document.body.style.inset = ''
+      document.body.style.width = ''
     }
   }, [isOpen])
 
