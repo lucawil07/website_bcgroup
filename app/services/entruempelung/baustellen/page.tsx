@@ -55,6 +55,7 @@ export default function BaustellenPage() {
               { label: 'Baustellen' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

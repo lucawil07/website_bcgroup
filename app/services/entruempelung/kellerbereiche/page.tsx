@@ -55,6 +55,7 @@ export default function KellerbereichePage() {
               { label: 'Kellerbereiche' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

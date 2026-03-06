@@ -80,6 +80,7 @@ export default function PrivatumzugPage() {
               { label: 'Privatumzug' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

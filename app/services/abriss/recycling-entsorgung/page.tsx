@@ -55,6 +55,7 @@ export default function RecyclingEntsorgungPage() {
               { label: 'Recycling & Entsorgung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

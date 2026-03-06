@@ -73,6 +73,7 @@ export default function GeschaeftskundenLogistikPage() {
               { label: 'Geschäftskunden-Logistik' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

@@ -55,6 +55,7 @@ export default function GenehmigungsservicePage() {
               { label: 'Genehmigungen' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

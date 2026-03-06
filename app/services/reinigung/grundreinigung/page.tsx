@@ -101,6 +101,7 @@ export default function GrundreinigungPage() {
               { label: 'Grundreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

@@ -108,6 +108,7 @@ export default function SpezialreinigungPage() {
               { label: 'Spezialreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

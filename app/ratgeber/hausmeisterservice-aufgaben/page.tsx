@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Von der Grünpflege bis zur Winterdienst – alle Aufgaben eines Hausmeisterservice im Überblick',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber/hausmeisterservice-aufgaben',
+    url: 'https://bcgroup.de/ratgeber/hausmeisterservice-aufgaben',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=80&w=1200&auto=format&fit=crop',
@@ -30,9 +30,10 @@ export const metadata: Metadata = {
       alt: 'Hausmeisterservice Aufgaben',
     }],
     publishedTime: '2024-10-05',
+    modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber/hausmeisterservice-aufgaben',
+    canonical: 'https://bcgroup.de/ratgeber/hausmeisterservice-aufgaben',
   },
 }
 

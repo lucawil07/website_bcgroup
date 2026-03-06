@@ -1,0 +1,5 @@
+[     622ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/nonexistent-page:0
+[    1236ms] [WARNING] You are trying to animate lineHeight from "25.6px" to "1.2". "1.2" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable @ webpack-internal:///(app-pages-browser)/./node_modules/motion-utils/dist/es/errors.mjs:13
+[    1615ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/nonexistent-page?_rsc=70s5w:0
+[    1749ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:3000/nonexistent-page:0
+[    1970ms] Invalid or unexpected token

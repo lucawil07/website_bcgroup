@@ -101,6 +101,7 @@ export default function PraxisreinigungPage() {
               { label: 'Praxisreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

@@ -79,6 +79,7 @@ export default function BueroreinigungPage() {
               { label: 'Büroreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

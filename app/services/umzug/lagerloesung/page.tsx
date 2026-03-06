@@ -80,6 +80,7 @@ export default function LagerloesungPage() {
               { label: 'Lagerlösung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

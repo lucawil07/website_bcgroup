@@ -55,6 +55,7 @@ export default function GebaeudeabrissPage() {
               { label: 'Gebäudeabriss' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

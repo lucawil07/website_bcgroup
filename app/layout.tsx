@@ -5,6 +5,7 @@ import { Header, Footer } from '@/components/sections'
 import { CookieConsent, StructuredData, localBusinessSchema } from '@/components/ui'
 import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
 import { Analytics } from '@vercel/analytics/next'
+import Script from 'next/script'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -89,9 +90,6 @@ export const metadata: Metadata = {
     description: 'Professionelle Dienstleistungen in Berlin',
     images: ['/images/image_bcgroup.png'],
   },
-  verification: {
-    google: 'google-site-verification-code', // Placeholder
-  },
   category: 'business',
 }
 
@@ -121,27 +119,23 @@ export default function RootLayout({
         </MobileMenuProvider>
 
         {/* Smooth scrolling script - disabled on mobile to prevent touch scroll issues */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Initialize Lenis smooth scrolling only on desktop (no touch devices)
-              if (typeof window !== 'undefined' && window.Lenis && !('ontouchstart' in window) && !navigator.maxTouchPoints) {
-                const lenis = new Lenis({
-                  duration: 1.2,
-                  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                  smoothWheel: true,
-                  wheelMultiplier: 1,
-                })
-                
-                function raf(time) {
-                  lenis.raf(time)
-                  requestAnimationFrame(raf)
-                }
-                requestAnimationFrame(raf)
-              }
-            `,
-          }}
-        />
+        <Script id="lenis-init" strategy="afterInteractive">{`
+          // Initialize Lenis smooth scrolling only on desktop (no touch devices)
+          if (typeof window !== 'undefined' && window.Lenis && !('ontouchstart' in window) && !navigator.maxTouchPoints) {
+            const lenis = new Lenis({
+              duration: 1.2,
+              easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+              smoothWheel: true,
+              wheelMultiplier: 1,
+            })
+            
+            function raf(time) {
+              lenis.raf(time)
+              requestAnimationFrame(raf)
+            }
+            requestAnimationFrame(raf)
+          }
+        `}</Script>
       </body>
     </html>
   )

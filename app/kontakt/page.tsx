@@ -8,6 +8,16 @@ export const metadata: Metadata = {
     'Kontaktieren Sie BC Group Berlin für professionelle Services. Persönliche Beratung, schnelle Angebote, 24/7 WhatsApp Support.',
   keywords:
     'Kontakt BC Group, Anfrage Berlin, Service anfragen, Beratung, Angebot',
+  alternates: {
+    canonical: 'https://bcgroup.de/kontakt',
+  },
+  openGraph: {
+    title: 'Kontakt | BC Group Berlin',
+    description: 'Kontaktieren Sie BC Group Berlin für eine kostenlose Beratung. Telefon, E-Mail oder WhatsApp – wir sind 24/7 für Sie da. Antwort in durchschnittlich 2 Stunden.',
+    url: 'https://bcgroup.de/kontakt',
+    type: 'website',
+    locale: 'de_DE',
+  },
 }
 
 export default function ContactPage() {

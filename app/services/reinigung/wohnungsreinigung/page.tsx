@@ -99,6 +99,7 @@ export default function WohnungsreinigungPage() {
               { label: 'Wohnungsreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

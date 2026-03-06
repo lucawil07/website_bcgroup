@@ -101,6 +101,7 @@ export default function MuelltonnenreinigungPage() {
               { label: 'Mülltonnenreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

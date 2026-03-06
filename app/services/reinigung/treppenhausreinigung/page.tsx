@@ -101,6 +101,7 @@ export default function TreppenhausreinigungPage() {
               { label: 'Treppenhausreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

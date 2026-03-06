@@ -105,6 +105,7 @@ export default function UnterhaltsreinigungPage() {
               { label: 'Unterhaltsreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

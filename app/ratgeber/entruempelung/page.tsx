@@ -1,12 +1,30 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { Container, Section } from '@/components/ui'
-import { ArrowRight, Home, Building2, Warehouse, Users, Clock, Wrench } from 'lucide-react'
+import { Container, Section, ScrollReveal, StructuredData } from '@/components/ui'
+import { ArrowRight, ArrowLeft, Home, Building2, Warehouse, Users, Clock, Wrench, Euro, AlertTriangle } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Entrümpelung Ratgeber Berlin - Tipps & Anleitungen | BC Group',
   description: 'Umfassender Ratgeber zur Entrümpelung in Berlin. Erfahren Sie alles über Wohnungsauflösung, Kellerentrümpelung, Kosten und mehr.',
-  keywords: 'entrümpelung ratgeber, entrümpelung berlin tipps, wohnungsauflösung anleitung, entrümpelung kosten',
+  keywords: [
+    'entrümpelung ratgeber',
+    'entrümpelung berlin tipps',
+    'wohnungsauflösung anleitung',
+    'entrümpelung kosten',
+    'kellerentrümpelung',
+    'haushaltsauflösung',
+  ],
+  openGraph: {
+    title: 'Entrümpelung Ratgeber Berlin - Tipps & Anleitungen',
+    description: 'Umfassender Ratgeber zur Entrümpelung in Berlin. Wohnungsauflösung, Kellerentrümpelung, Kosten und mehr.',
+    type: 'website',
+    locale: 'de_DE',
+    url: 'https://bcgroup.de/ratgeber/entruempelung',
+    siteName: 'BC Group Berlin',
+  },
+  alternates: {
+    canonical: 'https://bcgroup.de/ratgeber/entruempelung',
+  },
 }
 
 export default function EntruempelungRatgeberPage() {
@@ -52,34 +70,59 @@ export default function EntruempelungRatgeberPage() {
       icon: Clock,
       link: '/ratgeber/entruempelung/express-entruempelung-berlin',
       color: 'from-red-500 to-rose-500'
+    },
+    {
+      title: 'Kosten Wohnungsauflösung Berlin',
+      description: 'Transparente Preisübersicht und Kostenfaktoren für Ihre Wohnungsauflösung',
+      icon: Euro,
+      link: '/ratgeber/entruempelung/kosten-wohnungsaufloesung-berlin',
+      color: 'from-teal-500 to-emerald-500'
+    },
+    {
+      title: 'Messie-Wohnung entrümpeln Berlin',
+      description: 'Diskrete und professionelle Entrümpelung bei Vermüllungssyndrom',
+      icon: AlertTriangle,
+      link: '/ratgeber/entruempelung/messie-wohnung-entruempeln-berlin',
+      color: 'from-amber-500 to-orange-500'
     }
   ]
 
   return (
     <>
       {/* Hero Section */}
-      <Section background="white" padding="large">
-        <Container>
-          <div className="max-w-4xl mx-auto text-center mb-16">
-            <div className="inline-block mb-4 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200">
-              <span className="text-sm font-bold uppercase tracking-wider text-emerald-900">
-                Entrümpelung Ratgeber
+      <Section background="dark" padding="large" className="pt-32 md:pt-40">
+        <Container size="default">
+          <ScrollReveal direction="up">
+            <Link 
+              href="/ratgeber" 
+              className="inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors mb-8"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              <span className="text-sm font-bold uppercase tracking-wider">Zurück zum Ratgeber</span>
+            </Link>
+
+            <div className="mb-6">
+              <span className="bg-emerald-600 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider">
+                Entrümpelung
               </span>
             </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-neutral-900 mb-6 leading-tight">
-              Ihr umfassender
-              <br />
-              <span className="text-emerald-600">Entrümperungs-Ratgeber</span>
+
+            <h1 className="text-hero uppercase font-black mb-6 leading-tight">
+              Ihr umfassender<br />
+              <span className="gradient-text">Entrümpelung-Ratgeber</span>
             </h1>
-            
-            <p className="text-lg md:text-xl text-neutral-600 leading-relaxed">
+
+            <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-3xl">
               Entdecken Sie professionelle Tipps, Anleitungen und Informationen rund um das Thema Entrümpelung in Berlin. 
               Von der Wohnungsauflösung bis zur Bauschuttentsorgung – wir haben alle wichtigen Themen für Sie zusammengestellt.
             </p>
-          </div>
+          </ScrollReveal>
+        </Container>
+      </Section>
 
-          {/* Articles Grid */}
+      {/* Articles Grid */}
+      <Section background="white" padding="large">
+        <Container>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {articles.map((article, index) => {
               const Icon = article.icon

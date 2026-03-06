@@ -55,6 +55,7 @@ export default function SelektiveDemontagePage() {
               { label: 'Selektive Demontage' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

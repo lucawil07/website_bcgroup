@@ -1,5 +1,5 @@
 import { Metadata } from 'next'
-import { StructuredData, createServiceSchema, createFAQSchema } from '@/components/ui'
+import { StructuredData, createServiceSchema, createFAQSchema, Breadcrumb } from '@/components/ui'
 import { CTAContact } from '@/components/sections'
 import EntruempelungPremiumHero from '@/components/sections/entruempelung/EntruempelungPremiumHero'
 import EntruempelungServiceShowcase from '@/components/sections/entruempelung/EntruempelungServiceShowcase'
@@ -33,6 +33,9 @@ const metadata: Metadata = {
   title: `${SERVICE_GERMAN} Berlin - Professionelle Wohnungsentrümpelung | BC Group`,
   description: 'Professionelle Entrümpelung in Berlin: Schnell, zuverlässig und umweltgerecht. Wir kümmern uns um Ihre Wohnungsentrümpelung mit vollständiger Entsorgung.',
   keywords: keywords.join(', '),
+  alternates: {
+    canonical: 'https://bcgroup.de/services/entruempelung',
+  },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
     description: 'Professionelle und schnelle Entrümpelung in Berlin - Vollständige Entsorgung',
@@ -67,13 +70,33 @@ export default function EntruempelungPage() {
     },
   ])
 
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    'itemListElement': [
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Entrümpelung', 'item': 'https://bcgroup.de/services/entruempelung' },
+    ],
+  }
+
   return (
     <EntruempelungFunnelWrapper>
       <StructuredData data={serviceSchema} />
       <StructuredData data={faqSchema} />
+      <StructuredData data={breadcrumbSchema} />
 
-      {/* Premium Hero Section */}
-      <EntruempelungPremiumHero />
+      <div className="relative">
+        <Breadcrumb
+          items={[
+            { label: 'Services', href: '/services' },
+            { label: 'Entrümpelung' },
+          ]}
+          accentColor="#10b981"
+        />
+        {/* Premium Hero Section */}
+        <EntruempelungPremiumHero />
+      </div>
 
       {/* Service Showcase */}
       <EntruempelungServiceShowcase />

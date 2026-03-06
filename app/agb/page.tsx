@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'AGB | BC Group Berlin',
   description: 'Allgemeine Geschäftsbedingungen (AGB) der BC Group Berlin',
   robots: 'noindex, nofollow',
+  alternates: {
+    canonical: 'https://bcgroup.de/agb',
+  },
 }
 
 export default function AGBPage() {

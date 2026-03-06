@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Ein sauberes Büro steigert die Produktivität und das Wohlbefinden Ihrer Mitarbeiter',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber/bueroreinigung-tipps',
+    url: 'https://bcgroup.de/ratgeber/bueroreinigung-tipps',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=1200&auto=format&fit=crop',
@@ -29,9 +29,10 @@ export const metadata: Metadata = {
       alt: 'Büroreinigung Tipps',
     }],
     publishedTime: '2024-09-08',
+    modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber/bueroreinigung-tipps',
+    canonical: 'https://bcgroup.de/ratgeber/bueroreinigung-tipps',
   },
 }
 

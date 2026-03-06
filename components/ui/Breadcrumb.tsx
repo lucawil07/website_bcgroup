@@ -12,24 +12,36 @@ interface BreadcrumbItem {
 interface BreadcrumbProps {
   items: BreadcrumbItem[]
   accentColor?: string
+  /** 'overlay' for dark hero sections (absolute positioned), 'inline' for normal flow on light pages */
+  variant?: 'overlay' | 'inline'
 }
 
-export default function Breadcrumb({ items, accentColor = '#10b981' }: BreadcrumbProps) {
+export default function Breadcrumb({ items, accentColor = '#10b981', variant = 'overlay' }: BreadcrumbProps) {
+  const isOverlay = variant === 'overlay'
+
+  const navClass = isOverlay
+    ? 'bg-neutral-950 px-4 sm:px-6 lg:px-8 py-2'
+    : 'py-3 mb-4'
+
+  const textMuted = isOverlay ? 'text-white/60' : 'text-neutral-400'
+  const textHover = isOverlay ? 'hover:text-white' : 'hover:text-neutral-900'
+  const chevronColor = isOverlay ? 'text-white/30' : 'text-neutral-300'
+
   return (
-    <nav aria-label="Breadcrumb" className="mb-8">
+    <nav aria-label="Breadcrumb" className={navClass}>
       <motion.ol 
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="flex flex-wrap items-center gap-2 text-sm"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+        className={`flex flex-wrap items-center gap-2 text-xs sm:text-sm ${isOverlay ? 'max-w-7xl mx-auto' : ''}`}
       >
         {/* Home */}
         <li>
           <Link 
             href="/" 
-            className="flex items-center gap-1.5 text-neutral-600 hover:text-neutral-900 transition-colors group"
+            className={`flex items-center gap-1.5 ${textMuted} ${textHover} transition-colors group`}
           >
-            <Home className="w-4 h-4 group-hover:scale-110 transition-transform" />
+            <Home className="w-3.5 h-3.5 group-hover:scale-110 transition-transform" />
             <span className="sr-only">Home</span>
           </Link>
         </li>
@@ -39,11 +51,11 @@ export default function Breadcrumb({ items, accentColor = '#10b981' }: Breadcrum
 
           return (
             <li key={index} className="flex items-center gap-2">
-              <ChevronRight className="w-4 h-4 text-neutral-400" />
+              <ChevronRight className={`w-3.5 h-3.5 ${chevronColor}`} />
               {item.href && !isLast ? (
                 <Link 
                   href={item.href}
-                  className="text-neutral-600 hover:text-neutral-900 transition-colors font-medium"
+                  className={`${textMuted} ${textHover} transition-colors font-medium`}
                 >
                   {item.label}
                 </Link>

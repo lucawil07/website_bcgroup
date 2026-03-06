@@ -1,5 +1,47 @@
 @import "tailwindcss";
 
+/* Register colors with Tailwind v4 theme for utility class generation */
+@theme {
+  --color-primary: #1a1a1a;
+  --color-primary-50: #fafafa;
+  --color-primary-100: #f5f5f5;
+  --color-primary-200: #e5e5e5;
+  --color-primary-300: #d4d4d4;
+  --color-primary-400: #a3a3a3;
+  --color-primary-500: #737373;
+  --color-primary-600: #525252;
+  --color-primary-700: #404040;
+  --color-primary-800: #262626;
+  --color-primary-900: #171717;
+  --color-primary-950: #0a0a0a;
+
+  --color-secondary: #0066CC;
+  --color-secondary-50: #eff8ff;
+  --color-secondary-100: #dbeefe;
+  --color-secondary-200: #bfe3fe;
+  --color-secondary-300: #93d5fe;
+  --color-secondary-400: #60befc;
+  --color-secondary-500: #3aa6f8;
+  --color-secondary-600: #248bed;
+  --color-secondary-700: #1c71da;
+  --color-secondary-800: #1d5bb0;
+  --color-secondary-900: #1e4e8c;
+  --color-secondary-950: #0066CC;
+
+  --color-accent: #FF6B35;
+  --color-accent-50: #fef7f2;
+  --color-accent-100: #feeee3;
+  --color-accent-200: #fcd9c1;
+  --color-accent-300: #f9bd94;
+  --color-accent-400: #f59665;
+  --color-accent-500: #f27642;
+  --color-accent-600: #e35d28;
+  --color-accent-700: #bc481e;
+  --color-accent-800: #953c1d;
+  --color-accent-900: #78341c;
+  --color-accent-950: #FF6B35;
+}
+
 /* Design System - BC Group - Ultra Modern 2025 */
 @layer base {
   :root {

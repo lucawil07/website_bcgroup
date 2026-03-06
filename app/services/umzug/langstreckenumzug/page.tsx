@@ -80,6 +80,7 @@ export default function LangstreckenumzugPage() {
               { label: 'Langstreckenumzug' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

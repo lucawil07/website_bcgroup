@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'BC Kurierdienst Berlin – Ihr Partner für vertragliche Kurierdienste, regelmäßige Lieferungen & planbare Transporte.',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber/kurierdienst-berlin',
+    url: 'https://bcgroup.de/ratgeber/kurierdienst-berlin',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1200&auto=format&fit=crop',
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     modifiedTime: '2025-11-16',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber/kurierdienst-berlin',
+    canonical: 'https://bcgroup.de/ratgeber/kurierdienst-berlin',
   },
 }
 

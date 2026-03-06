@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Grundreinigung nach Auszug oder für Neubezug – was dazugehört und worauf Sie achten sollten',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber/grundreinigung-wohnung',
+    url: 'https://bcgroup.de/ratgeber/grundreinigung-wohnung',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=1200&auto=format&fit=crop',
@@ -30,9 +30,10 @@ export const metadata: Metadata = {
       alt: 'Grundreinigung Wohnung',
     }],
     publishedTime: '2024-09-22',
+    modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber/grundreinigung-wohnung',
+    canonical: 'https://bcgroup.de/ratgeber/grundreinigung-wohnung',
   },
 }
 

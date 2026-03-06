@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Impressum | BC Group Berlin',
   description: 'Impressum und Kontaktdaten der BC Group Berlin',
   robots: 'noindex, nofollow',
+  alternates: {
+    canonical: 'https://bcgroup.de/impressum',
+  },
 }
 
 export default function ImpressumPage() {

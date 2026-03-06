@@ -55,6 +55,7 @@ export default function ExpressServicePage() {
               { label: 'Express-Service' },
             ]}
             accentColor="#10b981"
+            variant="inline"
           />
 
           <div className="max-w-4xl">

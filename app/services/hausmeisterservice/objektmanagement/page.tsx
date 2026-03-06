@@ -93,6 +93,7 @@ export default function ObjektmanagementPage() {
               { label: 'Objektmanagement' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

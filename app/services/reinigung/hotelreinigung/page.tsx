@@ -101,6 +101,7 @@ export default function HotelreinigungPage() {
               { label: 'Hotelreinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

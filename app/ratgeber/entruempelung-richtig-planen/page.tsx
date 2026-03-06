@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Von der Vorbereitung bis zur Entsorgung – alles über professionelle Entrümpelung',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber/entruempelung-richtig-planen',
+    url: 'https://bcgroup.de/ratgeber/entruempelung-richtig-planen',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1600518464441-9154a4dea21b?q=80&w=1200&auto=format&fit=crop',
@@ -30,9 +30,10 @@ export const metadata: Metadata = {
       alt: 'Entrümpelung richtig planen',
     }],
     publishedTime: '2024-09-15',
+    modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber/entruempelung-richtig-planen',
+    canonical: 'https://bcgroup.de/ratgeber/entruempelung-richtig-planen',
   },
 }
 

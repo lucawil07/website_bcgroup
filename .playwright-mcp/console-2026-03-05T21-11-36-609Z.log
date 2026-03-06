@@ -1,0 +1,1 @@
+[    2283ms] [WARNING] You are trying to animate lineHeight from "25.6px" to "1.2". "1.2" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable @ webpack-internal:///(app-pages-browser)/./node_modules/motion-utils/dist/es/errors.mjs:13

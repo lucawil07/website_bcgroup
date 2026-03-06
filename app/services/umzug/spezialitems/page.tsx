@@ -90,6 +90,7 @@ export default function SpezialitemsPage() {
               { label: 'Spezialitems' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

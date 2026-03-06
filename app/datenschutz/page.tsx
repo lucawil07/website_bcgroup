@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: 'Datenschutz | BC Group Berlin',
   description: 'Datenschutzerklärung und Datenschutzrichtlinien der BC Group Berlin',
   robots: 'noindex, nofollow',
+  alternates: {
+    canonical: 'https://bcgroup.de/datenschutz',
+  },
 }
 
 export default function DataProtectionPage() {

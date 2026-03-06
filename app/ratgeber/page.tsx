@@ -21,11 +21,11 @@ export const metadata: Metadata = {
     description: 'Expertenwissen rund um Entrümpelung, Reinigung, Umzug, Abriss und Hausmeisterservice in Berlin.',
     type: 'website',
     locale: 'de_DE',
-    url: 'https://bc-group.de/ratgeber',
+    url: 'https://bcgroup.de/ratgeber',
     siteName: 'BC Group Berlin',
   },
   alternates: {
-    canonical: 'https://bc-group.de/ratgeber',
+    canonical: 'https://bcgroup.de/ratgeber',
   },
 }
 

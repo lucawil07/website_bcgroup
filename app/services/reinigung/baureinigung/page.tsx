@@ -101,6 +101,7 @@ export default function BaureinigungPage() {
               { label: 'Baureinigung' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

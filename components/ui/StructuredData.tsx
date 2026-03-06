@@ -130,7 +130,7 @@ export function createServiceSchema(service: {
     provider: {
       '@type': 'LocalBusiness',
       name: 'BC Group Berlin',
-      telephone: '+49-30-123456',
+      telephone: '+49-176-63213253',
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Berlin',

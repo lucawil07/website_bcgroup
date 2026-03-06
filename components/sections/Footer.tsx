@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link'
-import { Mail, Phone } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -57,6 +57,21 @@ export default function Footer() {
                   <div>
                     <div className="text-xs text-white/70 uppercase tracking-wider font-bold">E-Mail</div>
                     <div className="text-sm font-bold text-white">info@bcgroup.berlin</div>
+                  </div>
+                </a>
+
+                <a
+                  href="https://maps.google.com/?q=Willmanndamm+7,+10827+Berlin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.08] hover:bg-white/[0.12] backdrop-blur-sm border border-white/[0.15] transition-all group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <MapPin className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <div className="text-xs text-white/70 uppercase tracking-wider font-bold">Adresse</div>
+                    <div className="text-sm font-bold text-white">Willmanndamm 7, 10827 Berlin</div>
                   </div>
                 </a>
               </div>

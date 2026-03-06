@@ -73,6 +73,7 @@ export default function RegelmaessigeLieferungenPage() {
               { label: 'Regelmäßige Lieferungen' },
             ]}
             accentColor={accent}
+            variant="inline"
           />
 
           <div className="max-w-4xl">

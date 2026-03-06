@@ -1,0 +1,2 @@
+[     905ms] [ERROR] Error: <path> attribute d: Expected number, "M 10% 80 Q 25% 100, …". @ http://localhost:3000/services/reinigung:0
+[    1145ms] Invalid or unexpected token
