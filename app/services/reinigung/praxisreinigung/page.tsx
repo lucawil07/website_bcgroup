@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Stethoscope, CheckCircle, Shield, Clock, HeartPulse, Microscope } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Praxisreinigung Berlin - Hygiene für Arzt- & Zahnarztpraxen | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/praxisreinigung', {
+  title: 'Praxisreinigung Berlin – Arzt & Zahnarzt',
   description: 'Professionelle Praxisreinigung in Berlin. Spezielle Hygieneanforderungen für medizinische und zahnmedizinische Praxen. Zuverlässig 365 Tage, fachgerecht.',
   keywords: 'praxisreinigung berlin, arztpraxis reinigung, zahnarztpraxis reinigung, medizinische reinigung, hygiene praxis',
-}
+})
 
 export default function PraxisreinigungPage() {
   const accent = '#06b6d4'

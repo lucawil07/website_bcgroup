@@ -5,6 +5,7 @@ import ReinigungModernHero from '@/components/sections/reinigung/ReinigungModern
 import ReinigungServiceTypes from '@/components/sections/reinigung/ReinigungServiceTypes'
 import ReinigungProcess from '@/components/sections/reinigung/ReinigungProcess'
 import ReinigungAreaShowcase from '@/components/sections/reinigung/ReinigungAreaShowcase'
+import { withSeo, BUSINESS_ID } from '@/lib/seo'
 
 const SERVICE_NAME = 'reinigung'
 const SERVICE_GERMAN = 'Reinigung'
@@ -28,12 +29,12 @@ const keywords = [
   'ökologische reinigung berlin',
 ]
 
-const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Professionelle Gebäudereinigung | BC Group`,
+const metadata: Metadata = withSeo('/services/reinigung', {
+  title: 'Gebäudereinigung Berlin – Büro, Praxis, Wohnung',
   description: 'Professionelle Gebäudereinigung in Berlin: Büroreinigung, Grundreinigung, Fensterreinigung & mehr. Zertifiziert, zuverlässig, umweltfreundlich.',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/reinigung',
+    canonical: 'https://www.bcgroup.berlin/services/reinigung',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -41,7 +42,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -69,9 +70,9 @@ export default function ReinigungPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Reinigung', 'item': 'https://bcgroup.de/services/reinigung' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Reinigung', 'item': 'https://www.bcgroup.berlin/services/reinigung' },
     ],
   }
 
@@ -82,21 +83,16 @@ export default function ReinigungPage() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
+          '@type': 'Service',
+          provider: { '@id': BUSINESS_ID },
           name: `BC Group - ${SERVICE_GERMAN}`,
           description: 'Professionelle Gebäudereinigung und Unterhaltsreinigung in Berlin',
-          url: 'https://bcgroup.de/services/reinigung',
+          url: 'https://www.bcgroup.berlin/services/reinigung',
           areaServed: {
             '@type': 'City',
             name: 'Berlin',
           },
           serviceType: SERVICE_GERMAN,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '320',
-            bestRating: '5',
-          },
         }}
       />
       <StructuredData data={faqSchema} />

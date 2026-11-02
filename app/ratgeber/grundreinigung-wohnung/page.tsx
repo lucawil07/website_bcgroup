@@ -3,9 +3,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, Button, ScrollReveal, StructuredData } from '@/components/ui'
 import { Calendar, Clock, ArrowLeft, CheckCircle2, Sparkles, Phone } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Grundreinigung Wohnung: Wann ist sie notwendig? | BC Group Berlin',
+export const metadata: Metadata = withSeo('/ratgeber/grundreinigung-wohnung', {
+  title: 'Grundreinigung Wohnung: Wann ist sie nötig?',
   description: 'Grundreinigung nach Auszug oder für Neubezug – erfahren Sie, was dazugehört, wie viel es kostet und worauf Sie achten sollten. Expertentipps vom BC Group Team.',
   keywords: [
     'Grundreinigung Wohnung',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     description: 'Grundreinigung nach Auszug oder für Neubezug – was dazugehört und worauf Sie achten sollten',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/grundreinigung-wohnung',
+    url: 'https://www.bcgroup.berlin/ratgeber/grundreinigung-wohnung',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1563453392212-326f5e854473?q=80&w=1200&auto=format&fit=crop',
@@ -33,9 +34,9 @@ export const metadata: Metadata = {
     modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/grundreinigung-wohnung',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/grundreinigung-wohnung',
   },
-}
+})
 
 export default function GrundreinigungWohnungPage() {
   const articleSchema = {
@@ -55,12 +56,12 @@ export default function GrundreinigungWohnungPage() {
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bc-group.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://bc-group.de/ratgeber/grundreinigung-wohnung',
+      '@id': 'https://www.bcgroup.berlin/ratgeber/grundreinigung-wohnung',
     },
   }
 
@@ -72,19 +73,19 @@ export default function GrundreinigungWohnungPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bc-group.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bc-group.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Grundreinigung Wohnung',
-        item: 'https://bc-group.de/ratgeber/grundreinigung-wohnung',
+        item: 'https://www.bcgroup.berlin/ratgeber/grundreinigung-wohnung',
       },
     ],
   }

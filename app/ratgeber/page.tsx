@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, Button, ScrollReveal, StructuredData } from '@/components/ui'
 import RatgeberContent from '@/components/sections/RatgeberContent'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Ratgeber & News | BC Group Berlin - Tipps zu Entrümpelung, Reinigung & Umzug',
-  description: 'Expertenwissen rund um Entrümpelung, Reinigung, Umzug, Abriss und Hausmeisterservice in Berlin. Praktische Tipps, Checklisten und aktuelle Neuigkeiten von BC Group.',
+export const metadata: Metadata = withSeo('/ratgeber', {
+  title: 'Ratgeber: Entrümpelung, Reinigung & Umzug',
+  description: 'Ratgeber zu Entrümpelung, Reinigung, Umzug, Abriss und Hausmeisterservice in Berlin: praktische Tipps, Checklisten und Neuigkeiten von BC Group.',
   keywords: [
     'Ratgeber Entrümpelung',
     'Reinigung Tipps Berlin',
@@ -21,13 +22,13 @@ export const metadata: Metadata = {
     description: 'Expertenwissen rund um Entrümpelung, Reinigung, Umzug, Abriss und Hausmeisterservice in Berlin.',
     type: 'website',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber',
+    url: 'https://www.bcgroup.berlin/ratgeber',
     siteName: 'BC Group Berlin',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber',
+    canonical: 'https://www.bcgroup.berlin/ratgeber',
   },
-}
+})
 
 interface BlogPost {
   title: string
@@ -59,13 +60,13 @@ export default function RatgeberPage() {
     '@type': 'Blog',
     name: 'BC Group Berlin Ratgeber',
     description: 'Expertenwissen rund um Entrümpelung, Reinigung, Umzug, Abriss und Hausmeisterservice in Berlin',
-    url: 'https://bc-group.de/ratgeber',
+    url: 'https://www.bcgroup.berlin/ratgeber',
     publisher: {
       '@type': 'Organization',
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bc-group.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     blogPost: blogPosts.map(post => ({
@@ -78,7 +79,7 @@ export default function RatgeberPage() {
         '@type': 'Organization',
         name: post.author,
       },
-      url: `https://bc-group.de/ratgeber/${post.slug}`,
+      url: `https://www.bcgroup.berlin/ratgeber/${post.slug}`,
     })),
   }
 
@@ -90,13 +91,13 @@ export default function RatgeberPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bc-group.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bc-group.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
     ],
   }

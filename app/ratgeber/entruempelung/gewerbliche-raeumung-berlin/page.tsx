@@ -2,26 +2,27 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Gewerbliche Räumung Berlin - Büros, Läden & Lagerhallen | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/gewerbliche-raeumung-berlin', {
+  title: 'Gewerbliche Räumung Berlin: Ratgeber',
   description: 'Professionelle gewerbliche Räumung in Berlin. Büros, Praxen, Läden und Lagerhallen - diskret und effizient. ✓ Festpreis ✓ Flexibel',
   keywords: 'gewerbliche räumung berlin, büroräumung berlin, praxisauflösung berlin, ladenauflösung berlin',
-}
+})
 
 export default function GewerblicheRaeumungBerlinPage() {
   const relatedArticles = [
     {
-      title: 'Büroauflösung Berlin',
-      link: '/ratgeber/entruempelung/bueroaufloesung-berlin'
+      title: 'Gewerbliche Räumung: Unsere Leistung',
+      link: '/services/entruempelung/gewerbliche-raeumung'
     },
     {
-      title: 'Praxisauflösung Berlin',
-      link: '/ratgeber/entruempelung/praxisaufloesung-berlin'
+      title: 'Express-Entrümpelung Berlin',
+      link: '/ratgeber/entruempelung/express-entruempelung-berlin'
     },
     {
-      title: 'Ladenauflösung Berlin',
-      link: '/ratgeber/entruempelung/ladenaufloesung-berlin'
+      title: 'Bauschuttentsorgung Berlin',
+      link: '/ratgeber/entruempelung/bauschuttentsorgung-berlin'
     }
   ]
 

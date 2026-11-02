@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Leaf, CheckCircle, Trees, Scissors, Sun, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Gartenpflege & Außenanlagen Berlin - Rasenmähen, Heckenschneiden | BC Group',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/gartenpflege', {
+  title: 'Gartenpflege Berlin – Rasen, Hecken, Außenanlagen',
   description: 'Professionelle Gartenpflege in Berlin: Rasenmähen, Heckenschneiden, Unkrautentfernung und Außenanlagenpflege. Gepflegte Grünflächen durch BC Hausmeisterservice.',
   keywords: 'gartenpflege berlin, rasenmähen, heckenschneiden, außenanlagenpflege, grünflächenpflege, unkrautentfernung berlin',
-}
+})
 
 export default function GartenpflegePage() {
   const accent = '#8b5cf6'

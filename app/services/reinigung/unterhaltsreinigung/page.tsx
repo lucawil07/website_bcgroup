@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Clock, CheckCircle, TrendingUp, Shield, Award, CalendarCheck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Unterhaltsreinigung Berlin - Professionelle Dauerpflege | BC Group',
-  description: 'Professionelle Unterhaltsreinigung in Berlin. Regelmäßige Reinigung für langfristig gepflegte Räumlichkeiten. Flexibel planbar, kontinuierliche Qualität, kosteneffizient.',
+export const metadata: Metadata = withSeo('/services/reinigung/unterhaltsreinigung', {
+  title: 'Unterhaltsreinigung Berlin',
+  description: 'Unterhaltsreinigung in Berlin: regelmäßige Reinigung für dauerhaft gepflegte Räume. Flexibel planbar, gleichbleibende Qualität, kosteneffizient.',
   keywords: 'unterhaltsreinigung berlin, regelmäßige reinigung, dauerreinigung, objektreinigung, facility service',
-}
+})
 
 export default function UnterhaltsreinigungPage() {
   const accent = '#06b6d4'

@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Briefcase, CheckCircle, Clock, Shield, Sparkles, Users } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Büroreinigung Berlin - Professionelle Reinigung für Ihr Büro | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/bueroreinigung', {
+  title: 'Büroreinigung Berlin – professionell & regelmäßig',
   description: 'Professionelle Büroreinigung in Berlin. Tägliche & wöchentliche Reinigung für optimale Hygiene und Produktivität. Diskret, zuverlässig, ergonomisch.',
   keywords: 'büroreinigung berlin, büroreinigung, office cleaning, gewerbereinigung berlin, büro reinigen',
-}
+})
 
 export default function BueroreinigungPage() {
   const accent = '#06b6d4'

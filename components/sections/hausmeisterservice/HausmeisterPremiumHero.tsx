@@ -128,7 +128,7 @@ export default function HausmeisterPremiumHero() {
                   </motion.span>
                 </button>
               </a>
-              <a href="/ratgeber/hausmeisterservice-berlin">
+              <a href="/ratgeber/hausmeisterservice-aufgaben">
                 <button
                   className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:scale-105"
                   style={{ borderColor: hausmeisterAccent, color: hausmeisterAccent }}

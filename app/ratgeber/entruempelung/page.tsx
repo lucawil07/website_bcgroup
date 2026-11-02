@@ -2,9 +2,10 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section, ScrollReveal, StructuredData } from '@/components/ui'
 import { ArrowRight, ArrowLeft, Home, Building2, Warehouse, Users, Clock, Wrench, Euro, AlertTriangle } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Entrümpelung Ratgeber Berlin - Tipps & Anleitungen | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung', {
+  title: 'Entrümpelung Ratgeber Berlin – Tipps & Kosten',
   description: 'Umfassender Ratgeber zur Entrümpelung in Berlin. Erfahren Sie alles über Wohnungsauflösung, Kellerentrümpelung, Kosten und mehr.',
   keywords: [
     'entrümpelung ratgeber',
@@ -19,13 +20,13 @@ export const metadata: Metadata = {
     description: 'Umfassender Ratgeber zur Entrümpelung in Berlin. Wohnungsauflösung, Kellerentrümpelung, Kosten und mehr.',
     type: 'website',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/entruempelung',
+    url: 'https://www.bcgroup.berlin/ratgeber/entruempelung',
     siteName: 'BC Group Berlin',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/entruempelung',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/entruempelung',
   },
-}
+})
 
 export default function EntruempelungRatgeberPage() {
   const articles = [

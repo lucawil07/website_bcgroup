@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kosten Wohnungsauflösung Berlin - Preise & Faktoren | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/kosten-wohnungsaufloesung-berlin', {
+  title: 'Kosten Wohnungsauflösung Berlin: Preise',
   description: 'Was kostet eine Wohnungsauflösung in Berlin? Alle Kostenfaktoren, Preisbeispiele und Spartipps im Überblick. ✓ Transparente Preise',
   keywords: 'kosten wohnungsauflösung berlin, wohnungsauflösung preis berlin, entrümpelung kosten',
-}
+})
 
 export default function KostenWohnungsaufloesungBerlinPage() {
   return (

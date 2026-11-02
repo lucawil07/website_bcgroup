@@ -114,7 +114,7 @@ export default function AbrissPremiumHero() {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
               </a>
-              <a href="/ratgeber/abriss-berlin" className="inline-block">
+              <a href="/ratgeber/abriss-genehmigung" className="inline-block">
                 <button
                   className="px-8 py-4 rounded-xl font-bold uppercase tracking-wider border-2 transition-all duration-300 flex items-center justify-center gap-2 text-white hover:bg-amber-900/20"
                   style={{ borderColor: abrissaccent, color: abrissaccent }}

@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Warehouse, CheckCircle, Droplets, Package, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kellerentrümpelung Berlin - Keller professionell räumen | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/kellerbereiche', {
+  title: 'Kellerentrümpelung Berlin – Keller räumen',
   description: 'Professionelle Kellerentrümpelung in Berlin. Tiefgaragen, Lagerkeller, Überbau-Kammern - wir räumen überfüllte Keller komplett und gesäubert.',
   keywords: 'kellerentrümpelung berlin, keller räumen, kellerräumung, tiefgarage entrümpeln',
-}
+})
 
 export default function KellerbereichePage() {
   const accent = '#047857'

@@ -73,8 +73,8 @@ export default function OpenPositions() {
     hiringOrganization: {
       '@type': 'Organization',
       name: 'BC Group',
-      sameAs: 'https://bcgroup.de',
-      logo: 'https://bcgroup.de/logo.png',
+      sameAs: 'https://www.bcgroup.berlin',
+      logo: 'https://www.bcgroup.berlin/icon-512.png',
     },
     datePosted: new Date().toISOString().split('T')[0],
     validThrough: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -92,13 +92,13 @@ export default function OpenPositions() {
           '@type': 'ListItem',
           position: 1,
           name: 'Karriere',
-          item: 'https://bcgroup.de/karriere',
+          item: 'https://www.bcgroup.berlin/karriere',
         },
         {
           '@type': 'ListItem',
           position: 2,
           name: 'Offene Positionen',
-          item: 'https://bcgroup.de/karriere#offene-positionen',
+          item: 'https://www.bcgroup.berlin/karriere#offene-positionen',
         },
       ],
     })

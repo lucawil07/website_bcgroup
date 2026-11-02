@@ -8,6 +8,7 @@ import HausmeisterServiceAreas from '@/components/sections/hausmeisterservice/Ha
 import HausmeisterTeamShowcase from '@/components/sections/hausmeisterservice/HausmeisterTeamShowcase'
 import HausmeisterStatistics from '@/components/sections/hausmeisterservice/HausmeisterStatistics'
 import HausmeisterCTA from '@/components/sections/hausmeisterservice/HausmeisterCTA'
+import { withSeo, BUSINESS_ID } from '@/lib/seo'
 
 const SERVICE_NAME = 'hausmeisterservice'
 const SERVICE_GERMAN = 'Hausmeisterservice'
@@ -30,12 +31,12 @@ const keywords = [
   'facilities berlin',
 ]
 
-const metadata: Metadata = {
-  title: `Hausmeisterservice Berlin | BC Hausmeisterservice – Reinigung, Pflege & Objektbetreuung`,
-  description: 'Professioneller Hausmeisterservice Berlin – BC Hausmeisterservice bietet Gebäudepflege, Reinigung, Gartenpflege, Winterdienst & Objektmanagement. Jetzt kostenlos beraten lassen!',
+const metadata: Metadata = withSeo('/services/hausmeisterservice', {
+  title: 'Hausmeisterservice Berlin – Objektbetreuung',
+  description: 'Hausmeisterservice in Berlin: Gebäudepflege, Reinigung, Gartenpflege, Winterdienst und Objektmanagement aus einer Hand. Jetzt kostenlos beraten lassen!',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/hausmeisterservice',
+    canonical: 'https://www.bcgroup.berlin/services/hausmeisterservice',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -43,7 +44,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -71,9 +72,9 @@ export default function HausmeisterservicePage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Hausmeisterservice', 'item': 'https://bcgroup.de/services/hausmeisterservice' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Hausmeisterservice', 'item': 'https://www.bcgroup.berlin/services/hausmeisterservice' },
     ],
   }
 
@@ -84,21 +85,16 @@ export default function HausmeisterservicePage() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
+          '@type': 'Service',
+          provider: { '@id': BUSINESS_ID },
           name: `BC Group - ${SERVICE_GERMAN}`,
           description: 'Professionelle Hausmeisterdienste und Gebäudeverwaltung in Berlin',
-          url: 'https://bcgroup.de/services/hausmeisterservice',
+          url: 'https://www.bcgroup.berlin/services/hausmeisterservice',
           areaServed: {
             '@type': 'City',
             name: 'Berlin',
           },
           serviceType: SERVICE_GERMAN,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '320',
-            bestRating: '5',
-          },
         }}
       />
       <StructuredData data={faqSchema} />

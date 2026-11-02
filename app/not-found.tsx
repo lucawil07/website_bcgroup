@@ -19,7 +19,7 @@ const popularPages = [
   { name: 'Über uns', href: '/ueber-uns' },
   { name: 'Kontakt', href: '/kontakt' },
   { name: 'Ratgeber', href: '/ratgeber' },
-  { name: 'Service-Gebiete', href: '/service-gebiete' },
+  { name: 'Alle Leistungen', href: '/services' },
 ]
 
 export default function NotFound() {

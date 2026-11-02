@@ -7,6 +7,7 @@ import EntruempelungProcess from '@/components/sections/entruempelung/Entruempel
 import EntruempelungBenefits from '@/components/sections/entruempelung/EntruempelungBenefits'
 import EntruempelungStatistics from '@/components/sections/entruempelung/EntruempelungStatistics'
 import EntruempelungFunnelWrapper from '@/components/sections/entruempelung/EntruempelungFunnelWrapper'
+import { withSeo } from '@/lib/seo'
 
 const SERVICE_NAME = 'entruempelung'
 const SERVICE_GERMAN = 'Entrümpelung'
@@ -29,12 +30,12 @@ const keywords = [
   'entrümpelung termine',
 ]
 
-const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Professionelle Wohnungsentrümpelung | BC Group`,
+const metadata: Metadata = withSeo('/services/entruempelung', {
+  title: 'Entrümpelung Berlin – Wohnung, Keller & Gewerbe',
   description: 'Professionelle Entrümpelung in Berlin: Schnell, zuverlässig und umweltgerecht. Wir kümmern uns um Ihre Wohnungsentrümpelung mit vollständiger Entsorgung.',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/entruempelung',
+    canonical: 'https://www.bcgroup.berlin/services/entruempelung',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -42,7 +43,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -50,8 +51,8 @@ export default function EntruempelungPage() {
   const serviceSchema = createServiceSchema({
     name: 'Entrümpelung Berlin',
     description: 'Professionelle Entrümpelung und Wohnungsauflösung in Berlin. Schnell, diskret und besenrein.',
-    url: 'https://bcgroup.de/services/entruempelung',
-    image: 'https://bcgroup.de/images/services/entruempelung.jpg',
+    url: 'https://www.bcgroup.berlin/services/entruempelung',
+    image: 'https://www.bcgroup.berlin/images/services/entruempelung.jpg',
     areaServed: 'Berlin',
   })
 
@@ -74,9 +75,9 @@ export default function EntruempelungPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Entrümpelung', 'item': 'https://bcgroup.de/services/entruempelung' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Entrümpelung', 'item': 'https://www.bcgroup.berlin/services/entruempelung' },
     ],
   }
 

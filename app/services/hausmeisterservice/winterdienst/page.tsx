@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { ThermometerSun, CheckCircle, Clock, AlertTriangle, FileText, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Winterdienst Berlin - Schneeräumung & Streudienst 24/7 | BC Group',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/winterdienst', {
+  title: 'Winterdienst Berlin – Schneeräumung & Streudienst',
   description: 'Professioneller Winterdienst in Berlin: Schneeräumung, Streudienst und 24/7 Rufbereitschaft. Rechtssicher und zuverlässig durch BC Hausmeisterservice.',
   keywords: 'winterdienst berlin, schneeräumung, streudienst, räumpflicht berlin, verkehrssicherungspflicht winter',
-}
+})
 
 export default function WinterdienstPage() {
   const accent = '#8b5cf6'

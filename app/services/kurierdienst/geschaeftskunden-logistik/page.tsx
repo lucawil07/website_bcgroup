@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Truck, CheckCircle, Shield, Building2, Package, TrendingDown } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Geschäftskunden-Logistik Berlin - B2B Kurierlösungen | BC Group',
+export const metadata: Metadata = withSeo('/services/kurierdienst/geschaeftskunden-logistik', {
+  title: 'B2B-Kurier & Geschäftskunden-Logistik Berlin',
   description: 'Individuelle Logistiklösungen für Büros, Filialen und Produktionsstandorte in Berlin. Planbare Touren, kostenoptimiert, dokumentiert und versichert.',
   keywords: 'b2b kurier berlin, geschäftskunden logistik, firmenkurier berlin, business logistik, unternehmenskurier, filiallogistik berlin',
-}
+})
 
 export default function GeschaeftskundenLogistikPage() {
   const accent = '#00d4ff'

@@ -6,16 +6,17 @@ import {
   KarriereContactCTA,
 } from '@/components/sections'
 import { StructuredData } from '@/components/ui'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Karriere bei BC Group | Jobs in Berlin - Entrümpelung, Reinigung, Umzug',
+export const metadata: Metadata = withSeo('/karriere', {
+  title: 'Karriere & Jobs in Berlin',
   description:
-    'Starten Sie Ihre Karriere bei BC Group Berlin. Finden Sie offene Stellen in Entrümpelung, Reinigung, Abriss, Umzug und mehr. Wir suchen motivierte Talente für unsere Teams.',
+    'Karriere bei BC Group Berlin: Jobs in Entrümpelung, Reinigung, Abriss, Umzug und mehr. Wir suchen motivierte Verstärkung für unsere Teams.',
   keywords: 'Karriere Berlin, Jobs, Stellenangebote, Entrümpelung Jobs, Reinigung Jobs, Abriss Jobs, Umzug Jobs, Kurierdienst Jobs, Hausmeisterservice Jobs',
   openGraph: {
     title: 'Karriere bei BC Group | Offene Stellen in Berlin',
     description: 'Entdecken Sie Karrieremöglichkeiten bei BC Group Berlin mit attraktiven Positionen in verschiedenen Bereichen',
-    url: 'https://bcgroup.de/karriere',
+    url: 'https://www.bcgroup.berlin/karriere',
     type: 'website',
     images: [
       {
@@ -40,41 +41,18 @@ export const metadata: Metadata = {
     'max-video-preview': -1,
   },
   alternates: {
-    canonical: 'https://bcgroup.de/karriere',
+    canonical: 'https://www.bcgroup.berlin/karriere',
   },
-}
+})
 
 // Structured data for job postings
-const jobPostingSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'JobPosting',
-  hiringOrganization: {
-    '@type': 'Organization',
-    name: 'BC Group',
-    sameAs: 'https://bcgroup.de',
-  },
-  jobLocation: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'DE',
-      addressLocality: 'Berlin',
-      addressRegion: 'Berlin',
-    },
-  },
-  baseSalary: {
-    '@type': 'PriceSpecification',
-    priceCurrency: 'EUR',
-    price: 'Auf Anfrage',
-  },
-}
 
 const organizationCareerSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'BC Group',
-  url: 'https://bcgroup.de',
-  logo: 'https://bcgroup.de/logo.png',
+  url: 'https://www.bcgroup.berlin',
+  logo: 'https://www.bcgroup.berlin/icon-512.png',
   description: 'Professionelle Dienstleistungen in Berlin',
   address: {
     '@type': 'PostalAddress',
@@ -89,7 +67,6 @@ export default function KarrierePage() {
   return (
     <>
       {/* Structured Data for SEO */}
-      <StructuredData data={jobPostingSchema} />
       <StructuredData data={organizationCareerSchema} />
 
       {/* Scroll anchor for smooth navigation */}

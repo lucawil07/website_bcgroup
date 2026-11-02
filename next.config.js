@@ -18,6 +18,17 @@ const nextConfig = {
     formats: ['image/avif', 'image/webp'],
     unoptimized: false,
   },
+  async redirects() {
+    return [
+      {
+        // Consolidate the apex domain onto www so every page has one URL.
+        source: '/:path*',
+        has: [{ type: 'host', value: 'bcgroup.berlin' }],
+        destination: 'https://www.bcgroup.berlin/:path*',
+        permanent: true,
+      },
+    ]
+  },
   async headers() {
     return [
       {

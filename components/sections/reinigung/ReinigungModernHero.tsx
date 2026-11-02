@@ -153,7 +153,7 @@ export default function ReinigungModernHero() {
                 </button>
               </motion.a>
               <motion.a
-                href="/ratgeber/reinigung-berlin"
+                href="/ratgeber/bueroreinigung-tipps"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >

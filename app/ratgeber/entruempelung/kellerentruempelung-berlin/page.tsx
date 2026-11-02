@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, ScrollReveal, StructuredData } from '@/components/ui'
 import { Calendar, Clock, ArrowLeft, CheckCircle2, Phone, ArrowRight, AlertTriangle, Droplets, Bug, Trash2, ShieldCheck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kellerentrümpelung Berlin – Schnell & Professionell | BC Group Berlin',
-  description: 'Professionelle Kellerentrümpelung in Berlin: Lagerkeller, Mieterkeller, Tiefgaragen-Abstellräume. ✓ Festpreis ✓ Fachgerechte Entsorgung ✓ Auch bei Wasserschäden & Schimmel. Jetzt anfragen!',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/kellerentruempelung-berlin', {
+  title: 'Keller entrümpeln in Berlin: Ratgeber',
+  description: 'Kellerentrümpelung in Berlin: Mieterkeller, Lagerkeller, Abstellräume. ✓ Festpreis ✓ Fachgerechte Entsorgung ✓ Auch bei Wasserschaden & Schimmel.',
   keywords: [
     'Kellerentrümpelung Berlin',
     'Keller entrümpeln Berlin',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Professionelle Kellerentrümpelung in Berlin: Lagerkeller, Mieterkeller und Abstellräume schnell und sauber geräumt.',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/entruempelung/kellerentruempelung-berlin',
+    url: 'https://www.bcgroup.berlin/ratgeber/entruempelung/kellerentruempelung-berlin',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop',
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/entruempelung/kellerentruempelung-berlin',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/entruempelung/kellerentruempelung-berlin',
   },
-}
+})
 
 export default function KellerentruempelungBerlinPage() {
   const articleSchema = {
@@ -56,12 +57,12 @@ export default function KellerentruempelungBerlinPage() {
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bcgroup.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://bcgroup.de/ratgeber/entruempelung/kellerentruempelung-berlin',
+      '@id': 'https://www.bcgroup.berlin/ratgeber/entruempelung/kellerentruempelung-berlin',
     },
   }
 
@@ -73,25 +74,25 @@ export default function KellerentruempelungBerlinPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bcgroup.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bcgroup.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Entrümpelung',
-        item: 'https://bcgroup.de/ratgeber/entruempelung',
+        item: 'https://www.bcgroup.berlin/ratgeber/entruempelung',
       },
       {
         '@type': 'ListItem',
         position: 4,
         name: 'Kellerentrümpelung Berlin',
-        item: 'https://bcgroup.de/ratgeber/entruempelung/kellerentruempelung-berlin',
+        item: 'https://www.bcgroup.berlin/ratgeber/entruempelung/kellerentruempelung-berlin',
       },
     ],
   }

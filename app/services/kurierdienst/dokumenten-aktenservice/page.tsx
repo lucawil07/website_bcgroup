@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { FileText, CheckCircle, Shield, Lock, FileCheck, UserCheck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Dokumenten- & Aktenservice Berlin - Vertraulicher Kurier | BC Group',
+export const metadata: Metadata = withSeo('/services/kurierdienst/dokumenten-aktenservice', {
+  title: 'Dokumenten- & Aktenkurier Berlin',
   description: 'Vertrauliche Zustellung wichtiger Unterlagen und Akten in Berlin. Professionelle Fachkräfte, Quittierung bei Übergabe, höchste Sicherheitsstandards.',
   keywords: 'dokumentenkurier berlin, aktenservice berlin, vertrauliche zustellung, rechtsdokumente kurier, medizinische unterlagen kurier, verschwiegenheit kurier',
-}
+})
 
 export default function DokumentenAktenservicePage() {
   const accent = '#00d4ff'

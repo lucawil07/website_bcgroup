@@ -2,22 +2,23 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Haushaltsauflösung nach Todesfall Berlin - Einfühlsam & Diskret | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/haushaltsaufloesung-nach-todesfall', {
+  title: 'Haushaltsauflösung nach Todesfall: Ratgeber',
   description: 'Einfühlsame Haushaltsauflösung nach Todesfall in Berlin. Wir unterstützen Sie in schweren Zeiten. ✓ Diskret ✓ Respektvoll ✓ Professionell',
   keywords: 'haushaltsauflösung nach todesfall, wohnungsauflösung todesfall berlin, nachlassräumung berlin',
-}
+})
 
 export default function HaushaltsaufloesungNachTodesfallPage() {
   const relatedArticles = [
     {
-      title: 'Wohnungsauflösung nach Todesfall',
-      link: '/ratgeber/entruempelung/wohnungsaufloesung-nach-todesfall'
+      title: 'Wohnungsauflösung Berlin: Ablauf & Tipps',
+      link: '/ratgeber/entruempelung/wohnungsaufloesung-berlin'
     },
     {
-      title: 'Nachlassverwaltung Berlin',
-      link: '/ratgeber/entruempelung/nachlassverwaltung-berlin'
+      title: 'Nachlass-Entrümpelung Berlin',
+      link: '/services/entruempelung/nachlassverwaltung'
     }
   ]
 

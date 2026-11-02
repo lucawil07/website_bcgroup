@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Clock, CheckCircle, Shield, Calendar, MapPin, Euro } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Regelmäßige Lieferungen Berlin - Planbare Kurier-Routen | BC Group',
+export const metadata: Metadata = withSeo('/services/kurierdienst/regelmaessige-lieferungen', {
+  title: 'Regelmäßige Kurierfahrten Berlin',
   description: 'Vertraglich vereinbarte Kurierdienste mit festen Routen in Berlin. Wiederkehrende Lieferungen für Unternehmen - zuverlässig, pünktlich und kosteneffizient.',
   keywords: 'kurier festroute berlin, wiederkehrende lieferungen, vertragskurier berlin, planbare lieferungen, business kurier, regelmäßiger transport',
-}
+})
 
 export default function RegelmaessigeLieferungenPage() {
   const accent = '#00d4ff'

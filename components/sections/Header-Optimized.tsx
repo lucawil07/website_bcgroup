@@ -46,7 +46,7 @@ const navigation: NavItem[] = [
     ],
   },
   { label: 'News', href: '/ratgeber' },
-  { label: 'Locations', href: '/service-gebiete' },
+  { label: 'Leistungen', href: '/services' },
   {
     label: 'Karriere',
     items: [

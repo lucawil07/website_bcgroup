@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Wrench, CheckCircle, Clock, Shield, Eye, Users } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Allgemeine Hausmeistertätigkeiten Berlin - Objektbetreuung | BC Group',
-  description: 'Professionelle Hausmeisterdienste in Berlin: Objektkontrollen, Kleinreparaturen, Schließdienste und mehr. Zuverlässige Betreuung Ihrer Immobilie durch BC Hausmeisterservice.',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/allgemeine-taetigkeiten', {
+  title: 'Hausmeistertätigkeiten Berlin',
+  description: 'Hausmeisterdienste in Berlin: Objektkontrollen, Kleinreparaturen, Schließdienste und mehr. Zuverlässige Betreuung Ihrer Immobilie durch BC Group.',
   keywords: 'hausmeister berlin, objektkontrolle, kleinreparaturen, hausmeisterdienste, gebäudebetreuung berlin, schließdienst',
-}
+})
 
 export default function AllgemeineTaetigkeitenPage() {
   const accent = '#8b5cf6'

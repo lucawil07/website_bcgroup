@@ -11,31 +11,24 @@ import { ReviewMarquee } from '@/components/sections/ReviewMarquee'
 import { 
   StructuredData, 
   organizationSchema, 
-  localBusinessSchema, 
   websiteSchema 
 } from '@/components/ui'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'BC Group Berlin – Ihr Servicepartner für Entrümpelung, Abriss, Reinigung & mehr',
-  description: 'BC Group Berlin bietet professionelle Dienstleistungen: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst. Über 300 positive Bewertungen. Kostenlose Beratung ✓ Faire Festpreise ✓ 24/7 erreichbar.',
-  alternates: {
-    canonical: 'https://bcgroup.de',
-  },
+export const metadata: Metadata = withSeo('/', {
+  title: { absolute: 'Entrümpelung, Umzug & Reinigung in Berlin | BC Group' },
+  description: 'Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst in Berlin – alles aus einer Hand. Kostenlose Beratung und faire Festpreise.',
   openGraph: {
-    title: 'BC Group Berlin – Ihr Servicepartner für Entrümpelung, Abriss, Reinigung & mehr',
+    title: 'BC Group Berlin – Entrümpelung, Umzug, Reinigung & mehr',
     description: 'Professionelle Dienstleistungen in Berlin: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst. Kostenlose Beratung und faire Festpreise.',
-    url: 'https://bcgroup.de',
-    type: 'website',
-    locale: 'de_DE',
   },
-}
+})
 
 export default function Home() {
   return (
     <>
       {/* Structured Data for SEO */}
       <StructuredData data={organizationSchema} />
-      <StructuredData data={localBusinessSchema} />
       <StructuredData data={websiteSchema} />
       
       <HeroCarousel />

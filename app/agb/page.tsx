@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Section, Container } from '@/components/ui'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'AGB | BC Group Berlin',
+export const metadata: Metadata = withSeo('/agb', {
+  title: 'AGB',
   description: 'Allgemeine Geschäftsbedingungen (AGB) der BC Group Berlin',
-  robots: 'noindex, nofollow',
+  robots: 'noindex, follow',
   alternates: {
-    canonical: 'https://bcgroup.de/agb',
+    canonical: 'https://www.bcgroup.berlin/agb',
   },
-}
+})
 
 export default function AGBPage() {
   return (

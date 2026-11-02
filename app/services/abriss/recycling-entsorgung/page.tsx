@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Recycle, CheckCircle, Leaf, TrendingDown, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Recycling & Entsorgung Berlin - 100% Nachhaltig | BC Group',
+export const metadata: Metadata = withSeo('/services/abriss/recycling-entsorgung', {
+  title: 'Abbruch-Recycling & Entsorgung Berlin',
   description: 'Nachhaltige Verwertung von Bauschutt und Materialien in Berlin. 100% fachgerecht, optimal wiederverwertbar und umweltschonend.',
   keywords: 'recycling berlin, bauschuttentsorgung, materialverwertung, nachhaltige entsorgung, umweltgerechte entsorgung',
-}
+})
 
 export default function RecyclingEntsorgungPage() {
   const accent = '#d97706'

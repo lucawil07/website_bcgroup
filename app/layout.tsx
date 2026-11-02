@@ -6,6 +6,7 @@ import { CookieConsent, StructuredData, localBusinessSchema } from '@/components
 import { MobileMenuProvider } from '@/contexts/MobileMenuContext'
 import { Analytics } from '@vercel/analytics/next'
 import Script from 'next/script'
+import { SITE_URL, SITE_NAME, DEFAULT_OG_IMAGE } from '@/lib/seo'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -20,24 +21,12 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://bcgroup.de'),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: 'BC Group - Ihr Servicepartner in Berlin',
-    template: '%s | BC Group Berlin',
+    default: 'BC Group Berlin – Ihr Servicepartner in Berlin',
+    template: '%s | BC Group',
   },
   description: 'Professionelle Dienstleistungen in Berlin: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst. Maßgeschneiderte Lösungen für Privat und Gewerbe.',
-  keywords: [
-    'Entrümpelung Berlin',
-    'Abriss Berlin',
-    'Gebäudereinigung Berlin',
-    'Hausmeisterservice Berlin',
-    'Umzug Berlin',
-    'Kurierdienst Berlin',
-    'Wohnungsauflösung',
-    'Büroreinigung',
-    'Winterdienst',
-    'Firmenumzug',
-  ],
   authors: [{ name: 'BC Group' }],
   creator: 'BC Group',
   publisher: 'BC Group',
@@ -69,26 +58,14 @@ export const metadata: Metadata = {
     apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: 'BC Group - Ihr Servicepartner in Berlin',
-    description: 'Professionelle Dienstleistungen in Berlin - Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst',
-    url: 'https://bcgroup.de',
-    siteName: 'BC Group',
+    siteName: SITE_NAME,
     locale: 'de_DE',
     type: 'website',
-    images: [
-      {
-        url: '/images/image_bcgroup.png',
-        width: 1200,
-        height: 630,
-        alt: 'BC Group - Professionelle Dienstleistungen in Berlin',
-      },
-    ],
+    images: [DEFAULT_OG_IMAGE],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'BC Group - Ihr Servicepartner in Berlin',
-    description: 'Professionelle Dienstleistungen in Berlin',
-    images: ['/images/image_bcgroup.png'],
+    images: [DEFAULT_OG_IMAGE],
   },
   category: 'business',
 }

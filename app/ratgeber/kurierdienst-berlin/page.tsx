@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, Button, ScrollReveal, StructuredData } from '@/components/ui'
 import { Calendar, Clock, ArrowLeft, CheckCircle2, Truck, Phone, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kurierdienst Berlin | BC Kurierdienst – Vertragliche & regelmäßige Kurierfahrten für Unternehmen',
-  description: 'BC Kurierdienst Berlin – Ihr Partner für vertragliche Kurierdienste, regelmäßige Lieferungen & planbare Transporte. Professionell, zuverlässig & individuell für Geschäftskunden.',
+export const metadata: Metadata = withSeo('/ratgeber/kurierdienst-berlin', {
+  title: 'Kurierdienst Berlin für Unternehmen: Ratgeber',
+  description: 'Kurierdienst Berlin für Unternehmen: vertragliche Kurierfahrten, regelmäßige Lieferungen und planbare Transporte – zuverlässig und individuell.',
   keywords: [
     'Kurierdienst Berlin',
     'Vertraglicher Kurierdienst',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     description: 'BC Kurierdienst Berlin – Ihr Partner für vertragliche Kurierdienste, regelmäßige Lieferungen & planbare Transporte.',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/kurierdienst-berlin',
+    url: 'https://www.bcgroup.berlin/ratgeber/kurierdienst-berlin',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1200&auto=format&fit=crop',
@@ -33,9 +34,9 @@ export const metadata: Metadata = {
     modifiedTime: '2025-11-16',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/kurierdienst-berlin',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/kurierdienst-berlin',
   },
-}
+})
 
 export default function KurierdienstBerlinPage() {
   const articleSchema = {
@@ -55,12 +56,12 @@ export default function KurierdienstBerlinPage() {
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bc-group.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://bc-group.de/ratgeber/kurierdienst-berlin',
+      '@id': 'https://www.bcgroup.berlin/ratgeber/kurierdienst-berlin',
     },
   }
 
@@ -72,19 +73,19 @@ export default function KurierdienstBerlinPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bc-group.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bc-group.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Kurierdienst Berlin',
-        item: 'https://bc-group.de/ratgeber/kurierdienst-berlin',
+        item: 'https://www.bcgroup.berlin/ratgeber/kurierdienst-berlin',
       },
     ],
   }

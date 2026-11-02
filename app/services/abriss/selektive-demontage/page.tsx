@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Wrench, CheckCircle, Recycle, TrendingUp, Layers } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Selektive Demontage Berlin - Ressourcenschonend & Effizient | BC Group',
+export const metadata: Metadata = withSeo('/services/abriss/selektive-demontage', {
+  title: 'Selektive Demontage & Rückbau Berlin',
   description: 'Fachgerechte selektive Demontage in Berlin mit Rückgewinnung wertvoller Materialien. Nachhaltig, ressourcenschonend und optimal für Recycling.',
   keywords: 'selektive demontage berlin, rückbau berlin, material recycling, nachhaltige demontage, ressourcenschonend',
-}
+})
 
 export default function SelektiveDemontagePage() {
   const accent = '#d97706'

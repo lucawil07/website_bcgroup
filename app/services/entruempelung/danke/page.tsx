@@ -2,15 +2,16 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Section, Container, Button } from '@/components/ui'
 import { CheckCircle2, Clock, Calendar, FileCheck, Phone, MessageCircle, Mail, ArrowRight, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Anfrage erfolgreich gesendet | BC Group Berlin',
+export const metadata: Metadata = withSeo('/services/entruempelung/danke', {
+  title: 'Anfrage erfolgreich gesendet',
   description: 'Vielen Dank für Ihre Entrümpelung Anfrage. Wir melden uns schnellstmöglich bei Ihnen.',
   robots: {
     index: false,
     follow: false,
   },
-}
+})
 
 export default function DankePage() {
   return (

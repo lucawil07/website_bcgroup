@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { HardHat, CheckCircle, Shield, Sparkles, Wrench, CheckCheck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Baureinigung Berlin - Endreinigung nach Bau & Renovierung | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/baureinigung', {
+  title: 'Baureinigung Berlin – Bauendreinigung',
   description: 'Professionelle Baureinigung in Berlin. Gründliche Endreinigung nach Bau- und Renovierungsarbeiten. Baustaubentfernung, Feinreinigung, abnahmebereit.',
   keywords: 'baureinigung berlin, endreinigung, bauendreinigung, bauschlussreinigung, renovierungsreinigung',
-}
+})
 
 export default function BaureinigungPage() {
   const accent = '#06b6d4'

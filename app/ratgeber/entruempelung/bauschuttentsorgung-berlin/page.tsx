@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Bauschuttentsorgung Berlin - Fachgerecht & Günstig | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/bauschuttentsorgung-berlin', {
+  title: 'Bauschuttentsorgung Berlin: Ratgeber',
   description: 'Professionelle Bauschuttentsorgung in Berlin. Renovierungsreste, Abbruchmaterial und mehr - fachgerecht entsorgt. ✓ Festpreis ✓ Schnell',
   keywords: 'bauschuttentsorgung berlin, bauschutt entsorgen berlin, baumüll berlin',
-}
+})
 
 export default function BauschuttentsorgungBerlinPage() {
   return (

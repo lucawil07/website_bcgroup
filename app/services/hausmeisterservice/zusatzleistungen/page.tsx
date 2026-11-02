@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Hammer, CheckCircle, Trash2, TruckIcon, Wrench, PackageCheck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Zusatzleistungen Hausmeisterservice Berlin - Flexible Services | BC Group',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/zusatzleistungen', {
+  title: 'Hausmeister-Zusatzleistungen Berlin',
   description: 'Flexible Zusatzleistungen für Ihr Objekt: Entrümpelung, Kleintransporte, Montagearbeiten und mehr. Individuell kombinierbar durch BC Hausmeisterservice.',
   keywords: 'hausmeister zusatzleistungen berlin, entrümpelung, kleintransporte, montagearbeiten, sperrmüll berlin, hausmeister services',
-}
+})
 
 export default function ZusatzleistungenPage() {
   const accent = '#8b5cf6'

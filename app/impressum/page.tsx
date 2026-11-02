@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Section, Container } from '@/components/ui'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Impressum | BC Group Berlin',
+export const metadata: Metadata = withSeo('/impressum', {
+  title: 'Impressum',
   description: 'Impressum und Kontaktdaten der BC Group Berlin',
-  robots: 'noindex, nofollow',
+  robots: 'noindex, follow',
   alternates: {
-    canonical: 'https://bcgroup.de/impressum',
+    canonical: 'https://www.bcgroup.berlin/impressum',
   },
-}
+})
 
 export default function ImpressumPage() {
   return (
@@ -57,18 +58,6 @@ export default function ImpressumPage() {
                   <strong>Telefon:</strong> <a href="tel:+4917679567083" className="text-secondary hover:underline">+49 176 79567083</a><br />
                   <strong>E-Mail:</strong> <a href="mailto:info@bcgroup.berlin" className="text-secondary hover:underline">info@bcgroup.berlin</a><br />
                   <strong>Web:</strong> <a href="https://www.bcgroup.berlin" className="text-secondary hover:underline">www.bcgroup.berlin</a>
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="text-3xl font-bold mb-4">Berufsbezeichnung und Berufsordnung</h2>
-              <div className="text-neutral-700 space-y-2">
-                <p>
-                  [Berufsbezeichnung gemäß Gewerbeanmeldung]
-                </p>
-                <p>
-                  Zuständige Kammer: [Handwerkskammer Berlin oder ähnlich]
                 </p>
               </div>
             </div>

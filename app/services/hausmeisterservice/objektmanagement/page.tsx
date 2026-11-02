@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Lightbulb, CheckCircle, Home, Key, FileCheck, PhoneCall } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Objektmanagement & Betreuung Berlin - Immobilienverwaltung | BC Group',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/objektmanagement', {
+  title: 'Objektmanagement & Objektbetreuung Berlin',
   description: 'Professionelles Objektmanagement in Berlin: Wohnungsübergaben, Protokollierung, Schlüsselverwaltung und 24/7 Notdienst durch BC Hausmeisterservice.',
   keywords: 'objektmanagement berlin, immobilienbetreuung, wohnungsübergabe, schlüsselverwaltung, notdienst hausmeister, objektbetreuung',
-}
+})
 
 export default function ObjektmanagementPage() {
   const accent = '#8b5cf6'

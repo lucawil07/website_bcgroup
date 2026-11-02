@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Building2, CheckCircle, Shield, Droplets, Wind, Sparkles } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Gebäudereinigung Berlin - Fassaden & Fenster professionell | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/gebaeudereinigung', {
+  title: 'Fassaden- & Fensterreinigung Berlin',
   description: 'Professionelle Gebäudereinigung in Berlin. Außen- & Innenfassadenreinigung, Fensterreinigung mit moderner Technologie. Zuverlässig, termintreu, sicher.',
   keywords: 'gebäudereinigung berlin, fassadenreinigung, fensterreinigung berlin, gebäudereinigung, facility cleaning',
-}
+})
 
 export default function GebaeudereinigungPage() {
   const accent = '#06b6d4'

@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Building2, CheckCircle, Shield, Clock, Recycle } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Gebäudeabriss Berlin - Professionell & Sicher | BC Group',
-  description: 'Professioneller Gebäudeabriss in Berlin. Kompletter Abriss von Wohnhäusern, Mehrfamilienhäusern und Bürogebäuden. Sicher, nachhaltig und mit allen Genehmigungen.',
+export const metadata: Metadata = withSeo('/services/abriss/gebaeudeabriss', {
+  title: 'Gebäudeabriss Berlin – sicher & fachgerecht',
+  description: 'Gebäudeabriss in Berlin: kompletter Abriss von Wohnhäusern, Mehrfamilienhäusern und Bürogebäuden. Sicher, nachhaltig und mit allen Genehmigungen.',
   keywords: 'gebäudeabriss berlin, haus abriss berlin, gebäude abriss, abbruch berlin, abrissunternehmen',
-}
+})
 
 export default function GebaeudeabrissPage() {
   const accent = '#d97706'

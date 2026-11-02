@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Messie Wohnung entrümpeln Berlin - Professionell & Diskret | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/messie-wohnung-entruempeln-berlin', {
+  title: 'Messie-Wohnung entrümpeln in Berlin',
   description: 'Professionelle Messie-Wohnungsentrümpelung in Berlin. Diskret, einfühlsam und ohne Vorurteile. ✓ Erfahren ✓ Respektvoll',
   keywords: 'messie wohnung entrümpeln berlin, messie wohnung berlin, messie entrümpelung',
-}
+})
 
 export default function MessieWohnungEntruempelnBerlinPage() {
   return (

@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Droplet, CheckCircle, Sparkles, Shield, Calendar, Award } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Reinigung & Pflege Berlin - Treppenhausreinigung & Gebäudereinigung | BC Group',
+export const metadata: Metadata = withSeo('/services/hausmeisterservice/reinigung-pflege', {
+  title: 'Objektreinigung & Pflege durch den Hausmeister',
   description: 'Professionelle Reinigung in Berlin: Treppenhausreinigung, Kellerreinigung, Glasreinigung und mehr. Dauerhaft gepflegte Objekte durch BC Hausmeisterservice.',
   keywords: 'treppenhausreinigung berlin, gebäudereinigung, kellerreinigung, fensterreinigung berlin, tiefgaragenreinigung, objektreinigung',
-}
+})
 
 export default function ReinigungPflegePage() {
   const accent = '#8b5cf6'

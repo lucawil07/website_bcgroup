@@ -1,14 +1,15 @@
 import type { Metadata } from 'next'
 import { Section, Container } from '@/components/ui'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Datenschutz | BC Group Berlin',
+export const metadata: Metadata = withSeo('/datenschutz', {
+  title: 'Datenschutz',
   description: 'Datenschutzerklärung und Datenschutzrichtlinien der BC Group Berlin',
-  robots: 'noindex, nofollow',
+  robots: 'noindex, follow',
   alternates: {
-    canonical: 'https://bcgroup.de/datenschutz',
+    canonical: 'https://www.bcgroup.berlin/datenschutz',
   },
-}
+})
 
 export default function DataProtectionPage() {
   return (

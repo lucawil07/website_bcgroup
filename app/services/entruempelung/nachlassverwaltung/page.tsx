@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Leaf, CheckCircle, Heart, Clock, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Nachlassverwaltung Berlin - Einfühlsam & Diskret | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/nachlassverwaltung', {
+  title: 'Nachlass-Entrümpelung Berlin – diskret',
   description: 'Professionelle Nachlassverwaltung und Haushaltsauflösung nach Todesfall in Berlin. Wertschätzend, diskret und entlastend für Angehörige.',
   keywords: 'nachlassverwaltung berlin, haushaltsauflösung todesfall, wohnungsauflösung nachlass, entrümpelung todesfall',
-}
+})
 
 export default function NachlassverwaltungPage() {
   const accent = '#10b981'

@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, Button, ScrollReveal, StructuredData } from '@/components/ui'
 import { Calendar, Clock, ArrowLeft, CheckCircle2, Sparkles, Phone } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Büroreinigung: Darauf sollten Sie achten | BC Group Berlin',
-  description: 'Ein sauberes Büro steigert die Produktivität und das Wohlbefinden Ihrer Mitarbeiter. Erfahren Sie, welche Reinigungsstandards wichtig sind und wie oft gereinigt werden sollte.',
+export const metadata: Metadata = withSeo('/ratgeber/bueroreinigung-tipps', {
+  title: 'Büroreinigung: Darauf sollten Sie achten',
+  description: 'Ein sauberes Büro steigert Produktivität und Wohlbefinden. Welche Reinigungsstandards wichtig sind und wie oft gereinigt werden sollte.',
   keywords: [
     'Büroreinigung Berlin',
     'Büroreinigung Tipps',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Ein sauberes Büro steigert die Produktivität und das Wohlbefinden Ihrer Mitarbeiter',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/bueroreinigung-tipps',
+    url: 'https://www.bcgroup.berlin/ratgeber/bueroreinigung-tipps',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?q=80&w=1200&auto=format&fit=crop',
@@ -32,9 +33,9 @@ export const metadata: Metadata = {
     modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/bueroreinigung-tipps',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/bueroreinigung-tipps',
   },
-}
+})
 
 export default function BueroreinigungTippsPage() {
   const articleSchema = {
@@ -54,12 +55,12 @@ export default function BueroreinigungTippsPage() {
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bc-group.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://bc-group.de/ratgeber/bueroreinigung-tipps',
+      '@id': 'https://www.bcgroup.berlin/ratgeber/bueroreinigung-tipps',
     },
   }
 
@@ -71,19 +72,19 @@ export default function BueroreinigungTippsPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bc-group.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bc-group.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Büroreinigung Tipps',
-        item: 'https://bc-group.de/ratgeber/bueroreinigung-tipps',
+        item: 'https://www.bcgroup.berlin/ratgeber/bueroreinigung-tipps',
       },
     ],
   }

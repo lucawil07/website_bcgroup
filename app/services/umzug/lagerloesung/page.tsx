@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { LockKeyhole, CheckCircle, Shield, Calendar, Thermometer, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Lagerlösung Berlin - Sichere Zwischenlagerung für Umzüge | BC Group',
+export const metadata: Metadata = withSeo('/services/umzug/lagerloesung', {
+  title: 'Möbel einlagern Berlin – Zwischenlagerung',
   description: 'Flexible Lagerlösung in Berlin: Sichere, klimatisierte Einlagerung Ihrer Möbel und Gegenstände. Versichert und jederzeit zugänglich für Ihren Umzug.',
   keywords: 'lagerung berlin, möbellagerung, zwischenlagerung umzug, einlagerung möbel, self storage berlin',
-}
+})
 
 export default function LagerloesungPage() {
   const accent = '#f97316'

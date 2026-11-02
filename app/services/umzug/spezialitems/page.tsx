@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Package, CheckCircle, Shield, Music, Palette, Gem } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Spezialitems Transport Berlin - Klavier, Kunst & Antiquitäten | BC Group',
+export const metadata: Metadata = withSeo('/services/umzug/spezialitems', {
+  title: 'Klaviertransport & Kunsttransport Berlin',
   description: 'Spezialisierter Transport für wertvolle Gegenstände in Berlin: Klaviere, Kunstwerke, Antiquitäten. Versichert und mit Fachleuten durchgeführt.',
   keywords: 'klaviertransport berlin, kunsttransport, antiquitäten transport, spezialtransport, wertvolle gegenstände umzug',
-}
+})
 
 export default function SpezialitemsPage() {
   const accent = '#f97316'

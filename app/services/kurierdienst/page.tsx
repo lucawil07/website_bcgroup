@@ -5,6 +5,7 @@ import KurierdienslHero from '@/components/sections/kurierdienst/KurierdienslHer
 import KurierdienslServices from '@/components/sections/kurierdienst/KurierdienslServices'
 import KurierdienslBenefits from '@/components/sections/kurierdienst/KurierdienslBenefits'
 import KurierdienslServiceAreas from '@/components/sections/kurierdienst/KurierdienslServiceAreas'
+import { withSeo, BUSINESS_ID } from '@/lib/seo'
 
 const SERVICE_NAME = 'kurierdienst'
 const SERVICE_GERMAN = 'Kurierdienst'
@@ -26,12 +27,12 @@ const keywords = [
   'expressversand berlin',
 ]
 
-const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Express-Lieferungen & Sperrguttransporte | BC Group`,
+const metadata: Metadata = withSeo('/services/kurierdienst', {
+  title: 'Kurierdienst Berlin – Express & Sperrgut',
   description: 'Express-Kurierdienst in Berlin: Same-Day-Delivery, Sperrguttransport und zuverlässige Lieferungen. Schnell, professionell und überall in Berlin erreichbar.',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/kurierdienst',
+    canonical: 'https://www.bcgroup.berlin/services/kurierdienst',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -39,7 +40,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -67,9 +68,9 @@ export default function KurierdienslPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Kurierdienst', 'item': 'https://bcgroup.de/services/kurierdienst' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Kurierdienst', 'item': 'https://www.bcgroup.berlin/services/kurierdienst' },
     ],
   }
 
@@ -80,21 +81,16 @@ export default function KurierdienslPage() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
+          '@type': 'Service',
+          provider: { '@id': BUSINESS_ID },
           name: `BC Group - ${SERVICE_GERMAN}`,
           description: 'Express-Kurierdienst mit Same-Day-Delivery in Berlin und Umland',
-          url: 'https://bcgroup.de/services/kurierdienst',
+          url: 'https://www.bcgroup.berlin/services/kurierdienst',
           areaServed: {
             '@type': 'City',
             name: 'Berlin',
           },
           serviceType: SERVICE_GERMAN,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '320',
-            bestRating: '5',
-          },
         }}
       />
       <StructuredData data={faqSchema} />

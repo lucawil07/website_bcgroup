@@ -2,12 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { Container, Section } from '@/components/ui'
 import { ArrowLeft } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Express-Entrümpelung Berlin - Innerhalb 24-48h | BC Group',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/express-entruempelung-berlin', {
+  title: 'Express-Entrümpelung Berlin: Ablauf & Tipps',
   description: 'Schnelle Express-Entrümpelung in Berlin. Notfall-Service innerhalb von 24-48 Stunden. ✓ Sofort verfügbar ✓ Flexibel ✓ Zuverlässig',
   keywords: 'express entrümpelung berlin, schnelle entrümpelung berlin, notfall entrümpelung, entrümpelung berlin 24h',
-}
+})
 
 export default function ExpressEntruempelungBerlinPage() {
   return (

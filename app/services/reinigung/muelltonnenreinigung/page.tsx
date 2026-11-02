@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Trash2, CheckCircle, Droplets, Wind, Shield, Leaf } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Mülltonnenreinigung Berlin - Hygienisch & Geruchsneutral | BC Group',
-  description: 'Professionelle Mülltonnenreinigung in Berlin. Hygienische Reinigung und Desinfektion von Mülltonnen und Abfallbehältern. Geruchsneutral, desinfiziert, umweltfreundlich.',
+export const metadata: Metadata = withSeo('/services/reinigung/muelltonnenreinigung', {
+  title: 'Mülltonnenreinigung Berlin',
+  description: 'Mülltonnenreinigung in Berlin: hygienische Reinigung und Desinfektion von Mülltonnen und Abfallbehältern. Geruchsneutral und umweltfreundlich.',
   keywords: 'mülltonnenreinigung berlin, tonnenreinigung, mülltonne reinigen, container reinigung, abfallbehälter reinigung',
-}
+})
 
 export default function MuelltonnenreinigungPage() {
   const accent = '#06b6d4'

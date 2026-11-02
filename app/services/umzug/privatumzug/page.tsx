@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Home, CheckCircle, Shield, Clock, Users, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Privatumzug Berlin - Professioneller Wohnungsumzug | BC Group',
-  description: 'Stressfreier Privatumzug in Berlin: Professionelle Möbelpacker, sorgfältiger Transport und kompletter Service. Von der Planung bis zur Einrichtung - wir kümmern uns um alles.',
+export const metadata: Metadata = withSeo('/services/umzug/privatumzug', {
+  title: 'Privatumzug Berlin – Wohnungsumzug',
+  description: 'Privatumzug in Berlin: erfahrene Möbelpacker, sorgfältiger Transport und Komplettservice – von der Planung bis zum Aufbau in der neuen Wohnung.',
   keywords: 'privatumzug berlin, wohnungsumzug, möbelpacker, umzugsservice privat, umzug wohnung',
-}
+})
 
 export default function PrivatumzugPage() {
   const accent = '#f97316'

@@ -1,24 +1,25 @@
 import type { Metadata } from 'next'
 import ContactForm from '@/components/forms/ContactForm'
 import { Phone, Mail, Clock, MessageCircle, CheckCircle } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kontakt | BC Group Berlin - Ihre Serviceexperten',
+export const metadata: Metadata = withSeo('/kontakt', {
+  title: 'Kontakt – Angebot anfragen in Berlin',
   description:
     'Kontaktieren Sie BC Group Berlin für professionelle Services. Persönliche Beratung, schnelle Angebote, 24/7 WhatsApp Support.',
   keywords:
     'Kontakt BC Group, Anfrage Berlin, Service anfragen, Beratung, Angebot',
   alternates: {
-    canonical: 'https://bcgroup.de/kontakt',
+    canonical: 'https://www.bcgroup.berlin/kontakt',
   },
   openGraph: {
     title: 'Kontakt | BC Group Berlin',
     description: 'Kontaktieren Sie BC Group Berlin für eine kostenlose Beratung. Telefon, E-Mail oder WhatsApp – wir sind 24/7 für Sie da. Antwort in durchschnittlich 2 Stunden.',
-    url: 'https://bcgroup.de/kontakt',
+    url: 'https://www.bcgroup.berlin/kontakt',
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export default function ContactPage() {
   return (

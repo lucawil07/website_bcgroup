@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Wrench, CheckCircle, Lightbulb, Target, Users, Sparkles } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Spezialreinigung Berlin - Maßgeschneiderte Lösungen | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/spezialreinigung', {
+  title: 'Spezialreinigung Berlin',
   description: 'Professionelle Spezialreinigung in Berlin. Maßgeschneiderte Reinigungslösungen für individuelle Anforderungen. Flexibel, anfrage-basiert, professionell.',
   keywords: 'spezialreinigung berlin, sonderreinigung, individuelle reinigung, spezielle reinigung, maßgeschneiderte reinigung',
-}
+})
 
 export default function SpezialreinigungPage() {
   const accent = '#06b6d4'

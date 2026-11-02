@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Truck, CheckCircle, MapPin, Shield, Navigation, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Langstreckenumzug Berlin - Deutschlandweite Umzüge | BC Group',
+export const metadata: Metadata = withSeo('/services/umzug/langstreckenumzug', {
+  title: 'Fernumzug ab Berlin – deutschlandweit',
   description: 'Professioneller Langstreckenumzug von Berlin in ganz Deutschland: GPS-Tracking, Versicherungsschutz und zuverlässige Planung. Bundesweite Umzüge ohne Stress.',
   keywords: 'langstreckenumzug berlin, fernumzug, umzug deutschland, bundesweiter umzug, umzug innerhalb deutschland',
-}
+})
 
 export default function LangstreckenumzugPage() {
   const accent = '#f97316'

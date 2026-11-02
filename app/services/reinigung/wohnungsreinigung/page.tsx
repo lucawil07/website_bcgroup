@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { HomeIcon, CheckCircle, Heart, Shield, Sparkles, Users } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Wohnungsreinigung Berlin - Professionell & Zuverlässig | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/wohnungsreinigung', {
+  title: 'Wohnungsreinigung Berlin',
   description: 'Professionelle Wohnungsreinigung in Berlin. Individuelle Reinigung von Wohnungen und Apartments nach Ihren Wünschen. Zuverlässig, vertrauensvoll, anpassbar.',
   keywords: 'wohnungsreinigung berlin, apartment reinigung, privatreinigung, haushaltshilfe berlin, putzservice',
-}
+})
 
 export default function WohnungsreinigungPage() {
   const accent = '#06b6d4'

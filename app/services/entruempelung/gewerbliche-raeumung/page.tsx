@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Users, CheckCircle, Building, Clock, Package } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Gewerbliche Räumung Berlin - Büros, Läden & Lager | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/gewerbliche-raeumung', {
+  title: 'Gewerbliche Räumung Berlin – Büro, Laden, Lager',
   description: 'Professionelle gewerbliche Räumung in Berlin. Büros, Läden und Lagerhallen diskret und effizient geräumt. Flexible Zeitfenster, große Mengen.',
   keywords: 'gewerbliche räumung berlin, büroräumung, ladenräumung, lagerräumung, gewerbeentrümpelung',
-}
+})
 
 export default function GewerblicheRaeumungPage() {
   const accent = '#34d399'

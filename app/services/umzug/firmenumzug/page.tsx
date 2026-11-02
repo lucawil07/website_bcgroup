@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Briefcase, CheckCircle, Shield, Clock, FileCheck, Laptop } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Firmenumzug Berlin - Professioneller Büroumzug | BC Group',
+export const metadata: Metadata = withSeo('/services/umzug/firmenumzug', {
+  title: 'Firmenumzug Berlin – Büroumzug',
   description: 'Effizienter Firmenumzug in Berlin: Minimale Ausfallzeiten, sichere IT-Migration und professionelle Planung. Wir relocaten Ihr Unternehmen reibungslos.',
   keywords: 'firmenumzug berlin, büroumzug, unternehmensumzug, office relocation, it umzug berlin',
-}
+})
 
 export default function FirmenumzugPage() {
   const accent = '#f97316'

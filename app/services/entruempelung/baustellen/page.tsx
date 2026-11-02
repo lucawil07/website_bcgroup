@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Building2, CheckCircle, HardHat, Recycle, Clock } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Baustellenräumung Berlin - Schnell & Fachgerecht | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/baustellen', {
+  title: 'Baustellenräumung Berlin – schnell & fachgerecht',
   description: 'Professionelle Baustellenräumung und Schuttentsorgung in Berlin. Sichere Arbeitsweise, fachgerechte Entsorgung, schnelle Abwicklung.',
   keywords: 'baustellenräumung berlin, baustellenentrümpelung, schuttentsorgung, bauraumfreistellung',
-}
+})
 
 export default function BaustellenPage() {
   const accent = '#059669'

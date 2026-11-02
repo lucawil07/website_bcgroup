@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Film, CheckCircle, Zap, Users, Clock, Star } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Kinoreinigung Berlin - Schnelle Saalreinigung zwischen Shows | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/kinoreinigung', {
+  title: 'Kinoreinigung Berlin – Saalreinigung',
   description: 'Professionelle Kinoreinigung in Berlin. Schnelle Kinosaalreinigung zwischen Vorstellungen und Tiefenreinigung. Zeiteffizient, gründlich, erfahren.',
   keywords: 'kinoreinigung berlin, kinosaal reinigung, cinema cleaning, theater reinigung, vorstellungsreinigung',
-}
+})
 
 export default function KinoreinigungPage() {
   const accent = '#06b6d4'

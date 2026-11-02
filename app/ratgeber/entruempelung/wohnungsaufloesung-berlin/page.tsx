@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Section, Container, ScrollReveal, StructuredData } from '@/components/ui'
 import { Calendar, Clock, ArrowLeft, CheckCircle2, Phone, ArrowRight, AlertTriangle, Euro, Home, Truck, ClipboardCheck, Recycle } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Wohnungsauflösung Berlin – Professionell & Zuverlässig | BC Group Berlin',
-  description: 'Professionelle Wohnungsauflösung in Berlin: Komplettservice von der Besichtigung bis zur besenreinen Übergabe. ✓ Festpreise ✓ Fachgerechte Entsorgung ✓ Alle Füllstände. Jetzt beraten lassen!',
+export const metadata: Metadata = withSeo('/ratgeber/entruempelung/wohnungsaufloesung-berlin', {
+  title: 'Wohnungsauflösung Berlin: Ablauf & Tipps',
+  description: 'Wohnungsauflösung in Berlin: von der Besichtigung bis zur besenreinen Übergabe. ✓ Festpreise ✓ Fachgerechte Entsorgung ✓ Alle Füllstände.',
   keywords: [
     'Wohnungsauflösung Berlin',
     'Wohnung auflösen Berlin',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     description: 'Professionelle Wohnungsauflösung in Berlin: Komplettservice von der Besichtigung bis zur besenreinen Übergabe.',
     type: 'article',
     locale: 'de_DE',
-    url: 'https://bcgroup.de/ratgeber/entruempelung/wohnungsaufloesung-berlin',
+    url: 'https://www.bcgroup.berlin/ratgeber/entruempelung/wohnungsaufloesung-berlin',
     siteName: 'BC Group Berlin',
     images: [{
       url: 'https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=1200&auto=format&fit=crop',
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     modifiedTime: '2025-03-05T00:00:00.000Z',
   },
   alternates: {
-    canonical: 'https://bcgroup.de/ratgeber/entruempelung/wohnungsaufloesung-berlin',
+    canonical: 'https://www.bcgroup.berlin/ratgeber/entruempelung/wohnungsaufloesung-berlin',
   },
-}
+})
 
 export default function WohnungsaufloesungBerlinPage() {
   const articleSchema = {
@@ -56,12 +57,12 @@ export default function WohnungsaufloesungBerlinPage() {
       name: 'BC Group Berlin',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://bcgroup.de/images/logo.png',
+        url: 'https://www.bcgroup.berlin/icon-512.png',
       },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://bcgroup.de/ratgeber/entruempelung/wohnungsaufloesung-berlin',
+      '@id': 'https://www.bcgroup.berlin/ratgeber/entruempelung/wohnungsaufloesung-berlin',
     },
   }
 
@@ -73,25 +74,25 @@ export default function WohnungsaufloesungBerlinPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://bcgroup.de',
+        item: 'https://www.bcgroup.berlin',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Ratgeber',
-        item: 'https://bcgroup.de/ratgeber',
+        item: 'https://www.bcgroup.berlin/ratgeber',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Entrümpelung',
-        item: 'https://bcgroup.de/ratgeber/entruempelung',
+        item: 'https://www.bcgroup.berlin/ratgeber/entruempelung',
       },
       {
         '@type': 'ListItem',
         position: 4,
         name: 'Wohnungsauflösung Berlin',
-        item: 'https://bcgroup.de/ratgeber/entruempelung/wohnungsaufloesung-berlin',
+        item: 'https://www.bcgroup.berlin/ratgeber/entruempelung/wohnungsaufloesung-berlin',
       },
     ],
   }

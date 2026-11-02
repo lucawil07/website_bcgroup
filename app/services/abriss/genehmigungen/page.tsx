@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { MapPin, CheckCircle, FileText, Clock, Shield } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Abriss-Genehmigungen Berlin - Komplette Abwicklung | BC Group',
+export const metadata: Metadata = withSeo('/services/abriss/genehmigungen', {
+  title: 'Abrissgenehmigung Berlin – Komplettabwicklung',
   description: 'Wir kümmern uns um alle erforderlichen Genehmigungen für Ihren Abriss in Berlin. Unbürokratisch, komplett betreut und mit allen Dokumenten.',
   keywords: 'abriss genehmigung berlin, abrissgenehmigung, baugenehmigung abriss, behördengenehmigung abriss',
-}
+})
 
 export default function GenehmigungsservicePage() {
   const accent = '#d97706'

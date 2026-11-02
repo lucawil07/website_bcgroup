@@ -6,6 +6,7 @@ import UmzugMovingTypes from '@/components/sections/umzug/UmzugMovingTypes'
 import UmzugProcessTimeline from '@/components/sections/umzug/UmzugProcessTimeline'
 import UmzugStatsGuarantee from '@/components/sections/umzug/UmzugStatsGuarantee'
 import UmzugServiceAreas from '@/components/sections/umzug/UmzugServiceAreas'
+import { withSeo, BUSINESS_ID } from '@/lib/seo'
 
 const SERVICE_NAME = 'umzug'
 const SERVICE_GERMAN = 'Umzug & Transport'
@@ -33,12 +34,12 @@ const keywords = [
   'umzug versicherung',
 ]
 
-const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Professionelle Umzugsdienste | BC Group`,
+const metadata: Metadata = withSeo('/services/umzug', {
+  title: 'Umzugsfirma Berlin – Privat- & Firmenumzug',
   description: 'Umzugsservice in Berlin: Professionelle Umzüge, Möbeltransport und Lagerlösungen. Versichert, pünktlich, deutschlandweit.',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/umzug',
+    canonical: 'https://www.bcgroup.berlin/services/umzug',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -46,7 +47,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -74,9 +75,9 @@ export default function UmzugPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Umzug & Transport', 'item': 'https://bcgroup.de/services/umzug' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Umzug & Transport', 'item': 'https://www.bcgroup.berlin/services/umzug' },
     ],
   }
 
@@ -87,10 +88,11 @@ export default function UmzugPage() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
+          '@type': 'Service',
+          provider: { '@id': BUSINESS_ID },
           name: `BC Group - ${SERVICE_GERMAN}`,
           description: 'Professionelle Umzugsdienste und Möbeltransporte in Berlin und deutschlandweit',
-          url: 'https://bcgroup.de/services/umzug',
+          url: 'https://www.bcgroup.berlin/services/umzug',
           areaServed: [
             {
               '@type': 'City',
@@ -102,11 +104,6 @@ export default function UmzugPage() {
             },
           ],
           serviceType: SERVICE_GERMAN,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.8',
-            reviewCount: '142',
-          },
         }}
       />
       <StructuredData data={faqSchema} />

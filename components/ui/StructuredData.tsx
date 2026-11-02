@@ -1,3 +1,5 @@
+import { SITE_URL, BUSINESS_ID, ORGANIZATION_ID } from '@/lib/seo'
+
 interface StructuredDataProps {
   data: any
 }
@@ -15,10 +17,11 @@ export function StructuredData({ data }: StructuredDataProps) {
 export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
+  '@id': ORGANIZATION_ID,
   name: 'BC Group Berlin',
   alternateName: ['BC Group', 'Berlin ClearOut'],
-  url: 'https://bcgroup.de',
-  logo: 'https://bcgroup.de/images/logo.png',
+  url: 'https://www.bcgroup.berlin',
+  logo: `${SITE_URL}/icon-512.png`,
   description: 'Professionelle Dienstleistungen in Berlin: Entrümpelung, Abriss, Reinigung, Hausmeisterservice, Umzug und Kurierdienst.',
   address: {
     '@type': 'PostalAddress',
@@ -52,9 +55,11 @@ export const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'BC Group Berlin',
-  image: 'https://bcgroup.de/images/image_bcgroup.png',
-  '@id': 'https://bcgroup.de',
-  url: 'https://bcgroup.de',
+  image: `${SITE_URL}/images/og-bcgroup.jpg`,
+  '@id': BUSINESS_ID,
+  logo: `${SITE_URL}/icon-512.png`,
+  parentOrganization: { '@id': ORGANIZATION_ID },
+  url: 'https://www.bcgroup.berlin',
   telephone: '+49-176-63213253',
   email: 'info@bcgroup.berlin',
   priceRange: '€€',
@@ -88,11 +93,6 @@ export const localBusinessSchema = {
       closes: '14:00',
     },
   ],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '157',
-  },
 }
 
 // Website Schema
@@ -100,15 +100,9 @@ export const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   name: 'BC Group Berlin',
-  url: 'https://bcgroup.de',
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate: 'https://bcgroup.de/search?q={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
+  url: SITE_URL,
+  publisher: { '@id': ORGANIZATION_ID },
+  inLanguage: 'de-DE',
 }
 
 // Service Schemas
@@ -127,24 +121,10 @@ export function createServiceSchema(service: {
     description: service.description,
     url: service.url,
     image: service.image,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'BC Group Berlin',
-      telephone: '+49-176-63213253',
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Berlin',
-        addressCountry: 'DE',
-      },
-    },
+    provider: { '@id': BUSINESS_ID },
     areaServed: {
       '@type': 'City',
       name: service.areaServed || 'Berlin',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      reviewCount: '157',
     },
   }
 }
@@ -158,7 +138,7 @@ export function createBreadcrumbSchema(items: { name: string; url: string }[]) {
       '@type': 'ListItem',
       position: index + 1,
       name: item.name,
-      item: `https://bcgroup.de${item.url}`,
+      item: `https://www.bcgroup.berlin${item.url}`,
     })),
   }
 }

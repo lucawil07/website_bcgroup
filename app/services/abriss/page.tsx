@@ -6,6 +6,7 @@ import AbrissServiceShowcase from '@/components/sections/abriss/AbrissServiceSho
 import AbrissProcessTimeline from '@/components/sections/abriss/AbrissProcessTimeline'
 import AbrissProjectShowcase from '@/components/sections/abriss/AbrissProjectShowcase'
 import AbrissExpertise from '@/components/sections/abriss/AbrissExpertise'
+import { withSeo, BUSINESS_ID } from '@/lib/seo'
 
 const SERVICE_NAME = 'abriss'
 const SERVICE_GERMAN = 'Abriss'
@@ -30,12 +31,12 @@ const keywords = [
   'recycling abriss berlin',
 ]
 
-const metadata: Metadata = {
-  title: `${SERVICE_GERMAN} Berlin - Fachgerechte Gebäudeabrisse & Demontage | BC Group`,
+const metadata: Metadata = withSeo('/services/abriss', {
+  title: 'Abriss Berlin – Gebäudeabriss & Demontage',
   description: 'Professionelle Abrissdienste in Berlin: Gebäudeabrisse, Demontagen und Sprengtechnik. Sicher, nachhaltig und genehmigt.',
   keywords: keywords.join(', '),
   alternates: {
-    canonical: 'https://bcgroup.de/services/abriss',
+    canonical: 'https://www.bcgroup.berlin/services/abriss',
   },
   openGraph: {
     title: `${SERVICE_GERMAN} Berlin | BC Group`,
@@ -43,7 +44,7 @@ const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
   },
-}
+})
 
 export { metadata }
 
@@ -71,9 +72,9 @@ export default function AbrissPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     'itemListElement': [
-      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://bcgroup.de' },
-      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://bcgroup.de/services' },
-      { '@type': 'ListItem', 'position': 3, 'name': 'Abriss', 'item': 'https://bcgroup.de/services/abriss' },
+      { '@type': 'ListItem', 'position': 1, 'name': 'Home', 'item': 'https://www.bcgroup.berlin' },
+      { '@type': 'ListItem', 'position': 2, 'name': 'Services', 'item': 'https://www.bcgroup.berlin/services' },
+      { '@type': 'ListItem', 'position': 3, 'name': 'Abriss', 'item': 'https://www.bcgroup.berlin/services/abriss' },
     ],
   }
 
@@ -84,21 +85,16 @@ export default function AbrissPage() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
+          '@type': 'Service',
+          provider: { '@id': BUSINESS_ID },
           name: `BC Group - ${SERVICE_GERMAN}`,
           description: 'Professionelle Abrissdienste und Gebäudedemontage in Berlin',
-          url: 'https://bcgroup.de/services/abriss',
+          url: 'https://www.bcgroup.berlin/services/abriss',
           areaServed: {
             '@type': 'City',
             name: 'Berlin',
           },
           serviceType: SERVICE_GERMAN,
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '320',
-            bestRating: '5',
-          },
         }}
       />
       <StructuredData data={faqSchema} />

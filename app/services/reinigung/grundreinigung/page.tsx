@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Home, CheckCircle, Sparkles, Leaf, ShieldCheck, Zap } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Grundreinigung Berlin - Tiefenreinigung für Wohnungen & Gewerbe | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/grundreinigung', {
+  title: 'Grundreinigung Berlin – Wohnung & Gewerbe',
   description: 'Professionelle Grundreinigung in Berlin. Intensive Tiefenreinigung für Wohnungen, Häuser und Gewerberäume. Gründlich, alle Oberflächen, mit ECO-Produkten.',
   keywords: 'grundreinigung berlin, tiefenreinigung, wohnung grundreinigen, gewerbereinigung, basic cleaning',
-}
+})
 
 export default function GrundreinigungPage() {
   const accent = '#06b6d4'

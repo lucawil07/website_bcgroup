@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, EffectFade, Pagination } from 'swiper/modules'
 import type { Swiper as SwiperType } from 'swiper'
 import { Play, Pause, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
 import { Button } from '@/components/ui'
 
 // Import Swiper styles
@@ -257,9 +258,8 @@ export default function HeroCarousel() {
               <div className="relative h-full w-full overflow-hidden">
                 {/* Ultra-smooth Ken Burns effect with spring */}
                 <motion.div
-                  className="absolute inset-0 bg-cover bg-center will-change-transform"
-                  style={{ 
-                    backgroundImage: `url(${slide.image})`,
+                  className="absolute inset-0 will-change-transform"
+                  style={{
                     width: '100%',
                     height: '100%',
                   }}
@@ -280,6 +280,15 @@ export default function HeroCarousel() {
                     y: { type: "spring", stiffness: 50, damping: 30 },
                   }}
                 >
+                  <Image
+                    src={slide.image}
+                    alt=""
+                    fill
+                    sizes="100vw"
+                    priority={index === 0}
+                    quality={75}
+                    className="object-cover object-center"
+                  />
                   {/* Modern gradient overlays - Lightened for better visibility */}
                   <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-black/25 to-transparent" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />

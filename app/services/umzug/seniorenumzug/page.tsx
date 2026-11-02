@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Users, CheckCircle, Heart, Clock, Shield, HandHeart } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Seniorenumzug Berlin - Einfühlsamer Umzugsservice | BC Group',
+export const metadata: Metadata = withSeo('/services/umzug/seniorenumzug', {
+  title: 'Seniorenumzug Berlin',
   description: 'Seniorenumzug in Berlin: Einfühlsam, rücksichtsvoll und mit Extra-Zeit. Wir begleiten ältere Menschen beim Wohnungswechsel mit Beratung und Unterstützung.',
   keywords: 'seniorenumzug berlin, umzug senioren, altersgerechter umzug, betreutes wohnen umzug',
-}
+})
 
 export default function SeniorenumzugPage() {
   const accent = '#f97316'

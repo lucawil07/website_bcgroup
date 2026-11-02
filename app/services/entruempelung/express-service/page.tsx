@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Clock, CheckCircle, Zap, Phone, Calendar } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Express-Entrümpelung Berlin - 48h Service | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/express-service', {
+  title: 'Express-Entrümpelung Berlin – in 48 Stunden',
   description: 'Notfall-Entrümpelung innerhalb von 48 Stunden in Berlin. Sofort verfügbar, flexible Planung, schnelle Termine. Express-Service für dringende Fälle.',
   keywords: 'express entrümpelung berlin, notfall entrümpelung, schnelle entrümpelung, 48h entrümpelung',
-}
+})
 
 export default function ExpressServicePage() {
   const accent = '#6ee7b7'

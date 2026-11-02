@@ -4,12 +4,13 @@ import { Container, Section, StructuredData, createServiceSchema } from '@/compo
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Home, CheckCircle, Clock, Shield, Truck } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Wohnungsauflösung Berlin - Professionell & Zuverlässig | BC Group',
+export const metadata: Metadata = withSeo('/services/entruempelung/wohnungsaufloesung', {
+  title: 'Wohnungsauflösung Berlin – Festpreis-Angebot',
   description: 'Professionelle Wohnungsauflösung in Berlin. Von Single-Wohnung bis Palazzo - wir räumen fachgerecht und vollständig. Faire Preise, schnelle Abwicklung.',
   keywords: 'wohnungsauflösung berlin, wohnung auflösen, haushaltsauflösung, entrümpelung wohnung',
-}
+})
 
 export default function WohnungsaufloesungPage() {
   const accent = '#10b981'
@@ -44,8 +45,8 @@ export default function WohnungsaufloesungPage() {
   const serviceSchema = createServiceSchema({
     name: 'Wohnungsauflösung Berlin',
     description: 'Professionelle Wohnungsauflösung in Berlin. Von Single-Wohnung bis Palazzo - wir räumen fachgerecht und vollständig.',
-    url: 'https://bcgroup.de/services/entruempelung/wohnungsaufloesung',
-    image: 'https://bcgroup.de/images/services/image_cleanout.png',
+    url: 'https://www.bcgroup.berlin/services/entruempelung/wohnungsaufloesung',
+    image: 'https://www.bcgroup.berlin/images/services/image_cleanout.png',
     areaServed: 'Berlin'
   })
 

@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { ArrowUpRight, CheckCircle, Calendar, Shield, Sparkles, Building } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Treppenhausreinigung Berlin - Regelmäßig & Zuverlässig | BC Group',
-  description: 'Professionelle Treppenhausreinigung in Berlin. Regelmäßige und gründliche Reinigung von Treppenhäusern und Gemeinschaftsbereichen. Wöchentlich buchbar, diskret, effizient.',
+export const metadata: Metadata = withSeo('/services/reinigung/treppenhausreinigung', {
+  title: 'Treppenhausreinigung Berlin',
+  description: 'Treppenhausreinigung in Berlin: regelmäßige, gründliche Reinigung von Treppenhäusern und Gemeinschaftsflächen. Wöchentlich buchbar und zuverlässig.',
   keywords: 'treppenhausreinigung berlin, treppenhaus reinigen, hausflur reinigung, gemeinschaftsbereich reinigung',
-}
+})
 
 export default function TreppenhausreinigungPage() {
   const accent = '#06b6d4'

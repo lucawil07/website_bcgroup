@@ -4,12 +4,13 @@ import { Container, Section } from '@/components/ui'
 import Breadcrumb from '@/components/ui/Breadcrumb'
 import { CTAContact } from '@/components/sections'
 import { Hotel, CheckCircle, Clock, Shield, Star, Users } from 'lucide-react'
+import { withSeo } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Hotelreinigung Berlin - Premium Service für Hotels | BC Group',
+export const metadata: Metadata = withSeo('/services/reinigung/hotelreinigung', {
+  title: 'Hotelreinigung Berlin',
   description: 'Professionelle Hotelreinigung in Berlin. Spezialisierte Reinigung für Hotels mit höchsten Hygiene- und Servicestandards. 24/7 Service, gastorientiert, diskret.',
   keywords: 'hotelreinigung berlin, hotel cleaning, zimmerreinigung, hospitality cleaning, housekeeping service',
-}
+})
 
 export default function HotelreinigungPage() {
   const accent = '#06b6d4'
